@@ -453,3 +453,79 @@ if with operators like	&&	||
 &&
 ||
 
+
+----------------------------
+Problem2:
+Dice Game II
+Each player will be allowed to throw a dice 2 times. The points for each player will be calculated as follows :
+The points scored is the absolute difference between 8 and the sum of the 2 values, provided the sum of the 2 values is less than 8.
+In all other cases, the point  scored is double the absolute difference between 8 and the sum of the 2 values.
+
+Write a program to calculate the points scored by a player.
+
+Input and Output Format:
+Input consists of 2 integers. The valid range of inputs is from 0 to 6.
+Output the points scored. In case of invalid inputs, print “Invalid Input”.
+
+Refer sample input and output for formatting specificaions.
+
+[All text in bold corresponds to input and the rest corresponds to output.]
+Sample Input and Output 1:
+
+Enter Value 1:
+5
+Enter Value 2:
+6
+The points scored is 6
+
+Sample Input and Output 2:
+
+Enter Value 1:
+3
+Enter Value 2:
+2
+The points scored is  3
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+ 
+
+
+----------------------
+Solution:
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int no1=sc.nextInt();
+	    int no2=sc.nextInt();
+	    if(no1>6 || no2>6)
+	    {
+	        System.out.println("Invalid Input");
+	        System.exit(0);
+	    }
+	    int sum=no1+no2;
+	    int absDifference=Math.abs(8-sum);
+	    if(sum>=8)
+	    {
+	        absDifference*=2;
+	    }
+	    System.out.println(absDifference);
+	}
+}
