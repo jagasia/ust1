@@ -99,3 +99,27 @@ We can download eclipse/ sts for free from official website.
 While opening STS, it asks us to choose workspace:
 	it is a folder where our projects will be created.
 
+In eclipse:
+File -> New -> Java Project
+	type  name of the project
+	choose java se version	
+	finish
+
+Right click the project
+	New
+		Class
+			give name of class and enter
+
+
+public class App1 {
+
+	public static void main(String[] args) {
+		System.out.println("Hello world");	//syso ctrl+space
+		//to run the program, ctrl + F11
+		System.out.println(Integer.MIN_VALUE);
+		//use intellisense to complete the code automatically
+		
+	}
+
+}
+
