@@ -1,0 +1,101 @@
+Day Timing: 9 am to 6 pm
+Morning Break: 10:45 am - 11:15 am
+Lunch: 12:45 - 1.45
+Evening Break: 4:00 pm - 4:30 pm
+------------------------------------------
+Platform independence of Java:
+	Java compilation is done in 2 stages.
+		compilation level 1 is done by java compiler.	(javac)	we compile source code to get byte code
+		while running the program, the compile code (byte code) is further compiled into machine language code.
+		this compilation level 2 is done by JIT compiler (which is part of JRE -> JVM)
+		JIT -> Just In Time
+			Not the entire byte code is translated into machine code.
+			during the course of execution, in a flow, wherever the program flows, only those portions are translated and executed
+Lets check if java is installed in our system or not:
+	1) go to cmd		start menu, type cmd and press enter.
+	2) in command prompt, type	java -version
+	    and press enter
+	3) Do you see the java verson? or do you see	"java is not recognized as an internal or external command"
+Difference between JDK and JRE
+	JDK 
+		is used to compile and run
+	JRE
+		is used to only run 
+	JVM	
+		is a part of JRE that will take care of 
+			memory management
+			to run the program
+	
+
+if(isPrime(x)!=true)
+	//it is not prime		
+
+int i;
+
+class Integer
+{
+	int i;
+	public static int parseInt(String str)
+	{}
+}
+
+
+class
+	identity
+	behavior
+
+
+Data types:
+	byte		1 byte		-128 			to 	127
+	short		2 bytes		-32768			to	32767		
+	int		4 bytes		-2147483648		to	2147483647
+	long		8 bytes		-9223372036854775808	to	9223372036854775807
+
+	float		4 bytes
+	double		8 bytes
+
+	char		2 bytes			single quote	'a'	'\n'	escape	
+
+	boolean		1 bit			true	false
+
+what is the difference between data types and types?
+data type = value type		(primitive data type		/ fundamental data type)
+type = reference type
+
+String is a type.
+
+in java language, "structure" is not there.	
+So we cannot create user-defined data types in java. We can create user-defined types.
+
+
+byte:
+
+0000 0000		
+1111 1111
+
+256/2		128
+
+-128	0	127
+
+
+0 to 255	 range
+unicode	(instead of ascii)		ascii is 256 character set
+UTF-8	
+
+Eclipse
+or
+Spring Tool Suite
+or
+Intelli J
+or
+Netbean
+
+These are IDEs	Integrated Development Environment
+They provide space for writing (not only) java programs	also (html, jsp, css, etc)
+
+we will use Spring Tool Suite	(is a type of Eclipse)
+
+We can download eclipse/ sts for free from official website.
+While opening STS, it asks us to choose workspace:
+	it is a folder where our projects will be created.
+
