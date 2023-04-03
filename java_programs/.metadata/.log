@@ -138,3 +138,6 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-03 12:22:39.587
 !MESSAGE executing callback sts4.classpath.onSRVYWa SUCCESS [done]
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-03 12:36:28.795
+!MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.

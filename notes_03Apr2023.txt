@@ -123,3 +123,333 @@ public class App1 {
 
 }
 
+----------------
+Java Language Features
+1) data types
+2) programming constructs
+	operators
+	blocks			{		}
+	statements			any executable statements (other than declarations)
+	conditional statements		ex:	if, switch
+	loop constructs		ex:	while, do-while, for, for-each (enhanced for)
+	arrays			single, multi, jagged arrays
+
+	
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+    static
+    {
+        System.out.println("This is a static block coded inside the Main class");
+    }
+    
+    {
+        System.out.println("THis is a block only");	//this is called as instance block
+    }
+	public static void main(String[] args) {
+	    {
+	        System.out.println("This block is inside the main method");
+	    }
+	    
+	    new Main();
+	}
+}
+
+
+
+Object is an instance of the class
+
+
+static can change
+const in c, c++ is used for constants. But in java, "final" is used for constants
+
+static = shared	(among all objects of same class)
+
+
+Employee rama=new Employee();
+Employee siva=new Employee();
+Employee ramesh=new Employee();
+Employee suba=new Employee();
+
+
+static member of a class does not belong to any particular instance of the class
+it belongs to the class
+
+
+static variable		vs		instance variable		
+static method		vs 		instance method
+static block			vs		instance block
+
+instance variable
+	is not declared inside any method. It is at class level
+static variable
+	is not declared inside any method. It is at class level
+
+variables declared inside the method are local variables. They are stored in stack.
+objects are stored in heap.
+
+variables are stored in memory.
+memory structures:
+	stack
+		local variables (declared inside the method)
+	heap
+		objects are stored in the heap
+
+
+
+
+class Employee
+{
+    int id;
+    String name;
+    static String companyName;
+    
+}
+
+
+i created 3 objects of Employee class, these objects are stored in "heap"
+
+int i=20;
+Employee e1=new Employee();
+Employee e2=null;
+e2=new Employee();
+
+Employee e3;	//e3 is not an object. it is a reference variable of type Employee
+
+e1 is a variable
+new Employee is an object
+
+new Employee();
+
+
+value type vs ref type
+
+
+
+
+Employee e1=new Employee();
+Employee e2=e1;
+Employee e3=e2;
+----------------------------
+Statements:
+if
+if-else
+if-else if-else
+
+How to get input from user?
+
+	import java.util.Scanner;
+	Scanner sc=new Scanner(System.in);
+
+	int no1=sc.nextInt();
+	int no2=sc.nextInt();
+
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+
+
+
+
+Handson 1:
+----------------
+Dice Game I
+
+Each player will be allowed to throw  a dice 2 times. The points for each player will be calculated as follows :
+If the values thrown are different, the points scored is equal to the sum of the 2 values.
+If the values thrown are the same, the points scored is equal to double the sum of the 2 values.
+
+Write a program to calculate the points scored by a player.
+Input and Output Format:
+Input consists of 2 integers. The valid range of inputs is from 0 to 6. [ Both 0 and 6 inclusive]
+Output the points scored. In case of invalid inputs, print “Invalid Input”.
+
+Refer sample input and output for formatting specificaions.
+[All text in bold corresponds to input and the rest corresponds to output.]
+Sample Input and Output 1:
+Enter Value 1:
+5
+Enter Value 2:
+6
+The points scored is 11
+
+Sample Input and Output 2:
+
+Enter Value 1:
+5
+Enter Value 2:
+5
+The points scored is  20
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+
+--------------------
+Solution:
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int no1=sc.nextInt();
+	    int no2=sc.nextInt();
+	    
+	    if(no1>6 || no2>6)
+	    {
+	        System.out.println("Invalid input");
+	        System.exit(0);
+	       //return;
+	    }
+	    
+        int sum=no1+no2;
+        if(no1==no2)
+            sum*=2;
+        System.out.print(sum);
+	}
+}
+
+
+But in java, if will not accept anything other than a boolean expression that returns true or false
+
+if(true)
+if(false)
+			
+
+Operators:
+--------------
+Arithmetic operators:
+	+
+	-	
+	*
+	/
+	%
+
+Increment operators:
+	++
+	--
+
+Arithmetic assignment operators:
+	+=
+	-=
+	*=
+	/=
+	%=
+
+
+
+Challenge:
+--------------
+Accept a character input from the user and add 5 numbers to that character and print.
+ex:
+	input: 	A
+	output:	F
+
+	input:	Y
+	output:	D
+
+HINT: to get character input from user,
+	sc.nextLine().charAt(0);
+
+
+
+Casting:
+	implicit casting
+	explicit casting
+
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+        //to get character input from user:
+        Scanner sc=new Scanner(System.in);
+        char input=sc.nextLine().charAt(0);
+        int ascii=input;
+        ascii+=5;
+        System.out.println("After adding 5, ascii="+ascii);
+        ascii%=(91);
+        
+        System.out.println("After modulo by ascii+25, ascii="+ascii);
+        if(ascii<65)
+            ascii+=65;
+        char output=(char)ascii;
+        System.out.println(output);
+	}
+}
+
+
+char c='a';
+int i=c;		//here, char is converted into int automatically. This is called as implicit casting
+
+c=i;		//ERROR.		incompatible types: possible lossy conversion from int to char
+solution:
+c=(char)i;		//here, int is converted into char by using explicit casting.
+
+not all types are allowed to do casting.
+
+primitive vs objects casting is not possible.
+
+String str="a";
+char c=str;		//not possible
+char c=(char)str;	//not possible
+char c=str.charAt(0);	//possible.	This is not casting
+
+int to float is possible		//implicit casting
+
+   int i=20;
+       float f=i;
+       System.out.println("No problem");
+
+
+but vice versa:		float to int	is not automatic
+i=f;		// incompatible types: possible lossy conversion from float to int
+
+	int i=5;
+       int j=2;
+       System.out.println((float)i/j);
+
+
+nested if
+if with operators like	&&	||
+
+!
+&&
+||
+
