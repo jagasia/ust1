@@ -529,3 +529,14 @@ public class Main
 	    System.out.println(absDifference);
 	}
 }
+----------------
+Challenge:
+Accept a character input and display if it is a vowel or not.
+
+Use Switch case.
+input can be in upper or lower case also
+
+
+Participants Attendance:
+
+https://docs.google.com/spreadsheets/d/1d7W6RFpwSelQgfvx-RzeaQAGfdjtTKG9Wri6w-HyXRc/edit?usp=sharing
