@@ -23,5 +23,4 @@ public class AnagramProgram {
 		else
 			System.out.println("Not anagrams");
 	}
-
 }

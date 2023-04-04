@@ -571,4 +571,51 @@ public class AnagramProgram {
 
 }
 
+------------------------------------------
+Sachin Ramesh Tendulkar
 
+Accept 3 inputs from the user	(fname, mname and lname)
+Output should be like 	S.R. Tendulkar
+
+Input format:
+Enter your full name:	Sachin Ramesh Tendulkar
+Output:	Mr. S.R. Tendulkar
+
+Output should be stored in a variable and then displayed.
+
+
+
+Scanner class:
+	next()		any delimiter		extracts input upto any delimiter like space / tab/ enter
+	nextLine()		only new line / enter is the delimiter	extracts string input upto enter key
+		except this nextLine() method, all other next methods use any delimiter
+
+
+
+How to convert the string into upper case?
+	str.toUpperCase()			this will convert all characters to upper
+
+How to convert a char into uppercase?
+	Character.toUpperCase(c);
+
+
+substring(x,y)		x is the starting index from where we need to extract. y is the index before which we need
+
+
+String str="raja";
+str.substring(0,1);		"r"
+str.substring(0,2);		"ra"
+str.substring(1,2);		"a"
+str.substring(1);		"aja"			from index 1 and till the end
+
+After break:
+
+String is immutable.
+for-each
+String tokenizer
+StringBuilder
+StringBuffer
+Regex
+
+
+Scanner methods
