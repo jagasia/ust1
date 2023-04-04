@@ -743,3 +743,108 @@ public class StringBuilderDemo {
 }
 
 
+
+-----------------------------------------
+
+String is immutable.		**
+for-each
+String tokenizer
+StringBuilder		**
+StringBuffer		**
+Regex
+
+StringTokenizer
+---------------------
+when we use split method of String, we use regex.
+when we use string tokenizer, we use character by which we split.
+
+when we split using split method, then entire set of words, are stored in array.
+where as string tokenizer does not store the splitted strings in array. we can navigate through original string and obtain one token at a time.		(token = word)
+
+Task:
+Accept an ip address from the user.
+
+in ipv4, there will be 4 portions, each portion is in the range of 	0-255
+
+ex:
+	127.0.0.1		is localhost
+	192.168.239.1
+
+
+Your program should validate if the input is a valid ipv4 address or not.
+
+using split method of String:
+-----------------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class IPValidationDemo {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.next();
+		String[] arr = input.split("[.]");
+		//check#1	there should be 4 portions
+		if(arr.length!=4)
+		{
+			System.out.println("Invalid IP");
+			System.exit(0);
+		}
+		//loop each portion
+		for(String str : arr)
+		{
+			//	check#2 	each portion should be number
+//			convert it to number and if you get error, then it is not a number
+			int no=0;
+			try
+			{
+				no=Integer.parseInt(str);
+				//it is a number only.
+				//check#3	range should be 0-255 only
+				if(no<0 ||	no>255)
+				{
+					System.out.println("Invalid IP");
+					System.exit(0);
+				}
+			}catch(NumberFormatException nfe)
+			{
+				System.out.println("Invalid IP");
+				System.exit(0);
+			}
+			
+			
+		}
+		
+		System.out.println("Valid IP");
+	}
+
+}
+
+-------------------------------------
+Using StringTokenizer:
+----------------------------------
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class IPValidationUsingStringTokenizer {
+
+	public static void main(String[] args) {
+		String input=new Scanner(System.in).next();
+		StringTokenizer st=new StringTokenizer(input, ".");
+		while(st.hasMoreTokens())
+		{
+			System.out.println(st.nextToken());
+		}
+	}
+
+}
+
+
+-----------------------------------
+Challenge: for string tokenizer
+
+Accept a string input from the user. Input can contain multiple words as a sentence.
+
+convert each word first letter as capital letter and print.
+
