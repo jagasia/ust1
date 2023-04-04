@@ -735,3 +735,15 @@ java.lang.InterruptedException
 
 !ENTRY org.eclipse.jdt.debug 2 0 2023-04-04 17:43:55.092
 !MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 17:57:20.720
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.TLxBatev
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 17:57:20.720
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.TLxBatev
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 17:57:20.720
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 17:57:20.721
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.TLxBatev => OK

@@ -881,3 +881,47 @@ public class StringTokenizerToCapitalizeEachWord {
 	}
 
 }
+------------------------------------------
+String is immutable.		**
+for-each			**
+String tokenizer		**
+StringBuilder		**
+StringBuffer		**
+Regex			
+
+
+
+normally a for loop has 3 portions
+
+for(int i=0;i<10;i++)
+
+an enhanced for loop (also called as for-each loop) has only 2 portions
+
+for(String str : arr)
+	notice that we use : here	and not ;
+
+right side of : 	should be an array or collection	
+left side of	:	a local variable we have declared here only.	If it is already declared, then error.
+		this local variable is same type of array or collection
+
+TasK:
+--------
+input1:	no of elements
+accept n number of elements and store them in an array.
+11
+2
+16
+15
+2
+6
+8
+10
+7
+22
+4
+6
+
+
+display only even numbers
+
+	
