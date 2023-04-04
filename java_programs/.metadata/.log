@@ -141,3 +141,15 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-03 12:36:28.795
 !MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-03 17:56:05.986
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.onSRVYWa
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-03 17:56:06.023
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.onSRVYWa
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-03 17:56:06.033
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-03 17:56:06.033
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.onSRVYWa => OK

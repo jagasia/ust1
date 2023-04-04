@@ -1,0 +1,66 @@
+Coding standards
+Good practises
+Conventions
+Code quality
+
+Java Conventions
+
+
+1) class names
+2) variable names
+3) method names
+4) constant
+
+Class Name conventions in Java:
+--------------------------------------------
+1) A class name must be a noun.
+2) A class name must follow Pascal case	starts with capital letter and every word first letter is capital
+	ex:		RetailCustomer,		WholeSaleCustomer
+
+in db, RETAIL_CUSTOMER		WHOLE_SALE_CUSTOMER	
+3) The public class should be saved in a file named as same.	(HARD rule)
+4) no need of using short form.		ArrayIndexOutOfBoundsException
+5) a file can contains many classes inside, but only 1 class among them can be public. And the file name must be public class name. But convention is to keep every class in a separate file.
+
+Variable name conventions in Java:
+------------------------------------------------
+
+for(int i=0;i<10;i++)
+{
+
+}
+we are not discussing about loop counter variables.
+
+Apart from that, every variable in java program, must reveal the purpose of that variable.
+
+int count=0;
+count++;
+
+int cnt=0;	//not good idea
+
+1) follow camelCase for variable names		firstLetter is lower case and every next word first letter is upper case
+	ex:		numberOfStudents
+			dateOfBirth
+			joinDate
+			dateOfJoining
+2) should be noun
+
+Method name conventions in Java:
+--------------------------------------------
+1) a method name should be like doThis 
+	calculateSimpleInterest
+	displayDetails
+	acceptDetails
+2) a method name should be in camelCase	(first letter is lower case and every next word first letter is upper case)
+
+
+Constants in java:
+	must be in full upper case
+	ex:
+		MAX_VALUE
+		MIN_VALUE
+
+	ex:
+		static final int STUDENTS_COUNT=31;
+
+
