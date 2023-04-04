@@ -401,3 +401,174 @@ public class RunLength4 {
 	}
 
 }
+---------------------------------
+Core Java
+UI
+	HTML		HyperText Markup Language
+	CSS		Cascading Style Sheet
+	Angular / ReactJs
+Spring Framework
+	MVC
+	Spring security
+	Swagger
+Docker
+Cloud Basics
+	AWS
+	GCP
+	Azure
+
+Capstone Project
+
+
+Application Software
+	console application		CUI	Character User Interface
+	windows application		GUI	Graphical User Interface
+	web application		GUI
+	mobile application		GUI
+
+
+----------------------------
+Java Strings:
+----------------
+String has characters.
+we use double quotes.
+
+java.lang.String class
+
+
+Scanner sc=new Scanner(System.in);
+Employee e1=new Employee();
+Employee e2=e1;
+Date dt=new Date();
+String str=new String("abcd");
+String s1="abcd";			//string literal
+String s2=s1;
+
+
+
+
+
+
+public class StringDemo1 {
+
+	public static void main(String[] args) {
+//		String str1="hello";
+//		String str2="hello";
+		String str="hello";
+		String str1=new String("hello");
+		String str2=new String("hello");
+		
+//		int i=20;
+//		int j=22;
+//		
+//		System.out.println(i==j); 			//  == operator compares the values, if the operands are value types.
+		System.out.println(str1==str2);		//	== operator compares the references, if the operands are reference types.
+		System.out.println(str1.equals(str2));
+	}
+
+}
+
+
+
+
+
+--------------------
+String methods:
+	charAt(index)		returns the character present in that index
+	toUpperCase()
+	toLowerCase()
+	substring()		to get a portion of the string
+	indexOf()		return -1 if the character is not found. 	if found, then it returns the first 			occurrance index of that 
+	lastIndexOf()	
+	trim()
+	toCharArray()	returns a char array that contains each character as element
+	valueOf
+	
+Activity:
+	Identify as many String methods in java.
+
+
+
+
+
+String str="hello";
+char []arr=str.toCharArray();
+
+arr[0] is "h"
+arr[1] is "e"
+
+
+String str="this is a sentence";
+String []arr=str.split(" ");	//i have split by space.		split method expects "Regular Expression"		
+arr[0] is "this"
+arr[1] is "is"
+
+String str="192.168.2.1";
+str.split(".");		// 		in reg ex, 		dot is a symbol that means anything.
+
+str.split("[.]");
+str.split("\\.");
+
+instead of split method, we can use StringTokenizer
+
+
+Challenge:
+-------------
+Write a java program to accept 2 string inputs and declare if they are anagram or not.
+
+ex for anagrams:
+
+tea
+eat
+
+team
+meat
+
+eat
+ate
+
+abcd
+bcda
+
+ijkl
+klij
+
+
+Hint:
+to convert a String into char []
+	str.toCharArray();
+to sort an array
+	Arrays.sort(arr);
+to convert a char [] into a String
+	String s1=new String(arr1);
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class AnagramProgram {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input1=sc.next();
+		String input2=sc.next();
+		
+		//convert the Strings to char arrays
+		char arr1[]=input1.toCharArray();
+		char arr2[]=input2.toCharArray();
+		
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+		
+		String str1=new String(arr1);
+		String str2=new String(arr2);
+		
+		if(str1.equals(str2))
+			System.out.println("Anagrams");
+		else
+			System.out.println("Not anagrams");
+	}
+
+}
+
+
