@@ -732,3 +732,6 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.jdt.debug 2 0 2023-04-04 17:43:55.092
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread
