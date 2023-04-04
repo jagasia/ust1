@@ -619,3 +619,127 @@ Regex
 
 
 Scanner methods
+
+
+String
+
+public class StringImmutableExample {
+
+	public static void main(String[] args) {
+		String str1="hello";
+		str1+=" world";
+		System.out.println(str1);
+	}
+
+}
+
+
+In the above example, 	
+	str1 = "hello";
+
+str1 was pointing to a memory where "hello" was present.
+
+str1 = "hi";
+
+now, str1 points to a new memory location where "hi" is present.
+
+in "hello", if you want to remove "h" alone, what will you do?
+
+there is no method in String to remove "h" alone.
+
+str1=str1.substring(1);
+
+
+
+hello
+
+
+
+hi
+
+
+StringBuilder
+StringBuffer
+	has methods to
+		insert
+		replace
+		delete
+
+
+String is immutable, means, whenever you want to edit the string, you are referring to a different memory location.
+
+StringBuilder
+StringBuffer
+	both of these classes have exactly same methods and properties.	Only difference is, StringBuffer is synchronized.
+	StringBuffer may be slow in multi-threaded process, but thread-safe
+
+What is synchronized?????
+	when multiple threads access an object of string buffer, then they are allowed one by one at a time.
+
+Activity:
+	Identify as many method of StringBuilder class.
+
+append
+insert
+delete
+reverse
+replace
+substring
+toString		returns the String
+length
+
+
+Examples:
+	Palindrome 
+		malayalam
+		madam
+		nitin
+
+if you reverse a string and it is same as original string, then we can declare it as a palindrom
+
+import java.util.Scanner;
+
+public class PalindromeProgram {
+
+	public static void main(String[] args) {
+		String input=new Scanner(System.in).next();
+		//get the reverse of input
+		StringBuilder sb=new StringBuilder(input);
+		sb.reverse();
+		if(input.equalsIgnoreCase(sb.toString()))
+			System.out.println("Palindrome");
+		else
+			System.out.println("Not Palindrome");
+	}
+
+}
+
+
+
+
+
+example of StringBuilder methods:
+-----------------------------------------------
+
+public class StringBuilderDemo {
+
+	public static void main(String[] args) {
+		StringBuilder sb=new StringBuilder();
+//		sb.append("India");
+//		sb.append(" is our country");
+//		sb.append(". We are in Kerala");
+//		sb.append("Next year we will be in USA");
+		sb.append("Welcome USA.");
+		
+		int startIndex=sb.indexOf("USA");
+		sb.insert(startIndex, "to ");
+		startIndex=sb.indexOf("USA");
+		sb.replace(startIndex, startIndex+3, "UK");
+		System.out.println(sb);
+		sb.deleteCharAt(sb.length()-1);
+		System.out.println(sb);
+	}
+
+}
+
+
