@@ -64,3 +64,163 @@ Constants in java:
 		static final int STUDENTS_COUNT=31;
 
 
+Code quality:
+1) always use curly braces {} for every true, false part of if, and in loops, switch case, etc.
+2) always remove the commented code. 
+3) Only use explanation comments in the code.
+4) every method should contain only 1 return statement.		It is possible to use a return in true part and one return in else part of an if. But it is good practise to use only 1 return statement in a method.
+5) remove all unused variable declarations.
+6) while declaring a variable itself, initialize it to a value. If an object is initalized later, atleast assign null to it.
+	ex:		Employee e=null;		String str="";
+
+There are code quality tools to measure the code quality.	
+	SonarQube
+
+public static void main(String []jags)
+{
+}
+
+public:
+	the main method must be visible outside the class.
+static:
+	the main method must be available even before any objects are created for the class.
+void:
+	the method does not return anything.
+main:
+	is the name of the method
+String []jags
+	while running the program, we can pass arguments (command line arguments)
+	the command line arguments can be 0 or more Strings, hence it is an array of Strings
+
+--------------------------------
+Array Product
+
+Write a program to find the product of all 2 digit numbers in an array.
+
+If the size of the input array is negative or if any of the input elements is negative , print “Invalid Input” and terminate the program.
+
+Input and Output Format:
+
+Input consists of n+1 integers. The first integer corresponds to n, the number of elements in the array. The next 'n' integers correspond to the elements in the array.
+Output consists of an integer that corresponds to the product.
+
+Refer sample output for formatting specifications.
+Assume that the maximum number of elements in the array is 20.
+
+Sample Input 1:
+6
+2
+7
+10
+3
+13
+100
+
+Sample Output 1:
+130
+
+Sample Input 2:
+-4
+
+Sample Output 2:
+Invalid Input
+
+Sample Input 3:
+4
+1
+-2
+
+Sample Output 3:
+Invalid Input 
+--------------------------------
+Array Product Solution:
+----------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayProduct {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int noOfElements=sc.nextInt();
+		
+		if(noOfElements<0)
+		{
+			System.out.println("Invalid Input");
+			System.exit(0);
+		}
+		
+		//declare an array of size noOfElements
+		int arr[]=new int[noOfElements];
+		//now, get noOfElements inputs from the user
+		for(int i=0;i<noOfElements;i++)
+		{
+			arr[i]=sc.nextInt();
+			if(arr[i]<0)
+			{
+				System.out.println("Invalid Input");
+				System.exit(0);
+			}
+		}
+		
+		//task is to get the product of all 2 digit numbers.
+		//for that i am going to loop all elements of the array
+		System.out.println("........................");
+		int product=1;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]>9 && arr[i]<100)
+				product=product*arr[i];
+		}
+		System.out.println(product);
+	}
+
+}
+
+=========================================
+
+Accept n inputs from the user and display the sum of all even numbers.
+For those who have easily completed previous exercise, display the sum of all prime numbers.
+
+import java.util.Scanner;
+
+public class PrimeSum {
+
+	public static boolean isPrime(int number)
+	{
+		//if number is divisible by any other number, it is not prime
+		if(number==1)
+			return false;
+		if(number==2)
+			return true;
+		for(int i=2;i<=number/2;i++)
+		{
+			if(number%i==0)
+				return false;
+		}
+		return true;
+	}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int noOfElements=sc.nextInt();
+		int []arr=new int[noOfElements];
+		
+		//get n inputs
+		for(int i=0;i<noOfElements;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		
+		int sum=0;
+		for(int i=0;i<noOfElements;i++)
+		{
+			//instead of summing all elements, sum only prime numbers
+			//here instead of writing prime algo here, we can create a method
+			if(isPrime(arr[i]))
+				sum+=arr[i];
+		}
+		
+		System.out.println(sum);
+	}
+
+}
