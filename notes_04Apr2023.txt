@@ -313,3 +313,91 @@ public class MaximumProduct {
 	}
 
 }
+------------------------------------------
+Challenge:
+Run Length IV
+ 
+Write a program to find the length of the longest running sequence of even numbers in the given array. Also find the starting index of the longest running sequence of even numbers.
+ 
+Example :
+ 
+Consider the array ... { 2, 16, 15, 2, 6, 8, 10, 7, 22, 4 , 6}
+ 
+The 3 even number sequences in this array are {2, 16}, {2, 6, 8, 10} and {22, 4, 6}.
+The longest running even number sequence is {2, 6, 8, 10}
+The length of the longest running even number sequence is 4 and the starting index is 3.
+ 
+Note:
+The array indexing starts from 0.
+If there are multiple choices, select the choice where the starting index is minimum.
+ 
+Input and Output Format:
+ 
+The first line of the input consists of an integer n that corresponds to the number of elements in the array. The next 'n' lines of input consists of a single integer that correspond to the elements in the array.
+ 
+The first line of the output consists of the length of the longest running even number sequence and the second line of the output consists of the starting index of the longest running even number sequence.
+ 
+Sample Input :
+11
+2
+16
+15
+2
+6
+8
+10
+7
+22
+4
+6
+ 
+Sample Output :
+4
+3
+
+---------------------------
+Solution:
+-----------
+import java.util.Scanner;
+
+public class RunLength4 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		
+		int count=0;
+		int maxCount=0;
+		int startIndex=-1;
+		int maxStartIndex=-1;
+		//display all elements
+		for(int i=0;i<n;i++)
+		{
+			if(arr[i]%2==0)
+			{
+				count++;
+				if(count==1)
+					startIndex=i;
+				if(count>maxCount)
+				{
+					maxCount=count;
+					maxStartIndex=startIndex;
+				}
+			}else
+			{
+				count=0;
+			}
+			System.out.println("Count="+count);
+			System.out.println("MaxCount="+maxCount);
+			System.out.println("StartIndex="+startIndex);
+			System.out.println("MaxStartIndex="+maxStartIndex);
+		}
+	}
+
+}

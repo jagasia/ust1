@@ -313,3 +313,105 @@ java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-bfe3c7ac-41
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-04 10:36:26.919
 !MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:40:59.640
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.wSNJmJCX
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:40:59.655
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.wSNJmJCX
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:40:59.655
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:40:59.712
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.wSNJmJCX => OK
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-04 12:41:17.172
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.LanguageServerWrapper.supportsWorkspaceFolderCapability(LanguageServerWrapper.java:461)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:450)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:757)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.lambda$6(LanguageServiceAccessor.java:320)
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.util.HashMap$KeySpliterator.forEachRemaining(Unknown Source)
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(Unknown Source)
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.util.stream.ReferencePipeline.collect(Unknown Source)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:321)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:505)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.initiateLanguageServers(LSContentAssistProcessor.java:143)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:80)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.312
+!MESSAGE Boot LS startup time from start to initialized: 5959ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.401
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.GvveQqIlisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.402
+!MESSAGE subscribing to classpath changes: sts4.classpath.GvveQqIl isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.402
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.402
+!MESSAGE subsribers = {sts4.classpath.GvveQqIl=Send Classpath Notifications(1831)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.403
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.403
+!MESSAGE project 4-Apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.404
+!MESSAGE project 03-apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.404
+!MESSAGE Preparing classpath changed notification 4-Apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.404
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.404
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.405
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.GvveQqIl => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.418
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.418
+!MESSAGE buffering callback sts4.classpath.GvveQqIl 4-Apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.419
+!MESSAGE Preparing classpath changed notification 03-apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.419
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.420
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.420
+!MESSAGE buffering callback sts4.classpath.GvveQqIl 03-apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.420
+!MESSAGE executing callback sts4.classpath.GvveQqIl 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-04 12:41:17.433
+!MESSAGE executing callback sts4.classpath.GvveQqIl SUCCESS [done]

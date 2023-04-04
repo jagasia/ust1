@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MaximumProduct {
@@ -29,6 +30,7 @@ public class MaximumProduct {
 //					System.out.println("Multiplying "+arr[i]+" with "+arr[j]);
 					product=arr[i]*arr[j];
 					//check if product is found as an element in the array
+					
 					for(int k=0;k<n;k++)
 					{
 						if(product==arr[k])
@@ -44,5 +46,4 @@ public class MaximumProduct {
 		}
 		System.out.println("Answer is "+max);
 	}
-
 }
