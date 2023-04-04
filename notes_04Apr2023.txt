@@ -224,3 +224,92 @@ public class PrimeSum {
 	}
 
 }
+
+=====================
+Challenge:
+Maximum Product
+Playing with arrays has become a hobby for Arun. This time Arun wants to find the greatest number in the array such that it is the product of any two numbers in the array.
+Write a program to help Arun to the do the task. If no such number exists, then print -1.
+[Note: The two number that are used to find the product can be the number itself.  For example, if the array elements are [1,2,3] , then 1*3 = 3 will be the solution for this array.]
+
+Input Format :
+First input is an integer value that denotes the size of the array.
+Second input is a series of integers separated by space that denotes the array values.
+
+Output Format :
+Output is an  integer that denotes the maximum product.
+
+Sample Input 1:
+5
+35 30 7 6 5
+Sample Output 1:
+35
+
+Sample Input 2:
+5
+2 4 6 89 78
+Sample Output 2:
+-1
+
+Sample Input 3:
+10
+11 81 102 42 77 9 8 72 88 8
+-----------------------------------------------------
+Solution:
+------------
+First loop each element of the array.
+every iteration, take the current element and perform inner loop to multiply current element with that.
+we get product.
+now, perform one for loop of all elements to check if "product" == any of the element in the array.
+now, check if this product is > max (global variable). Then update max.	(max is initially = -1)
+
+After all the loop, display max.
+
+import java.util.Scanner;
+
+public class MaximumProduct {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		//declare an array of size n
+		int arr[]=new int[n];
+		
+		//get n inputs from the user
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		
+		int max=-1;
+		
+		//take 1 element in the array at a time
+		for(int i=0;i<n;i++)
+		{
+//			System.out.println("Current element is "+arr[i]);
+			//inner loop to multiply curr element with all other
+			for(int j=0;j<n;j++)
+			{
+				int product=0;
+				if(i!=j)
+				{
+//					System.out.println("Multiplying "+arr[i]+" with "+arr[j]);
+					product=arr[i]*arr[j];
+					//check if product is found as an element in the array
+					for(int k=0;k<n;k++)
+					{
+						if(product==arr[k])
+						{
+//							System.out.println(product + " is matching with an element");
+							if(product>max)
+								max=product;
+						}
+					}
+				}
+			}
+
+		}
+		System.out.println("Answer is "+max);
+	}
+
+}
