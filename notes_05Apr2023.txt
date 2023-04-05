@@ -1,0 +1,66 @@
+String is immutable.		**
+for-each			**
+String tokenizer		**
+StringBuilder		**
+StringBuffer		**
+Regex			
+------------------------------------
+Task1:
+Accept a string input from the user.
+Display only the numbers present in the input.
+
+Ex:
+Input:
+	"Kindly note down the mobile number 9898989898 and call this number. If it is not reachable, contact 	04412121212. Thank you."
+
+Output:	
+	9898989898
+	04412121212
+
+Steps:
+1) Accept a string input
+2) convert that string into char []
+3) loop each char of that array
+4) Character.isDigit(arr[i])		returns true if it is a digit
+	if(arr[i]>='0' && arr[i]<='9')
+		it is a digit
+
+
+	if(arr[i]>=48 && arr[i]<=57)
+		it is a digit
+
+Now, the same problem can be solved using RegEx as follows:
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ExtractNumberUsingRegex {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		
+		Pattern p=Pattern.compile("\\d+");
+		Matcher m = p.matcher(input);
+		while(m.find())
+		{
+			System.out.println(m.group());
+		}
+	}
+
+}
+
+
+
+Regex:
+1) is used to check if a String matches a pattern or not		(true/false)
+2) is used to extract the portions of a String that matches a pattern
+
+Easiest way of using regex is that String class itself has the method		"matches" method
+
+There are lot of symbols used in regular expression.
+
+
+
+Remind me about scanner methods:
+------------------------------------------------
