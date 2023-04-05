@@ -5434,3 +5434,6 @@ Caused by: java.lang.NullPointerException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.177
 !MESSAGE executing callback sts4.classpath.pDqYvfff SUCCESS [done]
+
+!ENTRY org.eclipse.jdt.debug 2 0 2023-04-05 16:56:32.861
+!MESSAGE Unable to find location of java.lang.Thread.setName() in debuggee JVM, for type java.lang.Thread

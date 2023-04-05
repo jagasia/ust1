@@ -378,3 +378,147 @@ Solutions2:
 java.lang.Scanner
 	was introduced in java version 5 only.
 
+-----------------------------------
+Max Integer
+Ram aspires to become a mathematician , he just learnt the  formula for sum of n numbers. He wants to find the maximum number n,such that sum of n numbers is less than a given value.
+Given an integer bound, write a program to find the maximal integer n such that 1 + 2 + ... + n < bound.
+Help Ram with the program.
+
+Input format:
+A single integer that denotes the Integer bound
+
+Output format:
+A single integer that corresponds to  maximal integer, n.
+
+Sample Input 1:
+14
+
+Sample Output 1:
+4
+
+Explanation:
+n= 1
+Sum = 1
+n=2
+Sum = 1+2 = 3
+n=3
+Sum = 1 + 2 + 3 = 6
+n = 4
+Sum = 1 + 2 + 3 + 4 = 10
+n = 5
+Sum = 1+ 2 + 3 + 4 + 5 = 15
+
+For n = 5 The sum is greater than the bound value 14 , Maximum n value with sum below the bound is 4.
+
+Sample Input 2:
+21
+
+Sample Output 2:
+5 
+
+
+
+Solution:
+import java.util.Scanner;
+
+public class MaxInteger {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int input=sc.nextInt();
+		int sum=0;
+		int i=1;
+		for(;sum<input;i++)
+		{
+			sum+=i;
+			System.out.println(sum);
+		}
+		System.out.println(i-2);
+	}
+
+}
+
+--------------------------------------------
+Task:
+
+if input is 5: the output should be:
+*
+**
+***
+****
+*****
+
+import java.util.Scanner;
+
+public class Pattern1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+
+Task:
+--------
+assumption:	input is always odd number.
+
+input: 5
+output:
+
+   *
+ ***
+*****
+ ***
+   *
+
+
+import java.util.Scanner;
+
+public class DiamondPattern {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i+=2)
+		{
+			//space loop
+			for(int k=0;k<(n-i)/2;k++)
+			{
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i=n-2;i>=1;i-=2)
+		{
+			//space loop
+			for(int k=(n-i)/2+1;k>1;k--)
+			{
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+
+
