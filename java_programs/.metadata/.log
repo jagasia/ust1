@@ -5259,3 +5259,6 @@ Caused by: java.io.EOFException: SSL peer shut down incorrectly
 	at sun.security.ssl.SSLSocketInputRecord.decode(Unknown Source)
 	at sun.security.ssl.SSLTransport.decode(Unknown Source)
 	... 24 more
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-05 10:16:04.882
+!MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.

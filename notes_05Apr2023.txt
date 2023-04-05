@@ -64,3 +64,88 @@ There are lot of symbols used in regular expression.
 
 Remind me about scanner methods:
 ------------------------------------------------
+
+
+
+
+String str="kindly note down this is the code word \"bharat\" and inform";
+
+String str1="the characters \\n is used to print in new line";
+
+
+\d		digit
+
+Task:
+---------
+Accept a String input from the user and check if it follows the below format or not:
+E001
+
+rule:	Start with "E" and followed by 3 digits.
+
+import java.util.Scanner;
+import java.util.regex.Pattern;
+public class RegExValidation1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.next();
+		System.out.println(input.matches("E\\d{3}"));	//using String matches method
+		System.out.println(Pattern.matches("E\\d{3}", input));	//using regex package
+	}
+
+}
+
+
+Symbols used in RegEx:
+-----------------------------------
+first portion will be symbol for character	(whether it is a char or digit or symbol or range or list of chars)
+second portion is multiplicity		(how many such can occur)
+
+E{1}\\d{3}
+
+first portion:	what should come?
+\d		digit
+\D		non digit
+[]		list of characters from that any one can be present
+		ex:		[0-9]		range	(because we use -	hyphen symbol)
+				[0-9A-Za-z]	any digit or upper or lower case alphabet can be found
+
+				[aeiou]		any vowel is allowed
+
+				when we use [] then whatever we type inside are seen as character.
+				[.]	. is usually a symbol, but here, it is a character
+
+.		dot means it matches with anything
+
+\w
+
+second portion:
+multiplicity:
+
++		one or more
+*		zero or more
+?		zero or one
+
+multiplicity can be easily achieved using 	{	}
+{1,3}		min 1 and max 3
+{1,}		min 1 and no upper limit
+{,3}		maximum 3 times
+{3}		3 times
+
+if we ignore the multiplicity, then it is always 1
+
+Task:
+Write a program to accept a string input from the user and
+validate if it is a valid email address or not.
+
+	rule:
+		username@domain.com
+
+
+
+
+
+
+
+
+
