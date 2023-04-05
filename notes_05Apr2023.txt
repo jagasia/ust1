@@ -521,5 +521,3 @@ public class DiamondPattern {
 
 }
 
-
-https://drive.google.com/file/d/1h-E6GG4wZ6sPYQVUGnlKdgHft0o-X-z-/view?usp=share_link
