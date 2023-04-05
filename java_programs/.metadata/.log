@@ -5347,3 +5347,90 @@ Caused by: java.lang.NullPointerException
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
 	... 64 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:21.501
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.mxwGtUHK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:21.517
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.mxwGtUHK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:21.518
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:21.572
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.mxwGtUHK => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:39.830
+!MESSAGE Boot LS startup time from start to initialized: 3247ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.105
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.pDqYvfffisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.105
+!MESSAGE subscribing to classpath changes: sts4.classpath.pDqYvfff isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.106
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.106
+!MESSAGE subsribers = {sts4.classpath.pDqYvfff=Send Classpath Notifications(2210)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.107
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.108
+!MESSAGE project 5-Apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.108
+!MESSAGE project 03-apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.109
+!MESSAGE Preparing classpath changed notification 5-Apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.109
+!MESSAGE project 4-Apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.110
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.110
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.111
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.pDqYvfff => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.112
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.114
+!MESSAGE buffering callback sts4.classpath.pDqYvfff 5-Apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.115
+!MESSAGE Preparing classpath changed notification 03-apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.115
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.117
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.118
+!MESSAGE buffering callback sts4.classpath.pDqYvfff 03-apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.119
+!MESSAGE Preparing classpath changed notification 4-Apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.119
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.121
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.122
+!MESSAGE buffering callback sts4.classpath.pDqYvfff 4-Apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.122
+!MESSAGE executing callback sts4.classpath.pDqYvfff 3 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-05 13:59:40.177
+!MESSAGE executing callback sts4.classpath.pDqYvfff SUCCESS [done]

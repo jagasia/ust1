@@ -3,7 +3,7 @@ for-each			**
 String tokenizer		**
 StringBuilder		**
 StringBuffer		**
-Regex			
+Regex			**
 ------------------------------------
 Task1:
 Accept a string input from the user.
@@ -216,3 +216,165 @@ public class UniversityReq3 {
 	}
 
 }
+=============================
+Full Prime
+
+Siva always try to play with the numbers , he does so because he thinks that it will lead to some special numbers . One day he came up with an idea to know the numbers that are considered as Full Prime .  Full prime is a prime number where each of its digits is also a prime . Given a range from X to Y ,write a program to help Siva find the numbers (excluding X and Y ) that are full primes . If no such numbers exist between the given range,then print -1.
+
+Note1: Mention the maximum range of number will vary from 1 to 1000.
+
+Note2: 1 is not a prime number. 
+
+
+Input Format:
+First Input is an integer that denotes the X value.
+Second Input is an integer that denotes the Y value.
+
+Output Format:
+Output is a series of integers separated by a comma that is considered as a full prime.
+
+Sample Input 1:
+1
+50
+
+Sample Output 1:
+2,3,5,7,23,37
+
+Sample Input 2:
+8
+10
+
+Sample Output 2:
+-1 
+
+
+-------------------------
+1) Create a separate method isPrime(x) and return true or false based on prime or not.
+2) call this method inside the loop
+	a loop from start number to end number
+	check if number in loop is prime or not.
+	then if it is prime, split it into digits and do inner loop to check if each digit is prime or not.
+3) there are many ways you can loop digits of a number
+	i) convert number to string and toCharArray
+		 loop each char and convert char to int 
+	ii) another method is to use / and %
+		a number %10 will give you last digit
+		that number /10 will remove last digit
+		repeat until that number becomes 0
+
+
+
+break;
+	in a loop, if we use break statement,
+	then it will skip all the below lines inside the loop and and exit the loop.
+
+
+continue;
+	in a loop, if we use continue statement,
+	then it will skip all the below lines inside the loop and move to next iteration of the loop.
+
+
+
+import java.util.Scanner;
+
+public class FullPrime {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int from=sc.nextInt();
+		int to=sc.nextInt();
+		
+		outer:
+		for(int i=from;i<=to;i++)
+		{
+			if(isPrime(i))
+			{
+				//further check if every digit is prime
+				//to convert int into String
+//				String str=i+"";
+//				System.out.println(i+" is prime. it has following digits");
+				String str=String.valueOf(i);
+				char[] arr = str.toCharArray();
+				
+				inner:
+				for(char c : arr)
+				{
+//					System.out.println("Checking if "+c+" is prime or not");
+					//convert char into int
+					int digit=c-48;
+					if(!isPrime(digit))
+					{
+						//digit is not prime
+//						System.out.println(digit + " is not prime, so rejecting "+i);
+						continue outer;
+					}
+				}
+//				System.out.println("All digits of "+i+" is prime. So it is eligible");
+//				System.out.println("...........");
+				System.out.println(i);
+			}
+		}
+	}
+
+	private static boolean isPrime(int num) {
+		//logic to check if the num is prime or not
+		if(num<2)
+			return false;
+		for(int i=2;i<=num/2;i++)
+		{
+			if(num%i==0)
+				return false;
+		}
+		return true;
+	}
+
+}
+
+
+
+-----------------------------------
+Scanner methods:
+-----------------------
+Task:
+	Write a java program to accept the following inputs and display the same.
+
+Enter your id:		1234
+Enter your full name:		raja siva kumar
+Enter your marks:		97.5
+
+
+
+Scanner methods:
+nextInt()
+nextFloat()
+nextBoolean()
+nextDouble()
+nextLong()
+nextShort()
+next()
+
+
+next().charAt(0);		
+
+there is one more method
+nextLine()			this nextLine should be dealt properly.
+	because, except this nextLine() method, all other methods work with any delimiter (space, newline, tab)
+	but nextLine() method works with (newLine only as delimiter)
+
+Solution1:
+	whenever nextLine() is used, use a separate scanner for that purpose.
+		
+Solutions2:
+	whenever nextLine() is used after a next() method (all next method category)
+	check if you got a blank as input, then get input again
+
+		String fullName=sc.nextLine();
+		if(fullName.equals(""))
+			fullName=sc.nextLine();
+
+
+
+
+java.lang.Scanner
+	was introduced in java version 5 only.
+
