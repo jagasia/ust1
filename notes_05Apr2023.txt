@@ -521,3 +521,38 @@ public class DiamondPattern {
 
 }
 
+---------------------------------
+N-smallest Elements
+
+Shreya was attending a coding competition and she was progressing good . Suddenly she got stuck in a problem where she needs to find the n-smallest elements in an array . Given an array of integers of size N and n value as inputs , Write a program to help Shreya find the first - n smallest elements from the array but they must be in the same order as they are in given array.
+
+Input Format :
+First input is an integer that denotes the size of the array, N.
+Second line consists of series of integers seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a series of integers seperated by a space that denotes the n smallest elements.
+
+Sample Input 1:
+5
+4 8 2 5 9
+3
+
+Sample Output 1:
+4 2 5
+
+Sample Input 2:
+10
+7 3 8 11 55 22 1 6 13 2
+5
+
+Sample Output 2:
+7 3 1 6 2 
+
+
+Steps:
+1) sort the array		Arrays.sort(arr)
+2) first n elements are the smallest elements. keep them in an array		array of size	(n)
+3) loop the original elements array and if current element is found in small array, then display them.
+
