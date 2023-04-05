@@ -176,6 +176,7 @@ public class UniversityReq3 {
 	static Boolean validateMobile(String mobileNo)
 	{
 		String regex="([+]91){1}[0-9]{10}";
+		//String regex="([+]91){1}[ ]?[0-9]{10}";
 		return Pattern.matches(regex, mobileNo);
 	}
 	
