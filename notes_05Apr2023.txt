@@ -141,8 +141,12 @@ validate if it is a valid email address or not.
 	rule:
 		username@domain.com
 
+[a-z]+([.][a-z]+)?@[a-z]+[.]((com)|(co[.]in))
 
-
+raja@yahoo.com
+raja.siva@yahoo.com
+raja.siva@yahoo.co.in
+raja@yahoo.co.in
 
 
 
