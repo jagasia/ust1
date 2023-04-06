@@ -130,3 +130,217 @@ Open Java Mock 11
 and create the College class as per instructions given.
 
 Date joiningDate=new Date();
+-------------------------------------------
+While installing git,
+Git Bash is also installed.
+	this is a linux command prompt.	
+
+we can use cmd prompt also (in windows)
+
+====================================================
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getFounder() {
+		return founder;
+	}
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public Date getStartingDate() {
+		return startingDate;
+	}
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
+	}
+
+========================================
+Remind me for :	Access Specifiers, Constructor, Date	
+
+Constructor
+Date
+Access Specifiers
+
+
+
+Constructor:
+-----------------
+Default constructor is created by the compiler.
+If you create any constructor, then compiler will not create default constructor.
+So it is advisable, whenever you create a constructor with argument, then you also create constructor without argument.
+
+what if constructor is private
+
+Singleton
+------------
+public class SuperStar {
+	private static SuperStar ss=new SuperStar();
+	private String name="";
+	private SuperStar()
+	{
+		
+	}
+	public static SuperStar getInstance()
+	{
+		return ss;
+	}
+	public static SuperStar getSs() {
+		return ss;
+	}
+	public static void setSs(SuperStar ss) {
+		SuperStar.ss = ss;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}
+
+----------------------------
+
+Constructor
+Date
+Access Specifiers
+
+
+Date:
+-------
+	java.util package
+
+public class Date
+{
+	day
+	month
+	year
+	hour
+	minute
+	seconds
+	
+
+}
+
+
+every milliseconds, the time is ticking
+1900
+1970
+
+
+06/04/2023
+
+dd/MM/yyyy
+
+
+MM/dd/yyyy
+
+
+06/04/2023
+how to store this value in Date object
+
+SimpleDateFormat
+	java.text package
+
+	parse		convert a String into Date		in the specified format
+	format		convert a Date into String		in the specified format
+
+Task:
+Accept an input from the user. The input should be date Of Joining
+display the same in the same format.
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class DateTask1 {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the date of Joining (dd/MM/yyyy):");
+		String input=sc.nextLine();
+		//convert String into Date
+		Date dateOfJoining=new Date();
+		
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		sdf.setLenient(false);
+		dateOfJoining = sdf.parse(input);
+		System.out.println(dateOfJoining);
+		System.out.println(sdf.format(dateOfJoining));
+	}
+
+}
+
+
+Notice the use of setLenient method		we should not accept 32/02/2024
+
+-------------------
+Task:
+
+Write a program to accept Date Of Birth as input and 
+display the week day as output.
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class DayOfWeekTask {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter date of Birth: (dd-MMM-yyyy)");
+		String input=sc.nextLine();
+		Date dob=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
+		dob=sdf.parse(input);
+		
+		//to convert date into string we use sdf (but we use different sdf)
+		SimpleDateFormat sdf2=new SimpleDateFormat("EEEE");
+		String output=sdf2.format(dob);
+		System.out.println(output);
+	}
+
+}
+
+
+
+dd	2-digit date		ex:		11		01	
+MM	2-digit month	ex:		11		01
+MMM	3-char month	ex:		Jan		Feb
+MMMM	full month		ex:		January		February
+yy	2-digit year		ex:		23		97
+yyyy	full year		ex:		2023		1997
+mm	minutes
+EEE	3-letter week day	ex:		Mon		Tue
+EEEE	full week day	ex:		Monday		Tuesday
+

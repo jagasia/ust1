@@ -10,7 +10,7 @@ public class App {
 		Employee raja=new Employee();
 //		raja.id=1234;		//The field Employee.id is not visible
 		raja.setId(1234);
-		raja.marks=120f;
+//		raja.marks=120f;
 		
 		System.out.println("No error");
 	}
