@@ -82,6 +82,10 @@ public class College {
 		return String.format("Name: %s\nWebsite: %s\nMobile: %s\nFounder: %s\nNumber of Dept: %d\nLocation: %s\nStarting Date: %s\n", name, website, mobile, founder, numberOfDept, location, sdf.format(startingDate));
 
 	}
+
 	
+	public boolean equals(College arg) {
+		return this.getName().equalsIgnoreCase(arg.getName()) && this.getStartingDate().equals(arg.getStartingDate());
+	}	
 	
 }

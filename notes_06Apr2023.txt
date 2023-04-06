@@ -539,3 +539,29 @@ public class App {
 }
 
 
+What is the difference between the following methods:
+	System.out.format
+	System.out.printf
+		the above methods are same.	These method print
+	String.format
+		this above method returns a String.		Does not print.
+
+
+
+
+
+String str1="hello";
+String str2="hello";
+
+str1.equals(str2)		what will be the result?	true or false?		true
+
+equals method is defined the String class.
+
+
+College c1=new College();
+College c2=new College();
+
+c1.equals(c2)		not possible, because, College class do not have equals method.
+			So, we need to define that method.
+
+

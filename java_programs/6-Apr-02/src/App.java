@@ -39,6 +39,9 @@ public class App {
 		System.out.println("College 2:");
 		System.out.println(college2);
 		
+//		System.out.println(college1.equals(college2));
+		System.out.println((college1.equals(college2))?"College 1 is same as College 2 ":"College 1 and College 2 are different");
+		
 	}
 
 }
