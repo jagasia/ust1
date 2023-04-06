@@ -343,4 +343,36 @@ yyyy	full year		ex:		2023		1997
 mm	minutes
 EEE	3-letter week day	ex:		Mon		Tue
 EEEE	full week day	ex:		Monday		Tuesday
+hh	12-hours format	ex:		02
+HH	24-hours format	ex:		14
+mm	minutes
+ss	seconds
+S	milliseconds
+a	AM/PM
+
+
+Task:
+Accept a year from the user and display if it is a leap year or not.
+
+Hint:
+	isLeapYear() method of GregorianCalendar
+
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class LeapYearTask {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int year=sc.nextInt();
+		
+		GregorianCalendar gc=new GregorianCalendar();
+		
+		if(gc.isLeapYear(year))
+			System.out.printf("Yes %d is leap year",year);
+		else
+			System.out.printf("No %d is not leap year",year);
+	}
+
+}
 
