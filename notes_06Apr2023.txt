@@ -94,7 +94,7 @@ guidelines:
 	it is good to have private variables in a class level. Otherwise, "default" scope can be fine. "protected" can be fine.
 	Simply, a variable inside a class can be "non public" data member.
 
-Remind me for :	Access Specifiers, Constructor
+Remind me for :	Access Specifiers, Constructor, Date	
 
 	
 What is encapsulation?
@@ -129,3 +129,4 @@ Task:
 Open Java Mock 11 
 and create the College class as per instructions given.
 
+Date joiningDate=new Date();
