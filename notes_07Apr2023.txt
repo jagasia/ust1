@@ -265,3 +265,187 @@ public class Student implements Person
 a) Hello World		Student speaks
 b) Hello World
 c) Student speaks
+
+
+
+----------------------------
+Java PF 6
+
+start completing each challenge and update me.
+
+ Mileage Calculation
+
+    Raju is fond of bikes.He convinced his parents and bought a new bike.Now he wants to check the mileage of his bike.He is weak in mathematics,so help him to find out the mileage.Petrol price(X),Distance covered in kilometres(Y) and Amount(Z) for which he has filled the petrol is given as inputs.Write a program to find out the mileage of the bike.
+
+Input Format:
+First input is a double value that corresponds to the X value.
+Second input is a double value that corresponds to the Y value.
+Third input is a integer value that corresponds to the Z value.
+
+Output Format:
+Output is a double value that denotes the mileage of the bike(rounded off to two decimal places).
+    
+Sample Input 1:
+70.77
+280.50
+500
+
+Sample Output 1:
+39.70
+
+Sample Input 2:
+55.90
+320.25
+400
+
+Sample Output 2:
+44.75
+ 
+
+Solution:
+-------------
+import java.util.Scanner;
+
+public class MileageCalculation {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		double petrolPrice=sc.nextDouble();
+		double distanceCovered=sc.nextDouble();
+		int amount=sc.nextInt();
+		
+		double litres=(double)amount/petrolPrice;
+		
+		double mileage=distanceCovered/litres;
+//		mileage*=100;
+//		mileage=Math.round(mileage);
+//		mileage/=100;
+		
+//		String str=String.format("%.2f", mileage);
+//		mileage=Double.parseDouble(str);
+//		System.out.println(mileage);
+		
+		System.out.format("%.2f", mileage);
+		
+	}
+}
+----------------------------------------------
+ Historical Era
+
+Mohan came across many ancient people while reading a book . He was curious to know at what era they all would have lived .  Given a year(X) as input , Write a program to help Mohan find which century they belong to and categorize them into one of the following periods : " Prehistorical period " , " Vedic Period " , "Second Urbanisation " , " Early Modern Period " , " Modern Period " .
+
+Note:
+Prehistorical period       -    0-2nd
+Vedic Period                      -    3rd-6th
+Second Urbanisation    -    7th-13th
+Early Modern Period      -    14th-18th
+Modern Period                  -    19th-present
+
+Input format:
+First input is an integer that denotes the year value X.
+
+Output format:
+First line of output is an integer that denotes the century value.
+Second line consists of a string that denotes the Prehistorical period/Vedic Period/Second Urbanisation/Early Modern Period/Modern Period.
+
+Sample Input 1:
+1222
+
+Sample Output 1:
+13
+Second Urbanisation
+
+Sample Input 1:
+1947
+
+Sample Output 1:
+20
+Modern Period 
+
+-------------------------------------
+import java.util.Scanner;
+
+public class HistoricalEra {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int year=sc.nextInt();
+		//find the century. 	1947	=	20th
+		int century=year/100;
+		
+		if(year%100!=0)
+			century++;
+		
+//		Prehistorical period       -    0-2nd
+//		Vedic Period                      -    3rd-6th
+//		Second Urbanisation    -    7th-13th
+//		Early Modern Period      -    14th-18th
+//		Modern Period                  -    19th-present
+
+		System.out.println(century);
+		if(century<0)
+		{
+			System.out.println("Invalid");
+		}else if(century<=2)
+		{
+			System.out.println("Prehistorical period");
+		}else if(century<=6)
+		{
+			System.out.println("Vedic Period");
+		}else if(century<=13)
+		{
+			System.out.println("Second Urbanisation");
+		}else if(century<=18)
+		{
+			System.out.println("Early Modern Period");
+		}else
+		{
+			System.out.println("Modern Period");
+		}
+			
+	}
+
+}
+------------------------------------------
+Last Character
+
+Rahul was tired after studying for so long , so he thought to play a small game with the words from his book . He opens a random page and selects a random word from it , and also  chooses the last digit of that page number n . Given an array of characters,Write a program to help Rahul find the last character that occurs n(last digit of the page number) times in the array . If no such character exists,then print -1.
+
+Input Format:
+First input is an integer that denotes the size of the array.
+Second line consists of  series of characters  seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a character that denotes the last character which occurs n times.
+
+Sample Input 1:
+8
+a a b c n s d n
+2
+
+Sample Output 1:
+n
+
+Explanation:
+    In the given array 'a' and 'n' occurs 2 times which is equal to the n value . Even though 'a' occurs twice ,'n' is the one that occurs last.    
+    
+Sample Input 2:
+5
+a b c d e
+3
+
+Sample Output 2:
+-1 
+
+
+---------------------
+Hint:
+	take 1 character at a time and 
+	loop all characters and find how many times they match. that is the count.
+
+	keep maxCount variable and also maxCountChar variable and update every time the local count is greater than or equal to maxCount.
+
+
+https://docs.google.com/spreadsheets/d/16tG_vWjMGqA6wHTXIV19j2lvJ97ViuIFyQ95hLlQ_9w/edit?usp=sharing
+
+
