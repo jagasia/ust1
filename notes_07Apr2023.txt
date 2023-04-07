@@ -446,6 +446,86 @@ Hint:
 	keep maxCount variable and also maxCountChar variable and update every time the local count is greater than or equal to maxCount.
 
 
-https://forms.gle/2FtMtQrXHu1mdEJXA
+MCQ done
 
 
+
+--------------------------------
+Last Character
+
+Rahul was tired after studying for so long , so he thought to play a small game with the words from his book . He opens a random page and selects a random word from it , and also  chooses the last digit of that page number n . Given an array of characters,Write a program to help Rahul find the last character that occurs n(last digit of the page number) times in the array . If no such character exists,then print -1.
+
+Input Format:
+First input is an integer that denotes the size of the array.
+Second line consists of  series of characters  seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a character that denotes the last character which occurs n times.
+
+Sample Input 1:
+8
+a a b c n s d n
+2
+
+Sample Output 1:
+n
+
+Explanation:
+    In the given array 'a' and 'n' occurs 2 times which is equal to the n value . Even though 'a' occurs twice ,'n' is the one that occurs last.    
+    
+Sample Input 2:
+5
+a b c d e
+3
+
+Sample Output 2:
+-1 
+
+------------------------------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LastCharacter {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int size=sc.nextInt();
+		char []arr=new char[size];
+		for(int i=0;i<size;i++)
+		{
+			arr[i]=sc.next().charAt(0);
+		}
+		
+		int n=sc.nextInt();
+		
+		//check if a char is found n times or not.
+
+		char result='\0';
+		
+		for(int i=0;i<size;i++)
+		{
+//			System.out.println(arr[i]);
+			int count=0;
+			for(int j=0;j<size;j++)
+			{
+//				System.out.println("Comparing "+arr[i]+" with "+arr[j]);
+				if(arr[i]==arr[j])
+					count++;
+			}
+//			System.out.println(arr[i]+" is found "+count+" times");
+			if(count==n)
+			{
+//				System.out.println(arr[i]+" is eligible to be answer");
+				result=arr[i];
+			}
+		}
+//		System.out.println("Finally:");
+		if(result!='\0')
+			System.out.println(result);
+		else
+			System.out.println(-1);
+		
+	}
+
+}
