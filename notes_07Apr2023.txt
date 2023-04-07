@@ -232,3 +232,36 @@ public class Student extends Person {
 }
 
 
+Reminder:
+	Inheritance
+
+
+Activity:
+	Understand the scope of various access specifiers:
+
+public
+protected
+default
+private
+
+
+interface Person
+{
+	void speak();	
+}
+
+public class Student implements Person
+{
+	void speak()		//error. We cannot reduce the visibility of this method
+	{
+		System.out.println("Student speaks");
+	}
+	public static void main(String []args)
+	{	
+		System.out.println("Hello world");
+	}
+}
+
+a) Hello World		Student speaks
+b) Hello World
+c) Student speaks
