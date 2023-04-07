@@ -1,0 +1,162 @@
+Singleton:
+	A class that has only 1 instance.
+	we can achieve that by restricting the creation of objects. (how? by making the constructor as private scope)
+	The class should contain a static instance of the same class.
+
+public class Singleton
+{
+	private static Singleton s=null;
+	private Singleton()
+	{}
+
+	public static Singleton getInstance()
+	{
+		if(s==null)
+			s=new Singleton();
+		return s;
+	}
+}
+
+Double d=12.12345;
+//how to display the value of double in 2 digits precision
+
+i) String.format	or System.out.printf	or	System.out.format
+	%.2f
+
+ii) Math.round
+	returns int only
+	12.12345		becomes		12
+	12.12345 * 100=	1212.345		becomes		1212	/100
+
+iii) DateFormat
+	activity for you
+------------------------------
+Solution for Mock 29 Req 1:
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Mobile {
+	private String referenceId;
+	private String modelName;
+	private Double displaySize;
+	private Double price;
+	private Date launchedDate;
+	
+	public Mobile() {}
+
+	public Mobile(String referenceId, String modelName, Double displaySize, Double price, Date launchedDate) {
+		super();
+		this.referenceId = referenceId;
+		this.modelName = modelName;
+		this.displaySize = displaySize;
+		this.price = price;
+		this.launchedDate = launchedDate;
+	}
+
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public Double getDisplaySize() {
+		return displaySize;
+	}
+
+	public void setDisplaySize(Double displaySize) {
+		this.displaySize = displaySize;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Date getLaunchedDate() {
+		return launchedDate;
+	}
+
+	public void setLaunchedDate(Date launchedDate) {
+		this.launchedDate = launchedDate;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		return String.format("Reference Id: %s\nModel Name: %s\nDisplay Size: %f\nPrice: %.1f\nLaunched Date: %s",referenceId,modelName,displaySize,price,sdf.format(launchedDate));
+	}
+
+
+	public boolean equals(Mobile arg) {
+		return this.getReferenceId().equals(arg.getReferenceId()) && this.getModelName().equalsIgnoreCase(arg.getModelName());
+	}
+	
+	
+
+}
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter mobile 1 detail:");
+		String detail1=sc.nextLine();
+		System.out.println("Enter mobile 2 detail:");
+		String detail2=sc.nextLine();
+		
+		String[] arr1 = detail1.split(",");
+		Mobile m1=new Mobile();
+		m1.setReferenceId(arr1[0]);
+		m1.setModelName(arr1[1]);
+		m1.setDisplaySize(Double.parseDouble(arr1[2]));
+		m1.setPrice(Double.parseDouble(arr1[3]));
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		m1.setLaunchedDate(sdf.parse(arr1[4]));
+
+
+		String[] arr2 = detail2.split(",");
+		Mobile m2=new Mobile();
+		m2.setReferenceId(arr2[0]);
+		m2.setModelName(arr2[1]);
+		m2.setDisplaySize(Double.parseDouble(arr2[2]));
+		m2.setPrice(Double.parseDouble(arr2[3]));
+		m2.setLaunchedDate(sdf.parse(arr2[4]));
+
+		System.out.println(m1);
+		System.out.println();
+		System.out.println(m2);
+		System.out.println();
+		
+		if(m1.equals(m2))
+			System.out.println("Equals");
+		else
+			System.out.println("Not equals");
+	}
+
+}
+
+
+
+
+
+Access specifiers:
+-----------------------

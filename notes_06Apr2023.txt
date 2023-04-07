@@ -561,7 +561,9 @@ equals method is defined the String class.
 College c1=new College();
 College c2=new College();
 
-c1.equals(c2)		not possible, because, College class do not have equals method.
+c1.equals(c2)		possible, but it will not function properly. because, College class do not have equals method.
 			So, we need to define that method.
 
 
+---------------------
+Java Mock 29	Requirement 1
