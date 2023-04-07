@@ -160,3 +160,75 @@ public class App {
 
 Access specifiers:
 -----------------------
+in java, we have
+
+public
+protected
+default
+private
+
+public > protected > default > private
+
+
+
+void display()		//this method is of default scope
+{
+}
+
+
+default scope:
+
+package:
+	we can group classes, interface, abstract classes etc under a package.
+	we can control the access using package.
+
+	will prevent name collision,
+	
+String class		OMG		there is already a String class in java.lang
+
+my String class belongs to my own package.
+
+java.util.Scanner
+com.ust.hrms.Scanner
+
+
+-----------------------------------
+package one;
+
+public class Person {
+	public void speak()
+	{
+		System.out.println("Person speaks");
+	}
+	void walk()
+	{
+		System.out.println("Person walks");
+	}
+	
+	protected void listen()
+	{
+		System.out.println("Person listens");
+	}
+	
+	private void run()
+	{
+		System.out.println("Person run");
+	}
+}
+
+
+package two;
+
+import one.Person;
+
+public class Student extends Person {
+	public void method()
+	{
+		speak();	//public 
+//		walk();		//default	error
+		listen();	//protected
+//		run();		//private	error
+	}
+}
+
+
