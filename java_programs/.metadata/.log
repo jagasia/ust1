@@ -7892,3 +7892,21 @@ Caused by: java.lang.NullPointerException
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-10 12:17:49.323
 !MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:28:14.814
+!MESSAGE Preparing classpath changed notification 10-apr-shape
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:28:14.831
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:28:14.851
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:28:14.852
+!MESSAGE buffering callback sts4.classpath.kETudUYg 10-apr-shape false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:28:14.854
+!MESSAGE executing callback sts4.classpath.kETudUYg 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-10 15:28:14.886
+!MESSAGE executing callback sts4.classpath.kETudUYg SUCCESS [done]

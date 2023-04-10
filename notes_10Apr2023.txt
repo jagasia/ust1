@@ -594,6 +594,7 @@ public static void main(String []args){
 Shape s;
 s=new Circle();
 s.calculateArea();		//3.14 * r * r
+	error! because, "calculateArea" method is not defined in the Shape class.
 
 s=new Rectangle();
 s.calculateArea();		//l * b
@@ -603,3 +604,105 @@ s.calculateArea();		//0.5 * b * h
 
 }
 }
+
+
+
+I am forced to have a method in Shape class. There is no formula for calculating area of Shape.
+
+so i created an abstract method. An abstract method can be present only in an abstract class.
+So i made the class as abstract class.
+
+I could have created that method as 
+
+public float calculateArea()
+{}
+	//this vs
+
+public abstract float calculateArea();		//this method forces the subclass to override
+
+
+
+
+
+Activity:
+What is Abstract class?
+1) A class must be declared abstract if it has even 1 abstract method.
+2) An abstract class can have 0 or more abstract methods.
+3) We cannot create an object of abstract class.
+4) We can create reference variable of abstract class and later initialize it to the concrete sub class.
+5) Abstract class is meant for inheritance.
+6) If a class inherits an abstract class, and does not override any of the abstract methods, then the child class becomes abstract. We need to declare that as abstract. Otherwise, override that abstract methods.
+
+Shape s;	//is it allowed?  Yes. it is allowed. We are allowed to create ref var of abstract class.
+s=new Shape();	//is it allowed?	NO
+s=new Circle();	//YES, we create an object of sub class of abstract class
+
+---------------------------------------
+Understand the relationships between the objects (classes)
+
+i) Aggregation	(is part of)		both objects exist independantly
+ii) Composition	(is part of)		A controls the life time of B
+iii) Kind of		(inheritance)	Chair is a kind of Furniture
+iv) is an 	(object and class)		Employee raja=new Employee()	raja is an Employe
+v) utilization	(an object of a class is created inside a method of a class)
+		Furniture class "acceptDetails" method utilizes Scanner
+
+Aggregation:
+------------------
+A has B
+B is a part of A
+
+class Student
+{
+	Address address;
+}
+
+This is called as "Composition" relationship
+
+
+UML
+--------
+	design phase of SDLC
+	before design phase, we do "analysis" phase.
+	Object Oriented Analysis 
+	Object Oriented Design
+	OOA & D
+
+OOAD & UML
+
+Unified Modeling Language
+----------------------------------------
+9 UML Diagrams come under category
+	structural
+	behavioral
+	grouping
+	annotational
+
+structural
+	use case diagram
+	class diagram
+	object diagram
+
+behavioral
+	sequence diagram
+	state machine diagram
+	activity diagram
+
+grouping
+	package diagram
+	component diagram
+	deployment diagram
+
+
+
+
+-	private
++	public
+#	protected
+~	default
+
+
+Activity:
+	Identify each diagram in UML.
+
+
