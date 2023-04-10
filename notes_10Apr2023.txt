@@ -1,0 +1,391 @@
+Basics of SDLC and Agile Development
+SDLC
+	Software Development Life Cycle
+		steps followed to develop software
+what are those steps:
+	requirement analysis/	brainstorm
+	design
+	coding/implementation
+	testing/	checking with client
+	deployment
+	maintenance
+	
+
+inception/conception
+ellaboration
+design
+implementation
+testing
+deployment
+maintenance
+
+
+IBM has adopted Rational Corporation
+RUP		Rational Unified Process
+	INCEPTION
+	ELLABORATION
+	CONSTRUCTION
+	TRANSITION
+
+INCEPTION
+	gathering requirements of client
+	understand the business and suggest new technology that will make the business process
+		accurate
+		scalable
+		secure
+		with integrity
+		durable
+		concurrency
+
+	conception
+	
+ELLABORATION
+	brainstorm
+	analysis			SRS document	Software Requirement Specification
+	design			16 UML diagrams
+	coding			is implementation			
+	testing			find out all the testing happening in all phase of SDLC
+				W model
+	deployment		transition
+	maintenance
+
+
+Activity:
+	Understand SDLC
+
+SDLC models:
+	waterfall
+	iterative
+	spiral
+	V model
+	Agile
+	incremental
+	prototype
+	RAD
+
+Waterfall model:
+	After every phase, we move to next phase and no going back.
+	is possible only if we have the expertise and experience in that particular type of project.
+	
+
+Iterative and Spiral
+	Iterative begins with small part the project
+	in every iteration, a deliverable product is released as a version.
+	
+	In spiral model, after every iteration, client review/ feedback will be taken and consider changes.
+
+V Model
+
+
+Agile
+Requirements gathering
+Design the requirements
+Construction/ iteration
+Testing/ Quality assurance
+Deployment
+Feedback
+
+compiled and interpreted languages and their
+difference
+examples for compiled languages:
+--------------------------------------------
+	we compile and run
+		C, C++, Java, C#
+vs
+
+interpreter based languages
+	we do not compile the code. It is run directly.
+		HTML
+		Javascript
+
+------------------------------------------------------------------------------------------------------
+Core Java:
+--------------
+Data Types
+Variables
+Operators
+Control Structures
+	if
+	if else
+	if else if
+	switch
+	nested if
+	while
+	do while
+	for
+	for-each
+
+Arrays
+	int []arr=new int[10];
+	int arr[][]=new int[10][];		//jagged array
+
+methods:
+	how should we name a method?
+		camelCase
+		doThis
+		calculateSimpleInterest
+		acceptDetails
+
+why do we need methods?
+	Check if a number is prime or not.
+	Display all prime numbers between x and y
+	Display all full prime numbers between x and y
+	Display all non prime numbers between x and y
+
+
+method syntax:
+
+<<access modifier>><static or non static>><<return type>><<method name>>(<<arguments>> 0..*)
+
+
+class Employee
+{
+	public void display()
+	{
+
+	}
+
+	public static void join()
+	{
+
+	}
+}
+
+
+Employee.display();			//is NOT possible. Because, the method is not static.
+
+create an instance and call the method.
+
+Employee e1=new Employee();
+e1.display();			//is POSSIBLE
+
+
+
+Employee.join();			//is possible, because, join is a static method
+e1.join();				//is also allowed
+
+
+what is the special method that do not have return type?
+that method name is same as class name.
+	constructor
+
+static
+	variable
+	method
+	block
+
+
+static
+{
+}
+	static block is executed first. Even before the first line of main method is executed.
+
+
+Object Oriented Programming
+
+Everything inside class or interface.
+Is Java, Pure Object oriented language or not?
+	Since java supports, primitive data types, it is considered as NO.
+
+An object oriented programming language should support
+Inheritance
+Abstraction
+Encapsulation
+Polymorphism
+
+
+Task:
+-------
+Create a class "Furniture"
+should contain
+	"name"	String
+	"color"	String
+
+create no-arg constructor and all-arg constructor
+create getters and setters
+create following methods:
+	acceptDetails	(get inputs from the user and store them in the variables. Prompt user)
+	displayDetails	(display the values)
+--------------------------
+Create a class "Chair" that inherits Furniture
+	"noOfLegs"	int
+
+create constructors and getters and setters
+create both
+	acceptDetails
+	displayDetails
+------------------------------
+Create a class "BookShelf" that inherits Furniture
+	"noOfShelves"	int
+
+create constructors and getters and setters
+create both
+	acceptDetails
+	displayDetails
+
+
+Reminder for:	overloading, covarient
+---------------------
+Rules for overriding:
+-------------------------
+1) Sub class method and super class method names are same.	(no error. it is not overriding)
+2) sub class method arguments and super class method arguments are same. (no error. it is not overriding)
+	arguments are same type or co-varient type
+	same number of argument, same type and same order of type of arguments. Otherwise, it is not overriding. It is overloading
+3) sub class method cannot reduce the visibility of the super class method
+	super class method is "public" then sub class method must be "public" only
+			"protected" then sub class method can be "public" or "protected"
+			"default" then 	"public" or "protected" or "default"
+			"private" then 	"public" or "protected" or "default" or "private"
+4) sub class method cannot declare "throws" for new exceptions. 	Whatever declared as thrown in super class method, they can only be declared as thrown.
+
+
+import java.util.Scanner;
+
+public class Furniture {
+	private String name;
+	private String color;
+	
+	public Furniture() {}
+
+	public Furniture(String name, String color) {
+		super();
+		this.name = name;
+		this.color = color;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public void acceptDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name:");
+		name=sc.nextLine();
+		System.out.println("Enter the color:");
+		color=sc.nextLine();
+	}
+	
+	public void displayDetails()
+	{
+		System.out.println("Name: "+name);
+		System.out.println("Color: "+color);
+	}
+	
+	private void method1()
+	{
+		
+	}
+}
+
+
+
+import java.io.IOException;
+import java.util.Scanner;
+//how many properties are there in Chair class
+public class Chair extends Furniture{
+	private int noOfLegs;
+	
+	public Chair() {}
+
+	public Chair(int noOfLegs) {
+		super();
+		this.noOfLegs = noOfLegs;
+	}
+
+	public int getNoOfLegs() {
+		return noOfLegs;
+	}
+
+	public void setNoOfLegs(int noOfLegs) {
+		this.noOfLegs = noOfLegs;
+	}
+	
+	//the below method hides the super class method
+	public void acceptDetails() //throws IOException	NOT ALLOWED
+	{
+		//i should call the super class method
+		super.acceptDetails();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter no Of Legs:");
+		noOfLegs=sc.nextInt();
+	}
+	//what we have done here?
+	//super class method is redefined by sub class.
+	//this is called as overriding
+	
+	public void displayDetails()
+	{
+		super.displayDetails();
+		System.out.println("No of Legs: "+noOfLegs);
+	}
+	
+	public void method1()
+	{
+		System.out.println("method 1");
+	}
+}
+
+
+
+import java.util.Scanner;
+
+public class BookShelf extends Furniture{
+	private int noOfShelves;
+	
+	public BookShelf() {}
+
+	public BookShelf(int noOfShelves) {
+		super();
+		this.noOfShelves = noOfShelves;
+	}
+
+	public int getNoOfShelves() {
+		return noOfShelves;
+	}
+
+	public void setNoOfShelves(int noOfShelves) {
+		this.noOfShelves = noOfShelves;
+	}
+	
+	public void acceptDetails()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter no Of Shelves:");
+		noOfShelves=sc.nextInt();
+	}
+	
+	public void displayDetails()
+	{
+		System.out.println("No of Shelves: "+noOfShelves);
+	}
+}
+
+
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		Chair c=new Chair();
+		c.acceptDetails();
+		c.displayDetails();
+		c.method1();
+	}
+
+}
