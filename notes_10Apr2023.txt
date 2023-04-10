@@ -588,6 +588,9 @@ class Triangle extends Shape
 	}
 }
 
+public class App3
+{
+public static void main(String []args){
 Shape s;
 s=new Circle();
 s.calculateArea();		//3.14 * r * r
@@ -598,3 +601,5 @@ s.calculateArea();		//l * b
 s=new Triangle();
 s.calculateArea();		//0.5 * b * h
 
+}
+}
