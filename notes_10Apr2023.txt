@@ -389,3 +389,212 @@ public class App {
 	}
 
 }
+
+--------------------------------------------------------------------------
+class Shape
+{
+	
+}
+
+class Circle extends Shape
+{
+	public float calculateArea()
+	{
+		System.out.println("3.14 * r * r");
+	}
+}
+
+class Rectangle extends Shape
+{
+	public float calculateArea()
+	{
+		System.out.println("l * b");
+	}
+}
+
+class Triangle extends Shape
+{
+	public float calculateArea()
+	{
+		System.out.println("0.5 * b * h");
+	}
+}
+
+Shape s;
+s=new Circle();
+s.calculateArea();		//3.14 * r * r
+
+s=new Rectangle();
+s.calculateArea();		//l * b
+
+s=new Triangle();
+s.calculateArea();		//0.5 * b * h
+
+
+
+What is inheritance?
+-----------------------------
+When a class is a kind of another class, then there is a "inheritance" relationship.
+
+Chair is a kind of Furniture
+BookShelf is a kind of Furniture
+
+
+
+1: Chair
+2: BookShelf
+3: Exit
+
+What is polymorphism?
+	poly	=	many
+	morph	=	face
+
+many faces or many forms
+
+sum(2,3)			=	5
+sum("rama","krishna")	=	ramakrishna
+
+based on the type of arguments, the behavior of the method varies/ differs.
+Different behavior is polymorphism.
+
+in above example, 2 methods names same	"sum"
+sum method behaves differently based on arguments.
+
+This type of polymorphism is called as "Method Overloading"
+
+What is method overloading:
+	is the ability to define multiple methods with same name.
+Rules for method overloading
+	1) method name is same
+	2) arguments must differ either by
+		i) number of arguments (or)
+		ii) type of arguments (or)
+		iii) order of the type of arguments
+	3) if return types are the only difference, then it is not allowed.
+		return types can be same or different. It does not matter.
+
+There should be a difference in the signature.
+What is signature?
+	Signature of a method is 
+		number of arguments
+		type of arguments
+		order of type of arguments	
+
+
+Tell me if the following methods are overloaded properly:
+	int sum(int , int)
+	float sum(int, int)
+		sum(2,3)		which of the above is called?
+NO. The only difference is the return type. HENCE IT IS NOT OVERLOADING.
+We will get ERROR for the above.
+
+int sum(int a, int b)
+int sum(int b, int a)
+		sum(2,3)
+	IS IT ALLOWED?		NO. IT IS NOT ALLOWED.
+		argument names does not matter.
+
+So far, you have used lot of Java built-in methods,
+example for overloading?
+	System.out.println()
+-----------------------------------------------------
+What is overriding?
+	is done across inheritance.
+	A sub class overrides the super class method.
+
+Recursion
+	a method calls itself
+
+
+Chair c=new Chair();		
+
+//Chair is a sub class of Furniture.
+//When i create an object of Chair, will it create an object of Furniture (super class)?
+  
+Task:
+-------
+Create classes
+
+A
+B extends A
+C extends B
+D extends C
+
+Have constructors in all the classes
+Create object of D
+
+
+class A
+{
+	public A(int x){
+		System.out.println("Constructor A");
+	}
+}
+
+class B extends A
+{
+	public B(){
+		System.out.println("Constructor B");
+	}
+}
+
+class C extends B
+{
+	public C(){
+		System.out.println("Constructor C");
+	}
+}
+class D extends C
+{
+	public D(){
+		System.out.println("Constructor D");
+	}
+}
+
+public class App2
+{
+	public static void main(String []args)
+	{
+		D d=new D();
+	}
+}
+----------------------------
+class Shape
+{
+	
+}
+
+class Circle extends Shape
+{
+	public float calculateArea()
+	{
+		System.out.println("3.14 * r * r");
+	}
+}
+
+class Rectangle extends Shape
+{
+	public float calculateArea()
+	{
+		System.out.println("l * b");
+	}
+}
+
+class Triangle extends Shape
+{
+	public float calculateArea()
+	{
+		System.out.println("0.5 * b * h");
+	}
+}
+
+Shape s;
+s=new Circle();
+s.calculateArea();		//3.14 * r * r
+
+s=new Rectangle();
+s.calculateArea();		//l * b
+
+s=new Triangle();
+s.calculateArea();		//0.5 * b * h
+

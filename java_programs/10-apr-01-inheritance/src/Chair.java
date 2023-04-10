@@ -20,13 +20,15 @@ public class Chair extends Furniture{
 	}
 	
 	//the below method hides the super class method
+	
 	public void acceptDetails() //throws IOException	NOT ALLOWED
 	{
 		//i should call the super class method
-		super.acceptDetails();
+		
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter no Of Legs:");
 		noOfLegs=sc.nextInt();
+		super.acceptDetails();
 	}
 	//what we have done here?
 	//super class method is redefined by sub class.

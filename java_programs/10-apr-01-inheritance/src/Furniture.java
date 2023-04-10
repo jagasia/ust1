@@ -43,8 +43,5 @@ public class Furniture {
 		System.out.println("Color: "+color);
 	}
 	
-	private void method1()
-	{
-		
-	}
+	
 }
