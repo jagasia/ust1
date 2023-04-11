@@ -107,9 +107,268 @@ public class App3
 class Notepad extends StatusBar		//Notepad is a kind of StatusBar	WHICH IS NOT OK
 
 
+Inheritance
+Encapsulation
+Abstraction
+Polymorphism
 
-Abstract class vs Interface:
+Encapsulation
+	in java, a variable inside the class is declared as non-public data member.
+	
+	we provide access to those data members using getters and setter (these methods are public).
+Abstraction
+	A public method is provided for the user to access the properties.
 
+
+Encapsulation and Abstraction are complement to each other.
+Encapsulation is like hiding non essential characteristics of an object
+Abstraction is like providing access to essential characteristics of an object
+	public methods, we do abstraction
+
+
+Polymorphism
+	static		compile time	ex:	overloading
+	dynamic		run time		ex:	overriding
+
+Inheritance
+	single inheritance		java support
+	multiple inheritance		NO
+	multi-level inheritance	java support
+	hybrid inheritance		NO
+
+Shape
+	calculateArea		no formula	we made it abstract
+
+Abstract class:
+	we cannot create an object of abstract class.
+	we can create reference variable of abstract class.	(this is not called as object)
+	is meant to be inherited to use it. Or if abstract class has a static method, we can directly call the method using classname.method name
+	can contain methods with body also. 
+	an abstract class may or may not have abstract method.
+
+Shape s;
+s=new Circle();
+s=new Triangle();
+
+This is meant for dynamic polymorphism.	runtime polymorphism.	late binding.
+
+Interface:
+------------
 What is interface?
-------------------------
+
+class OnePlus
+{
+}
+
+class Oppo implements ThreePoint
+{
+	public void playSound()
+	{
+		System.out.println("Oppo plays good music");
+	}
+}
+
+interface ThreePointFiveMmJack
+{
+	public void playSound();
+}
+
+
+public class App4
+{
+	public static void music(ThreePointFiveMmJack x)
+	{
+		x.playSound();
+	}
+	public static void main(String arg[])
+	{
+		Oppo o=new Oppo();
+		OnePlus op=new OnePlus();
+		music(o);
+		music(op);		//ERROR
+		
+	}
+}
+
+
+Interface:
+	highest level of abstraction.
+	upto java version 7 or old, 	
+		interfaces does not allow methods with body.
+	from java 8 onwards,
+		interfaces can contain methods with body if it is
+			static
+			default
+
+	can interface contain variable???????	NO
+	any data member inside the interface will AUTOMATICALLY Become "static and final"
+	an interface can inherit another interface
+	
+
+interface Person
+{
+	int marks;		NOT POSSIBLE because A CONSTANT must be assigned a value
+	int AGE=20;
+	public static final int AGE=20;
+}
+
+what an interface can contains?
+	methods
+	constants
+
+Java 8 interface:
+	can contain methods with body if the method is 
+		static
+		default
+Activity:
+Understand what is an interface.
+Data members
+methods
+inside the interface
+
+static and default methods of interface	(java 8)
+--------------------------------------
+--------------------------------------------------------------------------
+Collections:
+----------------
+what are the limitations of array?
+1) size to be known priorly.
+2) insertion and deletion involved shifting elements.
+3) contiguous memory locations required.
+4) adv:	Array elements can be primitive type also.	
+5) Array size cannot be changed.
+
+
+Collections:
+	In java.util package, we have some useful collection classes that come under
+
+List	interface implemented by
+	LinkedList
+	ArrayList
+
+Set	interface implemented by
+	HashSet
+	TreeSet
+	LinkedHashSet
+
+
+Understand List vs Set
+List
+	the order of the elements is preseved.	
+	Ordered collection
+	Order is not ascending / descending. It is the order in which the elements are added.
+	Allows duplicate elements
+	After adding elements, we can sort a list		Collections.sort(list);
+
+Set
+	Order of the elements are based on the type of Set
+		HashSet		the order is based on hashCode method
+		TreeSet		sorted based on Comparable/ Comparator
+		LinkedHashSet	ordered	(the order in which elements are added)
+	rejects duplicates
+	After adding elements, Set does not allow rearranging or sorting
+		Collections.sort is not possible for Set
+
+Map
+	is application of collection
+
+	
+		
+Before Java 5, all collection classes in java were "Object" type.
+
+ArrayList x=new ArrayList();
+x.add(new Integer(20));
+x.add(new Float(2.2f));
+x.add("Raja");
+
+It looked like a collection allows any type (heterogenous). Actually NOT.
+All are Object type. 
+
+Java 5 onwards, Generics introduced.
+
+ArrayList<Integer> marks=new ArrayList<Integer>();
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+
+
+
+		ArrayList marks=new ArrayList();
+		marks.add(new Integer(10));
+		marks.add("Raja");
+		marks.add(new Float(2.2f));
+		
+		Object arr[]=new Object[10];
+		arr[0]=new Integer(10);
+		arr[1]="Raja";
+		arr[2]=new Float(2.2f);
+		
+		
+In above example, it looks like array list and array are allowing different type of elements.
+But actually, they are automatically cast to Object type. They are all same type only.
+
+Before List, Set are introduced, the first versions of java had some collection classes.
+Legacy classes.
+
+Vector
+Hashtable
+
+	these legacy classes are Synchronized.	Means, thread-safe.	
+
+Vector is similar to ArrayList
+Hashtable is similar to HashMap	
+
+Vector has index
+ArrayList has index
+
+Collection class has some methods
+	add
+	size
+	
+
+arr.length
+str.length()
+list.size()
+
+
+import java.util.ArrayList;
+
+public class App1 {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> marks=new ArrayList<Integer>();
+		marks.add(100);
+		marks.add(50);
+		marks.add(90);
+		marks.add(60);
+		marks.add(100);
+		
+//		System.out.println(marks.size());
+//		System.out.println(marks);
+		
+		for(int i=0;i<marks.size();i++)
+		{
+			System.out.println(marks.get(i));
+		}
+	}
+
+}
+
+
+add an element to the list
+remove element by finding an element if it is present and then remove.
+
+class University
+{
+	List<College> collegeList;
+}
+Task:	
+File: 	Java_Mock_11
+Page:	7
+Requirement 2:
 	
