@@ -1,0 +1,115 @@
+Overloading
+int sum(int, int)
+int sum(float, float)
+
+sum(2.5f, 3.5f)
+
+float f;
+f=2.5;		//is it fine or not?
+	2.5 is always considered as double. 	so double to float casting is not implicit.
+f=(float)2.5;
+f=2.5f;
+
+int i=20;
+long l=20;		//not correct
+long l=20L;	// is correct
+
+Example:
+		float f=12.5f;
+		long l=20;
+		l=9876543210L;
+		System.out.println(f);
+		System.out.println(l);
+
+Covariant
+
+class Super
+{
+	public static Super getInstance()
+	{
+		return this;
+	}
+}
+
+class Sub extends Super
+{
+	
+	public static Sub getInstance()
+	{
+		return this;
+	}
+}
+-------------------------------------
+OOPS
+Inheritance
+Encapsulation
+Abstraction
+Polymorphism
+
+Inheritance:
+	1) We do not always need to create a class from the scratch.
+	2) By inheritance, we create a new class that gets benefit of super class and also defines new features
+	3) It is called extensibility
+	4) When to do inheritance????
+		Only when a class is a kind of another class, then inheritance should be 		used.
+	5) If you create an object of sub class, then there is "is a " relationship, that should apply to the super class also.
+		Employee 
+			ContactEmployee
+		
+		raja is a ContractEmployee
+		raja is an Employee
+
+	6) through inheritance what are available for sub class?
+		public
+		protected
+		default (if sub class is in same package of super class)
+		private	(members of super class are not available to sub class)
+	7) In java, a class can inherit only 1 super class.	This is called as single 		inheritance.	
+	8) Do java support Multiple Inheritance?
+		Through interface.
+		
+		2 sub classes
+
+		a sub class inherits 2 super classes (this is not possible in java)
+
+abstract class Person
+{
+	public abstract void speak();
+}
+
+class Teacher extends Person
+{
+	public void speak()
+	{
+
+	}
+}
+
+class Student extends Person
+{
+	public void speak()
+	{
+	}
+}
+
+public class App3
+{
+	public static void main(String args[])
+	{
+		Person raja;
+		raja=new Teacher();
+		raja.speak();
+	
+		raja=new Student();
+		raja.speak();
+	}
+}
+class Notepad extends StatusBar		//Notepad is a kind of StatusBar	WHICH IS NOT OK
+
+
+
+Abstract class vs Interface:
+
+What is interface?
+------------------------
+	
