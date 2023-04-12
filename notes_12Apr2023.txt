@@ -906,3 +906,55 @@ Task:
 Java Mock 29	Req # 5
 
 User Comparable and Comparator
+------------------------------------------------
+
+Set
+-----------
+	HashSet
+	TreeSet		
+	LinkedHashSet
+
+HashSet
+------------
+	the order of the elements are based on hashCode() method of the type.
+	duplicates are identified by the equals() method
+
+	equals and hashCode are the 2 important methods for HashSet
+
+ problem:
+
+
+public List<Integer> removeDuplicates(List<Integer> list)
+{
+	//write your code here
+}
+
+sample input:
+7
+11
+2
+5
+2
+9
+8
+11
+sample output:
+11
+2
+5
+9
+8
+
+HashSet<Integer> temp=new HashSet<Integer>(list);		
+list=new ArrayList<Integer>(temp);
+return list;
+
+//now what happens?????		HashSet has rearranged the order of the elements
+test case failed
+Instead of using HashSet, they should have LinkedHashSet
+
+Task:
+Create a java program that stored lot of Country names to a Set.
+If you add same country name again, set should not accept that.
+
+Display all country names.
