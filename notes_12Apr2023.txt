@@ -855,3 +855,54 @@ public class App {
 
 
 
+---------------------------------------------------------------------------
+List category classes
+	ArrayList
+	LinkedList
+
+supports iteration in both directions.
+Iterator methods
+	hasNext()
+	next()
+	remove()
+
+So it is not possible to use iterator to traverse in reverse direction. 
+Solution:
+	use ListIterator	instead of iterator.
+
+ListIterator
+	works only for List
+
+methods of ListIterator
+	hasNext()
+	next()
+	remove()
+	hasPrevious()
+	previous()
+
+
+Lambda:
+	can be used wherever we want to provide quick implementation of functional interfaces
+
+Functional Interface:
+------------------------------
+	An interface that contains only 1 abstract method is a functional interface
+
+ex:
+	Comparable
+	Comparator
+	Runnable
+
+
+Functional Interface
+Marker Interface		(an interface that has 0 methods)
+	ex:		Serializable
+
+
+
+
+Task:
+-------
+Java Mock 29	Req # 5
+
+User Comparable and Comparator

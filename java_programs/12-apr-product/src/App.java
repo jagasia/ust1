@@ -13,7 +13,7 @@ public class App {
 		productList.add(new Product(511, "Mi Tv 12", 12.2, "Electronics"));
 		productList.add(new Product(25, "Scale", 12.2, "Stationary"));
 
-//		Collections.sort(productList);
+		Collections.sort(productList, (a,b)->b.getName().compareTo(a.getName()));
 		
 		for(Product p: productList)
 			System.out.println(p);

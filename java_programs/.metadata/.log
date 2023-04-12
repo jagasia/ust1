@@ -3303,3 +3303,21 @@ Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-12 15:29:07.334
+!MESSAGE Preparing classpath changed notification 12-apr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-12 15:29:07.334
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-12 15:29:07.335
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-12 15:29:07.336
+!MESSAGE buffering callback sts4.classpath.PCXeeXwd 12-apr false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-12 15:29:07.337
+!MESSAGE executing callback sts4.classpath.PCXeeXwd 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-12 15:29:07.340
+!MESSAGE executing callback sts4.classpath.PCXeeXwd SUCCESS [done]
