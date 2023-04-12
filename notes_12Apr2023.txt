@@ -958,3 +958,34 @@ Create a java program that stored lot of Country names to a Set.
 If you add same country name again, set should not accept that.
 
 Display all country names.
+
+
+If you want to check if an element is already present in a collection, you can use "contains" method
+
+if(hset.contains("india"))
+	yes india is there in the set.
+else
+	no india is not there in the set.
+
+-----------------------------------
+Activity:
+Identify the difference between
+	HashSet
+	TreeSet
+	LinkedHashSet
+
+
+TreeSet
+	allows adding elements of type that implements Comparable
+	or While creating a treeset, we should pass a comparator object
+
+	pre-defined types like Integer, String, Date, Float, etc already implements Comparable
+	so they are allowed in TreeSet
+
+	TreeSet<Employee> empSet=new TreeSet<>();
+	empSet.add(new Emplo.....
+		ERROR if Employee does not implement Comparable.
+
+	In case if you want to use Comparator,
+		TreeSet<Employee> empSet=new TreeSet<>(new EmpComparator());	
+
