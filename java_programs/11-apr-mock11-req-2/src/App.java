@@ -13,11 +13,11 @@ public class App {
 		int choice=4;
 		do
 		{
-			System.out.println("1.Add College \r\n" + 
-					"2.Delete College \r\n" + 
-					"3.Display Colleges \r\n" + 
-					"4.Exit \r\n" + 
-					"Enter your choice: \r\n" + 
+			System.out.println("1.Add College \n" + 
+					"2.Delete College \n" + 
+					"3.Display Colleges \n" + 
+					"4.Exit \n" + 
+					"Enter your choice: \n" + 
 					"");
 			choice=sc.nextInt();
 			switch(choice)
