@@ -444,3 +444,117 @@ Product:
 Product class should implement Comparable interface
 and override the compareTo method that will compare based on any of the field
 
+----------------------------------------------------
+Solution:
+----------------
+
+public class Product implements Comparable<Product>
+{
+	private Integer id;
+	private String name;
+	private Double price;
+	private String category;
+	
+	public Product() {}
+
+	public Product(Integer id, String name, Double price, String category) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.category = category;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", category=" + category + "]";
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		return this.getId().compareTo(o.getId());
+	}
+	
+}
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		List<Product> productList=new ArrayList<>();
+		productList.add(new Product(5, "Pencil", 12.2, "Stationary"));
+		productList.add(new Product(15, "Sharpner", 12.2, "Stationary"));
+		productList.add(new Product(51, "Eraser", 12.2, "Stationary"));
+		productList.add(new Product(115, "One Plus 11", 12.2, "Electronics"));
+		productList.add(new Product(511, "Mi Tv 12", 12.2, "Electronics"));
+		productList.add(new Product(25, "Scale", 12.2, "Stationary"));
+
+		Collections.sort(productList);
+		
+		for(Product p: productList)
+			System.out.println(p);
+	}
+
+}
+
+
+-------------------------------------
+Product class implements Comparable interface
+and override compareTo method.
+
+in compareTo method, we compared the ids of the product. So while sorting, it was sorted based on id.
+
+Now, we provide user with options to sort.
+1) sort by id		Collections.sort(productList);		//use comparable
+2) sort by name		Collections.sort(productList,new ProductNameComparator());
+3) sort by price
+4) sort by category
+
+using comparable, we can provide compareTo method that mentions a logic.
+But at runtime, we cannot change this compareTo logic.
+
+So, we can create additional comparator classes for each type of sorting we need.
+1) ProductNameComparator	implements Comparator<Product>
+2) ProductPriceComparator	implements Comparator<Product>
+---------------------------------
+Task:
+Java Mock 11	Req # 5
+
