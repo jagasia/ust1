@@ -591,3 +591,181 @@ second thread should display "Even"
 
 Start both the threads in main method and observe that both threads run in asynchronous manner.
 
+Technique #2:
+we can create child threads by
+	a class that extends Thread
+
+class Odd extends Thread
+{
+	public void run()
+	{
+		while(true)
+		{
+			System.out.println("Odd");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+class Even extends Thread
+{
+	public void run()
+	{
+		while(true)
+		{
+			System.out.println("Even");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+public class App {
+
+	public static void main(String[] args) {
+		Even t1=new Even();		//Even is a sub class of Thread
+		Odd t2=new Odd();
+		
+		t1.start();
+		t2.start();
+
+	}
+
+}
+
+
+Now,
+How many abstract methods are present in Runnable interface?
+	1.	run method
+So can we call this Runnable interface as "Functional Interface".
+
+To implement a functional interface, can we use lambda?
+	Lambda was introduced in Java 8.
+
+Before lamba:
+		Thread t3=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while(true)
+				{
+					System.out.println("Three");
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
+After lambda:
+		Thread t4=new Thread(()->{
+			while(true)
+			{
+				System.out.println("Four");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+----------------------------------------------------
+Advantages:
+	effective utilization of resources
+	parallel/ concurrent execution
+	multiple flow of execution
+
+Disadvantages:
+	race condition
+	lock starvation
+	dead lock
+
+
+Priority
+	thread priority can be between 	1 - 10
+	if we do not mention the priority, it is 5
+	t1.setPriority
+	t1.getPriority
+
+Inter thread communication
+	one thread can make another thread
+		wait
+		notify		continue
+		notifyAll		all waiting threads to continue
+
+	wait vs sleep
+	sleep	-	after sleeping time, thread automatically continues
+	wait	-	will continue only when we call notify	t1.notify();
+
+Thread Synchronization
+	what is thread synchronization?
+		ensure that when a particular region of code is executed, that code is executed by one thread at a time. Other threads wait for their turn.
+		Synchronization ensures that no two threads access a shared resource at a time.
+
+Lets see how to do thread synchronization:
+1) join()
+2) synchronized block
+3) synchronized method
+
+join()
+	ensures that only the threads that are already started, will continue to finish the work.
+	Then only other threads can start.
+
+When 2 threads share a same object.
+
+public synchronized void method1()
+{
+}
+
+
+
+example:
+
+public class One {
+	public synchronized void method1()
+	{
+		System.out.println("Method 1 started executing by "+Thread.currentThread().getName());
+
+//		synchronized (this) {
+			for(int i=0;i<10;i++)
+			{
+				System.out.println(Thread.currentThread().getName()+"is printing : "+i);			
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+//		}
+		
+		
+			for(int i=100;i<110;i++)
+			{
+				System.out.println("Another loop of "+Thread.currentThread().getName()+" : "+i);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		
+		System.out.println("End of method 1");
+	}
+}
+
+
