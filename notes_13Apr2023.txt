@@ -426,5 +426,168 @@ in every iteration of mobileList
 	if(count==null)
 		count=0;
 --------------------------------------------------------
+Additional learning:
+ListIterator
+DescendingIterator
+SortedSet	vs TreeSet
+How to create generic types in java?
+StringJoiner
 
+
+Generics vs Non-Generics
+
+Why it is called Generics?
+	ArrayList marks=new ArrayList();			//non-generic
+
+	ArrayList<Integer> marks=new ArrayList<Integer>();		//generics
+
+
+<T>
+
+class Employee<T>
+{
+	T id;
+
+
+
+Employee<Integer>
+
+------------------------------------------------------------------------
+String
+StringBuilder
+StringBuffer
+StringTokenizer
+StringJoiner
+---------------------------------
+Threads & Multi-Threading
+---------------------------------------
+What is a Process?
+	Process is a running instance of a Program.
+	For every process, microprocessor allocates resources.
+	What are resources?
+		time
+		memory
+
+Imagine if a program is running and waiting for user input.
+	cpu have allocated time and memory.
+	the cpu have come to our process and waited for user input.
+	cpu utilization	=	0%
+
+	suppose, if we want to improve cpu utilization, we should run multiple threads in a process.
+
+So far, we created lot of programs, how many threads we used in each program?
+	Every main method itself is a thread.
+	it is main thread.
+
+	if you create additional threads, then they are called as child threads.
+	if a process has more than 1 thread, it is a multi-threaded process.
+
+if a process has 2 threads,
+	cpu comes to our process.
+	1 thread is waiting for input.
+	cpu performs the tasks of another thread.		cpu utilization = 50%
+
+0%
+50%
+66%
+75%
+	Effective utilization of resources
+	Threads in a process, share the resources allocated for the process.
+
+
+Reminder:		core 2 duo
+	Before dual core processor, 		(except mainframes)
+	where we had single core processor,
+	multi-threading was done in concurrency mode.
+
+	in multi-core processors, it is done in parallelism mode.
+	multi-threading works in multi-core processor in such a way that
+	each core will perform a thread.
+
+
+How to create a child thread?
+1) Runnable
+2) Thread
+
+Technique 1:
+class A implements Runnable
+{
+	public void run()
+	{
+	//work
+	}
+}
+
+
+Thread t1=new Thread(new A());
+
+
+method1();
+method2();
+
+Demo:
+Create a java program that performs 2 methods in asynchronous manner.
+method1:
+	print all even number from 2 to 50
+
+method2:
+	print all odd numbers from 1 to 50
+
+
+class Odd implements Runnable
+{
+	public void run()
+	{
+		for(int i=1;i<=50;i+=2)
+		{
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+class Even implements Runnable
+{
+
+	@Override
+	public void run() {
+		for(int i=2;i<=50;i+=2)
+		{
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}
+public class App1 {
+
+	public static void main(String[] args) {
+		Thread t1=new Thread(new Odd());
+		Thread t2=new Thread(new Even());
+		
+		t1.start();
+		t2.start();
+	}
+
+}
+
+---------------------
+Task:
+
+Create 2 thread
+first thread should display "Odd"
+second thread should display "Even"
+
+Start both the threads in main method and observe that both threads run in asynchronous manner.
 
