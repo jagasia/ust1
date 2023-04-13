@@ -410,6 +410,21 @@ you got credentials in email:
 	learning.prograd.org
 
 
+-------------------
+Task:
+	Java Mock 29 	Req #6
 
+public static Map<Date,Integer> yearWiseCount(List<Mobile> mobileList)
+
+in every iteration of mobileList
+	Date date=mobile.getLaunchedDate();
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy");
+	String year=sdf.format(date);
+	//year contains a string version of year		2018
+	Date dt=sdf.parse(year);
+	Integer count=map.get(dt);
+	if(count==null)
+		count=0;
+--------------------------------------------------------
 
 
