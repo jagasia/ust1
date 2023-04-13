@@ -769,3 +769,10 @@ public class One {
 }
 
 
+Activity:
+1) Create a java program that runs 4 threads. Use join() method in different positions and observe.
+2) Create a java program that has 2 threads that use same object and call method.
+	The method should contain synchronized block inside.
+Observe that only 1 thread is allowed to enter synchronized block at a time. Once that thread exits the sync block, another thread enters.
+3) In same example, try to change the method as synchronized method and observe.
+
