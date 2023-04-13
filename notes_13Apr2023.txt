@@ -197,3 +197,9 @@ public class App {
 
 }
 
+---------------------------------------
+Hands on:
+	Java Mock 11	Req #6	page 38
+
+calculateLocationCount
+	

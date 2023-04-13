@@ -6323,3 +6323,813 @@ Caused by: java.net.SocketException: Connection reset
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 09:46:42.080
 !MESSAGE executing callback sts4.classpath.nCNWjVjI SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:41:48.109
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.nCNWjVjI
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:41:48.118
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.nCNWjVjI
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:41:48.119
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:41:48.159
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.nCNWjVjI => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.499
+!MESSAGE Boot LS startup time from start to initialized: 6709ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.540
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.TYXfuBMOisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.540
+!MESSAGE subscribing to classpath changes: sts4.classpath.TYXfuBMO isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.540
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.541
+!MESSAGE subsribers = {sts4.classpath.TYXfuBMO=Send Classpath Notifications(1971)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.541
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.541
+!MESSAGE project 13-apr-mock-11-req-6 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.590
+!MESSAGE project 03-apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.590
+!MESSAGE Preparing classpath changed notification 13-apr-mock-11-req-6
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.591
+!MESSAGE project 10-apr-01-inheritance ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.591
+!MESSAGE project 10-apr-shape ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.591
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.591
+!MESSAGE project 11-apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.591
+!MESSAGE project 11-apr-collections-1 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.592
+!MESSAGE project 11-apr-interfaces ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.592
+!MESSAGE project 11-apr-mock11-req-2 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.592
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.592
+!MESSAGE project 11-apr-old ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.592
+!MESSAGE project 12-apr ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.593
+!MESSAGE project 12-apr-hashset ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.593
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 13-apr-mock-11-req-6 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.593
+!MESSAGE project 12-apr-iterators ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.593
+!MESSAGE Preparing classpath changed notification 03-apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.593
+!MESSAGE project 12-apr-linked-list ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.594
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.594
+!MESSAGE project 12-apr-mock-11-req-5 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.594
+!MESSAGE project 12-apr-mock29-req-2 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.594
+!MESSAGE project 12-apr-product ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.594
+!MESSAGE project 13-apr-enum ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.595
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.595
+!MESSAGE project 13-apr-map ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.595
+!MESSAGE project 13-apr-treeset-1 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.595
+!MESSAGE project 4-Apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.595
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 03-apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.596
+!MESSAGE Preparing classpath changed notification 10-apr-01-inheritance
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.596
+!MESSAGE project 5-Apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.596
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.596
+!MESSAGE project 6-Apr-01 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.596
+!MESSAGE project 6-Apr-02 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.597
+!MESSAGE project 6-Apr-03-mobile ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.597
+!MESSAGE project 7-Apr-packages-1 ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.597
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.597
+!MESSAGE project pf-6-solutions ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.598
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.598
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.TYXfuBMO => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.598
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 10-apr-01-inheritance false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.598
+!MESSAGE Preparing classpath changed notification 10-apr-shape
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.598
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.599
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.600
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 10-apr-shape false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.600
+!MESSAGE Preparing classpath changed notification 11-apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.600
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.601
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.602
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 11-apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.602
+!MESSAGE Preparing classpath changed notification 11-apr-collections-1
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.602
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.603
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.603
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 11-apr-collections-1 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.604
+!MESSAGE Preparing classpath changed notification 11-apr-interfaces
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.604
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.604
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.605
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 11-apr-interfaces false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.605
+!MESSAGE Preparing classpath changed notification 11-apr-mock11-req-2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.605
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.606
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.607
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 11-apr-mock11-req-2 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.607
+!MESSAGE Preparing classpath changed notification 11-apr-old
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.607
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.608
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.609
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 11-apr-old false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.609
+!MESSAGE Preparing classpath changed notification 12-apr
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.609
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.610
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.610
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.610
+!MESSAGE Preparing classpath changed notification 12-apr-hashset
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.610
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.611
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.612
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr-hashset false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.612
+!MESSAGE Preparing classpath changed notification 12-apr-iterators
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.612
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.613
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.613
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr-iterators false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.613
+!MESSAGE Preparing classpath changed notification 12-apr-linked-list
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.613
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.614
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.615
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr-linked-list false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.615
+!MESSAGE Preparing classpath changed notification 12-apr-mock-11-req-5
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.615
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.616
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.616
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr-mock-11-req-5 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.617
+!MESSAGE Preparing classpath changed notification 12-apr-mock29-req-2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.617
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.618
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.618
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr-mock29-req-2 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.618
+!MESSAGE Preparing classpath changed notification 12-apr-product
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.618
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.619
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.620
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 12-apr-product false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.620
+!MESSAGE Preparing classpath changed notification 13-apr-enum
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.620
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.621
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.621
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 13-apr-enum false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.621
+!MESSAGE Preparing classpath changed notification 13-apr-map
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.622
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.622
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.623
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 13-apr-map false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.623
+!MESSAGE Preparing classpath changed notification 13-apr-treeset-1
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.624
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.624
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.625
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 13-apr-treeset-1 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.625
+!MESSAGE Preparing classpath changed notification 4-Apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.625
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.626
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.626
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 4-Apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.627
+!MESSAGE Preparing classpath changed notification 5-Apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.627
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.627
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.628
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 5-Apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.628
+!MESSAGE Preparing classpath changed notification 6-Apr-01
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.628
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.629
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.630
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 6-Apr-01 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.630
+!MESSAGE Preparing classpath changed notification 6-Apr-02
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.630
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.631
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.631
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 6-Apr-02 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.631
+!MESSAGE Preparing classpath changed notification 6-Apr-03-mobile
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.632
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.632
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.633
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 6-Apr-03-mobile false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.633
+!MESSAGE Preparing classpath changed notification 7-Apr-packages-1
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.633
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.634
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.635
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO 7-Apr-packages-1 false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.635
+!MESSAGE Preparing classpath changed notification pf-6-solutions
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.635
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.636
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.636
+!MESSAGE buffering callback sts4.classpath.TYXfuBMO pf-6-solutions false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.637
+!MESSAGE executing callback sts4.classpath.TYXfuBMO 26 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-13 11:42:23.674
+!MESSAGE executing callback sts4.classpath.TYXfuBMO SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:44:46.142
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:44:46.745
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:44:46.842
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:44:46.958
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:44:47.069
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:45:56.467
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:46:39.579
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:46:39.757
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:46:39.853
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:46:39.955
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:47:40.420
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:47:40.936
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:47:41.014
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-04-13 11:47:41.171
+!MESSAGE org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+!STACK 0
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.eclipse.lsp4e.operations.completion.LSContentAssistProcessor.computeCompletionProposals(LSContentAssistProcessor.java:96)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaCompletionProposalComputer.lambda$0(SpringBootJavaCompletionProposalComputer.java:51)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Internal error.
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:209)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:193)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$1(LanguageServerWrapper.java:214)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
