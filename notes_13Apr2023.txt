@@ -202,4 +202,214 @@ Hands on:
 	Java Mock 11	Req #6	page 38
 
 calculateLocationCount
+
+University - Requirement 6
+
+Requirement 6:
+
+In this requirement, given a list of colleges, you need to find the number of colleges present in a location using Map.
+
+a) Create a Class College with the following attributes:
+Member Field Name	Type
+name	String
+website	String
+mobile	String
+founder	String
+numberOfDept	Integer
+location	String
+createdDate	java.util.Date
+
+Mark all the attributes as private, Create / Generate appropriate Getters & Setters. Add a default constructor and a parameterized constructor to take in all attributes in the given order: College(String name, String website, String mobile,String founder, Integer numberOfDept, String location,Date startingDate)
+
+b) Create the following static methods in the College class,
+Method Name	Description
+static Map<String,Integer> calculateLocationCount(List<College> list)	This method accepts a list of College as arguments and returns a TreeMap with the location as key and number of colleges present on the location as value and returns the map.
+In the TreeMap have the location as key and Count the number of colleges present on the location and keep the number of colleges as value. Print the value sorted by location.
+
+The college details should be given as a comma-separated value in the below order,
+name, website, mobile, founder, numberOfDept, location, startingDate
+
+Print format:
+System.out.format("%-15s %s\n","Location","Count");
+
+Sample Input and Output 1:
+Enter the number of colleges:
+4
+IIT Madras,www.iitm.ac.in/,9876543210,Govt of India,15,Chennai,30-05-1959
+IIT Delhi,www.iitd.ac.in/,9876543213,Govt of India,14,Delhi,15-05-1958
+MIT,www.mitindia.edu/,9876542320,Govt of India,11,Chennai,12-05-1949
+JNU,www.jnu.ac.in/,9879879877,Govt of India,10,Delhi,13-05-1969
+Location	Count
+Chennai	2
+Delhi	2
+ 
+-------------------------------------
+Solution:
+------------
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class College {
+	private String name;
+	private String website;
+	private String mobile;
+	private String founder;
+	private Integer numberOfDept;
+	private String location;
+	private Date createdDate;
 	
+	public College() {}
+
+	public College(String name, String website, String mobile, String founder, Integer numberOfDept, String location,
+			Date createdDate) {
+		super();
+		this.name = name;
+		this.website = website;
+		this.mobile = mobile;
+		this.founder = founder;
+		this.numberOfDept = numberOfDept;
+		this.location = location;
+		this.createdDate = createdDate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getFounder() {
+		return founder;
+	}
+
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	@Override
+	public String toString() {
+		return "College [name=" + name + ", website=" + website + ", mobile=" + mobile + ", founder=" + founder
+				+ ", numberOfDept=" + numberOfDept + ", location=" + location + ", createdDate=" + createdDate + "]";
+	}
+	
+	static Map<String,Integer> calculateLocationCount(List<College> list)
+	{
+		Map<String, Integer> map=new TreeMap<>();
+		for(College college:list)
+		{
+			String key = college.getLocation();
+			Integer value = map.get(key);
+			if(value==null)
+			{
+				value=0;
+			}
+			value++;
+			map.put(key, value);		//either adds a new entry or updates exiting entry
+		}
+		return map;		//dummy
+	}
+
+}
+
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of colleges:");
+		int n=sc.nextInt();
+		List<College> collegeList=new ArrayList<College>();
+		
+		for(int i=0;i<n;i++)
+		{
+			String detail=sc.nextLine();		//nextLine comes after nextInt
+			if(detail.equals(""))
+				detail=sc.nextLine();
+//			IIT Madras,www.iitm.ac.in/,9876543210,Govt of India,15,Chennai,30-05-1959
+			String[] arr = detail.split(",");
+			College college=new College();
+			college.setName(arr[0]);
+			college.setWebsite(arr[1]);
+			college.setMobile(arr[2]);
+			college.setFounder(arr[3]);
+			college.setNumberOfDept(Integer.valueOf(arr[4]));
+			college.setLocation(arr[5]);
+			SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+			college.setCreatedDate(sdf.parse(arr[6]));
+			
+			collegeList.add(college);
+		}
+		
+		Map<String, Integer> result = College.calculateLocationCount(collegeList);
+		
+		System.out.format("%-15s %s\n","Location","Count");
+		for(Entry<String, Integer> e:result.entrySet())
+			System.out.format("%-15s %s\n",e.getKey(),e.getValue());
+	}
+
+}
+
+	
+
+
+you got credentials in email:
+	learning.prograd.org
+
+
+
+
+
