@@ -1,0 +1,154 @@
+Reminder:		enum
+
+What is enum?
+	In real life,
+		Jan, Feb, Mar, ..... 
+		Mon, Tue, 
+	there are some fixed set of options.
+
+	we can represent them in java program using enum
+
+enum is a type.
+----------------------------------------------
+Collection API
+-------------------
+List
+Set
+Map
+	these are the important interfaces
+
+List
+	allowes duplicates
+	order is maintained
+
+Set
+	rejects duplicates
+	order of the set is based on the type of Set
+	HashSet
+		order is based on hashCode method
+	TreeSet
+		order is based on Comparable/ Comparator
+		treeset always adds elements in such a way it is sorted
+		we can supply comparator object to the constructor of the TreeSet. Later we cannot change the comparator. Comparator should be provided while creating the tree set.
+		
+
+LinkedHashSet
+----------------------
+	maintains the order of the elements.
+	How LinkedHashSet identify the duplicates and decide the order?
+		hashCode
+		equals
+
+	Because, basically, a LinkedHashSet is a HashSet
+
+--------------------------------------------
+Map
+	is application of List and Set
+
+	is a 2 - dimensional structure.
+
+	key	-	value
+
+1	-	India
+2	-	Australia
+3	-	China
+
+
+id	-	employee
+10		Employee [id=10, firstName=Ajith, lastName=Kumar, location=Chennai]
+12	-	Employee [id=12, firstName=Rajesh, lastName=Kumar, location=Chennai]
+11	-	Employee [id=11, firstName=Suresh, lastName=Kumar, location=Kochi]
+
+
+
+Task:
+	Accept a sentence string as input from the user.
+	Display the characters and their occurrence as output
+
+input:	this is a sentence typed by me
+output:
+t	3
+h	1
+i	2
+s	3
+ 	6
+a	1
+e	4
+
+Map<Character,Integer> map=new LinkedHashMap<,>();
+
+Whatever Set you learned, there is a corresponding Map
+
+HashSet		-	HashMap
+TreeSet		-	TreeMap
+LinkedHashSet	-	LinkedHashMap
+
+in a Map, the key is a Set
+
+
+key will not allow duplicates.
+key allow null????????	it will allow null.	how many null?????	
+
+1	India
+2	China
+3	Australia
+2	Bangladesh		china is replaced by bangladesh
+
+	
+map.put(key,value);
+	if the key is not found in the map, yet, then it is added as a new entry
+	if the key is already found, then it will replace the value.
+
+map.get(key);		returns the value
+if that key is not found, 	returns null
+
+
+
+
+Map to not have iterator.
+what to do?
+	a map is a set of entries		Entry class is there in java.util.Map
+
+		Set<Entry<Integer, String>> entries = countryMap.entrySet();
+		
+		for(Entry<Integer, String> entry:entries)
+		{
+			System.out.println(entry.getKey()+" : "+entry.getValue());
+		}
+
+Complete:
+--------------
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+		HashMap<Integer, String> countryMap=new HashMap<>();
+		countryMap.put(12, "China");
+		countryMap.put(1, "India");
+		countryMap.put(11, "Argentina");
+		countryMap.put(12, "Bangladesh");
+		countryMap.put(18, "Pakistan");
+		countryMap.put(13, "Sri lanka");
+		countryMap.put(15, "France");
+		countryMap.put(14, "Germany");
+		countryMap.put(2, "Italy");
+		
+//		Set<Entry<Integer, String>> entries = countryMap.entrySet();
+//		
+//		for(Entry<Integer, String> entry:entries)
+//		{
+//			System.out.println(entry.getKey()+" : "+entry.getValue());
+//		}
+//		System.out.println(countryMap);
+		
+		for(Entry<Integer, String> e:countryMap.entrySet())
+		{
+			System.out.println(e);
+		}
+	}
+
+}
+
