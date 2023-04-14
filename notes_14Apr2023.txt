@@ -371,3 +371,103 @@ public class App2 {
 }
 
 
+--------------------------------------------------------
+Error/Exception Handling, Custom Exceptions
+----------------------------------------------------------------
+Error
+	is something which cannot be handled
+
+
+Exception
+	can be handled
+
+What is exception?
+	abnormal event that occur during the execution of the program.
+
+	exception is a situation where, we do not know how to respond/ react.
+
+A program find such situation, throws exception thereby allowing the user to handle it.
+
+Exceptions
+	are providing some input to us.
+	it gives message.
+	it terminates the program abruptly to prevent some issues.
+
+Exception class
+	is the super class for all exceptions
+
+ArrayIndexOutOfBoundsException
+ArithmeticException
+ClassNotFoundException
+IOException
+ParseException
+IllegalArgumentException
+ConcurrentModificationException
+SQLException
+FileNotFoundException
+RuntimeException		(is the super class for all unchecked exceptions)
+InputMismatchException
+NullPointerException
+
+
+
+
+Object
+	Throwable
+		Exception
+			RuntimeException
+		Error
+
+
+Checked vs Unchecked Exceptions
+
+Checked Exceptions
+	are exception which are derived from Exception class.
+	if you do not take care of these exceptions, the program does not compile.
+	take care means,	either you
+		i) declare the method with "throws"
+		ii) handle the exception using "try - catch -finally" blocks.
+
+	FileNotFoundException
+	InterruptedException
+	IOException
+	ClassNotFoundException 
+		are examples of checked exceptions
+
+Unchecked Exceptions
+	are exceptions which are derived from RuntimeException class.
+	
+	ArithmeticException
+	NullPointerException
+
+
+--------------------------------------------------------------
+How to handle exceptions?
+	try
+	catch
+	finally	
+-----------------------------------
+	throw
+	throws
+
+--------------------------
+Activity:
+	Identify the above statements and blocks of Exceptions in java.
+
+try
+	block is a guarded section
+	any exceptions occurred in this block can be handled by the catch block(s)
+
+catch
+	block can handle a type of exception.	
+	there can be zero or more catch blocks for a try block
+
+finally
+	it is an optional block
+	is always executed even if exception occurred or not. handled or not.
+
+throw
+	is used to throw exception object
+
+throws
+	declares the method throws these type of exceptions but does not handle them. The 		calling method has to handle them.
