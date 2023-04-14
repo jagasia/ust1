@@ -2,6 +2,8 @@
 public class One {
 	public synchronized void method1()
 	{
+		final int MARKS=100;
+		
 		System.out.println("Method 1 started executing by "+Thread.currentThread().getName());
 
 //		synchronized (this) {
