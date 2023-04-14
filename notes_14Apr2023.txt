@@ -209,3 +209,165 @@ Use
 FileInputStream and FileOutputStream
 
 FileReader and FileWriter
+
+Identify the significance of each class:
+BufferedReader	char
+BufferedOutputStream	binary
+BufferedWriter		char
+BufferedInputStream		binary
+ObjectInputStream		binary
+ObjectOutputStream		to write objects to a node stream
+DataInputStream
+DataOutputStream		to write primitive data to a node stream
+
+--------------------------------------------------
+BufferedReader
+	Before jdk 1.5, ie., upto jdk 1.4, There was no Scanner class.
+
+to get input from the user, we used BufferedReader
+
+System.in
+	System is a class.	Inside this class, a static variable is present.		"in"
+
+	in is an object of InputStream.
+
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App5 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedInputStream bis=new BufferedInputStream(System.in);
+		
+		
+		String str=br.readLine();
+		System.out.println(str);
+	}
+
+}
+
+
+-------------------------------------------------------------
+DataOutputStream
+DataInputStream
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class App6 {
+	public static void main(String[] args) throws IOException {
+		DataOutputStream dos=new DataOutputStream(new FileOutputStream("kalyan.dat"));
+		dos.writeInt(101);
+		dos.writeFloat(2.5f);
+		dos.writeChars("Kalyan");
+		dos.flush();
+		dos.close();
+		System.out.println("Done");
+	}
+}
+
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class App7 {
+
+	public static void main(String[] args) throws IOException
+	{
+		//read primitives from a file
+		DataInputStream dis=new DataInputStream(new FileInputStream("kalyan.dat"));
+		float f=dis.readFloat();
+		int i=dis.readInt();		
+		String s=dis.readLine();
+		System.out.println(i);
+		System.out.println(f);
+		System.out.println(s);
+		
+	}
+
+}
+
+
+-------------------
+Serialization
+	What is Serialization?
+		is a process of converting an object into a series of bytes
+		purpose of doing this is to send an object to a stream
+
+what we do now??
+	we store an object of a class in a file.
+
+
+12,Kalyan,Jennie,Hyderabad
+10,Ajay,CM,Ernakulam
+
+
+Serializable
+	is a marker interface
+	what is marker interface?
+		an interface that does not have any abstract method
+
+public void method(Serializable s){}
+
+
+method(emp);		Employee implements Serializable
+
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class App1 {
+
+	public static void main(String[] args) throws IOException {
+		//get inputs from the user
+		Scanner sc=new Scanner(System.in);
+		String detail=sc.nextLine();
+		//create an object of Employee from a CSV
+		String[] arr = detail.split(",");
+		Employee emp=new Employee();
+		emp.setId(Integer.parseInt(arr[0]));
+		emp.setFirstName(arr[1]);
+		emp.setLastName(arr[2]);
+		emp.setLocation(arr[3]);
+		
+		//lets write this object to a file
+		ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("kalyan.dat"));
+		oos.writeObject(emp);
+		oos.flush();
+		oos.close();
+		System.out.println("Done");
+	}
+
+}
+
+
+
+Another program to read object from the file:
+------------
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class App2 {
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException{
+		//to read object from file
+		ObjectInputStream ois=new ObjectInputStream(new FileInputStream("kalyan.dat"));
+		Employee e=(Employee) ois.readObject();
+		
+		System.out.println(e);
+
+	}
+
+}
+
+
