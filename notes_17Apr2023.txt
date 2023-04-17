@@ -464,4 +464,15 @@ How to run junit test from main method?
 			System.out.println(f.getMessage());
 		}
 
+--------------
 
+	@Test(expected = ArithmeticException.class)
+	public void testProduct() {
+		int actual = aut.product();
+		assertEquals(6, actual);
+	}
+
+
+----------------
+Test Suite
+-------------

@@ -27,7 +27,7 @@ public class MathematicsTest {
 		System.out.println("Before: setUp method is called");
 		aut=new Mathematics();
 		aut.setNo1(2);
-		aut.setNo2(3);
+		aut.setNo2(0);
 	}
 
 	@After
@@ -49,10 +49,12 @@ public class MathematicsTest {
 		assertEquals(-1, actual);
 	}
 
-	@Test
+	@Test(expected = ArithmeticException.class)
 	public void testProduct() {
 		int actual = aut.product();
 		assertEquals(6, actual);
 	}
+	
+	
 
 }
