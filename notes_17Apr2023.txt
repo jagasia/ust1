@@ -1,3 +1,122 @@
-https://docs.google.com/spreadsheets/d/1Jp2B2rUDeaEjNsoP5LnXMiWGOAr9K7GeCmtsBe_WZMI/edit?usp=sharing
+Exception Handling
+-----------------------------
+Last session, we discussed about what is Exception.
+Lets understand handling exception.
+
+By throwing an exception, the person who creates the method communicates us, that something is abnormal. The person who creates the method does not want to decide what to do when such exception occurs. They want the calling method to decide.
+
+1) try block can contain many catch block. How many?		0 or more
+2) try - finally is possible. try - catch is possible.	try - catch - finally possible.
+	try - catch -catch -catch -finally is possible.
+	
+3) try block can contain nested try blocks also.
+	catch block can also contain try blocks.
+
+	if inner block does not find a suitable catch block, it can search for that catch block in outer try block.
 
 
+method1()	calls method2() calls method3() calls method4()
+
+in method4() an exception occurred.
+	it is unhandled.		because, there is not try catch in method4.
+
+This unhandled exception is propagated to the method3.	method3() can handle this.
+
+if method3 does not handle, then method2 gets the exception. 	method2() can handle this.
+
+
+there are some exceptions, which must be dealt. "Checked Exception"
+
+In our below code:
+class Bank
+{
+	public void withdraw(int amount)
+	{
+		if(amount>20000)
+			throw new NumberFormatException("Amount is > 20k so we cannot dispense that cash");
+		else
+			System.out.println("Remember to collect the cash");
+		System.out.println("Happy day");
+	}
+}
+
+public class App1 {
+
+	public static void main(String[] args) {
+		Bank sbi=new Bank();
+		try
+		{
+			sbi.withdraw(51000);
+			System.out.println("Line after withdraw within try block");
+		}catch(NumberFormatException nfe)
+		{
+			System.out.println(nfe.getMessage());
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Handles any exception.");
+		}
+		System.out.println("Welcome back");
+	}
+
+}
+
+
+
+we have thrown, "NumberFormatException". This comes under category "Unchecked exception".
+That is why we did not bother while throwing this exception.
+
+But if we throw, a checked exception, then we need to deal that.
+deal that means, 
+	either handle exception using try-catch (or)	(not fine because, why we throw 						and handle by ourself)
+	declare with throws clause.
+
+while using multiple catch blocks, the catch blocks order should be
+	sub class then super class
+
+For ex:
+	catch(FileNotFoundException ex1)
+	{}
+	catch(IOException ex2)
+	{}
+	catch(Exception ex3)
+	{}
+
+this should be the order.
+
+If you put super class type first, then next catch block will be unreachable code.
+hence	catch(Exception ex) should be last one only.
+
+throw
+	is used to throw an object of exception.
+	throw an exception
+
+throws
+	is used to declare a method that it throws these types of exceptions 
+	and does not handle them.		only checked exceptions need to declare 		with throws.
+	
+	the calling method has to handle that exception.
+
+How to create our own exception class?
+	a class that extends Exception	is an user defined checked exception class
+	a class that extends RuntimeException is an user defined unchecked exception class
+
+
+	
+Task:
+Write a java program to get 2 inputs from the user.
+The input1 must be greater than input2.
+And input2 cannot be 8.
+
+Pass these 2 inputs a arguments of a method
+	calculatePercentage(int x, int y)
+
+pass input1 and input2 for x and y.
+
+If the rules are not followed throw your own exception object.
+Your exception:
+	DenominatorException
+should be a checked exception
+
+while throwing this exception in calculatePercentage method, it should use throws clause.
+in main method while calling this method, use try catch blocks and handle.
