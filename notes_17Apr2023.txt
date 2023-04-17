@@ -433,3 +433,35 @@ public class MathematicsTest {
 	}
 
 }
+
+---------------------------------------------
+@Before	or @BeforeEach
+@After	or @AfterEach
+
+the above annotated methods are executed before every test method.
+what is a test method, a method with @Test annotation
+
+On the other hand, we want some method to be executed only once for the test class. Not before every test method.
+
+@BeforeClass
+@AfterClass
+	these methods are executed only once before and after all test methods respectively.
+
+
+Suppose, we have a test class. 
+we have 3 test methods.
+How to ignore 1 of these test method while running?
+
+@Ignore
+	this annotation is used to ignore the tests 
+
+How to run junit test from main method?
+--------------------------------------------------------------
+		Result result = JUnitCore.runClasses(MathematicsTest.class);
+		System.out.println(result.getFailureCount());
+		for(Failure f:result.getFailures())
+		{
+			System.out.println(f.getMessage());
+		}
+
+

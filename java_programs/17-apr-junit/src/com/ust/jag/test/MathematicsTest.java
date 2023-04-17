@@ -3,13 +3,24 @@ package com.ust.jag.test;
 import static org.junit.Assert.*;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.ust.jag.Mathematics;
 
 public class MathematicsTest {
 	Mathematics aut;
+	
+	@AfterClass
+	
+	@BeforeClass
+	public static void init()
+	{
+		System.out.println("This method is executed before all tests. But only once for the test class.");
+	}
 	
 	@Before
 	public void setUp() throws Exception {
@@ -32,6 +43,7 @@ public class MathematicsTest {
 	}
 
 	@Test
+//	@Ignore
 	public void testSubtract() {		
 		int actual = aut.subtract();
 		assertEquals(-1, actual);

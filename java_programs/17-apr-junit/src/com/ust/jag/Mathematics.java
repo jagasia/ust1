@@ -30,17 +30,17 @@ public class Mathematics {
 	
 	public int add()
 	{
-		return no1+no2;
+		return no1+no2+2;
 	}
 	
 	public int subtract()
 	{
-		return no1-no2;
+		return no1-no2-2;
 	}
 	
 	public int product()
 	{
-		return no1*no2;
+		return no1*no2-2;
 	}
 	
 	
