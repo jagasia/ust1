@@ -223,3 +223,213 @@ How to add a .jar file to java project in eclipse?
 			java Build path->
 				libraries->		Add external jar (button)
 
+Testing:
+	what are the types of testing?
+		Unit testing
+		Functional testing
+		Integration testing
+		Regression testing
+		System testing
+		Performance testing
+		Stress testing
+		Usability testing
+
+Unit testing
+	testing a single unit of the software, usually it is a method.
+	functionality of a method is tested.
+	it is black box testing. because, we do not worry about the logic used inside the method to achieve the objective.
+
+	we test only the result / outcome of the method vs expected outcome.
+
+Test case:
+	contains, the
+		test case number
+		tested method name
+		sample input 1
+		sample input 2		and so on
+		expected output
+		actual output		tester will fill this after running the method
+		test result		actual vs expected output are equal, then pass
+
+Test Suite:
+	contains lot of test cases
+
+
+Java programs can be tested using many frameworks.
+	junit
+	
+JUnit is a library
+
+What you test? is called as AUT or SUT
+AUT
+	Application Under Test
+SUT
+	Software Under Test
+
+in this example, I create a class Mathematics
+	add
+	subtract
+	multiply
+
+Test Bed
+	initial configuration we do before we start the test.
+
+Look at this example: AUT:
+
+public class Mathematics {
+	int no1;
+	int no2;
+	
+	public Mathematics() {}
+
+	public Mathematics(int no1, int no2) {
+		super();
+		this.no1 = no1;
+		this.no2 = no2;
+	}
+
+	public int getNo1() {
+		return no1;
+	}
+
+	public void setNo1(int no1) {
+		this.no1 = no1;
+	}
+
+	public int getNo2() {
+		return no2;
+	}
+
+	public void setNo2(int no2) {
+		this.no2 = no2;
+	}
+	
+	public int add()
+	{
+		return no1+no2;
+	}
+	
+	public int subtract()
+	{
+		return no1-no2;
+	}
+	
+	public int product()
+	{
+		return no1*no2;
+	}
+	
+	
+}
+
+This Mathematics class needs to be tested now.
+
+Create a class MathematicsTest
+
+TDD
+	Test Driven Development
+		i) write the code to fail
+		ii) modify the code to pass
+		iii) refactor the code
+
+Refactor:
+	modify the program without changing the logic.
+
+
+---------------------
+Demo:
+package com.ust.jag;
+
+public class Mathematics {
+	int no1;
+	int no2;
+	
+	public Mathematics() {}
+
+	public Mathematics(int no1, int no2) {
+		super();
+		this.no1 = no1;
+		this.no2 = no2;
+	}
+
+	public int getNo1() {
+		return no1;
+	}
+
+	public void setNo1(int no1) {
+		this.no1 = no1;
+	}
+
+	public int getNo2() {
+		return no2;
+	}
+
+	public void setNo2(int no2) {
+		this.no2 = no2;
+	}
+	
+	public int add()
+	{
+		return no1+no2;
+	}
+	
+	public int subtract()
+	{
+		return no1-no2;
+	}
+	
+	public int product()
+	{
+		return no1*no2;
+	}
+	
+	
+}
+
+
+package com.ust.jag.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.ust.jag.Mathematics;
+
+public class MathematicsTest {
+	Mathematics aut;
+	
+	@Before
+	public void setUp() throws Exception {
+		System.out.println("Before: setUp method is called");
+		aut=new Mathematics();
+		aut.setNo1(2);
+		aut.setNo2(3);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		aut=null;
+		System.out.println("THis is after");
+	}
+
+	@Test
+	public void testAdd() {		
+		int actual = aut.add();
+		assertEquals(5, actual);
+	}
+
+	@Test
+	public void testSubtract() {		
+		int actual = aut.subtract();
+		assertEquals(-1, actual);
+	}
+
+	@Test
+	public void testProduct() {
+		int actual = aut.product();
+		assertEquals(6, actual);
+	}
+
+}
