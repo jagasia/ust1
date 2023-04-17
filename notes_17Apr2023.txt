@@ -164,3 +164,62 @@ JSON & XML
 	JSON	=	JavaScript Object Notation
 	XML	=	eXtensible Markup Language
 
+Whenever a data is transferred from one system to another system,
+we need a standard data format.
+
+	csv		comma separated value
+		was the information exchange format for several years/
+
+1999
+	XML was introduced
+	W3C	world wide web consortium
+
+how xml data looks like?
+in csv:
+	1,Rama,80
+	2,Ravi,70
+
+in xml:
+	<STUDENTS>
+		<STUDENT>
+			<RNO>1</RNO>
+			<NAME>Rama</NAME>
+			<MARK>80</MARK>
+		</STUDENT>
+		<STUDENT>
+			<RNO>2</RNO>
+			<NAME>Ravi</NAME>
+			<MARK>70</MARK>
+		</STUDENT>
+	</STUDENTS>
+
+in JSON:
+	{"id":"1","name":"Rama","mark":"80"}
+	{"id":"2","name":"Ravi","mark":"70"}
+
+
+
+
+How to convert a java object into a JSON string?
+	Google provides a library for that.
+		gson.jar
+
+what is jar?
+	Java ARchive
+
+
+	rar
+	zip
+	jar
+
+		all of these are archives.
+		what is significant in jar????		
+			a folder structure that has \bin 	\lib	
+
+
+How to add a .jar file to java project in eclipse?
+	Right click project->
+		properites->
+			java Build path->
+				libraries->		Add external jar (button)
+
