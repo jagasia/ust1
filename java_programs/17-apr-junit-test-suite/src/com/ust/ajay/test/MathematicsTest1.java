@@ -1,6 +1,8 @@
 package com.ust.ajay.test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -44,5 +46,12 @@ public class MathematicsTest1 {
 		aut.setNo2(3);
 		assertEquals(6, aut.product());
 	}
-
+	
+	@Test
+	public void mockTest()
+	{
+		Mathematics m = mock(Mathematics.class);
+		when(m.add()).thenReturn(200);
+		
+	}
 }

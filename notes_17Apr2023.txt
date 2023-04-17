@@ -476,3 +476,32 @@ How to run junit test from main method?
 ----------------
 Test Suite
 -------------
+Create multiple test classes.
+Create a test suite and add selective test classes to the suite.
+Run the suite and observe that the test classes of that suite only runs.
+
+
+Test Suite categories;
+	categories test runner.
+suppose there are lot of test classes and each class have several methods.
+These methods can be marked with different categories.
+
+class  A
+	admin
+	method1
+
+	user
+	method2
+
+	admin
+	method3
+
+class B
+	user
+	method1
+
+	admin
+	method2
+
+	user
+	method3
