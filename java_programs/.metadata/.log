@@ -1472,3 +1472,21 @@ java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-e9db7bbf-9e
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-18 10:22:47.013
 !MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-04-18 16:47:24.579
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-04-18 16:47:24.596
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-18 17:58:18.343
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.BmMPSvtD
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-18 17:58:18.357
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.BmMPSvtD
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-18 17:58:18.406
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-18 17:58:18.413
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.BmMPSvtD => OK

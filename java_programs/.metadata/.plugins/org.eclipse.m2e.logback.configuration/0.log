@@ -991,3 +991,11 @@ java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-e9db7bbf-9e
 2023-04-18 10:18:40,711 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
 2023-04-18 10:18:40,793 [Worker-20: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11
 2023-04-18 10:18:40,793 [Worker-20: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always
+2023-04-18 16:47:23,926 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 16:47:23,991 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 16:47:23,995 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 16:47:23,995 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 16:47:24,526 [Worker-29: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-18 16:47:24,594 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\main\resources
+2023-04-18 16:47:24,595 [Worker-29: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-18 16:47:24,697 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\test\resources

@@ -504,4 +504,86 @@ CREATE
 ALTER
 DROP
 TRUNCATE
+	How TRUNCATE is DDL?
+	It is only removing records from the table.
+	It is like DROP and CREATE.		So all records are deleted fast.
+Reminder:
+	after learning DELETE, we compare TRUNCATE
+---------------------
+
+DML
+	INSERT
+	UPDATE
+	DELETE
+
+INSERT
+	adds row(s) to the table
+
+UPDATE
+	updates the existing row(s) of the table
+
+DELETE
+	deletes the records (rows) from the table
+
+Notice that DML is going to affect the data present inside the table. It is not going to alter the structure at all.
+
+INSERT:
+	Lot of syntax is there for insert statement
+
+syntax1:
+	INSERT INTO EMP VALUES(1, 'Ram', 'Kumar', 'ram@india.com'); --added
+note:
+	we have to provide all the values for all columns, that too in correct order.
+
+syntax2:
+	INSERT INTO EMP (FNAME, LNAME, ID, EMAIL) VALUES ('Ajay','C M',2,'ajay@india.com'); 	--added
+
+	INSERT INTO EMP (FNAME, ID) VALUES ('Rajesh', 3);	--added
+note:
+	we can specify the order of columns and provide values in that order.
+	Not all columns need to be specified / provided.	But all NOT NULL columns must be present
+
+Reminder:
+There are many other insert statements like
+INSERT ALL
+INSERT SELECT
+---------------------------------------------------------------------
+UPDATE
+Look at the rows in the EMP table:
+
+Result Set 2
+ID	FNAME	LNAME	EMAIL
+1	Ram	Kumar	ram@india.com
+2	Ajay	C M	ajay@india.com
+3	Rajesh	 - 	 - 
+
+Rajesh does not have email id. So we need to update that.
+
+UPDATE EMP SET EMAIL='rajesh@india.com' WHERE ID=3;		--1 row updated
+
+SELECT * FROM EMP;
+
+Result Set 3
+ID	FNAME	LNAME	EMAIL
+1	Ram	Kumar	ram@india.com
+2	Ajay	C M	ajay@india.com
+3	Rajesh	 - 	rajesh@india.com
+
+Reminder:
+Different ways of UPDATE
+
+------------------------
+DELETE
+
+We want to delete Rajesh
+DELETE FROM EMP;	--Oh No! without a condition? 	all rows will be deleted.
+
+DELETE FROM EMP WHERE ID=3;
+
+Activity:
+Practise DML statements
+INSERT
+UPDATE
+DELETE
+
 
