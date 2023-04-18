@@ -806,3 +806,188 @@ java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-2b6670a1-95
 2023-04-18 10:01:10,136 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-1\src\main\resources
 2023-04-18 10:01:10,137 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-04-18 10:01:10,137 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-1\src\test\resources
+2023-04-18 10:03:00,695 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-04-18 10:03:11,935 [main] WARN  org.eclipse.jgit.util.FS - C:\Program Files\Git\etc\.probe-e9db7bbf-9ef9-43c2-babf-89029aa5e69c
+java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-e9db7bbf-9ef9-43c2-babf-89029aa5e69c
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89) ~[na:na]
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[na:na]
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[na:na]
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:231) ~[na:na]
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:370) ~[na:na]
+	at java.base/java.nio.file.Files.createFile(Files.java:647) ~[na:na]
+	at org.eclipse.jgit.util.FS$FileStoreAttributeCache.<init>(FS.java:234) ~[na:na]
+	at org.eclipse.jgit.util.FS$FileStoreAttributeCache.getFsTimestampResolution(FS.java:211) ~[na:na]
+	at org.eclipse.jgit.util.FS.getFsTimerResolution(FS.java:321) ~[na:na]
+	at org.eclipse.jgit.internal.storage.file.FileSnapshot.<init>(FileSnapshot.java:186) ~[na:na]
+	at org.eclipse.jgit.internal.storage.file.FileSnapshot.save(FileSnapshot.java:122) ~[na:na]
+	at org.eclipse.jgit.storage.file.FileBasedConfig.load(FileBasedConfig.java:156) ~[na:na]
+	at org.eclipse.jgit.internal.storage.file.FileRepository.loadSystemConfig(FileRepository.java:245) ~[na:na]
+	at org.eclipse.jgit.internal.storage.file.FileRepository.<init>(FileRepository.java:203) ~[na:na]
+	at org.eclipse.jgit.storage.file.FileRepositoryBuilder.build(FileRepositoryBuilder.java:88) ~[na:na]
+	at org.eclipse.jgit.storage.file.FileRepositoryBuilder.create(FileRepositoryBuilder.java:108) ~[na:na]
+	at org.eclipse.egit.core.RepositoryCache.lookupRepository(RepositoryCache.java:58) ~[na:na]
+	at org.eclipse.egit.core.project.GitProjectData.map(GitProjectData.java:693) ~[na:na]
+	at org.eclipse.egit.core.project.GitProjectData.remapAll(GitProjectData.java:651) ~[na:na]
+	at org.eclipse.egit.core.project.GitProjectData.load(GitProjectData.java:634) ~[na:na]
+	at org.eclipse.egit.core.project.GitProjectData.get(GitProjectData.java:220) ~[na:na]
+	at org.eclipse.egit.core.project.RepositoryMapping.getProjectData(RepositoryMapping.java:335) ~[na:na]
+	at org.eclipse.egit.core.project.RepositoryMapping.findMapping(RepositoryMapping.java:356) ~[na:na]
+	at org.eclipse.egit.core.project.RepositoryMapping.getMapping(RepositoryMapping.java:296) ~[na:na]
+	at org.eclipse.egit.core.internal.util.ResourceUtil.getRepository(ResourceUtil.java:712) ~[na:na]
+	at org.eclipse.egit.ui.internal.selection.SelectionUtils.getRepository(SelectionUtils.java:374) ~[na:na]
+	at org.eclipse.egit.ui.internal.selection.SelectionUtils.getRepository(SelectionUtils.java:69) ~[na:na]
+	at org.eclipse.egit.ui.internal.selection.RepositorySourceProvider.selectionChanged(RepositorySourceProvider.java:89) ~[na:na]
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.notifyListeners(SelectionService.java:240) ~[na:na]
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.handleSelectionChanged(SelectionService.java:94) ~[na:na]
+	at org.eclipse.ui.internal.e4.compatibility.SelectionService.lambda$0(SelectionService.java:68) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$1.run(SelectionAggregator.java:123) ~[na:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) ~[org.eclipse.equinox.common_3.10.400.v20190516-1504.jar:na]
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.notifyListeners(SelectionAggregator.java:120) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator.access$2(SelectionAggregator.java:118) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.lambda$0(SelectionAggregator.java:220) ~[na:na]
+	at org.eclipse.e4.core.contexts.RunAndTrack.runExternalCode(RunAndTrack.java:59) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.SelectionAggregator$5.changed(SelectionAggregator.java:220) ~[na:na]
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:109) ~[na:na]
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:364) ~[na:na]
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:379) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.SelectionServiceImpl.setSelection(SelectionServiceImpl.java:34) ~[na:na]
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.selectionChanged(CompatibilityPart.java:468) ~[na:na]
+	at org.eclipse.jface.viewers.Viewer$1.run(Viewer.java:151) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45) ~[org.eclipse.equinox.common_3.10.400.v20190516-1504.jar:na]
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47) ~[na:na]
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:176) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.viewers.Viewer.fireSelectionChanged(Viewer.java:148) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.viewers.StructuredViewer.updateSelection(StructuredViewer.java:2124) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.viewers.StructuredViewer.handleSelect(StructuredViewer.java:1168) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetSelected(StructuredViewer.java:1197) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.util.OpenStrategy.fireSelectionEvent(OpenStrategy.java:242) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.util.OpenStrategy.access$4(OpenStrategy.java:237) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:402) ~[org.eclipse.jface_3.16.0.v20190528-0922.jar:na]
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89) ~[org.eclipse.swt.win32.win32.x86_64_3.111.0.v20190605-1801.jar:na]
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4131) ~[org.eclipse.swt.win32.win32.x86_64_3.111.0.v20190605-1801.jar:na]
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1056) ~[org.eclipse.swt.win32.win32.x86_64_3.111.0.v20190605-1801.jar:na]
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3944) ~[org.eclipse.swt.win32.win32.x86_64_3.111.0.v20190605-1801.jar:na]
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3547) ~[org.eclipse.swt.win32.win32.x86_64_3.111.0.v20190605-1801.jar:na]
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173) ~[na:na]
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062) ~[na:na]
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155) ~[na:na]
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:635) ~[na:na]
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338) ~[na:na]
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:559) ~[na:na]
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150) ~[na:na]
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155) ~[na:na]
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203) ~[org.eclipse.equinox.app_1.4.200.v20190516-1504.jar:na]
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137) ~[org.eclipse.osgi_3.14.0.v20190517-1309.jar:na]
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107) ~[org.eclipse.osgi_3.14.0.v20190517-1309.jar:na]
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400) ~[org.eclipse.osgi_3.14.0.v20190517-1309.jar:na]
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255) ~[org.eclipse.osgi_3.14.0.v20190517-1309.jar:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660) ~[org.eclipse.equinox.launcher_1.5.400.v20190515-0925.jar:na]
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597) ~[org.eclipse.equinox.launcher_1.5.400.v20190515-0925.jar:na]
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468) ~[org.eclipse.equinox.launcher_1.5.400.v20190515-0925.jar:na]
+2023-04-18 10:03:24,476 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:24,476 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\delte\src\main\resources
+2023-04-18 10:03:24,480 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:24,481 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\delte\src\test\resources
+2023-04-18 10:03:25,147 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:25,147 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-1\src\main\resources
+2023-04-18 10:03:25,149 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:25,149 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-1\src\test\resources
+2023-04-18 10:03:25,458 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:25,458 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:03:25,459 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:25,459 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:03:27,991 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:27,991 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:03:27,992 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:27,993 [Worker-0: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:03:31,474 [Worker-3: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:31,474 [Worker-3: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:03:31,475 [Worker-3: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:03:31,475 [Worker-3: Rebuilding] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:04:33,480 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:04:33,480 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:04:33,482 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:04:33,483 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:04:37,994 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:04:37,994 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:04:37,996 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:04:37,996 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:04:51,776 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:04:51,776 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:04:51,779 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:04:51,779 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:07:24,141 [Worker-6: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:07:24,610 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:07:24,617 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:07:24,620 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:07:24,620 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:07:44,192 [Worker-9: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:07:44,239 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:07:44,239 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:07:44,240 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:07:44,240 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:08:37,006 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2023-04-18 10:08:48,995 [Worker-9: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11
+2023-04-18 10:08:49,008 [Worker-9: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always
+2023-04-18 10:09:49,095 [Worker-9: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:09:49,319 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:09:49,319 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:09:49,320 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:09:49,320 [Worker-9: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:09:50,973 [Worker-11: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11
+2023-04-18 10:09:50,973 [Worker-11: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always
+2023-04-18 10:10:09,976 [Worker-11: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:10:10,209 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:10:10,209 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:10:10,210 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:10:10,210 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:10:11,685 [Worker-9: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11
+2023-04-18 10:10:11,685 [Worker-9: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always
+2023-04-18 10:10:35,763 [Worker-3: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:10:35,968 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:10:35,969 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:10:35,969 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:10:35,970 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:10:37,509 [Worker-9: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11
+2023-04-18 10:10:37,509 [Worker-9: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always
+2023-04-18 10:12:43,326 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: demo-11-1:demo-11-1:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\pom.xml.
+2023-04-18 10:12:43,872 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /demo-11-1/src
+2023-04-18 10:12:43,873 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /demo-11-1/src/test/java because it overlaps with /demo-11-1/src
+2023-04-18 10:12:44,163 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2023-04-18 10:12:44,408 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: demo-11-1:demo-11-1:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\pom.xml.
+2023-04-18 10:12:44,458 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /demo-11-1/src
+2023-04-18 10:12:44,459 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /demo-11-1/src/test/java because it overlaps with /demo-11-1/src
+2023-04-18 10:12:44,497 [Worker-14: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2023-04-18 10:12:44,630 [Worker-13: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-18 10:12:44,631 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\main\resources
+2023-04-18 10:12:44,632 [Worker-13: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-18 10:12:44,633 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\test\resources
+2023-04-18 10:13:02,326 [Worker-6: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: demo-11-1:demo-11-1:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\pom.xml.
+2023-04-18 10:13:02,355 [Worker-6: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-18 10:13:02,356 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\main\resources
+2023-04-18 10:13:02,357 [Worker-6: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-18 10:13:02,358 [Worker-6: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\test\resources
+2023-04-18 10:13:07,903 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2023-04-18 10:13:17,366 [Worker-13: Launching demo-11-1] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1
+2023-04-18 10:13:17,367 [Worker-13: Launching demo-11-1] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always
+2023-04-18 10:14:31,030 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2023-04-18 10:14:35,765 [Worker-11: Launching demo-11-1 (1)] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1
+2023-04-18 10:14:35,765 [Worker-11: Launching demo-11-1 (1)] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B sonar:sonar -Dsonar.projectKey=demo-11 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=addbe060478baf176c1fe8b434f655776303944a -Dstyle.color=always
+2023-04-18 10:18:26,149 [Worker-17: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:18:26,348 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:18:26,348 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:18:26,349 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:18:26,349 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:18:32,236 [Worker-21: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ust.sonar:demo-11:0.0.1-SNAPSHOT @ D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\pom.xml.
+2023-04-18 10:18:32,261 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:18:32,261 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-18 10:18:32,262 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-18 10:18:32,262 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-18 10:18:40,711 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2023-04-18 10:18:40,793 [Worker-20: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11
+2023-04-18 10:18:40,793 [Worker-20: Launching demo-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dstyle.color=always

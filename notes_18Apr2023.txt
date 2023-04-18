@@ -215,3 +215,83 @@ DQL
 	SELECT
 
 
+
+---------------------
+Lets create table
+
+Table name:
+	EMP
+
+Columns:
+	ID	INT
+	FNAME	VARCHAR2(20)
+	LNAME	VARCHAR2(20)
+	EMAIL	VARCHAR2(20)
+
+CREATE TABLE EMP
+(
+	ID INT PRIMARY KEY,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20)
+);
+
+
+Task:
+We need to identify the datatypes of Oracle SQL.
+char vs varchar2
+
+what is varchar2
+	variable length char data type.
+	if we use "char" data type?		CHAR(20)
+		then it will always occupy 20 char memory even if we give 1 character.
+	if we use "varchar2" data type?		VARCHAR2(20)
+		then it will occupy only the number of characters memory we use. not 			always 20
+
+1) CREATE TABLE
+2) ADD PRIMARY KEY CONSTRAINT TO A COLUMN WHILE
+	CREATING TABLE
+	ALTERING TABLE
+3) ADD PRIMARY KEY CONTRAINT TO COLUMN AT COLUMN LEVEL
+	AT TABLE LEVEL
+4) ADD CONSTRAINT WITH CONTRAINT NAME
+
+Hands on:
+1) We have created a table called EMP
+CREATE TABLE EMP
+(
+	ID INT PRIMARY KEY,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20)
+);
+
+
+2) DESC EMP;
+	TABLE EMPResult Set 1
+Column	Null?	Type
+ID	NOT NULL	NUMBER
+FNAME	 - 	VARCHAR2(20)
+LNAME	 - 	VARCHAR2(20)
+EMAIL	 - 	VARCHAR2(20)
+Download CSV
+
+
+3) Lets learn to create primary key at table level.
+For this, first we drop existing table.
+DROP TABLE EMP;
+
+CREATE TABLE EMP
+(
+	ID INT,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20),
+	CONSTRAINT pkID1 PRIMARY KEY(ID)
+);
+
+--Table is created
+
+4) We can create constraint even after the table is created.
+To practise this, i will drop table and create the table without PRIMARY KEY.
+
