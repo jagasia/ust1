@@ -421,3 +421,87 @@ interval hour to minute
 
 https://docs.google.com/spreadsheets/d/1axaIqrKJL4NCGzIj5ZNQDitmkNtPSzy9ET82cWzyiwY/edit?usp=sharing
 
+Large objects in oracle
+blob		BINARY
+clob		CHARACTERS
+bfile		external large object		stores as a file in directory and a pointer
+
+Large objects in mysql:
+tinyblob		1 byte
+blob		64 KB
+mediumblob	16 MB
+longblob		4 GB
+
+if you want to store image/ audio/ video etc, in a table, as a data, then that column should be large object.
+
+SQL
+	DDL	Data Definition Language
+	DML	Data Manipulation Language
+	DCL	Data Control Language
+	TCL	Transaction Control Language
+	DQL	Data Query Language
+
+
+DDL
+	CREATE, ALTER DROP
+
+These commands not only limited to TABLES.
+There are lot of objects in database, including Tables.
+
+CREATE TABLE	***
+ALTER TABLE
+	after creating a table, we can alter the table for 
+		adding a column	
+		modifying a column
+		removing a column
+
+
+TABLE EMPResult Set 10
+Column	Null?	Type
+ID	NOT NULL	NUMBER
+FNAME	 - 	VARCHAR2(20)
+LNAME	 - 	VARCHAR2(20)
+EMAIL	 - 	VARCHAR2(20)
+
+
+Tell me, which column can be added to this table?
+	PHONE	VARCHAR(15)
+
+ALTER TABLE EMP ADD PHONE VARCHAR2(15);
+Table altered.
+DESC EMP;
+
+
+ALTER TABLE statement can be used to modify the column data type also
+can we change the PHONE column data type to NUMBER (15,0)
+
+
+ALTER TABLE EMP MODIFY PHONE NUMBER(15,0);
+Table altered.
+DESC EMP;
+
+Can we remove a column from the table?
+
+ALTER TABLE EMP DROP COLUMN PHONE;
+Table altered.
+DESC EMP;
+
+
+DROP TABLE EMP;
+	sys or system admin can recover this table from recyle bin using FLASHBACK statement.
+
+drop table emp purge;
+	drop table permanently that it cannot be recovered
+
+
+DDL is completed now.
+
+TRUNCATE
+	remove all records from a table. It is similar to drop and create table.
+	always all records are deleted. No conditions to specify particular rows to delete.
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+
