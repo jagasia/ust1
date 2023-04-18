@@ -295,3 +295,129 @@ CREATE TABLE EMP
 4) We can create constraint even after the table is created.
 To practise this, i will drop table and create the table without PRIMARY KEY.
 
+DROP TABLE EMP;
+
+Create table without primary key. (Later we will add using ALTER statement)
+
+CREATE TABLE EMP
+(
+	ID INT,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20)
+);
+
+INSERT INTO EMP VALUES(1, 'Ajay','C M','ajay@india.com');
+INSERT INTO EMP VALUES(1, 'Ajay','C M','ajay@india.com');
+INSERT INTO EMP VALUES(1, 'Ajay','C M','ajay@india.com');
+
+select * from emp;
+
+ID	FNAME	LNAME	EMAIL
+1	Ajay	C M	ajay@india.com
+1	Ajay	C M	ajay@india.com
+1	Ajay	C M	ajay@india.com
+
+
+Duplicate IDs are allowed because, we have not added primary key constraint to ID column.
+
+ALTER TABLE EMP ADD CONSTRAINT pkID2 PRIMARY KEY(ID);
+
+We get the following error while executing above code:
+ORA-02437: cannot validate (SQL_XRUNRBFICIZAFSTCVEAKIEWVN.PKID2) - primary key violated 
+
+Reason:
+	already the table contains records that violate the primary key constraint.
+
+Solution:
+	remove the duplicate records.
+
+DELETE FROM EMP WHERE ID=1;
+
+Now, add PRIMARY KEY constraint
+
+ALTER TABLE EMP ADD CONSTRAINT pkID2 PRIMARY KEY(ID);
+table is altered.
+
+----------------------------------------------End of Create Table with Primary key----------------
+Task:
+	Identify the data types of Oracle SQL
+
+varchar2
+nvarchar2
+number		NUMBER(5,2)
+boolean
+long
+raw
+long raw
+binary float
+int		
+float
+char
+nchar
+tinyint
+date
+datetime
+timestamp
+timestamp with timezone
+timestamp with local timezone
+interval year to month
+interval hour to minute
+blob
+clob
+bfile
+
+CHAR vs	NCHAR
+
+Lets see example:
+
+CREATE TABLE MUNISH
+(
+    COL1 NCHAR(5)
+);
+
+INSERT INTO MUNISH VALUES ('ABCDE');	--row added
+INSERT INTO MUNISH VALUES ('ABCDEF');
+		ORA-12899: value too large for column "SQL_XRUNRBFICIZAFSTCVEAKIEWVN"."MUNISH"."COL1" (actual: 6, maximum: 5) ORA-06512: at "SYS.DBMS_SQL", line 1721
+
+
+we understand that NCHAR(5) allows only 5 characters to be stored.
+
+	
+now:
+CREATE TABLE MUNISH
+(
+    COL1 CHAR(5)
+);
+
+table created.
+
+INSERT INTO MUNISH VALUES('◙♂♀♪☼');	--No. we are not able to add 5 characters.
+
+ORA-12899: value too large for column "SQL_XRUNRBFICIZAFSTCVEAKIEWVN"."MUNISH"."COL1" (actual: 15, maximum: 5) ORA-06512: at "SYS.DBMS_SQL", line 1721
+
+ALTER TABLE MUNISH ADD  COL2 CHAR(5);
+
+
+CHAR(5) does not guarantee that we can add 5 characters.
+	
+
+varchar2	vs	long	vs	clob
+varchar2	means we specify the size
+long	means	upto 2gb
+clob	means 	upto 4 gb
+
+	all these 3 are character data types
+
+
+Now, look at date types:
+date
+datetime
+timestamp
+timestamp with timezone
+timestamp with local timezone
+interval year to month
+interval hour to minute
+
+https://docs.google.com/spreadsheets/d/1axaIqrKJL4NCGzIj5ZNQDitmkNtPSzy9ET82cWzyiwY/edit?usp=sharing
+
