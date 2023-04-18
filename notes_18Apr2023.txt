@@ -1,0 +1,17 @@
+Code Quality
+	sometime, i told
+	i) every variable declared must be initialized
+	ii) every method should have only 1 return statement
+	iii) do not comment java code. rather, delete it. 
+	iv) comments should be explanation of the code.
+	v) every method should contain return statement at the end of the method only.
+	vi) for every if - else parts, { and } should be used, even if it is one line.
+
+All these rules may not be followed and the program runs fine. 
+But these guideliness ensure our code quality.
+
+To check the code quality, a programmer can use tools that help them to learn code quality while programming itself.
+
+Such tool is "SonarQube"
+
+https://www.sonarsource.com/products/sonarqube/downloads/
