@@ -15,3 +15,203 @@ To check the code quality, a programmer can use tools that help them to learn co
 Such tool is "SonarQube"
 
 https://www.sonarsource.com/products/sonarqube/downloads/
+
+1) lets create a maven project.
+2) choose the archetype as "quick start" for core java project	
+	group id:	com.ust.sonar		is similar to package name	
+	artifact id:	demo-1		is the project name
+	
+----------------------------------
+Lets do our first demo in sonarqube.
+we have started sonarqube and in localhost:9000 we have logged in as admin.
+Lets create a java maven project quickstart archetype
+and create few lines of code and test the code quality.
+
+go to admin console in localhost:9000
+Add project button:
+
+
+sonar:sonar -Dsonar.projectKey=demo-11 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=addbe060478baf176c1fe8b434f655776303944a
+
+in our maven project, pom.xml
+i am going to add sonarqube plugin
+
+maven build
+	i) cmd prompt (or)
+	ii) eclipse/sts
+
+clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+
+int x;
+    	Date dt;
+    	x=100;
+    	if(x>20)
+    		System.out.println("true");
+    	else
+    		System.out.println("false");
+    	
+
+---------------
+Sonarqube requires
+	java 11
+	maven
+
+mysql	(in software center)
+	you have to install 2 things
+
+	mysql workbench 8
+	mysql server latest version	6.2.3
+
+SonarQube 
+	requires maven. Maven is available in software centre, but while creating projects, it is not able to download artifacts.
+MySQL
+	we have installed both mysql workbench and mysql server.
+	but while starting mysql server, it is asking admin credentials.
+We have sent a support request email.
+
+----------------------
+RDBMS
+	Relational DataBase Management System.
+
+Dr. E.F.Codd
+	computer scientist
+	introduced Relational Database theory
+
+he created 12 rules that a database must follow to be considered as Relational Database
+
+every data must be represented in the form of row-column
+
+relation between 2 entities is called as "Relationship"
+Relation
+	example for relation is Table
+	any row-column format is a relation
+
+hierarchical model
+object based model
+E-R model
+
+Relational model
+	we learn this model
+
+Terms used in Relation model?
+	data		
+	row	-	tuple
+	column	-	field	-	attribute
+	null	-	is not a space / 0	it means missing information
+	table
+	relationship
+	domain		business	(jargons used in the business)
+			pin code	(zip code	5 digit)
+	keys	
+		primary
+		foreign
+		composite
+		candidate
+		unique
+
+In a table, there can be several rows.
+ex:
+	in livesql, run this query
+		select * from hr.employees;
+
+	Notice that in every row, the column EMPLOYEE_ID	contains unique values, and also employee id is always present (it is not null).
+
+	Primary key
+		should have unique values in every row.
+		shoud have a value and it cannot be null.
+
+	if you see receipt table
+		every row must have a different receipt number
+		every row must have a receipt number. It cannot be null
+
+	Primary Key	=	UNIQUE + NOT NULL
+
+	Unique 		=	It must have unique values in every row, but it can be 					null
+
+	Composite key	=	more than 1 column combines to be UNIQUE
+
+Receipt_no	item_no	qty
+1	102	1
+1	111	1
+1	89	2
+1	98	1
+2	102	
+
+In above table, receipt_no and item_no	together is a primary key.
+Primary key can be composite also
+
+Foreign Key:
+					ITEM	
+Receipt_no	item_no	qty			item_no	item_name
+1	102	1			89	pencil
+1	111	1			98	sharpner
+1	89	2			102	eraser
+1	98	1			111	scale
+2	102	1				
+2	103	1		ERROR. Item no 103 is not allowed		
+				Hence item_no of RECEIPT table is a foreign key that references item_no of ITEM table		
+
+
+
+
+
+Normalization
+	1st normal form:
+		every cell should contain only 1 data
+
+Super key
+	all attributes that are used to uniquely identify a row
+
+Primary key
+	minimal number of attributes required to find a row uniquely.
+
+Candiate key
+	primary key is an example for candidate.
+	Any column that is candidate to be a primary key is a candidate key.
+
+Alternate key
+	when you search based on primary key always, more queries are running based on a single column leads to performance issue.
+	So if you use some other column that is also unique, then it is an alternative for primary key. 
+
+Example for RDBMS products:
+	Oracle		(oracle)
+	Sql Server		(microsoft)
+	Db2		(ibm)
+	MySql		(Oracle)
+	PostgreSql
+
+SQL
+	Structured Query Language
+
+	almost same for all RDBMS
+	Oracle		iSql plus
+	Sql Server		t-sql		transact sql
+	
+Mysql	mysql
+
+SQL
+	DDL	Data Definition Language
+	DML	Data Manipulation Language
+	DCL	Data Control Language
+	TCL	Transaction Control Language
+	DQL	Data Query Language
+DDL
+	CREATE
+	ALTER	
+	DROP
+	TRUNCATE
+DML
+	INSERT
+	UPDATE
+	DELETE	
+DCL
+	GRANT
+	REVOKE
+TCL
+	COMMIT
+	SAVEPOINT
+	ROLLBACK
+DQL
+	SELECT
+
+
