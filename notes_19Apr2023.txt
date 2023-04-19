@@ -54,3 +54,134 @@ INSERT ALL	(oracle syntax)
 
 try to add more than 1 row to EMP table using INSERT ALL statement.
 
+INSERT ALL
+	INTO EMP (ID, FNAME, LNAME, EMAIL) VALUES (4, 'Dinesh', 'Srinivasan', 'dinesh@wipro.com')
+	INTO EMP2 (ID, FNAME, LNAME, EMAIL) VALUES (4, 'Dinesh', 'Srinivasan', 'dinesh@wipro.com')
+SELECT 1 FROM DUAL;
+
+
+In MySQL:
+INSERT INTO BRANCH VALUES
+('B2','AB','CD'),
+('B3','AB','CD'),
+('B4','AB','CD'),
+('B5','AB','CD');
+
+--------------------
+We have learned 
+DDL
+DML
+DCL
+	Data Control Language
+		Provides us the control over database
+		Like?	We can create users, 
+			and specify the privileges these users have on the db objects.
+
+	GRANT
+	REVOKE
+
+Reminder:
+	ROLE
+
+create user jag identified by jag;
+	--i have created an user jag now.
+
+now, user jag is trying to login:
+
+but gets error:	ORA-01045: user JAG lacks CREATE SESSION privilege; logon denied
+
+now, sys is going to grant that permission to jag
+	GRANT CREATE SESSION to jag;
+
+now, jag trys to login and logged in successfully.
+
+Now, jag creates an user "kalyan", gets error:
+
+SQL> CREATE USER kalyan IDENTIFIED BY kalyan;
+CREATE USER kalyan IDENTIFIED BY kalyan
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+Now, sys will give privilege to jag:
+SQL> GRANT CREATE USER to jag;
+
+Grant succeeded.
+
+after that jag is able to create user kalyan:
+
+SQL> CREATE USER kalyan IDENTIFIED BY kalyan;
+
+User created.
+-----------------------------------
+To understand what are the privileges present in oracle, we can categorize the privileges into 2:
+1) SYSTEM PRIVILEGES
+2) OBJECT PRIVILEGES
+
+What are objects?
+	Tables
+	View
+	Synonyms
+	Procedures
+	Functions
+	Triggers
+	Sequences
+	Indexes
+
+OBJECT PRIVILEGES (Mentions the object name)
+	INSERT ON EMP
+	SELECT ON EMP
+	UPDATE ON EMP	
+
+
+
+SYSTEM PRIVLEGE:
+	CREATE TABLE
+	ALTER TABLE
+	DROP TABLE
+	CREATE SESSION		(login)
+
+While we install oracle in our system,
+sys
+system
+scott
+	these users are automatically created.	
+
+Scenario:
+
+SYS	created JAG
+JAG 	created KALYAN
+
+sys grant CREATE USER privilege to JAG
+Qn:
+	Can JAG grant CREATE USER privilege to KALYAN?
+
+a) NO
+b) YES
+c) Don't Know
+
+Sidharth says, unless, SYS while granting CREATE USER privilege to JAG, mention that he can propage this to others.
+
+GRANT CREATE USER TO JAG WITH ADMIN OPTION;
+this WITH ADMIN OPTION enabled JAG to provide this privilege to other users.
+
+WITH ADMIN OPTION
+	can be used only with SYSTEM PRIVILEGE
+
+For OBJECT PRIVILEGES, we should use "WITH GRANT OPTION"
+
+
+If SYS granted CREATE USER privilege to JAG WITH ADMIN OPTION
+and JAG granted this to KALYAN.
+Now, SYS REVOKES CREATE USER privilege from JAG.
+NOW, CAN KALYAN create users?
+
+WITH ADMIN OPTION	is not contigeous 
+WITH GRANT OPTION	is contigeous
+
+We observed that when sys revoked a system privilege from jag and then kalyan is able to continue use that system privilege.
+But when sys revoked an object privilege from jag then kalyan is also not able to use that object privilege.
+
+
+
+
