@@ -1,0 +1,121 @@
+SQL
+	DDL
+	DML
+	DCL
+	TCL
+	
+DQL
+	SELECT query
+
+SELECT query is used to retrieve record(s) from table(s).
+
+syntax:
+	SELECT <<expressions>>|columns 
+	FROM <<table1>>, <<table2>> | <<table1>> JOIN <<table2>>
+	[WHERE <<condition1>> AND | OR <<condition2>>]
+	[GROUP BY <<expression>>]
+	[HAVING <<condition>>]
+	[ORDER BY <<column1>>,<<column2>>]
+
+
+To learn by example, we need some sample schema.
+
+schema (in mysql) is a database.
+schema (in oracle) is a private space of an user.
+	ex:	hr schema
+		sys schema
+		
+in livesql
+	SELECT * FROM HR.EMPLOYEES;
+
+Basic select query:
+
+	SELECT * FROM HR.EMPLOYEES;
+	SELECT employee_id, first_name FROM HR.EMPLOYEES;
+	in this above query, what is * means?
+		all columns.
+*	or 	column list we mention in that place decides the PROJECTION
+
+What is PROJECTION?
+	a table may have many columns. But we project only relevant columns.
+
+What is SELECTION?
+	a table may have many rows, But we select only the rows that pass a criteria.
+
+	SELECT * FROM HR.EMPLOYEES where SALARY>15000;
+		We got 3 rows only. 	
+UNION
+	SELECT * FROM HR.EMPLOYEES where SALARY>15000
+    union
+SELECT * FROM HR.EMPLOYEES where SALARY>10000 AND SALARY<=15000;
+
+
+UNION	vs	UNION ALL
+
+UNION ALL 
+	includes duplicate rows (from both queries)
+	in that case the number of rows is always equal to sum of both query rows.
+
+INTERSECT
+	SELECT * FROM HR.EMPLOYEES where SALARY>15000
+    intersect
+SELECT * FROM HR.EMPLOYEES where SALARY>10000
+	we got 3 rows
+
+	PRODUCES THE COMMON ROWS amont the 2 select statements
+
+UNION
+UNION ALL
+MINUS
+PRODUCT
+
+
+
+MINUS
+	SELECT * FROM HR.EMPLOYEES where SALARY>10000
+    minus
+SELECT * FROM HR.EMPLOYEES where SALARY>15000;
+
+
+PRODUCT
+	is done when we use JOINs
+Reminder:		JOINS
+
+-----------------------------------
+SELECT
+	column list
+	alias
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY 
+FROM HR.EMPLOYEES	--projection
+WHERE SALARY>10000;	--selection
+
+WHERE:
+	you can give conditions
+	multiple conditions using AND 	OR	 operators
+
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY 
+FROM HR.EMPLOYEES	
+WHERE SALARY>10000	
+AND SALARY<=12000;
+
+
+Task:
+	write select query on HR.EMPLOYEES and display 
+	different set of columns, 
+	and conditions to filter the rows based on different columns like SALARY, DEPARTMENT_NO etc.
+
+
+
+select 
+    "EMPLOYEE_ID",
+    "FIRST_NAME",
+    "LAST_NAME",
+    "EMAIL",
+    "PHONE_NUMBER",
+    "HIRE_DATE",
+    "JOB_ID",
+    "SALARY",
+    "COMMISSION_PCT",
+    "MANAGER_ID",
+    "DEPARTMENT_ID"
+from HR."EMPLOYEES";

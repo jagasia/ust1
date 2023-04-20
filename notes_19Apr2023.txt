@@ -182,6 +182,92 @@ WITH GRANT OPTION	is contigeous
 We observed that when sys revoked a system privilege from jag and then kalyan is able to continue use that system privilege.
 But when sys revoked an object privilege from jag then kalyan is also not able to use that object privilege.
 
+-------------------------------------
+DDL
+DML
+DCL
+-----------------After break------------
+TCL
+DQL
+---------
+TCL
+	Transaction Control Language
+
+Statements in TCL:
+	COMMIT
+	SAVEPOINT
+	ROLLBACK
+
+What is a Transaction?
+	funds transfer	(example)
+	grouping a set of tasks as single unit.
+	deposit money
+	withdraw
+	UPI transaction
+
+These are examples for transaction in real world.
+
+By definition what is a transaction?	In SQL,
+	group of sql statements executed as a single logical unit.
+
+Every DML statement itself is a transaction, that automatically commit in some environment, if there is no errors. If any error, it will rollback to the point before doing this statement.
+
+If you want to call some activity as a "Transaction", that activity should posses 4 properties.
+
+Atomicity
+Consistency
+Isolation
+Durability
+
+Atomicity:
+	All. Otherwise None.
+	A transaction if it is successful, then it should have completed all the tasks of transaction completely.	If it is failure, it should not have any effect.
+
+Consistency:
+	No matter, whether the transaction is success or failure, the data is in consistent state.
+
+Isolation:		LOCK
+	Every transaction should independantly work on records. While a row(s) is/are under updation/ manipulation, those records should be locked.
+
+we observed that in one session, we update a row, and not yet commit/rollback.
+if another session(transaction) try to update that row, it waits until prev tran commit/rollback.
+
+we understand that a lock is imposed on the row(s).
+
+Isolation
+	is a solution for concurrency issues.
+	Actually there are lot of types of concurrency issues. And there are lot of Isolation levels also.
+
+Concurrency Issue 1:	Dirty Read
+	A transaction txn1 has done some manipulation which is yet to be committed.
+	Before txn1 commit, if another transaction txn2 reads that data, it is dirty read.
+
+	Why? because if txn1 rolls back the transaction, then what txn2 has read is wrong.
+
+There is an ISOLATION LEVEL called "READ UNCOMMITED". This level leads to dirty read.
+How this issue is prevented?
+	by using an ISOLATION LEVEL called 	"READ_COMMITED"
+
+Concurrency Issue 2: Panthom Read
+	Issue when we read the same record(s) again, it is changed.
+	solution:	use Isolation level		"REPEATABLE READ"
+
+	when we solved dirty read, only those rows under updation where locked.
+	However, user can add/delete records.
+	Range lock is introduced.
+
+commit
+savepoint
+rollback
+
+what is savepoint?
+	we can protect the manipulations we have done using savepoint. 
+	we can rollback transaction upto savepoint.	Before that savepoint, whatever is done is not rolledback. 	Still we can roll them back using "rollback" without savepoint name.
+------------------------
+
+
+
+	
 
 
 
