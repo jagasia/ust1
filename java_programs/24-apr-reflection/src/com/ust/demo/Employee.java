@@ -1,11 +1,14 @@
 package com.ust.demo;
 
+@Jag
 public class Employee {
+	@Jag
 	private Integer id;
 	private String firstName;
 	private String lastName;
 	private Double salary;
 	
+	@Jag
 	public Employee() {}
 
 	public Employee(Integer id, String firstName, String lastName, Double salary) {
@@ -16,6 +19,7 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	@Jag
 	public Integer getId() {
 		return id;
 	}
@@ -57,5 +61,9 @@ public class Employee {
 	public void attend()
 	{
 		System.out.println("Employee attends");
+	}
+	private void takeLeave()
+	{
+		
 	}
 }
