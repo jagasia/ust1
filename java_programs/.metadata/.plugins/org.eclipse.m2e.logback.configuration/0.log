@@ -1046,3 +1046,11 @@ java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-65f50473-af
 2023-04-24 09:29:13,158 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\main\resources
 2023-04-24 09:29:13,160 [Worker-25: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2023-04-24 09:29:13,193 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\test\resources
+2023-04-24 09:57:21,795 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-24 09:57:21,796 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\main\resources
+2023-04-24 09:57:21,797 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-04-24 09:57:21,797 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11\src\test\resources
+2023-04-24 09:57:21,813 [Worker-38: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-24 09:57:21,815 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\main\resources
+2023-04-24 09:57:21,815 [Worker-38: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-04-24 09:57:21,816 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Jag\UST\Batch1_Apr2023\java_programs\demo-11-1\src\test\resources

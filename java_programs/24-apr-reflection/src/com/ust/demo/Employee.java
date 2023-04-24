@@ -61,8 +61,11 @@ public class Employee {
 	public void attend()
 	{
 		System.out.println("Employee attends");
+	
 	}
-	private void takeLeave()
+	
+	@Deprecated
+	 void takeLeave()
 	{
 		
 	}
