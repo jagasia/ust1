@@ -8713,3 +8713,6 @@ java.nio.file.AccessDeniedException: C:\Program Files\Git\etc\.probe-40c45334-c5
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-27 15:00:12.844
 !MESSAGE executing callback sts4.classpath.ikeiEJZf SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2023-04-27 15:09:51.980
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
