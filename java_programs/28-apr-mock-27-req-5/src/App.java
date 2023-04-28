@@ -33,7 +33,11 @@ public class App {
 				for(Artist a : allArtists)
 				{
 					if(a.getName().equals(aName))
+					{
+						a.getSongList().add(song);
 						artistList.add(a);
+					}
+						
 				}
 			}
 			song.setArtistList(artistList);

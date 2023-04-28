@@ -93,8 +93,30 @@ public class Artist {
 	static Artist bestSinger(String gender,List<Artist> artistList)
 	{
 		//write the code here
-		
-		return null;
+		int maxCount=0;
+		Artist bestSinger=null;
+		for(Artist artist:artistList)
+		{
+			int count=0;
+			if(artist.getGender().equals(gender) && artist.getRole().equals("Singer"))
+			{
+				List<Song> sList = artist.getSongList();
+				for(Song s : sList)
+				{
+					if(s.getRating()>4.5)
+					{
+						//this song can be counted
+						count++;
+						if(count>maxCount)
+						{
+							maxCount=count;
+							bestSinger=artist;
+						}
+					}
+				}
+			}
+		}
+		return bestSinger;
 	}
 	
 }
