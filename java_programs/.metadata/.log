@@ -12392,3 +12392,18 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-04-28 15:05:59.763
 !MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-28 17:53:31.742
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.WZkLBMXG
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-28 17:53:31.796
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.WZkLBMXG
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-28 17:53:31.825
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-28 17:53:31.847
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.WZkLBMXG => OK
+
+!ENTRY org.eclipse.ui 2 2 2023-04-28 17:53:39.364
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
