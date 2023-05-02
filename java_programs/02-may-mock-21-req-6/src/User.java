@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +74,27 @@ public class User {
 	static User getValuableUser(List<User> userList,String month)
 	{
 		//write code here
-		return null;
+		Double max=0.0;
+		User valuableUser=null;
+		for(User user: userList)
+		{
+			List<Purchase> purchases = user.getPurchaseList();
+			Double total=0.0;
+			for(Purchase purchase : purchases)
+			{
+				String m=new SimpleDateFormat("MMMM").format(purchase.getPurchaseDate());
+				if(m.equals(month))
+				{
+					//consider this purchase
+					total+=purchase.getPrice();					
+				}
+			}
+			if(total>max)
+			{
+				max=total;
+				valuableUser=user;
+			}
+		}
+		return valuableUser;
 	}
 }
