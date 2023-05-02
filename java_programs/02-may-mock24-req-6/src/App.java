@@ -41,6 +41,7 @@ public class App {
 		}
 		
 		CallLog clog=new CallLog();
+		clog.setCallList(callList);
 		Contact contact = clog.getFavouriteContact();
 		System.out.println("The favourite contact is "+contact.getName());
 	}
