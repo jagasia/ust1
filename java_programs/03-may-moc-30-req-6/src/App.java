@@ -45,7 +45,11 @@ public class App {
 		System.out.format("%-15s %s\n","Course","Top performer");
 		for(Entry<String, UserScore> e:result.entrySet())
 		{
-			System.out.format("%-15s %s\n",e.getKey(),e.getValue().getUser().getName());
+			String courseName=e.getKey();
+			UserScore us = e.getValue();
+			User user=us.getUser();
+			String userName=user.getName();
+			System.out.format("%-15s %s\n",courseName,userName);
 		}
 	}
 
