@@ -3572,3 +3572,21 @@ java.net.UnknownHostException: download.eclipse.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:07.839
+!MESSAGE Preparing classpath changed notification 04-may-is-a-chessboard
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:07.871
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:07.928
+!MESSAGE classpath=2 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:07.958
+!MESSAGE buffering callback sts4.classpath.ytEybiNc 04-may-is-a-chessboard false 2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:07.961
+!MESSAGE executing callback sts4.classpath.ytEybiNc 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:08.065
+!MESSAGE executing callback sts4.classpath.ytEybiNc SUCCESS [done]
