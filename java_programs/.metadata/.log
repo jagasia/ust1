@@ -860,3 +860,15 @@ Created Time: 2023-05-03 17:48:05.116
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-03 17:48:38.891
 !MESSAGE executing callback sts4.classpath.TeaQvrJR SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-03 17:58:15.911
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.TeaQvrJR
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-03 17:58:15.911
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.TeaQvrJR
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-03 17:58:15.912
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-03 17:58:15.912
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.TeaQvrJR => OK
