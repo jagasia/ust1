@@ -3590,3 +3590,15 @@ java.net.UnknownHostException: download.eclipse.org
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 13:54:08.065
 !MESSAGE executing callback sts4.classpath.ytEybiNc SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 17:57:12.270
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ytEybiNc
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 17:57:12.321
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.ytEybiNc
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 17:57:12.390
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-04 17:57:12.417
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ytEybiNc => OK
