@@ -1,0 +1,95 @@
+Problem # 1:   
+Write a query to display the  account number who has done the highest transaction.
+
+For example the account A00023 has done 5 transactions i.e. suppose 3 withdrawal and 2 deposits. Whereas the account A00024 has done 3 transactions i.e. suppose 2 withdrawals and 1 deposit. So account number of A00023 should be displayed. 
+
+
+
+
++----------+--------------------+--------+
+| acnumber | transaction_amount | MAX(c) |
++----------+--------------------+--------+
+| A00001   |               2000 |      6 |
++----------+--------------------+--------+
+1 row in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+Problem #2:
+Write a query to show the branch name,branch city where we have the maximum customers.
+
+For example the branch B00019 has 3 customers, B00020 has 7 and B00021 has 10. So branch id B00021 is having maximum customers. B00021 is suppose for Koramangla branch Bangalore.  So Koramangla branch should be displayed along with city name Bangalore.
+ 
+
+
+
++---------------+-------+--------+
+| bname         | bcity | MAX(c) |
++---------------+-------+--------+
+| Asaf ali road | Delhi |      3 |
++---------------+-------+--------+
+1 row in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem#3:
+
+Write a query to show the balance amount  for account number A00001. 
+Note: Balance amount includes account opening balance also.
+
+For example A00015 is having an opening balance of 1000. A00015 has deposited 2000 on 2012-06-12 and deposited 3000 on 2012-07-13. The same account has drawn money of 500 on 2012-08-12 , 500 on 2012-09-15, 1000 on 2012-12-17. So balance amount is 4000 i.e (1000 (opening balance)+2000+3000 ) – (500+500+1000).
+
+
+
+
+
+
+
++---------+
+| BALANCE |
++---------+
+|   -2000 |
++---------+
+1 row in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+Problem # 4:
+Write a query to display all those account number, deposit, withdrawal where withdrawal is more then deposit amount. 
+
+For example A00011 deposited 2000 rupees on 2012-12-01 and 3000 rupees on 2012-12-02. The same account i.e A00011 withdrawn 3000 rupees on 2013-01-01 and 7000 rupees on 2013-01-03. So the total deposited amount is 5000 and total withdrawal amount is 10000. So withdrawal amount is more then deposited for account number A00011.
+
++----------+---------+------------+
+| acnumber | DEPOSIT | WITHDRAWAL |
++----------+---------+------------+
+| A00001   |    9000 |      12000 |
+| A00002   |    5000 |       7000 |
++----------+---------+------------+
+2 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+
+Problem # 5:   
+Write a query to display the customer number, firstname, lastname for those client where total loan amount taken is maximum and at least taken from 2 banks. 
+
+For example the customer 	C00012 took a loan of 100000 from bank branch with id B00009 and 
+				C00012 Took a loan of 500000 from bank branch with id B00010. 
+				So total loan amount for customer C00012 is 600000. 
+
+				C00013 took a loan of 100000 from bank branch B00009 and 200000 from bank branch B00011.
+				So total loan taken is 300000. 
+
+
+				So loan taken by C00012 is more then C00013.
+
+
+
++--------+---------+--------+
+| custid | fname   | ltname |
++--------+---------+--------+
+| C00002 | Avinash | Minha  |
++--------+---------+--------+
+1 row in set (0.00 sec)
+
