@@ -13014,3 +13014,34 @@ java.lang.InterruptedException
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-05-10 09:32:09.844
 !MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-10 11:49:36.542
+!MESSAGE Preparing classpath changed notification 10-may-employee-bonus
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-10 11:49:36.542
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-10 11:49:36.543
+!MESSAGE classpath=2 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-10 11:49:36.543
+!MESSAGE buffering callback sts4.classpath.qYWMtBKf 10-may-employee-bonus false 2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-10 11:49:36.543
+!MESSAGE executing callback sts4.classpath.qYWMtBKf 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-10 11:49:36.636
+!MESSAGE executing callback sts4.classpath.qYWMtBKf SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-05-10 12:06:05.749
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2022)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
