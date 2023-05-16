@@ -2040,3 +2040,15 @@ java.net.UnknownHostException: download.eclipse.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-15 18:28:48.786
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.gDPTriVq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-15 18:28:48.809
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.gDPTriVq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-15 18:28:48.848
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-05-15 18:28:48.875
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.gDPTriVq => OK
