@@ -12,6 +12,7 @@ export class AppComponent {
   sum:number=0;
   type:string="number";
   color:string="red";
+  visible:boolean=false;
 
   fn1()
   {
