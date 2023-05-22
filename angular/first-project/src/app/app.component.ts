@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  countries:string[]=["India","China","Japan","Pakistan","Bangladesh","Sri lanka","South Korea"];
   title = 'Addition';
   no1:string="20";
   no2:string="30";
@@ -13,6 +14,7 @@ export class AppComponent {
   type:string="number";
   color:string="red";
   visible:boolean=false;
+  x : number=0;
 
   fn1()
   {

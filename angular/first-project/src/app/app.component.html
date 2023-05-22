@@ -31,3 +31,15 @@
 <input type="checkbox" name="show" id="chkShow"  [(ngModel)]="visible"><label for="chkShow">Show/Hide</label>
 {{ visible }}
 <p *ngIf="visible">This paragraph will be visible if you tik the check box</p>
+<br>
+<ul>
+  <li *ngFor="let c of countries;index as i">
+    {{ c }}
+  </li>
+</ul>
+{{x}}
+<br>
+<select name="x" id="" [(ngModel)]="x">
+  <option *ngFor="let c of countries;index as i" [value]="i">{{ c }}</option>
+</select>
+<br>
