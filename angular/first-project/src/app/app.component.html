@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1 class="text-center">First Angular Project - 22-May-2023</h1>
+</div>
+<div class="row">
+  <div class="col-md-3">
+      <h3>{{title}}</h3>
+    <form class="container">
+      <input [type]="type" name="" id="" [value]="sum">
+      Number 1: <input type="text" name="no1" id="" class="form-control" [(ngModel)]="no1" /><br/>
+      Number 2: <input type="text" name="no2" class="form-control" [(ngModel)]="no2"><br>
+      <input type="button" value="Add" class="btn btn-info" (click)="fn1()">
+    </form>
+  
+    <br>
+    The sum of {{no1}} and {{no2}} is = {{  sum }}
+  </div>
+  <div class="col-md-3"></div>
+  <div class="col-md-3"></div>
+  <div class="col-md-3"></div>
+</div>
