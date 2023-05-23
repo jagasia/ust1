@@ -12,6 +12,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   @Input() title:string="";
+  @Input() backgroundColor:string="yellow";
   constructor() { }
 
   ngOnInit(): void {
