@@ -3,8 +3,21 @@ Id: <input type="number" name="" id="" formControlName="id" class="form-control"
 Name: <input type="text" name="" id="" formControlName="name" class="form-control">
 Price: <input type="number" name="" id="" formControlName="price" class="form-control">
 <br>
-<input type="button" value="Add" class="btn btn-success">
-
+<input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
 </form>
 <br>
 {{ productForm.value | json}}
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th><th>Name</th><th>Price</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+        </tr>
+    </tbody>
+</table>

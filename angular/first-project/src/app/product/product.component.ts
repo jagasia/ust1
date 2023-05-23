@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product',
@@ -8,6 +9,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ProductComponent implements OnInit {
   productForm:any;
+  products:Product[]=[];
 
   constructor(private fb:FormBuilder) { 
     this.productForm=this.fb.group(
@@ -22,4 +24,11 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  fnAdd()
+  {
+    // alert(JSON.stringify(this.productForm.value));
+    var product=this.productForm.value;
+    this.products.push(product);
+    console.log(this.products);
+  }
 }
