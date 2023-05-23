@@ -15,14 +15,20 @@
     The sum of {{no1}} and {{no2}} is = {{  sum }}
   </div>
   <div class="col-md-3">
-    <app-login title="Registration form"></app-login>
+    <app-login title="Registration form">
+      Kalyan
+    </app-login>
   </div>
   <div class="col-md-3">
-    <input type="text" name="bgcolor" id="" [(ngModel)]="color">
-    <app-login [title]="title" [backgroundColor]="color"></app-login>
+    <!-- <input type="text" name="bgcolor" id="" [(ngModel)]="color"> -->
+    <!-- <app-login [title]="title" [backgroundColor]="color"></app-login> -->
+    <app-product></app-product>
   </div>
   <div class="col-md-3">
-    <app-login title="Signin form" (loginEvent)="fnLogin($event)" backgroundColor="orange"></app-login>
+    <!-- <app-login title="Signin form" (loginEvent)="fnLogin($event)" backgroundColor="orange"></app-login> -->
+    <app-login>
+      This is content typed between start and end tag of the app-login component selector
+    </app-login>
   </div>
 </div>
 <select name="ddlColor" [(ngModel)]="color">

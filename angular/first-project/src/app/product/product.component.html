@@ -1,0 +1,10 @@
+<form [formGroup]="productForm">
+Id: <input type="number" name="" id="" formControlName="id" class="form-control">
+Name: <input type="text" name="" id="" formControlName="name" class="form-control">
+Price: <input type="number" name="" id="" formControlName="price" class="form-control">
+<br>
+<input type="button" value="Add" class="btn btn-success">
+
+</form>
+<br>
+{{ productForm.value | json}}
