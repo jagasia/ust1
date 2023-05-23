@@ -10,7 +10,7 @@ Price: <input type="number" name="" id="" formControlName="price" class="form-co
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th>Id</th><th>Name</th><th>Price</th><th></th>
+            <th>Id</th><th>Name</th><th>Price</th><th></th><th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,7 +19,10 @@ Price: <input type="number" name="" id="" formControlName="price" class="form-co
             <td>{{p.name}}</td>
             <td>{{p.price}}</td>
             <td>
-                <input type="button" value="Delete" (click)="fnDelete(p.id)">
+                <input type="button" value="Delete" (click)="fnDelete(p.id)" class="btn btn-danger">
+            </td>
+            <td>
+                <input type="button" value="Select" class="btn btn-info" (click)="fnSelect(p.id)">
             </td>
         </tr>
     </tbody>
