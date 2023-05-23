@@ -18,7 +18,8 @@
     <app-login title="Registration form"></app-login>
   </div>
   <div class="col-md-3">
-    <app-login [title]="title" backgroundColor="blue"></app-login>
+    <input type="text" name="bgcolor" id="" [(ngModel)]="color">
+    <app-login [title]="title" [backgroundColor]="color"></app-login>
   </div>
   <div class="col-md-3">
     <app-login title="Signin form" backgroundColor="orange"></app-login>
