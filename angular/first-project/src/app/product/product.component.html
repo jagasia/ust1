@@ -18,6 +18,9 @@ Price: <input type="number" name="" id="" formControlName="price" class="form-co
             <td>{{p.id}}</td>
             <td>{{p.name}}</td>
             <td>{{p.price}}</td>
+            <td>
+                <input type="button" value="Delete" (click)="fnDelete(p.id)">
+            </td>
         </tr>
     </tbody>
 </table>

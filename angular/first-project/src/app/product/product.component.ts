@@ -31,4 +31,16 @@ export class ProductComponent implements OnInit {
     this.products.push(product);
     console.log(this.products);
   }
+
+  fnDelete(id:number)
+  {
+// alert(id)
+    var temp:Product[]=[];
+    for(var x of this.products)
+    {
+      if(x.id!=id)
+        temp.push(x);
+    }
+    this.products=temp;
+  }
 }
