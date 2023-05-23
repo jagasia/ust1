@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './user';
 
 @Component({
   selector: 'app-root',
@@ -23,5 +24,9 @@ export class AppComponent {
     var x=parseInt(this.no1);
     var y=parseInt(this.no2);
     this.sum=x+y;
+  }
+  fnLogin(arg:User)
+  {
+    alert("App component received: "+arg.username+" and "+arg.password)
   }
 }

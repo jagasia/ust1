@@ -22,7 +22,7 @@
     <app-login [title]="title" [backgroundColor]="color"></app-login>
   </div>
   <div class="col-md-3">
-    <app-login title="Signin form" backgroundColor="orange"></app-login>
+    <app-login title="Signin form" (loginEvent)="fnLogin($event)" backgroundColor="orange"></app-login>
   </div>
 </div>
 <select name="ddlColor" [(ngModel)]="color">
