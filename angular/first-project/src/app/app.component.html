@@ -1,6 +1,7 @@
 <div class="jumbotron">
   <h1 class="text-center">First Angular Project - 22-May-2023</h1>
 </div>
+<app-menu></app-menu>
 <div class="row">
   <div class="col-md-3">
       <h3>{{title}}</h3>
@@ -15,20 +16,21 @@
     The sum of {{no1}} and {{no2}} is = {{  sum }}
   </div>
   <div class="col-md-3">
-    <app-login title="Registration form">
+    <!-- <app-login title="Registration form">
       Kalyan
-    </app-login>
+    </app-login> -->
   </div>
   <div class="col-md-3">
     <!-- <input type="text" name="bgcolor" id="" [(ngModel)]="color"> -->
     <!-- <app-login [title]="title" [backgroundColor]="color"></app-login> -->
-    <app-product></app-product>
+    <!-- <app-product></app-product> -->
+    <router-outlet></router-outlet>
   </div>
   <div class="col-md-3">
     <!-- <app-login title="Signin form" (loginEvent)="fnLogin($event)" backgroundColor="orange"></app-login> -->
-    <app-login>
+    <!-- <app-login>
       This is content typed between start and end tag of the app-login component selector
-    </app-login>
+    </app-login> -->
   </div>
 </div>
 <select name="ddlColor" [(ngModel)]="color">
