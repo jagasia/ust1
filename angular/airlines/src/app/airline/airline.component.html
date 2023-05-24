@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <form [formGroup]="airlineForm">
+            Id: <input type="number" name="" id="" class="form-control" formControlName="id">
+            Name: <input type="text" name="" id="" class="form-control" formControlName="name">
+            Country: <input type="text" name="" id="" class="form-control" formControlName="country">
+            Logo: <input type="text" name="" id="" class="form-control" formControlName="logo">
+            Slogan: <input type="text" name="" id="" class="form-control" formControlName="slogan">
+            Head Quaters: <input type="text" name="" id="" class="form-control" formControlName="head_quaters">
+            Website: <input type="text" name="" id="" class="form-control" formControlName="website">
+            Established: <input type="number" name="" id="" class="form-control" formControlName="established">
+            <br>
+            <input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
+        </form>
+        {{ airlineForm.value | json }}
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Logo</th>
+                    <th>Slogan</th>
+                    <th>Head Quaters</th>
+                    <th>Website</th>
+                    <th>Established</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of airlines">
+                    <td>{{a.id}}</td>
+                    <td>{{a.name}}</td>
+                    <td>{{a.country}}</td>
+                    <td>
+                        <img [src]="a.logo" alt="" width="100">
+                    </td>
+                    <td>{{a.slogan}}</td>
+                    <td>{{a.head_quaters}}</td>
+                    <td>{{a.website}}</td>
+                    <td>{{a.established}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
