@@ -2,9 +2,9 @@
     <div class="col-sm-3"></div>
     <div class="col-sm-3">
         <form [formGroup]="airlineForm">
-            Id: <input type="number" name="" id="" class="form-control" formControlName="id">
-            Name: <input type="text" name="" id="" class="form-control" formControlName="name">
-            Country: <input type="text" name="" id="" class="form-control" formControlName="country">
+            Id: <input type="number" name="" id="" [ngClass]="{'form-control':true,'is-invalid':c.id.touched && !c.id.valid}" formControlName="id" >
+            Name: <input type="text" name="" id="" [ngClass]="{'form-control':true,'is-invalid':airlineForm.controls.name.touched && !airlineForm.controls['name'].valid}" formControlName="name"><span *ngIf="airlineForm.controls.name.touched && !airlineForm.controls.name.valid" class="alert-danger">                Name is mandatory</span>
+<br>            Country: <input type="text" name="" id="" class="form-control" formControlName="country">
             Logo: <input type="text" name="" id="" class="form-control" formControlName="logo">
             Slogan: <input type="text" name="" id="" class="form-control" formControlName="slogan">
             Head Quaters: <input type="text" name="" id="" class="form-control" formControlName="head_quaters">
@@ -13,7 +13,8 @@
             <br>
             <input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
         </form>
-        {{ airlineForm.value | json }}
+         <br>
+        {{airlineForm.controls.id.valid}}
     </div>
     <div class="col-sm-3"></div>
 </div>

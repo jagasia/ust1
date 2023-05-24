@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AirlineService } from '../airline.service';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-airline',
@@ -13,8 +13,8 @@ export class AirlineComponent implements OnInit {
 
   constructor(private as:AirlineService, private fb:FormBuilder) { 
     this.airlineForm=this.fb.group({
-      id:[],
-      name:[],
+      id:['',[Validators.required]],
+      name:['',Validators.required],
       country:[],
       logo:[],
       slogan:[],
@@ -31,6 +31,10 @@ export class AirlineComponent implements OnInit {
     });
   }
 
+  get c()
+  {
+    return this.airlineForm.controls;
+  }
 
   fnAdd()
   {
