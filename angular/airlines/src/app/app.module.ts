@@ -7,11 +7,17 @@ import { AirlineComponent } from './airline/airline.component';
 import { FormsModule } from '@angular/forms';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AjayComponent } from './ajay/ajay.component';
+import { LengthPipe } from './length.pipe';
+import { BluePipe } from './blue.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AirlineComponent
+    AirlineComponent,
+    AjayComponent,
+    LengthPipe,
+    BluePipe
   ],
   imports: [
     BrowserModule,

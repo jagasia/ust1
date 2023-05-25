@@ -26,9 +26,9 @@ export class AirlineComponent implements OnInit {
 
   ngOnInit(): void {
     //call the service method
-    this.as.retrieveAllAirlines().subscribe((result)=>{
-      this.airlines=result;
-    });
+    // this.as.retrieveAllAirlines().subscribe((result)=>{
+    //   this.airlines=result;
+    // });
   }
 
   get c()
