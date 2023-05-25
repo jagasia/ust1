@@ -9,6 +9,7 @@ export class AjayComponent implements OnInit {
   num:number=10;
   today:Date=new Date();
   name:string="ajay";
+  x:number=1;
 
   constructor() { }
 
