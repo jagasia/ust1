@@ -16,7 +16,16 @@
       "location": "Cherai"
     }
   ],
-"products":[
-	{"id":1,"name":"pencil","price":20}
-]
+  "products": [
+    {
+      "id": 1,
+      "name": "pencil",
+      "price": 20
+    },
+    {
+      "id": 2,
+      "name": "Scale",
+      "price": 21
+    }
+  ]
 }
