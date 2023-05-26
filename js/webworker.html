@@ -9,11 +9,17 @@
         var w;
         function fnStart()
         {
-            w=new Worker('ashok.js');
-            w.onmessage=function(event){
-                // alert(event.data);
-                document.getElementById("result").innerHTML=event.data
+            if(typeof(w)=="undefined"){
+                w=new Worker('ashok.js');
             }
+            w.onmessage=(event)=>{
+                document.getElementById("result").innerHTML=event.data;
+            }
+            // w.onmessage=function(event){
+            //     // alert(event.data);
+            //     document.getElementById("result").innerHTML=event.data
+            // }
+            
         }
 
         function fnStop()
