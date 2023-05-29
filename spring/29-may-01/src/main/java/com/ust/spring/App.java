@@ -14,8 +14,17 @@ public class App
         //how to get an instance of bean???????
         ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("bean.xml");
         Mathematics maths= (Mathematics) ctx.getBean("maths");
-        maths.setNo1(20);
-        maths.setNo2(30);
+//        maths.setNo1(20);
+//        maths.setNo2(30);
         System.out.println(maths.sum());
+        
+//        ctx.getBean("car1");
+        Car car1 = ctx.getBean(Car.class);
+        car1.play();
+        
+        Jbl jbl=(Jbl) ctx.getBean("jbl");
+        car1.setAudio(jbl);
+        car1.play();
+        
     }
 }
