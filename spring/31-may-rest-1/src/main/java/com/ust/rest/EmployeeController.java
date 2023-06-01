@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ust.rest.model.Employee;
@@ -42,6 +43,18 @@ public class EmployeeController {
 		return emp;
 	}
 	
+	@GetMapping("/name/{name}")
+	public List<Employee> findEmployeesByName(@PathVariable("name") String name)
+	{
+		return er.findByName(name);
+	}
+	
+	@GetMapping("/department")
+	public List<Employee> findByDepartment(@RequestParam("dept")String department)
+	{
+		return er.findByDepartment(department);
+	}
+	
 	
 	
 	@PostMapping
@@ -53,9 +66,23 @@ public class EmployeeController {
 	@PutMapping
 	public Employee updateEmployee(@RequestBody Employee employee)
 	{//we will improvise this later
-		return er.save(employee);
+		//check if this employee id is already present. then only update.
+		Employee emp = findEmployeeById(employee.getId());
+		if(emp!=null)
+		{
+			emp=employee;
+			er.save(emp);
+		}
+					
+		return emp;
 	}
 	
+	@GetMapping("/name/{name}/department/{department}")
+	public List<Employee> findByNameAndDepartment(@PathVariable("name")String name, @PathVariable("department")String department)
+	{
+		return er.findByNameAndDepartment(name, department);
+	}
+
 	@DeleteMapping("/{id}")
 	public Employee deleteEmployee(@PathVariable("id") Integer id)
 	{
