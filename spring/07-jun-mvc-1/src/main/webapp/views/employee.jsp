@@ -28,7 +28,7 @@
     </div>
     <div class="col-sm-4">
       <h3>Employee Form</h3>
-		<form method="post" action="employee/emp">
+		<form method="post" action="/employee/emp">
 			Id: <input type="number" name="id" class="form-control" />
 			First Name: <input type="text" name="firstName" class="form-control" />
 			Last Name: <input type="text" name="lastName" class="form-control" />
