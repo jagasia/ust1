@@ -17,15 +17,9 @@
 <body>
 <div class="container-fluid p-5 bg-primary text-white text-center">
   <h1>MVC Page for Employees!</h1>
-  <p>Look at this effect! </p>
-  <c:if test="${username ne null }">
-  	Welcome ${username }
-  </c:if>
-  
-   
+  <p>Look at this effect!</p> 
 </div>
-<jsp:include page="menu.jsp" />
-  
+  <jsp:include page="menu.jsp" />
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-4">
@@ -35,16 +29,11 @@
     </div>
     <div class="col-sm-4">
       <h3>Employee Form</h3>
-		<form:form class="container" method="post" action="/flight/addFlight" modelAttribute="flight">
-			Id: <form:input type="number" path="id" class="form-control" /><br/>
-			Name: <form:input type="text" path="name" class="form-control" />
-			<form:errors style="color:red" path="name" /><br/>
-			Capacity: <form:input type="number" path="capacity" class="form-control" />
-			<br/>
-			<input type="submit" value="Add" class="btn btn-success" name="btnAdd" />&nbsp;
-			<input type="submit" value="Update" class="btn btn-warning" name="btnUpdate" />&nbsp;
-			<input type="submit" value="Delete" class="btn btn-danger" name="btnDelete" />&nbsp;
-		</form:form>
+		<form method="post" action="/user/validateLogin">
+			User Name: <input type="text" name="username" class="form-control" />
+			Password: <input type="password" name="password" class="form-control" /><br>
+			<input type="submit" value="Login" />
+		</form>
     </div>
     <div class="col-sm-4">
       <h3>Column 3</h3>        
@@ -55,24 +44,7 @@
   <div class="row">
   <div class="col-sm-2"></div>
   <div class="col-sm-8">
-  	<table class="table table-bordered table-striped table-hover">
-  		<thead>
-  			<tr>
-  				<th>Id</th><th>Name</th><th>Capacity</th><th></th>
-  			</tr>
-  		</thead>
-  		<tbody>
-  			<c:forEach var="f" items="${flights }">
-  				<tr>
-  					<td>${f.id }</td>
-  					<td>${f.name }</td>
-  					<td>${f.capacity }</td>
-  					<td><a href="/flight/select?id=${f.id }" class="btn btn-info">Select</a>
-  					</td>
-  				</tr>
-  			</c:forEach>
-  		</tbody>
-  	</table>
+  	
   </div>
   <div class="col-sm-2"></div>
   </div>

@@ -2,6 +2,7 @@ package com.ust.spring.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class FlightController {
 	private FlightService fs;
 	
 	@GetMapping
-	public ModelAndView home()
+	public ModelAndView home(HttpSession session)
 	{
 		//retrieve all flights from db
 		List<Flight> fligths = fs.read();
@@ -32,12 +33,13 @@ public class FlightController {
 		mv.setViewName("flight");
 		mv.addObject("flight", new Flight());
 		mv.addObject("flights", fligths);
+		mv.addObject("username", session.getAttribute("username"));
 //		return "flight";		//returns a view
 		return mv;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/addFlight", params = "btnAdd")
-	public ModelAndView addFlight(@Valid Flight flight, BindingResult br)
+	public ModelAndView addFlight(@Valid Flight flight, BindingResult br, HttpSession session)
 	{
 		if(!br.hasErrors())
 		{
@@ -57,21 +59,21 @@ public class FlightController {
 			return mv;
 		}
 		
-		return home();
+		return home(session);
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/addFlight", params = "btnUpdate")
-	public ModelAndView updateFlight(@ModelAttribute("flight") Flight flight)
+	public ModelAndView updateFlight(@ModelAttribute("flight") Flight flight, HttpSession session)
 	{
 		fs.update(flight);
-		return home();
+		return home(session);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/addFlight", params = "btnDelete")
-	public ModelAndView deleteFlight(@ModelAttribute("flight") Flight flight)
+	public ModelAndView deleteFlight(@ModelAttribute("flight") Flight flight, HttpSession session)
 	{
 		fs.delete(flight.getId());
-		return home();
+		return home(session);
 	}
 	
 	@GetMapping("/select")
