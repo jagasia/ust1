@@ -1,0 +1,507 @@
+Exception Handling
+-----------------------------
+Last session, we discussed about what is Exception.
+Lets understand handling exception.
+
+By throwing an exception, the person who creates the method communicates us, that something is abnormal. The person who creates the method does not want to decide what to do when such exception occurs. They want the calling method to decide.
+
+1) try block can contain many catch block. How many?		0 or more
+2) try - finally is possible. try - catch is possible.	try - catch - finally possible.
+	try - catch -catch -catch -finally is possible.
+	
+3) try block can contain nested try blocks also.
+	catch block can also contain try blocks.
+
+	if inner block does not find a suitable catch block, it can search for that catch block in outer try block.
+
+
+method1()	calls method2() calls method3() calls method4()
+
+in method4() an exception occurred.
+	it is unhandled.		because, there is not try catch in method4.
+
+This unhandled exception is propagated to the method3.	method3() can handle this.
+
+if method3 does not handle, then method2 gets the exception. 	method2() can handle this.
+
+
+there are some exceptions, which must be dealt. "Checked Exception"
+
+In our below code:
+class Bank
+{
+	public void withdraw(int amount)
+	{
+		if(amount>20000)
+			throw new NumberFormatException("Amount is > 20k so we cannot dispense that cash");
+		else
+			System.out.println("Remember to collect the cash");
+		System.out.println("Happy day");
+	}
+}
+
+public class App1 {
+
+	public static void main(String[] args) {
+		Bank sbi=new Bank();
+		try
+		{
+			sbi.withdraw(51000);
+			System.out.println("Line after withdraw within try block");
+		}catch(NumberFormatException nfe)
+		{
+			System.out.println(nfe.getMessage());
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Handles any exception.");
+		}
+		System.out.println("Welcome back");
+	}
+
+}
+
+
+
+we have thrown, "NumberFormatException". This comes under category "Unchecked exception".
+That is why we did not bother while throwing this exception.
+
+But if we throw, a checked exception, then we need to deal that.
+deal that means, 
+	either handle exception using try-catch (or)	(not fine because, why we throw 						and handle by ourself)
+	declare with throws clause.
+
+while using multiple catch blocks, the catch blocks order should be
+	sub class then super class
+
+For ex:
+	catch(FileNotFoundException ex1)
+	{}
+	catch(IOException ex2)
+	{}
+	catch(Exception ex3)
+	{}
+
+this should be the order.
+
+If you put super class type first, then next catch block will be unreachable code.
+hence	catch(Exception ex) should be last one only.
+
+throw
+	is used to throw an object of exception.
+	throw an exception
+
+throws
+	is used to declare a method that it throws these types of exceptions 
+	and does not handle them.		only checked exceptions need to declare 		with throws.
+	
+	the calling method has to handle that exception.
+
+How to create our own exception class?
+	a class that extends Exception	is an user defined checked exception class
+	a class that extends RuntimeException is an user defined unchecked exception class
+
+
+	
+Task:
+Write a java program to get 2 inputs from the user.
+The input1 must be greater than input2.
+And input2 cannot be 8.
+
+Pass these 2 inputs a arguments of a method
+	calculatePercentage(int x, int y)
+
+pass input1 and input2 for x and y.
+
+If the rules are not followed throw your own exception object.
+Your exception:
+	DenominatorException
+should be a checked exception
+
+while throwing this exception in calculatePercentage method, it should use throws clause.
+in main method while calling this method, use try catch blocks and handle.
+
+Custom Exception = User defined Exception
+import java.util.Scanner;
+
+class DenominatorException extends Exception
+{
+	public DenominatorException(String message) {
+		super(message);
+	}
+}
+
+public class DenominatorTask {
+
+	public static float calculatePercentage(int x, int y) throws DenominatorException
+	{
+		if(y>x || y==8)
+		{
+			//throw exception
+			throw new DenominatorException("denominator cannot be greater than numerator or equal to 8");
+		}
+		return (float)x/y;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int x=sc.nextInt();
+		int y=sc.nextInt();
+		try {
+			float result = calculatePercentage(x, y);
+			System.out.println(result);
+		} catch (DenominatorException e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Program completed");
+	}
+
+}
+
+---------------------------------------------------------
+JSON & XML
+-------------------
+	JSON	=	JavaScript Object Notation
+	XML	=	eXtensible Markup Language
+
+Whenever a data is transferred from one system to another system,
+we need a standard data format.
+
+	csv		comma separated value
+		was the information exchange format for several years/
+
+1999
+	XML was introduced
+	W3C	world wide web consortium
+
+how xml data looks like?
+in csv:
+	1,Rama,80
+	2,Ravi,70
+
+in xml:
+	<STUDENTS>
+		<STUDENT>
+			<RNO>1</RNO>
+			<NAME>Rama</NAME>
+			<MARK>80</MARK>
+		</STUDENT>
+		<STUDENT>
+			<RNO>2</RNO>
+			<NAME>Ravi</NAME>
+			<MARK>70</MARK>
+		</STUDENT>
+	</STUDENTS>
+
+in JSON:
+	{"id":"1","name":"Rama","mark":"80"}
+	{"id":"2","name":"Ravi","mark":"70"}
+
+
+
+
+How to convert a java object into a JSON string?
+	Google provides a library for that.
+		gson.jar
+
+what is jar?
+	Java ARchive
+
+
+	rar
+	zip
+	jar
+
+		all of these are archives.
+		what is significant in jar????		
+			a folder structure that has \bin 	\lib	
+
+
+How to add a .jar file to java project in eclipse?
+	Right click project->
+		properites->
+			java Build path->
+				libraries->		Add external jar (button)
+
+Testing:
+	what are the types of testing?
+		Unit testing
+		Functional testing
+		Integration testing
+		Regression testing
+		System testing
+		Performance testing
+		Stress testing
+		Usability testing
+
+Unit testing
+	testing a single unit of the software, usually it is a method.
+	functionality of a method is tested.
+	it is black box testing. because, we do not worry about the logic used inside the method to achieve the objective.
+
+	we test only the result / outcome of the method vs expected outcome.
+
+Test case:
+	contains, the
+		test case number
+		tested method name
+		sample input 1
+		sample input 2		and so on
+		expected output
+		actual output		tester will fill this after running the method
+		test result		actual vs expected output are equal, then pass
+
+Test Suite:
+	contains lot of test cases
+
+
+Java programs can be tested using many frameworks.
+	junit
+	
+JUnit is a library
+
+What you test? is called as AUT or SUT
+AUT
+	Application Under Test
+SUT
+	Software Under Test
+
+in this example, I create a class Mathematics
+	add
+	subtract
+	multiply
+
+Test Bed
+	initial configuration we do before we start the test.
+
+Look at this example: AUT:
+
+public class Mathematics {
+	int no1;
+	int no2;
+	
+	public Mathematics() {}
+
+	public Mathematics(int no1, int no2) {
+		super();
+		this.no1 = no1;
+		this.no2 = no2;
+	}
+
+	public int getNo1() {
+		return no1;
+	}
+
+	public void setNo1(int no1) {
+		this.no1 = no1;
+	}
+
+	public int getNo2() {
+		return no2;
+	}
+
+	public void setNo2(int no2) {
+		this.no2 = no2;
+	}
+	
+	public int add()
+	{
+		return no1+no2;
+	}
+	
+	public int subtract()
+	{
+		return no1-no2;
+	}
+	
+	public int product()
+	{
+		return no1*no2;
+	}
+	
+	
+}
+
+This Mathematics class needs to be tested now.
+
+Create a class MathematicsTest
+
+TDD
+	Test Driven Development
+		i) write the code to fail
+		ii) modify the code to pass
+		iii) refactor the code
+
+Refactor:
+	modify the program without changing the logic.
+
+
+---------------------
+Demo:
+package com.ust.jag;
+
+public class Mathematics {
+	int no1;
+	int no2;
+	
+	public Mathematics() {}
+
+	public Mathematics(int no1, int no2) {
+		super();
+		this.no1 = no1;
+		this.no2 = no2;
+	}
+
+	public int getNo1() {
+		return no1;
+	}
+
+	public void setNo1(int no1) {
+		this.no1 = no1;
+	}
+
+	public int getNo2() {
+		return no2;
+	}
+
+	public void setNo2(int no2) {
+		this.no2 = no2;
+	}
+	
+	public int add()
+	{
+		return no1+no2;
+	}
+	
+	public int subtract()
+	{
+		return no1-no2;
+	}
+	
+	public int product()
+	{
+		return no1*no2;
+	}
+	
+	
+}
+
+
+package com.ust.jag.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.ust.jag.Mathematics;
+
+public class MathematicsTest {
+	Mathematics aut;
+	
+	@Before
+	public void setUp() throws Exception {
+		System.out.println("Before: setUp method is called");
+		aut=new Mathematics();
+		aut.setNo1(2);
+		aut.setNo2(3);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		aut=null;
+		System.out.println("THis is after");
+	}
+
+	@Test
+	public void testAdd() {		
+		int actual = aut.add();
+		assertEquals(5, actual);
+	}
+
+	@Test
+	public void testSubtract() {		
+		int actual = aut.subtract();
+		assertEquals(-1, actual);
+	}
+
+	@Test
+	public void testProduct() {
+		int actual = aut.product();
+		assertEquals(6, actual);
+	}
+
+}
+
+---------------------------------------------
+@Before	or @BeforeEach
+@After	or @AfterEach
+
+the above annotated methods are executed before every test method.
+what is a test method, a method with @Test annotation
+
+On the other hand, we want some method to be executed only once for the test class. Not before every test method.
+
+@BeforeClass
+@AfterClass
+	these methods are executed only once before and after all test methods respectively.
+
+
+Suppose, we have a test class. 
+we have 3 test methods.
+How to ignore 1 of these test method while running?
+
+@Ignore
+	this annotation is used to ignore the tests 
+
+How to run junit test from main method?
+--------------------------------------------------------------
+		Result result = JUnitCore.runClasses(MathematicsTest.class);
+		System.out.println(result.getFailureCount());
+		for(Failure f:result.getFailures())
+		{
+			System.out.println(f.getMessage());
+		}
+
+--------------
+
+	@Test(expected = ArithmeticException.class)
+	public void testProduct() {
+		int actual = aut.product();
+		assertEquals(6, actual);
+	}
+
+
+----------------
+Test Suite
+-------------
+Create multiple test classes.
+Create a test suite and add selective test classes to the suite.
+Run the suite and observe that the test classes of that suite only runs.
+
+
+Test Suite categories;
+	categories test runner.
+suppose there are lot of test classes and each class have several methods.
+These methods can be marked with different categories.
+
+class  A
+	admin
+	method1
+
+	user
+	method2
+
+	admin
+	method3
+
+class B
+	user
+	method1
+
+	admin
+	method2
+
+	user
+	method3

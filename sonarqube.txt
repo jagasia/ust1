@@ -1,0 +1,111 @@
+download sonar qube from:
+	https://www.sonarqube.org/success-download-community-edition/
+
+unzip and extract to softwares folder
+	
+start sonar server:
+	in sonar folder, go to bin folder -> windows folder,
+	run the StartSonar.bat	script
+
+go to browser 
+	http://localhost:9000
+
+it will prompt you to enter username and password
+		admin
+		admin
+
+
+sonar qube required java 11
+
+<properties>
+       <java.version>1.8</java.version>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+
+-------------------------------------------------------------------------------------
+Demo for using sonarqube to analyze the code quality of a core java project (maven)
+
+1) Create a java project
+2) Convert to maven project
+	right click project
+		Configure-> convert to maven project
+3) now you got pom.xml
+	add the following plugins:
+
+<plugin>
+  <groupId>org.sonarsource.scanner.maven</groupId>
+  <artifactId>sonar-maven-plugin</artifactId>
+  <version>3.7.0.1746</version>
+</plugin>
+
+<plugin>
+	<groupId>org.jacoco</groupId>
+	<artifactId>jacoco-maven-plugin</artifactId>
+	<version>0.8.1</version>
+</plugin>
+
+
+
+4) clean install the project (any of the following steps)
+	i) right click project
+		run as -> maven build (first option)
+			in the goals:-
+				clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+
+	ii) go to cmd prompt to the location where pom.xml is present
+		mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+
+
+	what happens? the jar/war is created in target folder
+
+
+5) go to localhost:9000 portal
+	this is sonarqube portal
+
+	you have already logged in (admin:admin)
+	click "Add Project" in the top right corner
+		manually
+
+	type the project name and (display name is automatically typed)
+
+	create token	(type anything)
+		continue
+
+	choose "Maven"
+
+		click the copy+ in the right side
+
+i) Run the below command in cmd prompt where pom.xml is present:
+mvn sonar:sonar -Dsonar.projectKey=jf011-sonarqube-demo-1 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=9d466306414cebdcf29b112c0b0f9aee854e3126
+
+(or)
+ii) Right click the project and run as "Maven Build" (2)
+	paste the below code in goals
+
+sonar:sonar -Dsonar.projectKey=jf011-sonarqube-demo-1 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=9d466306414cebdcf29b112c0b0f9aee854e3126
+
+-----------------------------------------------------------------
+
+https://www.javatips.net/blog/sonarqube-tutorial
+
+
+
+sonar:sonar -Dsonar.login=login
+
+
+
+1) Technical debt,  is a concept in software development that reflects 
+the implied cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer.
+
+2) A code smell is any characteristic in the source code of a program that possibly indicates a deeper problem.
+
+3) Code coverage is a metric that can help you understand how much of your source is tested.
+
+
+
+
+
+
+
+mvn sonar:sonar -Dsonar.projectKey=t3-sonar-1 -Dsonar.host.url=http://localhost:9000  -Dsonar.login=f410e88996b36f170551f6ed2d67bf2a737f4707

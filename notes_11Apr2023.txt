@@ -1,0 +1,816 @@
+Overloading
+int sum(int, int)
+int sum(float, float)
+
+sum(2.5f, 3.5f)
+
+float f;
+f=2.5;		//is it fine or not?
+	2.5 is always considered as double. 	so double to float casting is not implicit.
+f=(float)2.5;
+f=2.5f;
+
+int i=20;
+long l=20;		//not correct
+long l=20L;	// is correct
+
+Example:
+		float f=12.5f;
+		long l=20;
+		l=9876543210L;
+		System.out.println(f);
+		System.out.println(l);
+
+Covariant
+
+class Super
+{
+	public static Super getInstance()
+	{
+		return this;
+	}
+}
+
+class Sub extends Super
+{
+	
+	public static Sub getInstance()
+	{
+		return this;
+	}
+}
+-------------------------------------
+OOPS
+Inheritance
+Encapsulation
+Abstraction
+Polymorphism
+
+Inheritance:
+	1) We do not always need to create a class from the scratch.
+	2) By inheritance, we create a new class that gets benefit of super class and also defines new features
+	3) It is called extensibility
+	4) When to do inheritance????
+		Only when a class is a kind of another class, then inheritance should be 		used.
+	5) If you create an object of sub class, then there is "is a " relationship, that should apply to the super class also.
+		Employee 
+			ContactEmployee
+		
+		raja is a ContractEmployee
+		raja is an Employee
+
+	6) through inheritance what are available for sub class?
+		public
+		protected
+		default (if sub class is in same package of super class)
+		private	(members of super class are not available to sub class)
+	7) In java, a class can inherit only 1 super class.	This is called as single 		inheritance.	
+	8) Do java support Multiple Inheritance?
+		Through interface.
+		
+		2 sub classes
+
+		a sub class inherits 2 super classes (this is not possible in java)
+
+abstract class Person
+{
+	public abstract void speak();
+}
+
+class Teacher extends Person
+{
+	public void speak()
+	{
+
+	}
+}
+
+class Student extends Person
+{
+	public void speak()
+	{
+	}
+}
+
+public class App3
+{
+	public static void main(String args[])
+	{
+		Person raja;
+		raja=new Teacher();
+		raja.speak();
+	
+		raja=new Student();
+		raja.speak();
+	}
+}
+class Notepad extends StatusBar		//Notepad is a kind of StatusBar	WHICH IS NOT OK
+
+
+Inheritance
+Encapsulation
+Abstraction
+Polymorphism
+
+Encapsulation
+	in java, a variable inside the class is declared as non-public data member.
+	
+	we provide access to those data members using getters and setter (these methods are public).
+Abstraction
+	A public method is provided for the user to access the properties.
+
+
+Encapsulation and Abstraction are complement to each other.
+Encapsulation is like hiding non essential characteristics of an object
+Abstraction is like providing access to essential characteristics of an object
+	public methods, we do abstraction
+
+
+Polymorphism
+	static		compile time	ex:	overloading
+	dynamic		run time		ex:	overriding
+
+Inheritance
+	single inheritance		java support
+	multiple inheritance		NO
+	multi-level inheritance	java support
+	hybrid inheritance		NO
+
+Shape
+	calculateArea		no formula	we made it abstract
+
+Abstract class:
+	we cannot create an object of abstract class.
+	we can create reference variable of abstract class.	(this is not called as object)
+	is meant to be inherited to use it. Or if abstract class has a static method, we can directly call the method using classname.method name
+	can contain methods with body also. 
+	an abstract class may or may not have abstract method.
+
+Shape s;
+s=new Circle();
+s=new Triangle();
+
+This is meant for dynamic polymorphism.	runtime polymorphism.	late binding.
+
+Interface:
+------------
+What is interface?
+
+class OnePlus
+{
+}
+
+class Oppo implements ThreePoint
+{
+	public void playSound()
+	{
+		System.out.println("Oppo plays good music");
+	}
+}
+
+interface ThreePointFiveMmJack
+{
+	public void playSound();
+}
+
+
+public class App4
+{
+	public static void music(ThreePointFiveMmJack x)
+	{
+		x.playSound();
+	}
+	public static void main(String arg[])
+	{
+		Oppo o=new Oppo();
+		OnePlus op=new OnePlus();
+		music(o);
+		music(op);		//ERROR
+		
+	}
+}
+
+
+Interface:
+	highest level of abstraction.
+	upto java version 7 or old, 	
+		interfaces does not allow methods with body.
+	from java 8 onwards,
+		interfaces can contain methods with body if it is
+			static
+			default
+
+	can interface contain variable???????	NO
+	any data member inside the interface will AUTOMATICALLY Become "static and final"
+	an interface can inherit another interface
+	
+
+interface Person
+{
+	int marks;		NOT POSSIBLE because A CONSTANT must be assigned a value
+	int AGE=20;
+	public static final int AGE=20;
+}
+
+what an interface can contains?
+	methods
+	constants
+
+Java 8 interface:
+	can contain methods with body if the method is 
+		static
+		default
+Activity:
+Understand what is an interface.
+Data members
+methods
+inside the interface
+
+static and default methods of interface	(java 8)
+--------------------------------------
+--------------------------------------------------------------------------
+Collections:
+----------------
+what are the limitations of array?
+1) size to be known priorly.
+2) insertion and deletion involved shifting elements.
+3) contiguous memory locations required.
+4) adv:	Array elements can be primitive type also.	
+5) Array size cannot be changed.
+
+
+Collections:
+	In java.util package, we have some useful collection classes that come under
+
+List	interface implemented by
+	LinkedList
+	ArrayList
+
+Set	interface implemented by
+	HashSet
+	TreeSet
+	LinkedHashSet
+
+
+Understand List vs Set
+List
+	the order of the elements is preseved.	
+	Ordered collection
+	Order is not ascending / descending. It is the order in which the elements are added.
+	Allows duplicate elements
+	After adding elements, we can sort a list		Collections.sort(list);
+
+Set
+	Order of the elements are based on the type of Set
+		HashSet		the order is based on hashCode method
+		TreeSet		sorted based on Comparable/ Comparator
+		LinkedHashSet	ordered	(the order in which elements are added)
+	rejects duplicates
+	After adding elements, Set does not allow rearranging or sorting
+		Collections.sort is not possible for Set
+
+Map
+	is application of collection
+
+	
+		
+Before Java 5, all collection classes in java were "Object" type.
+
+ArrayList x=new ArrayList();
+x.add(new Integer(20));
+x.add(new Float(2.2f));
+x.add("Raja");
+
+It looked like a collection allows any type (heterogenous). Actually NOT.
+All are Object type. 
+
+Java 5 onwards, Generics introduced.
+
+ArrayList<Integer> marks=new ArrayList<Integer>();
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+marks.add(10);
+
+
+
+		ArrayList marks=new ArrayList();
+		marks.add(new Integer(10));
+		marks.add("Raja");
+		marks.add(new Float(2.2f));
+		
+		Object arr[]=new Object[10];
+		arr[0]=new Integer(10);
+		arr[1]="Raja";
+		arr[2]=new Float(2.2f);
+		
+		
+In above example, it looks like array list and array are allowing different type of elements.
+But actually, they are automatically cast to Object type. They are all same type only.
+
+Before List, Set are introduced, the first versions of java had some collection classes.
+Legacy classes.
+
+Vector
+Hashtable
+
+	these legacy classes are Synchronized.	Means, thread-safe.	
+
+Vector is similar to ArrayList
+Hashtable is similar to HashMap	
+
+Vector has index
+ArrayList has index
+
+Collection class has some methods
+	add
+	size
+	
+
+arr.length
+str.length()
+list.size()
+
+
+import java.util.ArrayList;
+
+public class App1 {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> marks=new ArrayList<Integer>();
+		marks.add(100);
+		marks.add(50);
+		marks.add(90);
+		marks.add(60);
+		marks.add(100);
+		
+//		System.out.println(marks.size());
+//		System.out.println(marks);
+		
+		for(int i=0;i<marks.size();i++)
+		{
+			System.out.println(marks.get(i));
+		}
+	}
+
+}
+
+
+add an element to the list
+remove element by finding an element if it is present and then remove.
+
+class University
+{
+	List<College> collegeList;
+}
+Task:	
+File: 	Java_Mock_11
+Page:	7
+University - Requirement 2
+
+Requirement 2:
+Now we are gonna start creating a university and add colleges to it. Start with creating a university and use menu-driven approach to add, remove, display details of the college in the university.
+
+a)Create a Class College with the following attributes: 
+Member Field Name	Type
+name	String
+website	String
+mobile	String
+founder	String
+numberOfDept	Integer
+location	String
+startingDate	java.util.Date
+
+Mark all the attributes as private
+Create / Generate appropriate Getters & Setters
+Add a default constructor and a parameterized constructor to take in all attributes in the given order: 
+College(String name, String website, String mobile, String founder,Integer numberOfDept, String location, java.util.DatestartingDate)
+
+b)Create a Class University with the following attributes: 
+Member Field Name	Type
+name	String
+collegeList	List<College>
+
+Mark all the attributes as private,
+Create / Generate appropriate Getters & Setters,
+Add a default constructor and a parameterized constructor to take in all attributes in the given order:University(String name, List<College>collegeList)
+In constructor pass the collegeList value as an empty list. Only one University will be present at a time.
+c) Create the following static method in College class, 
+Method Name	Description
+public static College createCollege(String detail)	This method accepts a string which contains college details separated by commas. Split the details and create a college object from the details and return it.
+The input format consists of college details separated by comma in the below order,
+name,website,mobile,founder,numberOfDept,location,startingDate
+d) Create the following methods in University class, 
+Method Name	Description
+public void addCollegeToUniversity(College college)	This method accepts a College object and adds the College to the College list of the current university.
+public Boolean removeCollege(String name)	This method will get the name of the college and delete the college with the specified name from the current university.
+If a college with the given name found, delete the college and return true. If a collegewith the name is not found return false.
+public void displayColleges()	This method will display the college list in the current university.
+If the college list is empty display "No colleges to show", else
+display "Colleges in [university name]" and display all the college details in the specified format. Where [university name] specifies the name of the university.
+
+After deletion, if true is returned print "College successfully deleted", else print "College not found in the University". After adding college to the university, print "College successfully added".
+
+Note: The above print statements should be present in the main method.
+
+When the “college” object is printed, it should display the following format
+Print format:
+System.out.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s\n", "Name","Website","Mobile","Founder","Number of Dept","Location","Starting Date");
+
+Sample Input and Output: 
+Enter the name of the University: 
+IIT 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+3 
+No colleges to show 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+2 
+Enter the name of the college to be deleted: 
+IIT 
+College not found in the University 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+1 
+IIT Madras,http.iitm.ac.in,7845612390, iit ,16,Tamil Nadu,15-12-1959 
+College successfully added 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+3 
+Colleges in IIT 
+Name           Website             Mobile         Founder        Number of Dept Location       Starting Date   
+IIT Madras     http.iitm.ac.in     7845612390     iit            16             Tamil Nadu     15-12-1959      
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+2 
+Enter the name of the college to be deleted: 
+IIT Madras 
+College successfully deleted 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+4 
+
+
+
+
+
+
+Requirement 2:
+	
+Reminder:		ConcurrentModificationException
+Reminder:		Iterator, ForEach
+
+University - Requirement 2
+
+Requirement 2:
+Now we are gonna start creating a university and add colleges to it. Start with creating a university and use menu-driven approach to add, remove, display details of the college in the university.
+
+a)Create a Class College with the following attributes: 
+Member Field Name	Type
+name	String
+website	String
+mobile	String
+founder	String
+numberOfDept	Integer
+location	String
+startingDate	java.util.Date
+
+Mark all the attributes as private
+Create / Generate appropriate Getters & Setters
+Add a default constructor and a parameterized constructor to take in all attributes in the given order: 
+College(String name, String website, String mobile, String founder,Integer numberOfDept, String location, java.util.DatestartingDate)
+b)Create a Class University with the following attributes: 
+Member Field Name	Type
+name	String
+collegeList	List<College>
+
+Mark all the attributes as private,
+Create / Generate appropriate Getters & Setters,
+Add a default constructor and a parameterized constructor to take in all attributes in the given order:University(String name, List<College>collegeList)
+In constructor pass the collegeList value as an empty list. Only one University will be present at a time.
+c) Create the following static method in College class, 
+Method Name	Description
+public static College createCollege(String detail)	This method accepts a string which contains college details separated by commas. Split the details and create a college object from the details and return it.
+The input format consists of college details separated by comma in the below order,
+name,website,mobile,founder,numberOfDept,location,startingDate
+d) Create the following methods in University class, 
+Method Name	Description
+public void addCollegeToUniversity(College college)	This method accepts a College object and adds the College to the College list of the current university.
+public Boolean removeCollege(String name)	This method will get the name of the college and delete the college with the specified name from the current university.
+If a college with the given name found, delete the college and return true. If a collegewith the name is not found return false.
+public void displayColleges()	This method will display the college list in the current university.
+If the college list is empty display "No colleges to show", else
+display "Colleges in [university name]" and display all the college details in the specified format. Where [university name] specifies the name of the university.
+
+After deletion, if true is returned print "College successfully deleted", else print "College not found in the University". After adding college to the university, print "College successfully added".
+
+Note: The above print statements should be present in the main method.
+
+When the “college” object is printed, it should display the following format
+Print format:
+System.out.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s\n", "Name","Website","Mobile","Founder","Number of Dept","Location","Starting Date");
+
+Sample Input and Output: 
+Enter the name of the University: 
+IIT 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+3 
+No colleges to show 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+2 
+Enter the name of the college to be deleted: 
+IIT 
+College not found in the University 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+1 
+IIT Madras,http.iitm.ac.in,7845612390, iit ,16,Tamil Nadu,15-12-1959 
+College successfully added 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+3 
+Colleges in IIT 
+Name           Website             Mobile         Founder        Number of Dept Location       Starting Date   
+IIT Madras     http.iitm.ac.in     7845612390     iit            16             Tamil Nadu     15-12-1959      
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+2 
+Enter the name of the college to be deleted: 
+IIT Madras 
+College successfully deleted 
+1.Add College 
+2.Delete College 
+3.Display Colleges 
+4.Exit 
+Enter your choice: 
+4 
+
+------------------
+Solution:
+---------------
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class College {
+	private String name, website, mobile, founder, location;
+	private Integer numberOfDept;
+	private Date startingDate;
+	
+	public College() {}
+
+	public College(String name, String website, String mobile, String founder, String location, Integer numberOfDept,
+			Date startingDate) {
+		super();
+		this.name = name;
+		this.website = website;
+		this.mobile = mobile;
+		this.founder = founder;
+		this.location = location;
+		this.numberOfDept = numberOfDept;
+		this.startingDate = startingDate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getFounder() {
+		return founder;
+	}
+
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+
+	public Date getStartingDate() {
+		return startingDate;
+	}
+
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
+	}
+	public static College createCollege(String detail) throws ParseException
+	{
+		College college=new College();
+		String[] arr = detail.split(",");
+//		IIT Madras,http.iitm.ac.in,7845612390, iit ,16,Tamil Nadu,15-12-1959
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		college.setName(arr[0]);
+		college.setWebsite(arr[1]);
+		college.setMobile(arr[2]);
+		college.setFounder(arr[3]);
+		college.setNumberOfDept(Integer.parseInt(arr[4]));
+		college.setLocation(arr[5]);
+		college.setStartingDate(sdf.parse(arr[6]));
+		return college;
+	}
+}
+
+
+
+
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+public class University {
+	private String name;
+	private List<College> collegeList;
+
+	public University() {
+		collegeList=new ArrayList<College>();
+	}
+
+	public University(String name, List<College> collegeList) {
+//		this();
+		this.name = name;
+		this.collegeList = collegeList;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<College> getCollegeList() {
+		return collegeList;
+	}
+
+	public void setCollegeList(List<College> collegeList) {
+		this.collegeList = collegeList;
+	}
+
+	public void addCollegeToUniversity(College college) {
+		collegeList.add(college);
+	}
+
+	public Boolean removeCollege(String name) {
+//		College college = null;
+		// to find the college using its name, i loop all elements of collegeList
+//		for (int i = 0; i < collegeList.size(); i++) {
+		for(College c : collegeList) {
+//			College c = collegeList.get(i);
+
+			if (c.getName().equals(name)) {
+//				college = c;
+				return collegeList.remove(c);
+//				break;
+			}
+		}
+		return false;
+//		return collegeList.remove(college);
+	}
+
+	public void displayColleges() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		System.out.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s\n", "Name", "Website", "Mobile", "Founder",
+				"Number of Dept", "Location", "Starting Date");
+		for (int i = 0; i < collegeList.size(); i++) {
+			College c = collegeList.get(i);
+			System.out.format("%-15s%-20s%-15s%-15s%-15s%-15s%-15s\n", c.getName(), c.getWebsite(), c.getMobile(),
+					c.getFounder(), c.getNumberOfDept(), c.getLocation(), sdf.format(c.getStartingDate()));
+		}
+	}
+
+}
+
+
+
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name of the University: ");
+		String universityName=sc.nextLine();
+		University university=new University();
+		university.setName(universityName);
+		
+		int choice=4;
+		do
+		{
+			System.out.println("1.Add College \r\n" + 
+					"2.Delete College \r\n" + 
+					"3.Display Colleges \r\n" + 
+					"4.Exit \r\n" + 
+					"Enter your choice: \r\n" + 
+					"");
+			choice=sc.nextInt();
+			switch(choice)
+			{
+			case 1:	//add
+				String detail=sc.nextLine();
+				if(detail.equals(""))
+					detail=sc.nextLine();
+				College college=College.createCollege(detail);
+				university.addCollegeToUniversity(college);
+				System.out.println("College successfully added");
+				break;
+			case 2:	//delete
+				System.out.println("Enter the name of the college to be deleted:");
+				String name=sc.nextLine();
+				if(name.equals(""))
+					name=sc.nextLine();
+				Boolean status = university.removeCollege(name);
+				if(status)
+				{
+					System.out.println("College successfully deleted");
+				}else
+				{
+					System.out.println("College not found in the University");
+				}
+				break;
+				
+			case 3:	//display
+				university.displayColleges();
+				break;
+			case 4:
+				System.exit(0);
+			}
+		}while(choice<4);
+	}
+
+}

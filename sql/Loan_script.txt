@@ -1,0 +1,207 @@
+CREATE DATABASE new_loanq;
+USE new_loanq;
+
+CREATE TABLE loan_card_master
+(
+	loan_id				int(6)		PRIMARY KEY,
+	loan_type			varchar(20),
+	duration_in_years	int(2)
+);
+
+CREATE TABLE employee_master
+(
+	employee_id 		varchar(10)		PRIMARY KEY,
+	employee_name		varchar(30),
+	designation			varchar(15),
+	gender				varchar(6),
+	department			varchar(20),
+	date_of_birth		date,
+	date_of_joining		date
+);
+
+CREATE TABLE item_master
+(
+	item_id				varchar(10)		PRIMARY KEY,
+	item_description	varchar(50),
+	issue_status		varchar(10),
+	item_make			varchar(20),
+	item_category		varchar(20),
+	item_valuation		double(7,2)
+);
+
+CREATE TABLE employee_card_details
+(
+	employee_id 		varchar(10) 	REFERENCES 	employee_master,
+	loan_id				varchar(10)		REFERENCES	loan_card_master,
+	card_issue_date		date
+);
+
+CREATE TABLE employee_issue_details
+(
+	issue_id			varchar(10)		PRIMARY KEY,
+	employee_id 		varchar(10) 	REFERENCES 	employee_master,
+	item_id				varchar(10)		REFERENCES	item_master,
+	issue_date			date,
+	return_date			date	
+);
+
+insert into loan_card_master
+values(00001,'stationary',5);
+insert into loan_card_master
+values(00002,'recurring',1);
+insert into loan_card_master
+values(00003,'fixed',4);
+insert into loan_card_master
+values(00004,'recurring',5);
+insert into loan_card_master
+values(00005,'stationary',3);
+insert into loan_card_master
+values(00006,'fixed',2);
+insert into loan_card_master
+values(00007,'recurring',1);
+insert into loan_card_master
+values(00008,'stationary',3);
+
+
+select * from employee_master;
+
+insert into employee_master 
+values('E001','ram','pat','male','hr','1988-04-01','2001-02-14');
+
+insert into employee_master 
+values('E002','sashi','cat','male','account','1967-02-10','2010-02-04');
+
+insert into employee_master 
+values('E003','prerna','trainee','female','hr','1990-10-09','2010-10-14');
+
+insert into employee_master 
+values('E004','pratik','assoc','male','prod','1988-05-12','2005-02-12');
+
+insert into employee_master 
+values('E005','ram','trainee','male','prod','1978-04-03','2001-02-14');
+
+insert into employee_master 
+values('E006','ram','pat','male','account','1968-02-05','2007-01-04');
+
+insert into employee_master 
+values('E007','vivek','assoc','male','hr','1958-09-05','2006-03-12');
+
+
+insert into employee_master 
+values('E008','garima','cat','female','account','1990-12-11','2007-04-01');
+
+insert into employee_master 
+values('E009','ramesh','pat','male','prod','1992-04-04','1998-05-06');
+
+insert into employee_master 
+values('E010','jatin','assoc','male','account','1994-07-12','2012-01-04');
+
+insert into employee_master 
+values('E011','sonam','pat','female','prod','1996-03-01','2013-07-03');
+
+insert into employee_master 
+values('E012','surya','pat','female','prod','1996-03-01','2013-07-03');
+
+
+insert into item_master 
+values ('i001','iugiuhou','yes','hand','furniture',2000);
+
+insert into item_master 
+values ('i002','iugiuhou','no','contract','product',2050);
+
+insert into item_master 
+values ('i003','iugiuhou','yes','hand','furniture',3000);
+
+insert into item_master 
+values ('i004','iugiuhou','no','contract','product',7000);
+
+insert into item_master 
+values ('i005','iugiuhou','no','hand','furniture',8000);
+
+insert into item_master 
+values ('i006','iugiuhou','yes','machine','product',10000);
+
+insert into item_master 
+values ('i007','iugiuhou','yes','contract','furniture',7000);
+
+insert into item_master 
+values ('i008','iugiuhou','no','machine','product',5000);
+
+insert into item_master 
+values ('i009','iugiuhou','no','hand','product',4000);
+
+insert into item_master 
+values ('i010','iugiuhou','yes','machine','furniture',1000);
+
+insert into item_master 
+values ('i013','iugiuhou','yes','machine','product',2000);
+
+
+
+
+insert into employee_card_details
+values('e001','00001','2013-10-09');
+
+insert into employee_card_details
+values('e005','00005','2011-04-10');
+
+insert into employee_card_details
+values('e008','00003','2009-06-04');
+
+insert into employee_card_details
+values('e007','00009','2003-02-01');
+
+
+insert into employee_issue_details
+values('iss001','e002','i007','2013-10-02','2013-11-11');
+insert into employee_issue_details
+values('iss009','e002','i006','2012-10-02','2013-09-04');
+
+insert into employee_issue_details
+values('iss010','e002','i007','2011-04-02','2013-11-01');
+insert into employee_issue_details
+values('iss011','e002','i003','2010-07-02','2013-11-03');
+
+
+insert into employee_issue_details
+values('iss002','e001','i006','2014-03-02','2014-11-11');
+
+insert into employee_issue_details
+values('iss003','e009','i001','2012-01-02','2013-03-05');
+
+insert into employee_issue_details
+values('iss004','e004','i003','2010-03-02','2011-06-01');
+
+insert into employee_issue_details
+values('iss012','e004','i007','2009-03-04','2009-11-01');
+insert into employee_issue_details
+values('iss013','e004','i007','2008-08-02','2008-09-09');
+insert into employee_issue_details
+values('iss014','e004','i006','2011-03-07','2011-06-01');
+
+insert into employee_issue_details
+values('iss005','e007','i010','2009-04-02','2009-07-07');
+
+insert into employee_issue_details
+values('iss006','e009','i007','2010-05-02','2012-12-08');
+
+
+insert into employee_issue_details
+values('iss016','e009','i013','2010-05-02','2012-12-08');
+
+insert into employee_issue_details
+values('iss007','e004','i010','2013-10-02','2013-11-11');
+
+select * from item_master;
+
+insert into employee_issue_details
+values('iss021','e012','i001','2013-10-02','2013-11-11');
+insert into employee_issue_details
+values('iss022','e012','i001','2010-03-02','2011-06-01');
+
+insert into employee_issue_details
+values('iss023','e012','i005','2009-03-04','2009-11-01');
+insert into employee_issue_details
+values('iss024','e012','i005','2008-08-02','2008-09-09');
+insert into employee_issue_details
+values('iss025','e012','i005','2011-03-07','2011-06-01');

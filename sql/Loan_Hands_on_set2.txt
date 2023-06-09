@@ -1,0 +1,28 @@
+11. Details of issue id,emp id,name who had issued in product display in sorted order of issue_id.
+
+12. Display customer who has not availed for loan
+
+13. Display empid,name with their total valuations.
+
+14. Display emp records for whom never issued an item as a loan order based on emp id 
+
+
+15. Display empid,name who has the highest valuation. if multiple records then display in order of emp id 
+
+
+16. Display No. of emp in HR dept
+
+
+17. Display issue status  and number of items of furniture based on issued and not issued 
+
+
+18. Display empid and total valuation of each employee where employee must have at least one product issued
+
+
+19. Disp empid,name and count of categories of each emp having at least 2 categories
+
+
+20. Display name of categories and no of items in each category and sort in order of no of items
+
+
+

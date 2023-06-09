@@ -1,0 +1,473 @@
+Multi-Threading
+----------------------
+What is deadlock?
+How does it occur?
+Remedies to avoid or respond to deadlock.
+-----------------------------
+Entity class, Serialization, De-Serialization.
+
+Final
+--------
+we can use final on
+	i) data member
+	ii) method
+	iii) class
+
+final String COMPANY_NAME="UST Global";
+	while declaring itself, assign a value. 	Because final data member is constant
+	you can declare final data members inside a method or block also.
+
+public final void display()
+{
+
+}
+cannot be overridden
+
+
+final class JavaStudent
+{
+}
+
+final class cannot be inherited.	
+
+--------------------------------------------
+Example for final class.	We try to inherit a final class and get error.
+
+public class MyString extends String
+	BUT	String is final class
+	ERROR!	The type JString cannot subclass the final class String
+
+
+--------------------------------------------
+Example for final method.	We try to override a final method of super class and get error.
+class Student
+{
+	public final void doCode()	//sub classes cannot override this method.
+	{
+		System.out.println("Do the coding as per standards");
+	}
+}
+
+class JavaStudent extends Student
+{
+	public void doCode()	//ERROR!	Cannot override the final method from Student
+	{
+		
+	}
+}
+
+--------------------------------
+Example for final data member:
+
+		final int MAX_MARKS=100;
+		MAX_MARKS=90;	//ERROR!	The final local variable MAX_MARKS cannot be assigned. It must be blank and not using a compound assignment
+
+-------------------------------------------------------------------------
+IO
+	Input Output
+
+Scanner
+	sc.next()
+	nextInt()
+	nextLine()		accepts input until a \n is found. All other next methods accept input until any delimiter is found.	space, tab, newline
+
+Input
+	we so far got input from keyboard only.
+	we can get input from many other sources.
+		file
+		keyboard
+		socket
+
+keyboard inputs are always characters.
+
+there are 2 ways of getting input:
+	1) as characters
+	2) as bytes
+
+txt
+pdf
+jpg
+doc
+docx
+mpg
+png
+
+text file
+binary file
+
+
+
+java.io package
+	All classes that end with below comes under	(binary category)
+		InputStream
+		OutputStream
+
+	All classes that end with below comes under	(character category)
+		Reader
+		Writer
+
+FileInputStream	binary
+FileReader		character
+FileOutputStream	binary
+FileWriter		char
+BufferedReader	char
+BufferedOutputStream	binary
+BufferedWriter		char
+BufferedInputStream		binary
+ObjectInputStream		binary
+ObjectOutputStream
+DataInputStream
+DataOutputStream
+
+
+If the source of input or the destination of output is File, then the class names starts with File
+
+Qn1:	You want to write bytes to a file. Which class will you use?
+
+	FileOutputStream
+
+Qn2:	You want to read characters from a file.
+	FileReader
+
+DataOutputStream
+	to write primitive types into the destination
+
+Node stream is a stream that works on a specific source or destination
+	FileInputStream
+	FileOutputStream
+	FileReader
+	FileWriter
+
+There are many other streams that work on node stream
+BufferedReader	char
+BufferedOutputStream	binary
+BufferedWriter		char
+BufferedInputStream		binary
+ObjectInputStream		binary
+ObjectOutputStream		to write objects to a node stream
+DataInputStream
+DataOutputStream		to write primitive data to a node stream
+
+These are called as Filter streams. They do not work on specific node.
+THey work on other node streams
+	System.in		is a node stream	(keyboard)
+	System.out	is a node stream	(monitor)
+	System.err		is a node stream	(usually monitor, sometimes printer)
+
+
+
+File f=new File("ajay.txt");
+
+What is the need for File class?
+
+memory vs storage
+
+
+If you load the file in memory as an object.		This is called as opening the file
+vice versa is called as closing the file.
+
+The constructor of File class opens the file.
+
+File class is there, because, we want to represent the file (which is in storage) as an object (in memory).
+
+File class methods:
+	list()		get all the files and folders present in that location
+	mkdir()		creates the directory/folder
+	renameTo()
+	f.delete()
+	f.createNewFile();	
+	f.exists()
+
+
+File f=new File("d:\\raja.txt");		//there is no such file
+f.createNewFile();
+	
+-------------------------------------------------------------------
+Create a java program to read all bytes from a file.
+Create a new file and write all bytes to the file.
+
+C:\Users\rjaga\Pictures\paratta.jpg
+
+which class can be used to read all bytes from the above file?
+	FileInputStream
+
+flush method
+	is called automatically when the program ends normally.
+	when a program like GUI, button click, then the program will keep running.
+	so program does not call flush method.
+	you will not see the bytes in storage.
+
+	close() method is called automatically when program ends.
+	close calls the flush method
+
+Task:
+-------
+Use 
+	File class to access the properties of the file
+		list
+		
+FileInputStream and FileOutputStream
+
+FileReader and FileWriter
+
+Identify the significance of each class:
+BufferedReader	char
+BufferedOutputStream	binary
+BufferedWriter		char
+BufferedInputStream		binary
+ObjectInputStream		binary
+ObjectOutputStream		to write objects to a node stream
+DataInputStream
+DataOutputStream		to write primitive data to a node stream
+
+--------------------------------------------------
+BufferedReader
+	Before jdk 1.5, ie., upto jdk 1.4, There was no Scanner class.
+
+to get input from the user, we used BufferedReader
+
+System.in
+	System is a class.	Inside this class, a static variable is present.		"in"
+
+	in is an object of InputStream.
+
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class App5 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedInputStream bis=new BufferedInputStream(System.in);
+		
+		
+		String str=br.readLine();
+		System.out.println(str);
+	}
+
+}
+
+
+-------------------------------------------------------------
+DataOutputStream
+DataInputStream
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class App6 {
+	public static void main(String[] args) throws IOException {
+		DataOutputStream dos=new DataOutputStream(new FileOutputStream("kalyan.dat"));
+		dos.writeInt(101);
+		dos.writeFloat(2.5f);
+		dos.writeChars("Kalyan");
+		dos.flush();
+		dos.close();
+		System.out.println("Done");
+	}
+}
+
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class App7 {
+
+	public static void main(String[] args) throws IOException
+	{
+		//read primitives from a file
+		DataInputStream dis=new DataInputStream(new FileInputStream("kalyan.dat"));
+		float f=dis.readFloat();
+		int i=dis.readInt();		
+		String s=dis.readLine();
+		System.out.println(i);
+		System.out.println(f);
+		System.out.println(s);
+		
+	}
+
+}
+
+
+-------------------
+Serialization
+	What is Serialization?
+		is a process of converting an object into a series of bytes
+		purpose of doing this is to send an object to a stream
+
+what we do now??
+	we store an object of a class in a file.
+
+
+12,Kalyan,Jennie,Hyderabad
+10,Ajay,CM,Ernakulam
+
+
+Serializable
+	is a marker interface
+	what is marker interface?
+		an interface that does not have any abstract method
+
+public void method(Serializable s){}
+
+
+method(emp);		Employee implements Serializable
+
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class App1 {
+
+	public static void main(String[] args) throws IOException {
+		//get inputs from the user
+		Scanner sc=new Scanner(System.in);
+		String detail=sc.nextLine();
+		//create an object of Employee from a CSV
+		String[] arr = detail.split(",");
+		Employee emp=new Employee();
+		emp.setId(Integer.parseInt(arr[0]));
+		emp.setFirstName(arr[1]);
+		emp.setLastName(arr[2]);
+		emp.setLocation(arr[3]);
+		
+		//lets write this object to a file
+		ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream("kalyan.dat"));
+		oos.writeObject(emp);
+		oos.flush();
+		oos.close();
+		System.out.println("Done");
+	}
+
+}
+
+
+
+Another program to read object from the file:
+------------
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class App2 {
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException{
+		//to read object from file
+		ObjectInputStream ois=new ObjectInputStream(new FileInputStream("kalyan.dat"));
+		Employee e=(Employee) ois.readObject();
+		
+		System.out.println(e);
+
+	}
+
+}
+
+
+--------------------------------------------------------
+Error/Exception Handling, Custom Exceptions
+----------------------------------------------------------------
+Error
+	is something which cannot be handled
+
+
+Exception
+	can be handled
+
+What is exception?
+	abnormal event that occur during the execution of the program.
+
+	exception is a situation where, we do not know how to respond/ react.
+
+A program find such situation, throws exception thereby allowing the user to handle it.
+
+Exceptions
+	are providing some input to us.
+	it gives message.
+	it terminates the program abruptly to prevent some issues.
+
+Exception class
+	is the super class for all exceptions
+
+ArrayIndexOutOfBoundsException
+ArithmeticException
+ClassNotFoundException
+IOException
+ParseException
+IllegalArgumentException
+ConcurrentModificationException
+SQLException
+FileNotFoundException
+RuntimeException		(is the super class for all unchecked exceptions)
+InputMismatchException
+NullPointerException
+
+
+
+
+Object
+	Throwable
+		Exception
+			RuntimeException
+		Error
+
+
+Checked vs Unchecked Exceptions
+
+Checked Exceptions
+	are exception which are derived from Exception class.
+	if you do not take care of these exceptions, the program does not compile.
+	take care means,	either you
+		i) declare the method with "throws"
+		ii) handle the exception using "try - catch -finally" blocks.
+
+	FileNotFoundException
+	InterruptedException
+	IOException
+	ClassNotFoundException 
+		are examples of checked exceptions
+
+Unchecked Exceptions
+	are exceptions which are derived from RuntimeException class.
+	
+	ArithmeticException
+	NullPointerException
+
+
+--------------------------------------------------------------
+How to handle exceptions?
+	try
+	catch
+	finally	
+-----------------------------------
+	throw
+	throws
+
+--------------------------
+Activity:
+	Identify the above statements and blocks of Exceptions in java.
+
+try
+	block is a guarded section
+	any exceptions occurred in this block can be handled by the catch block(s)
+
+catch
+	block can handle a type of exception.	
+	there can be zero or more catch blocks for a try block
+
+finally
+	it is an optional block
+	is always executed even if exception occurred or not. handled or not.
+
+throw
+	is used to throw exception object
+
+throws
+	declares the method throws these type of exceptions but does not handle them. The 		calling method has to handle them.

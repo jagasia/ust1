@@ -1,0 +1,927 @@
+Coding standards
+Good practises
+Conventions
+Code quality
+
+Java Conventions
+
+
+1) class names
+2) variable names
+3) method names
+4) constant
+
+Class Name conventions in Java:
+--------------------------------------------
+1) A class name must be a noun.
+2) A class name must follow Pascal case	starts with capital letter and every word first letter is capital
+	ex:		RetailCustomer,		WholeSaleCustomer
+
+in db, RETAIL_CUSTOMER		WHOLE_SALE_CUSTOMER	
+3) The public class should be saved in a file named as same.	(HARD rule)
+4) no need of using short form.		ArrayIndexOutOfBoundsException
+5) a file can contains many classes inside, but only 1 class among them can be public. And the file name must be public class name. But convention is to keep every class in a separate file.
+
+Variable name conventions in Java:
+------------------------------------------------
+
+for(int i=0;i<10;i++)
+{
+
+}
+we are not discussing about loop counter variables.
+
+Apart from that, every variable in java program, must reveal the purpose of that variable.
+
+int count=0;
+count++;
+
+int cnt=0;	//not good idea
+
+1) follow camelCase for variable names		firstLetter is lower case and every next word first letter is upper case
+	ex:		numberOfStudents
+			dateOfBirth
+			joinDate
+			dateOfJoining
+2) should be noun
+
+Method name conventions in Java:
+--------------------------------------------
+1) a method name should be like doThis 
+	calculateSimpleInterest
+	displayDetails
+	acceptDetails
+2) a method name should be in camelCase	(first letter is lower case and every next word first letter is upper case)
+
+
+Constants in java:
+	must be in full upper case
+	ex:
+		MAX_VALUE
+		MIN_VALUE
+
+	ex:
+		static final int STUDENTS_COUNT=31;
+
+
+Code quality:
+1) always use curly braces {} for every true, false part of if, and in loops, switch case, etc.
+2) always remove the commented code. 
+3) Only use explanation comments in the code.
+4) every method should contain only 1 return statement.		It is possible to use a return in true part and one return in else part of an if. But it is good practise to use only 1 return statement in a method.
+5) remove all unused variable declarations.
+6) while declaring a variable itself, initialize it to a value. If an object is initalized later, atleast assign null to it.
+	ex:		Employee e=null;		String str="";
+
+There are code quality tools to measure the code quality.	
+	SonarQube
+
+public static void main(String []jags)
+{
+}
+
+public:
+	the main method must be visible outside the class.
+static:
+	the main method must be available even before any objects are created for the class.
+void:
+	the method does not return anything.
+main:
+	is the name of the method
+String []jags
+	while running the program, we can pass arguments (command line arguments)
+	the command line arguments can be 0 or more Strings, hence it is an array of Strings
+
+--------------------------------
+Array Product
+
+Write a program to find the product of all 2 digit numbers in an array.
+
+If the size of the input array is negative or if any of the input elements is negative , print “Invalid Input” and terminate the program.
+
+Input and Output Format:
+
+Input consists of n+1 integers. The first integer corresponds to n, the number of elements in the array. The next 'n' integers correspond to the elements in the array.
+Output consists of an integer that corresponds to the product.
+
+Refer sample output for formatting specifications.
+Assume that the maximum number of elements in the array is 20.
+
+Sample Input 1:
+6
+2
+7
+10
+3
+13
+100
+
+Sample Output 1:
+130
+
+Sample Input 2:
+-4
+
+Sample Output 2:
+Invalid Input
+
+Sample Input 3:
+4
+1
+-2
+
+Sample Output 3:
+Invalid Input 
+--------------------------------
+Array Product Solution:
+----------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayProduct {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int noOfElements=sc.nextInt();
+		
+		if(noOfElements<0)
+		{
+			System.out.println("Invalid Input");
+			System.exit(0);
+		}
+		
+		//declare an array of size noOfElements
+		int arr[]=new int[noOfElements];
+		//now, get noOfElements inputs from the user
+		for(int i=0;i<noOfElements;i++)
+		{
+			arr[i]=sc.nextInt();
+			if(arr[i]<0)
+			{
+				System.out.println("Invalid Input");
+				System.exit(0);
+			}
+		}
+		
+		//task is to get the product of all 2 digit numbers.
+		//for that i am going to loop all elements of the array
+		System.out.println("........................");
+		int product=1;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]>9 && arr[i]<100)
+				product=product*arr[i];
+		}
+		System.out.println(product);
+	}
+
+}
+
+=========================================
+
+Accept n inputs from the user and display the sum of all even numbers.
+For those who have easily completed previous exercise, display the sum of all prime numbers.
+
+import java.util.Scanner;
+
+public class PrimeSum {
+
+	public static boolean isPrime(int number)
+	{
+		//if number is divisible by any other number, it is not prime
+		if(number==1)
+			return false;
+		if(number==2)
+			return true;
+		for(int i=2;i<=number/2;i++)
+		{
+			if(number%i==0)
+				return false;
+		}
+		return true;
+	}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int noOfElements=sc.nextInt();
+		int []arr=new int[noOfElements];
+		
+		//get n inputs
+		for(int i=0;i<noOfElements;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		
+		int sum=0;
+		for(int i=0;i<noOfElements;i++)
+		{
+			//instead of summing all elements, sum only prime numbers
+			//here instead of writing prime algo here, we can create a method
+			if(isPrime(arr[i]))
+				sum+=arr[i];
+		}
+		
+		System.out.println(sum);
+	}
+
+}
+
+=====================
+Challenge:
+Maximum Product
+Playing with arrays has become a hobby for Arun. This time Arun wants to find the greatest number in the array such that it is the product of any two numbers in the array.
+Write a program to help Arun to the do the task. If no such number exists, then print -1.
+[Note: The two number that are used to find the product can be the number itself.  For example, if the array elements are [1,2,3] , then 1*3 = 3 will be the solution for this array.]
+
+Input Format :
+First input is an integer value that denotes the size of the array.
+Second input is a series of integers separated by space that denotes the array values.
+
+Output Format :
+Output is an  integer that denotes the maximum product.
+
+Sample Input 1:
+5
+35 30 7 6 5
+Sample Output 1:
+35
+
+Sample Input 2:
+5
+2 4 6 89 78
+Sample Output 2:
+-1
+
+Sample Input 3:
+10
+11 81 102 42 77 9 8 72 88 8
+-----------------------------------------------------
+Solution:
+------------
+First loop each element of the array.
+every iteration, take the current element and perform inner loop to multiply current element with that.
+we get product.
+now, perform one for loop of all elements to check if "product" == any of the element in the array.
+now, check if this product is > max (global variable). Then update max.	(max is initially = -1)
+
+After all the loop, display max.
+
+import java.util.Scanner;
+
+public class MaximumProduct {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		//declare an array of size n
+		int arr[]=new int[n];
+		
+		//get n inputs from the user
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		
+		int max=-1;
+		
+		//take 1 element in the array at a time
+		for(int i=0;i<n;i++)
+		{
+//			System.out.println("Current element is "+arr[i]);
+			//inner loop to multiply curr element with all other
+			for(int j=0;j<n;j++)
+			{
+				int product=0;
+				if(i!=j)
+				{
+//					System.out.println("Multiplying "+arr[i]+" with "+arr[j]);
+					product=arr[i]*arr[j];
+					//check if product is found as an element in the array
+					for(int k=0;k<n;k++)
+					{
+						if(product==arr[k])
+						{
+//							System.out.println(product + " is matching with an element");
+							if(product>max)
+								max=product;
+						}
+					}
+				}
+			}
+
+		}
+		System.out.println("Answer is "+max);
+	}
+
+}
+------------------------------------------
+Challenge:
+Run Length IV
+ 
+Write a program to find the length of the longest running sequence of even numbers in the given array. Also find the starting index of the longest running sequence of even numbers.
+ 
+Example :
+ 
+Consider the array ... { 2, 16, 15, 2, 6, 8, 10, 7, 22, 4 , 6}
+ 
+The 3 even number sequences in this array are {2, 16}, {2, 6, 8, 10} and {22, 4, 6}.
+The longest running even number sequence is {2, 6, 8, 10}
+The length of the longest running even number sequence is 4 and the starting index is 3.
+ 
+Note:
+The array indexing starts from 0.
+If there are multiple choices, select the choice where the starting index is minimum.
+ 
+Input and Output Format:
+ 
+The first line of the input consists of an integer n that corresponds to the number of elements in the array. The next 'n' lines of input consists of a single integer that correspond to the elements in the array.
+ 
+The first line of the output consists of the length of the longest running even number sequence and the second line of the output consists of the starting index of the longest running even number sequence.
+ 
+Sample Input :
+11
+2
+16
+15
+2
+6
+8
+10
+7
+22
+4
+6
+ 
+Sample Output :
+4
+3
+
+---------------------------
+Solution:
+-----------
+import java.util.Scanner;
+
+public class RunLength4 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		
+		for(int i=0;i<n;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+		
+		int count=0;
+		int maxCount=0;
+		int startIndex=-1;
+		int maxStartIndex=-1;
+		//display all elements
+		for(int i=0;i<n;i++)
+		{
+			if(arr[i]%2==0)
+			{
+				count++;
+				if(count==1)
+					startIndex=i;
+				if(count>maxCount)
+				{
+					maxCount=count;
+					maxStartIndex=startIndex;
+				}
+			}else
+			{
+				count=0;
+			}
+			System.out.println("Count="+count);
+			System.out.println("MaxCount="+maxCount);
+			System.out.println("StartIndex="+startIndex);
+			System.out.println("MaxStartIndex="+maxStartIndex);
+		}
+	}
+
+}
+---------------------------------
+Core Java
+UI
+	HTML		HyperText Markup Language
+	CSS		Cascading Style Sheet
+	Angular / ReactJs
+Spring Framework
+	MVC
+	Spring security
+	Swagger
+Docker
+Cloud Basics
+	AWS
+	GCP
+	Azure
+
+Capstone Project
+
+
+Application Software
+	console application		CUI	Character User Interface
+	windows application		GUI	Graphical User Interface
+	web application		GUI
+	mobile application		GUI
+
+
+----------------------------
+Java Strings:
+----------------
+String has characters.
+we use double quotes.
+
+java.lang.String class
+
+
+Scanner sc=new Scanner(System.in);
+Employee e1=new Employee();
+Employee e2=e1;
+Date dt=new Date();
+String str=new String("abcd");
+String s1="abcd";			//string literal
+String s2=s1;
+
+
+
+
+
+
+public class StringDemo1 {
+
+	public static void main(String[] args) {
+//		String str1="hello";
+//		String str2="hello";
+		String str="hello";
+		String str1=new String("hello");
+		String str2=new String("hello");
+		
+//		int i=20;
+//		int j=22;
+//		
+//		System.out.println(i==j); 			//  == operator compares the values, if the operands are value types.
+		System.out.println(str1==str2);		//	== operator compares the references, if the operands are reference types.
+		System.out.println(str1.equals(str2));
+	}
+
+}
+
+
+
+
+
+--------------------
+String methods:
+	charAt(index)		returns the character present in that index
+	toUpperCase()
+	toLowerCase()
+	substring()		to get a portion of the string
+	indexOf()		return -1 if the character is not found. 	if found, then it returns the first 			occurrance index of that 
+	lastIndexOf()	
+	trim()
+	toCharArray()	returns a char array that contains each character as element
+	valueOf
+	
+Activity:
+	Identify as many String methods in java.
+
+
+
+
+
+String str="hello";
+char []arr=str.toCharArray();
+
+arr[0] is "h"
+arr[1] is "e"
+
+
+String str="this is a sentence";
+String []arr=str.split(" ");	//i have split by space.		split method expects "Regular Expression"		
+arr[0] is "this"
+arr[1] is "is"
+
+String str="192.168.2.1";
+str.split(".");		// 		in reg ex, 		dot is a symbol that means anything.
+
+str.split("[.]");
+str.split("\\.");
+
+instead of split method, we can use StringTokenizer
+
+
+Challenge:
+-------------
+Write a java program to accept 2 string inputs and declare if they are anagram or not.
+
+ex for anagrams:
+
+tea
+eat
+
+team
+meat
+
+eat
+ate
+
+abcd
+bcda
+
+ijkl
+klij
+
+
+Hint:
+to convert a String into char []
+	str.toCharArray();
+to sort an array
+	Arrays.sort(arr);
+to convert a char [] into a String
+	String s1=new String(arr1);
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class AnagramProgram {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input1=sc.next();
+		String input2=sc.next();
+		
+		//convert the Strings to char arrays
+		char arr1[]=input1.toCharArray();
+		char arr2[]=input2.toCharArray();
+		
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+		
+		String str1=new String(arr1);
+		String str2=new String(arr2);
+		
+		if(str1.equals(str2))
+			System.out.println("Anagrams");
+		else
+			System.out.println("Not anagrams");
+	}
+
+}
+
+------------------------------------------
+Sachin Ramesh Tendulkar
+
+Accept 3 inputs from the user	(fname, mname and lname)
+Output should be like 	S.R. Tendulkar
+
+Input format:
+Enter your full name:	Sachin Ramesh Tendulkar
+Output:	Mr. S.R. Tendulkar
+
+Output should be stored in a variable and then displayed.
+
+
+
+Scanner class:
+	next()		any delimiter		extracts input upto any delimiter like space / tab/ enter
+	nextLine()		only new line / enter is the delimiter	extracts string input upto enter key
+		except this nextLine() method, all other next methods use any delimiter
+
+
+
+How to convert the string into upper case?
+	str.toUpperCase()			this will convert all characters to upper
+
+How to convert a char into uppercase?
+	Character.toUpperCase(c);
+
+
+substring(x,y)		x is the starting index from where we need to extract. y is the index before which we need
+
+
+String str="raja";
+str.substring(0,1);		"r"
+str.substring(0,2);		"ra"
+str.substring(1,2);		"a"
+str.substring(1);		"aja"			from index 1 and till the end
+
+After break:
+
+String is immutable.
+for-each
+String tokenizer
+StringBuilder
+StringBuffer
+Regex
+
+
+Scanner methods
+
+
+String
+
+public class StringImmutableExample {
+
+	public static void main(String[] args) {
+		String str1="hello";
+		str1+=" world";
+		System.out.println(str1);
+	}
+
+}
+
+
+In the above example, 	
+	str1 = "hello";
+
+str1 was pointing to a memory where "hello" was present.
+
+str1 = "hi";
+
+now, str1 points to a new memory location where "hi" is present.
+
+in "hello", if you want to remove "h" alone, what will you do?
+
+there is no method in String to remove "h" alone.
+
+str1=str1.substring(1);
+
+
+
+hello
+
+
+
+hi
+
+
+StringBuilder
+StringBuffer
+	has methods to
+		insert
+		replace
+		delete
+
+
+String is immutable, means, whenever you want to edit the string, you are referring to a different memory location.
+
+StringBuilder
+StringBuffer
+	both of these classes have exactly same methods and properties.	Only difference is, StringBuffer is synchronized.
+	StringBuffer may be slow in multi-threaded process, but thread-safe
+
+What is synchronized?????
+	when multiple threads access an object of string buffer, then they are allowed one by one at a time.
+
+Activity:
+	Identify as many method of StringBuilder class.
+
+append
+insert
+delete
+reverse
+replace
+substring
+toString		returns the String
+length
+
+
+Examples:
+	Palindrome 
+		malayalam
+		madam
+		nitin
+
+if you reverse a string and it is same as original string, then we can declare it as a palindrom
+
+import java.util.Scanner;
+
+public class PalindromeProgram {
+
+	public static void main(String[] args) {
+		String input=new Scanner(System.in).next();
+		//get the reverse of input
+		StringBuilder sb=new StringBuilder(input);
+		sb.reverse();
+		if(input.equalsIgnoreCase(sb.toString()))
+			System.out.println("Palindrome");
+		else
+			System.out.println("Not Palindrome");
+	}
+
+}
+
+
+
+
+
+example of StringBuilder methods:
+-----------------------------------------------
+
+public class StringBuilderDemo {
+
+	public static void main(String[] args) {
+		StringBuilder sb=new StringBuilder();
+//		sb.append("India");
+//		sb.append(" is our country");
+//		sb.append(". We are in Kerala");
+//		sb.append("Next year we will be in USA");
+		sb.append("Welcome USA.");
+		
+		int startIndex=sb.indexOf("USA");
+		sb.insert(startIndex, "to ");
+		startIndex=sb.indexOf("USA");
+		sb.replace(startIndex, startIndex+3, "UK");
+		System.out.println(sb);
+		sb.deleteCharAt(sb.length()-1);
+		System.out.println(sb);
+	}
+
+}
+
+
+
+-----------------------------------------
+
+String is immutable.		**
+for-each
+String tokenizer
+StringBuilder		**
+StringBuffer		**
+Regex
+
+StringTokenizer
+---------------------
+when we use split method of String, we use regex.
+when we use string tokenizer, we use character by which we split.
+
+when we split using split method, then entire set of words, are stored in array.
+where as string tokenizer does not store the splitted strings in array. we can navigate through original string and obtain one token at a time.		(token = word)
+
+Task:
+Accept an ip address from the user.
+
+in ipv4, there will be 4 portions, each portion is in the range of 	0-255
+
+ex:
+	127.0.0.1		is localhost
+	192.168.239.1
+
+
+Your program should validate if the input is a valid ipv4 address or not.
+
+using split method of String:
+-----------------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class IPValidationDemo {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.next();
+		String[] arr = input.split("[.]");
+		//check#1	there should be 4 portions
+		if(arr.length!=4)
+		{
+			System.out.println("Invalid IP");
+			System.exit(0);
+		}
+		//loop each portion
+		for(String str : arr)
+		{
+			//	check#2 	each portion should be number
+//			convert it to number and if you get error, then it is not a number
+			int no=0;
+			try
+			{
+				no=Integer.parseInt(str);
+				//it is a number only.
+				//check#3	range should be 0-255 only
+				if(no<0 ||	no>255)
+				{
+					System.out.println("Invalid IP");
+					System.exit(0);
+				}
+			}catch(NumberFormatException nfe)
+			{
+				System.out.println("Invalid IP");
+				System.exit(0);
+			}
+			
+			
+		}
+		
+		System.out.println("Valid IP");
+	}
+
+}
+
+-------------------------------------
+Using StringTokenizer:
+----------------------------------
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class IPValidationUsingStringTokenizer {
+
+	public static void main(String[] args) {
+		String input=new Scanner(System.in).next();
+		StringTokenizer st=new StringTokenizer(input, ".");
+		while(st.hasMoreTokens())
+		{
+			System.out.println(st.nextToken());
+		}
+	}
+
+}
+
+
+-----------------------------------
+Challenge: for string tokenizer
+
+Accept a string input from the user. Input can contain multiple words as a sentence.
+
+convert each word first letter as capital letter and print.
+
+ import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class StringTokenizerToCapitalizeEachWord {
+
+	public static void main(String[] args) {
+		String input=new Scanner(System.in).nextLine();
+		StringTokenizer st=new StringTokenizer(input, " ");
+		String output="";
+		boolean isFirst=true;
+		while(st.hasMoreTokens())
+		{
+			String word = st.nextToken();
+//			System.out.println(word);
+			//get the first letter of the word 
+			char firstLetter=word.charAt(0);
+			//convert it to upper case
+			firstLetter=Character.toUpperCase(firstLetter);
+			
+			String remaining=word.substring(1);
+			String newWord=firstLetter+remaining;
+//			System.out.println(newWord);
+			if(!isFirst)
+			{
+				output+=" ";				
+			}
+			isFirst=false;			
+			output+=newWord;
+		}
+		System.out.println(output);
+	}
+
+}
+------------------------------------------
+String is immutable.		**
+for-each			**
+String tokenizer		**
+StringBuilder		**
+StringBuffer		**
+Regex			
+
+
+
+normally a for loop has 3 portions
+
+for(int i=0;i<10;i++)
+
+an enhanced for loop (also called as for-each loop) has only 2 portions
+
+for(String str : arr)
+	notice that we use : here	and not ;
+
+right side of : 	should be an array or collection	
+left side of	:	a local variable we have declared here only.	If it is already declared, then error.
+		this local variable is same type of array or collection
+
+TasK:
+--------
+input1:	no of elements
+accept n number of elements and store them in an array.
+11
+2
+16
+15
+2
+6
+8
+10
+7
+22
+4
+6
+
+
+display only even numbers
+
+	

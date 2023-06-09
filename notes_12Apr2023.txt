@@ -1,0 +1,994 @@
+
+========================================================================
+
+Boxing:
+	primitive to reference type
+
+ex:
+	int is primitive
+	
+class Integer
+{
+	int i;
+}
+
+Integer x=new Integer(20);		//upto jdk 1.4	we do boxing
+Integer y=20;			//from jdk 1.5	auto boxing
+
+int i=x.intValue();		//in jdk 1.4 or earlier		
+int i=x;		//what is x?	x is Integer	auto unboxing	>=jdk 1.5
+
+
+
+
+Reminders:
+	ConcurrentModificationException
+	Iterators
+
+ConcurrentModificationException
+	This exception occurs when we remove an element of a list while looping the elements.
+	while looping all the elements of the collection, inside the loop, if you remove an element, you may get this exception
+
+	So it is good to use iterators whenever we want to loop all elements of a collection and inside the loop if you want to add/remove elements.
+
+Lets learn iterators.
+
+
+Iterator
+	hasNext()		returns true if there is an element to iterate
+	next()		returns the element
+	remove()		removes the current element
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		List<Integer> marks=new ArrayList<Integer>();
+		marks.add(90);
+		marks.add(50);
+		marks.add(80);
+		marks.add(85);
+		marks.add(70);
+		marks.add(92);
+		marks.add(54);
+		marks.add(90);
+		marks.add(80);
+		marks.add(50);
+		
+		//there are several ways of accessing all elements of a collection
+//		for(int i=0;i<marks.size();i++)
+//		{
+//			System.out.println(marks.get(i));
+//		}
+		
+		//for each loop
+//		for(Integer x:marks)
+//		{
+//			System.out.println(x);
+//		}
+		
+		//how to use iterator?????
+		Iterator<Integer> it = marks.iterator();
+		while(it.hasNext())
+		{
+			Integer x=it.next();
+//			it.remove();		//removes the current element
+			System.out.println(x);
+		}
+	}
+
+}
+
+-----------------------------------------------------------
+Task:
+Java Mock 29	Req: 2
+------------------------------------------
+MobileBrand - Requirement 2
+
+Requirement 2:
+Now we are gonna start creating a MobileBrand and add Mobiles to it. Start with creating a MobileBrand and use menu-driven approach to add, remove, display details of the Mobiles in the MobileBrand.
+
+a)Create a Class Mobile with the following attributes:
+
+Member Field Name	Type
+referenceId	String
+modelName	String
+displaySize	Double
+price	Double
+launchedDate	java.util.Date
+
+Mark all the attributes as private, Create / Generate appropriate Getters & Setters, Add a default constructor and a parameterized constructor to take in all attributes in the given order:  Mobile( String referenceId, String modelName, Double displaySize, Double price, java.util.Date launchedDate )
+
+b)Create a Class MobileBrand with the following attributes:
+
+Member Field Name	Type
+name	String
+mobileList	List<Mobile>
+
+Mark all the attributes as private, Create / Generate appropriate Getters & Setters, Add a default constructor and a parameterized constructor to take in all attributes in the given order: MobileBrand( String name, List<Mobile> mobileList ). In constructor pass the mobileList value as an empty list. Only one MobileBrand will be present at a time.
+
+c) Create the following static method in Mobile class,
+Method Name	Description
+public static Mobile createMobile(String detail)	This method accepts a string which contains mobile details separated by commas. Split the details and create a mobile object from the details and return it.
+The mobile details should be given as a comma-separated value in the below order,
+referenceId, modelName, displaySize, price, launchedDate
+
+d) Create the following methods in MobileBrand class,
+Method Name	Description
+public void addMobileToMobileBrand(Mobile mobile)	This method accepts a mobile object and adds the mobile to the mobile list of the current MobileBrand.
+public Boolean removeMobileFromMobileBrand(String referenceId)	This method will get the referenceId of the mobile and delete the mobile with the specified referenceId from the current MobileBrand.
+If a mobile with the given referenceId found, delete the mobile and returntrue. If a mobile with the referenceId is not found return false.
+public void displayMobiles()	This method will display the mobile list in the current MobileBrand.
+If the mobile list is empty display "No mobiles to show", else
+display "Mobiles in [mobileBrand name]" and display all the mobile details in the specified format. Where [mobileBrand name] specifies the name of the mobileBrand.
+
+After deletion, if true is returned print "Mobile successfully deleted", else print "Mobile not found in the mobileBrand".
+
+Note: The above print statements should be present in the main method.
+
+Print format: System.out.format("%-15s %-15s %-12s %-8s %s\n","Reference Id","Model Name","Display Size", "Price","Launched Date");
+
+Display 1 digit after decimal point in Double.
+
+Sample Input and Output:
+
+Enter the name of the Mobile Brand:
+Samsung
+1.Add Mobile
+2.Delete Mobile
+3.Display Mobiles
+4.Exit
+Enter your choice:
+1
+#SM 45 JJ6-001,Galaxy J6,5.6,13990,02-01-2017
+Mobile successfully added
+1.Add Mobile
+2.Delete Mobile
+3.Display Mobiles
+4.Exit
+Enter your choice:
+3
+Mobiles in Samsung
+Reference Id    Model Name      Display Size Price    Launched Date
+#SM 45 JJ6-001  Galaxy J6       5.6          13990.0  02-01-2017
+1.Add Mobile
+2.Delete Mobile
+3.Display Mobiles
+4.Exit
+Enter your choice:
+2
+Enter the reference id of the mobile to be deleted:
+#SM 45 JJ6-001
+Mobile successfully deleted
+1.Add Mobile
+2.Delete Mobile
+3.Display Mobiles
+4.Exit
+Enter your choice:
+2
+Enter the reference id of the mobile to be deleted:
+#SM 45 JJ6-001
+Mobile not found in the Mobile Brand
+1.Add Mobile
+2.Delete Mobile
+3.Display Mobiles
+4.Exit
+Enter your choice:
+3
+No mobiles to show
+1.Add Mobile
+2.Delete Mobile
+3.Display Mobiles
+4.Exit
+Enter your choice:
+4
+
+
+----------Solution----------
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Mobile {
+	private String referenceId;
+	private String modelName;
+	private Double displaySize;
+	private Double price;
+	private Date launchedDate;
+	
+	public Mobile() {}
+
+	public Mobile(String referenceId, String modelName, Double displaySize, Double price, Date launchedDate) {
+		super();
+		this.referenceId = referenceId;
+		this.modelName = modelName;
+		this.displaySize = displaySize;
+		this.price = price;
+		this.launchedDate = launchedDate;
+	}
+
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public Double getDisplaySize() {
+		return displaySize;
+	}
+
+	public void setDisplaySize(Double displaySize) {
+		this.displaySize = displaySize;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Date getLaunchedDate() {
+		return launchedDate;
+	}
+
+	public void setLaunchedDate(Date launchedDate) {
+		this.launchedDate = launchedDate;
+	}
+	
+	public static Mobile createMobile(String detail) throws ParseException
+	{
+		Mobile mobile=new Mobile();
+//		#SM 45 JJ6-001,Galaxy J6,5.6,13990,02-01-2017
+		String[] arr = detail.split(",");
+		mobile.setReferenceId(arr[0]);
+		mobile.setModelName(arr[1]);
+		mobile.setDisplaySize(Double.parseDouble(arr[2]));
+		mobile.setPrice(Double.parseDouble(arr[3]));
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		mobile.setLaunchedDate(sdf.parse(arr[4]));
+		return mobile;
+	}
+
+}
+
+
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class MobileBrand {
+	private String name;
+	private List<Mobile> mobileList;
+	
+	public MobileBrand()
+	{
+		mobileList=new ArrayList<Mobile>();
+	}
+
+	public MobileBrand(String name, List<Mobile> mobileList) {
+		super();
+		this.name = name;
+		this.mobileList = mobileList;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Mobile> getMobileList() {
+		return mobileList;
+	}
+
+	public void setMobileList(List<Mobile> mobileList) {
+		this.mobileList = mobileList;
+	}
+	
+	public void addMobileToMobileBrand(Mobile mobile)
+	{
+		mobileList.add(mobile);
+	}
+	public Boolean removeMobileFromMobileBrand(String referenceId)
+	{
+		//iterate all mobiles and in each iteration, check the refId
+		Iterator<Mobile> it = mobileList.iterator();
+		boolean status=false;
+		while(it.hasNext())
+		{
+			Mobile m = it.next();
+			if(m.getReferenceId().equals(referenceId))
+			{
+				it.remove();
+				status=true;
+				break;
+//				return true;
+//				break;			//is unreachable code
+			}
+		}
+		return status;
+	}
+	public void displayMobiles()
+	{
+		if(mobileList.isEmpty())
+		{
+			System.out.println("No mobiles to show");
+			return;
+		}
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		System.out.format("%-15s %-15s %-12s %-8s %s\n","Reference Id","Model Name","Display Size", "Price","Launched Date");
+		Iterator<Mobile> it = mobileList.iterator();
+		while(it.hasNext())
+		{
+			Mobile m = it.next();
+			System.out.format("%-15s %-15s %-12s %-8s %s\n",m.getReferenceId(),m.getModelName(),m.getDisplaySize(), m.getPrice(),sdf.format(m.getLaunchedDate()));
+		}
+	}
+
+
+}
+
+
+
+
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the name of the Mobile Brand:");
+		String name=sc.nextLine();
+		MobileBrand mb=new MobileBrand();
+		mb.setName(name);
+		int choice=-1;
+		do
+		{
+			System.out.println("1.Add Mobile\r\n" + 
+					"2.Delete Mobile\r\n" + 
+					"3.Display Mobiles\r\n" + 
+					"4.Exit\r\n" + 
+					"Enter your choice:\r\n" + 
+					"");
+			choice=sc.nextInt();
+			switch(choice)
+			{
+			case 1:		//add
+				String detail=sc.nextLine();
+				if(detail.equals(""))
+					detail=sc.nextLine();
+				Mobile mobile=Mobile.createMobile(detail);
+				mb.addMobileToMobileBrand(mobile);
+				System.out.println("Mobile successfully added");
+				break;
+			case 2:		//delete
+				System.out.println("Enter the reference id of the mobile to be deleted:");
+				String referenceId=sc.nextLine();
+				if(referenceId.equals(""))
+					referenceId=sc.nextLine();
+				Boolean status = mb.removeMobileFromMobileBrand(referenceId);
+				if(status)
+				{
+					System.out.println("Mobile successfully deleted");
+				}else
+				{
+					System.out.println("Mobile not found in the Mobile Brand");
+				}
+				break;
+			case 3:		//display
+				System.out.println("Mobiles in "+mb.getName());
+				mb.displayMobiles();
+				break;
+				
+			}
+		}while(choice<4);
+	}
+
+}
+================================================
+List
+	ArrayList
+	LinkedList
+
+
+How can we sort a List???????
+Collections.sort(list);			// to sort the elements of a list
+
+
+
+
+
+public final class java.lang.Integer extends java.lang.Number implements java.lang.Comparable {
+
+str.equals("");
+
+this 		vs		arg
+
+
+
+e1
+e2
+e1.compareTo(e2);
+
+Task:
+
+Create an array list of Product class
+
+Product:
+	id
+	name
+	price
+	category
+
+Product class should implement Comparable interface
+and override the compareTo method that will compare based on any of the field
+
+----------------------------------------------------
+Solution:
+----------------
+
+public class Product implements Comparable<Product>
+{
+	private Integer id;
+	private String name;
+	private Double price;
+	private String category;
+	
+	public Product() {}
+
+	public Product(Integer id, String name, Double price, String category) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.category = category;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", category=" + category + "]";
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		return this.getId().compareTo(o.getId());
+	}
+	
+}
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		List<Product> productList=new ArrayList<>();
+		productList.add(new Product(5, "Pencil", 12.2, "Stationary"));
+		productList.add(new Product(15, "Sharpner", 12.2, "Stationary"));
+		productList.add(new Product(51, "Eraser", 12.2, "Stationary"));
+		productList.add(new Product(115, "One Plus 11", 12.2, "Electronics"));
+		productList.add(new Product(511, "Mi Tv 12", 12.2, "Electronics"));
+		productList.add(new Product(25, "Scale", 12.2, "Stationary"));
+
+		Collections.sort(productList);
+		
+		for(Product p: productList)
+			System.out.println(p);
+	}
+
+}
+
+
+-------------------------------------
+Product class implements Comparable interface
+and override compareTo method.
+
+in compareTo method, we compared the ids of the product. So while sorting, it was sorted based on id.
+
+Now, we provide user with options to sort.
+1) sort by id		Collections.sort(productList);		//use comparable
+2) sort by name		Collections.sort(productList,new ProductNameComparator());
+3) sort by price
+4) sort by category
+
+using comparable, we can provide compareTo method that mentions a logic.
+But at runtime, we cannot change this compareTo logic.
+
+So, we can create additional comparator classes for each type of sorting we need.
+1) ProductNameComparator	implements Comparator<Product>
+2) ProductPriceComparator	implements Comparator<Product>
+---------------------------------
+Task:
+Java Mock 11	Req # 5
+
+University - Requirement 5
+Requirement 5:
+
+In this requirement, you need to sort the list of colleges based on name, startingDate or numberOfDept. 
+
+a) Create a Class College with the following attributes:
+ 
+Member Field Name	Type
+name	String
+website	String
+mobile	String
+founder	String
+numberOfDept	Integer
+location	String
+startingDate	java.util.Date
+
+Mark all the attributes as private, Create / Generate appropriate Getters & Setters, Add a default constructor and a parameterized constructor to take in all attributes in the given order: College(String name, String website, String mobile,String founder, Integer numberOfDept, String location,Date startingDate)
+
+b) Create the following static methods in the College class,
+ 
+Method Name	Description
+static College createCollege(String detail)	This method accepts a String. The college detail separated by commas is passed as the argument. Split the details and create a college object and return it.
+The college details should be given as a comma-separated value in the below order,
+name, website, mobile, founder, numberOfDept, location, startingDate
+
+c) The College class should implement the Comparable interface which sorts the College list based on name attributes. While comparing, all the name attributes in the list are unique [Case Sensitive. Uppercase letters followed Lowercase].
+
+d) Create a class StartingDateComparator which implements Comparator interface and sorts the College list based on startingDate. While comparing, all the startingDate attributes in the list are unique.
+e) Create a class DepartmentComparator which implements Comparator interface and sorts the College list based on the numberOfDept.While comparing, all the numberOfDept attributes in the list are unique.
+
+Get the number of College and College details and create a College list. Sort the College according to the given option and display the list.
+
+When the “college” object is printed, it should display the following details
+Print format:
+System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n", "Name","Website","Mobile","Founder","No of departments","Location","Starting date");
+
+Sample Input and Output 1:
+ 
+Enter the number of the colleges:
+4
+IIT Guwahati,www.iitg.ac.in/,9876543214,Govt of India,10,Guwahati,17-05-1994
+VIT,www.vit.ac.in/,9876543217,Viswanathan,13,Vellore,10-06-1984
+IIT Roorkee,www.iitr.ac.in/,9876543215,Govt of India,8,Roorkee,22-05-2001
+BITS,www.bits.ac.in/,9876543218,Das Birla,12,Pilani,11-06-1964
+Enter a type to sort:
+1.Sort by name
+2.Sort by number of departments
+3.Sort by starting date
+1 
+Name	Website	Mobile	Founder	No of departments	Location	Starting date
+BITS	www.bits.ac.in/	9876543218	Das Birla	12	Pilani	11-06-1964
+IIT Guwahati	www.iitg.ac.in/	9876543214	Govt of India	10	Guwahati	17-05-1994
+IIT Roorkee	www.iitr.ac.in/	9876543215	Govt of India	8	Roorkee	22-05-2001
+VIT	www.vit.ac.in/	9876543217	Viswanathan	13	Vellore	10-06-1984
+                                        
+
+Sample Input and Output 2:
+ 
+Enter the number of the colleges:
+4
+IIT Guwahati,www.iitg.ac.in/,9876543214,Govt of India,10,Guwahati,17-05-1994
+VIT,www.vit.ac.in/,9876543217,Viswanathan,13,Vellore,10-06-1984
+IIT Roorkee,www.iitr.ac.in/,9876543215,Govt of India,8,Roorkee,22-05-2001
+BITS,www.bits.ac.in/,9876543218,Das Birla,12,Pilani,11-06-1964
+Enter a type to sort:
+1.Sort by name
+2.Sort by number of departments
+3.Sort by starting date
+2 
+Name	Website	Mobile	Founder	No of departments	Location	Starting date
+IIT Roorkee	www.iitr.ac.in/	9876543215	Govt of India	8	Roorkee	22-05-2001
+IIT Guwahati	www.iitg.ac.in/	9876543214	Govt of India	10	Guwahati	17-05-1994
+BITS	www.bits.ac.in/	9876543218	Das Birla	12	Pilani	11-06-1964
+VIT	www.vit.ac.in/	9876543217	Viswanathan	13	Vellore	10-06-1984
+ 
+Sample Input and Output 3:
+ 
+Enter the number of the colleges:
+4
+IIT Guwahati,www.iitg.ac.in/,9876543214,Govt of India,10,Guwahati,17-05-1994
+VIT,www.vit.ac.in/,9876543217,Viswanathan,13,Vellore,10-06-1984
+IIT Roorkee,www.iitr.ac.in/,9876543215,Govt of India,8,Roorkee,22-05-2001
+BITS,www.bits.ac.in/,9876543218,Das Birla,12,Pilani,11-06-1964
+Enter a type to sort:
+1.Sort by name
+2.Sort by number of departments
+3.Sort by starting date
+3 
+Name	Website	Mobile	Founder	No of departments	Location	Starting date
+BITS	www.bits.ac.in/	9876543218	Das Birla	12	Pilani	11-06-1964
+VIT	www.vit.ac.in/	9876543217	Viswanathan	13	Vellore	10-06-1984
+IIT Guwahati	www.iitg.ac.in/	9876543214	Govt of India	10	Guwahati	17-05-1994
+IIT Roorkee	www.iitr.ac.in/	9876543215	Govt of India	8	Roorkee	22-05-2001
+ 
+ 
+-----------------------------------------------
+Solution:
+-------------
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class College implements Comparable<College>
+{
+	private String name;
+	private String website;
+	private String mobile;
+	private String founder;
+	private Integer numberOfDept;
+	private String location;
+	private Date startingDate;
+	
+	public College() {}
+
+	public College(String name, String website, String mobile, String founder, Integer numberOfDept, String location,
+			Date startingDate) {
+		super();
+		this.name = name;
+		this.website = website;
+		this.mobile = mobile;
+		this.founder = founder;
+		this.numberOfDept = numberOfDept;
+		this.location = location;
+		this.startingDate = startingDate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getFounder() {
+		return founder;
+	}
+
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Date getStartingDate() {
+		return startingDate;
+	}
+
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		return String.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n", getName(),getWebsite(),getMobile(),getFounder(),getNumberOfDept(),getLocation(),sdf.format(getStartingDate()));
+	}
+	
+	public static College createCollege(String detail) throws ParseException
+	{
+		College college=new College();
+//		IIT Guwahati,www.iitg.ac.in/,9876543214,Govt of India,10,Guwahati,17-05-1994
+		String[] arr = detail.split(",");
+		college.setName(arr[0]);
+		college.setWebsite(arr[1]);
+		college.setMobile(arr[2]);
+		college.setFounder(arr[3]);
+		college.setNumberOfDept(Integer.valueOf(arr[4]));
+		college.setLocation(arr[5]);
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		college.setStartingDate(sdf.parse(arr[6]));
+		return college;
+	}
+
+	@Override
+	public int compareTo(College o) {
+		return this.getName().compareTo(o.getName());
+	}
+
+}
+
+
+import java.util.Comparator;
+
+public class StartingDateComparator implements Comparator<College>
+{
+
+	@Override
+	public int compare(College o1, College o2) {
+		return o1.getStartingDate().compareTo(o2.getStartingDate());
+	}
+
+}
+
+
+
+
+
+import java.util.Comparator;
+
+public class DepartmentComparator implements Comparator<College>
+{
+
+	@Override
+	public int compare(College o1, College o2) {
+		return o1.getNumberOfDept().compareTo(o2.getNumberOfDept());
+	}
+
+}
+
+
+
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of the colleges:");
+		int n=sc.nextInt();
+		List<College> collegeList=new ArrayList<College>();
+		
+		for(int i=0;i<n;i++)
+		{
+			String detail=sc.nextLine();
+			if(detail.equals(""))
+				detail=sc.nextLine();
+			//how to get college object from detail string????		createCollege
+			College college = College.createCollege(detail);
+			collegeList.add(college);
+		}
+		
+		int choice=0;
+		
+			System.out.println("Enter a type to sort:\r\n" + 
+					"1.Sort by name\r\n" + 
+					"2.Sort by number of departments\r\n" + 
+					"3.Sort by starting date\r\n" + 
+					"");
+			choice=sc.nextInt();
+			switch(choice)
+			{
+			case 1:	//by name
+				Collections.sort(collegeList);
+				break;
+			case 2:	//by number of departments
+				Collections.sort(collegeList, new DepartmentComparator());
+				break;
+			case 3:	//by starting date
+				Collections.sort(collegeList, new StartingDateComparator());
+				break;
+			}
+			
+			System.out.format("%-15s %-20s %-15s %-15s %-20s %-15s %s\n", "Name","Website","Mobile","Founder","No of departments","Location","Starting date");
+			for(College c : collegeList)
+				System.out.println(c);
+	}
+
+}
+
+
+
+---------------------------------------------------------------------------
+List category classes
+	ArrayList
+	LinkedList
+
+supports iteration in both directions.
+Iterator methods
+	hasNext()
+	next()
+	remove()
+
+So it is not possible to use iterator to traverse in reverse direction. 
+Solution:
+	use ListIterator	instead of iterator.
+
+ListIterator
+	works only for List
+
+methods of ListIterator
+	hasNext()
+	next()
+	remove()
+	hasPrevious()
+	previous()
+
+
+Lambda:
+	can be used wherever we want to provide quick implementation of functional interfaces
+
+Functional Interface:
+------------------------------
+	An interface that contains only 1 abstract method is a functional interface
+
+ex:
+	Comparable
+	Comparator
+	Runnable
+
+
+Functional Interface
+Marker Interface		(an interface that has 0 methods)
+	ex:		Serializable
+
+
+
+
+Task:
+-------
+Java Mock 29	Req # 5
+
+User Comparable and Comparator
+------------------------------------------------
+
+Set
+-----------
+	HashSet
+	TreeSet		
+	LinkedHashSet
+
+HashSet
+------------
+	the order of the elements are based on hashCode() method of the type.
+	duplicates are identified by the equals() method
+
+	equals and hashCode are the 2 important methods for HashSet
+
+ problem:
+
+
+public List<Integer> removeDuplicates(List<Integer> list)
+{
+	//write your code here
+}
+
+sample input:
+7
+11
+2
+5
+2
+9
+8
+11
+sample output:
+11
+2
+5
+9
+8
+
+HashSet<Integer> temp=new HashSet<Integer>(list);		
+list=new ArrayList<Integer>(temp);
+return list;
+
+//now what happens?????		HashSet has rearranged the order of the elements
+test case failed
+Instead of using HashSet, they should have LinkedHashSet
+
+Task:
+Create a java program that stored lot of Country names to a Set.
+If you add same country name again, set should not accept that.
+
+Display all country names.
+
+
+If you want to check if an element is already present in a collection, you can use "contains" method
+
+if(hset.contains("india"))
+	yes india is there in the set.
+else
+	no india is not there in the set.
+
+-----------------------------------
+Activity:
+Identify the difference between
+	HashSet
+	TreeSet
+	LinkedHashSet
+
+
+TreeSet
+	allows adding elements of type that implements Comparable
+	or While creating a treeset, we should pass a comparator object
+
+	pre-defined types like Integer, String, Date, Float, etc already implements Comparable
+	so they are allowed in TreeSet
+
+	TreeSet<Employee> empSet=new TreeSet<>();
+	empSet.add(new Emplo.....
+		ERROR if Employee does not implement Comparable.
+
+	In case if you want to use Comparator,
+		TreeSet<Employee> empSet=new TreeSet<>(new EmpComparator());	
+
+
+
+

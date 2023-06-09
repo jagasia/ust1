@@ -1,0 +1,778 @@
+Reminder:		enum
+
+What is enum?
+	In real life,
+		Jan, Feb, Mar, ..... 
+		Mon, Tue, 
+	there are some fixed set of options.
+
+	we can represent them in java program using enum
+
+enum is a type.
+----------------------------------------------
+Collection API
+-------------------
+List
+Set
+Map
+	these are the important interfaces
+
+List
+	allowes duplicates
+	order is maintained
+
+Set
+	rejects duplicates
+	order of the set is based on the type of Set
+	HashSet
+		order is based on hashCode method
+	TreeSet
+		order is based on Comparable/ Comparator
+		treeset always adds elements in such a way it is sorted
+		we can supply comparator object to the constructor of the TreeSet. Later we cannot change the comparator. Comparator should be provided while creating the tree set.
+		
+
+LinkedHashSet
+----------------------
+	maintains the order of the elements.
+	How LinkedHashSet identify the duplicates and decide the order?
+		hashCode
+		equals
+
+	Because, basically, a LinkedHashSet is a HashSet
+
+--------------------------------------------
+Map
+	is application of List and Set
+
+	is a 2 - dimensional structure.
+
+	key	-	value
+
+1	-	India
+2	-	Australia
+3	-	China
+
+
+id	-	employee
+10		Employee [id=10, firstName=Ajith, lastName=Kumar, location=Chennai]
+12	-	Employee [id=12, firstName=Rajesh, lastName=Kumar, location=Chennai]
+11	-	Employee [id=11, firstName=Suresh, lastName=Kumar, location=Kochi]
+
+
+
+Task:
+	Accept a sentence string as input from the user.
+	Display the characters and their occurrence as output
+
+input:	this is a sentence typed by me
+output:
+t	3
+h	1
+i	2
+s	3
+ 	6
+a	1
+e	5
+
+Map<Character,Integer> map=new LinkedHashMap<,>();
+--------------------------
+Solution:
+-------------
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class App2 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		LinkedHashMap<Character, Integer> map=new LinkedHashMap<>();
+		for(char x:input.toCharArray())
+		{
+			Integer count = map.get(x);
+			if(count==null)
+				count=0;
+			count++;
+			map.put(x, count);			
+		}
+		
+		//display result
+		for(Entry<Character, Integer> e:map.entrySet())
+		{
+			System.out.println(e.getKey()+"\t"+e.getValue());
+		}
+	}
+
+}
+
+
+
+			//check if map already contains a key called x
+//			boolean result = map.containsKey(x);
+//			if(result)
+//			{
+//				
+//			}
+
+
+
+
+
+
+--------------------------------------------
+Whatever Set you learned, there is a corresponding Map
+
+HashSet		-	HashMap
+TreeSet		-	TreeMap
+LinkedHashSet	-	LinkedHashMap
+
+in a Map, the key is a Set
+
+
+key will not allow duplicates.
+key allow null????????	it will allow null.	how many null?????	
+
+1	India
+2	China
+3	Australia
+2	Bangladesh		china is replaced by bangladesh
+
+	
+map.put(key,value);
+	if the key is not found in the map, yet, then it is added as a new entry
+	if the key is already found, then it will replace the value.
+
+map.get(key);		returns the value
+if that key is not found, 	returns null
+
+
+
+
+Map to not have iterator.
+what to do?
+	a map is a set of entries		Entry class is there in java.util.Map
+
+		Set<Entry<Integer, String>> entries = countryMap.entrySet();
+		
+		for(Entry<Integer, String> entry:entries)
+		{
+			System.out.println(entry.getKey()+" : "+entry.getValue());
+		}
+
+Complete:
+--------------
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+		HashMap<Integer, String> countryMap=new HashMap<>();
+		countryMap.put(12, "China");
+		countryMap.put(1, "India");
+		countryMap.put(11, "Argentina");
+		countryMap.put(12, "Bangladesh");
+		countryMap.put(18, "Pakistan");
+		countryMap.put(13, "Sri lanka");
+		countryMap.put(15, "France");
+		countryMap.put(14, "Germany");
+		countryMap.put(2, "Italy");
+		
+//		Set<Entry<Integer, String>> entries = countryMap.entrySet();
+//		
+//		for(Entry<Integer, String> entry:entries)
+//		{
+//			System.out.println(entry.getKey()+" : "+entry.getValue());
+//		}
+//		System.out.println(countryMap);
+		
+		for(Entry<Integer, String> e:countryMap.entrySet())
+		{
+			System.out.println(e);
+		}
+	}
+
+}
+
+---------------------------------------
+Hands on:
+	Java Mock 11	Req #6	page 38
+
+calculateLocationCount
+
+University - Requirement 6
+
+Requirement 6:
+
+In this requirement, given a list of colleges, you need to find the number of colleges present in a location using Map.
+
+a) Create a Class College with the following attributes:
+Member Field Name	Type
+name	String
+website	String
+mobile	String
+founder	String
+numberOfDept	Integer
+location	String
+createdDate	java.util.Date
+
+Mark all the attributes as private, Create / Generate appropriate Getters & Setters. Add a default constructor and a parameterized constructor to take in all attributes in the given order: College(String name, String website, String mobile,String founder, Integer numberOfDept, String location,Date startingDate)
+
+b) Create the following static methods in the College class,
+Method Name	Description
+static Map<String,Integer> calculateLocationCount(List<College> list)	This method accepts a list of College as arguments and returns a TreeMap with the location as key and number of colleges present on the location as value and returns the map.
+In the TreeMap have the location as key and Count the number of colleges present on the location and keep the number of colleges as value. Print the value sorted by location.
+
+The college details should be given as a comma-separated value in the below order,
+name, website, mobile, founder, numberOfDept, location, startingDate
+
+Print format:
+System.out.format("%-15s %s\n","Location","Count");
+
+Sample Input and Output 1:
+Enter the number of colleges:
+4
+IIT Madras,www.iitm.ac.in/,9876543210,Govt of India,15,Chennai,30-05-1959
+IIT Delhi,www.iitd.ac.in/,9876543213,Govt of India,14,Delhi,15-05-1958
+MIT,www.mitindia.edu/,9876542320,Govt of India,11,Chennai,12-05-1949
+JNU,www.jnu.ac.in/,9879879877,Govt of India,10,Delhi,13-05-1969
+Location	Count
+Chennai	2
+Delhi	2
+ 
+-------------------------------------
+Solution:
+------------
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class College {
+	private String name;
+	private String website;
+	private String mobile;
+	private String founder;
+	private Integer numberOfDept;
+	private String location;
+	private Date createdDate;
+	
+	public College() {}
+
+	public College(String name, String website, String mobile, String founder, Integer numberOfDept, String location,
+			Date createdDate) {
+		super();
+		this.name = name;
+		this.website = website;
+		this.mobile = mobile;
+		this.founder = founder;
+		this.numberOfDept = numberOfDept;
+		this.location = location;
+		this.createdDate = createdDate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getFounder() {
+		return founder;
+	}
+
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	@Override
+	public String toString() {
+		return "College [name=" + name + ", website=" + website + ", mobile=" + mobile + ", founder=" + founder
+				+ ", numberOfDept=" + numberOfDept + ", location=" + location + ", createdDate=" + createdDate + "]";
+	}
+	
+	static Map<String,Integer> calculateLocationCount(List<College> list)
+	{
+		Map<String, Integer> map=new TreeMap<>();
+		for(College college:list)
+		{
+			String key = college.getLocation();
+			Integer value = map.get(key);
+			if(value==null)
+			{
+				value=0;
+			}
+			value++;
+			map.put(key, value);		//either adds a new entry or updates exiting entry
+		}
+		return map;		//dummy
+	}
+
+}
+
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of colleges:");
+		int n=sc.nextInt();
+		List<College> collegeList=new ArrayList<College>();
+		
+		for(int i=0;i<n;i++)
+		{
+			String detail=sc.nextLine();		//nextLine comes after nextInt
+			if(detail.equals(""))
+				detail=sc.nextLine();
+//			IIT Madras,www.iitm.ac.in/,9876543210,Govt of India,15,Chennai,30-05-1959
+			String[] arr = detail.split(",");
+			College college=new College();
+			college.setName(arr[0]);
+			college.setWebsite(arr[1]);
+			college.setMobile(arr[2]);
+			college.setFounder(arr[3]);
+			college.setNumberOfDept(Integer.valueOf(arr[4]));
+			college.setLocation(arr[5]);
+			SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+			college.setCreatedDate(sdf.parse(arr[6]));
+			
+			collegeList.add(college);
+		}
+		
+		Map<String, Integer> result = College.calculateLocationCount(collegeList);
+		
+		System.out.format("%-15s %s\n","Location","Count");
+		for(Entry<String, Integer> e:result.entrySet())
+			System.out.format("%-15s %s\n",e.getKey(),e.getValue());
+	}
+
+}
+
+	
+
+
+you got credentials in email:
+	learning.prograd.org
+
+
+-------------------
+Task:
+	Java Mock 29 	Req #6
+
+public static Map<Date,Integer> yearWiseCount(List<Mobile> mobileList)
+
+in every iteration of mobileList
+	Date date=mobile.getLaunchedDate();
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy");
+	String year=sdf.format(date);
+	//year contains a string version of year		2018
+	Date dt=sdf.parse(year);
+	Integer count=map.get(dt);
+	if(count==null)
+		count=0;
+--------------------------------------------------------
+Additional learning:
+ListIterator
+DescendingIterator
+SortedSet	vs TreeSet
+How to create generic types in java?
+StringJoiner
+
+
+Generics vs Non-Generics
+
+Why it is called Generics?
+	ArrayList marks=new ArrayList();			//non-generic
+
+	ArrayList<Integer> marks=new ArrayList<Integer>();		//generics
+
+
+<T>
+
+class Employee<T>
+{
+	T id;
+
+
+
+Employee<Integer>
+
+------------------------------------------------------------------------
+String
+StringBuilder
+StringBuffer
+StringTokenizer
+StringJoiner
+---------------------------------
+Threads & Multi-Threading
+---------------------------------------
+What is a Process?
+	Process is a running instance of a Program.
+	For every process, microprocessor allocates resources.
+	What are resources?
+		time
+		memory
+
+Imagine if a program is running and waiting for user input.
+	cpu have allocated time and memory.
+	the cpu have come to our process and waited for user input.
+	cpu utilization	=	0%
+
+	suppose, if we want to improve cpu utilization, we should run multiple threads in a process.
+
+So far, we created lot of programs, how many threads we used in each program?
+	Every main method itself is a thread.
+	it is main thread.
+
+	if you create additional threads, then they are called as child threads.
+	if a process has more than 1 thread, it is a multi-threaded process.
+
+if a process has 2 threads,
+	cpu comes to our process.
+	1 thread is waiting for input.
+	cpu performs the tasks of another thread.		cpu utilization = 50%
+
+0%
+50%
+66%
+75%
+	Effective utilization of resources
+	Threads in a process, share the resources allocated for the process.
+
+
+Reminder:		core 2 duo
+	Before dual core processor, 		(except mainframes)
+	where we had single core processor,
+	multi-threading was done in concurrency mode.
+
+	in multi-core processors, it is done in parallelism mode.
+	multi-threading works in multi-core processor in such a way that
+	each core will perform a thread.
+
+
+How to create a child thread?
+1) Runnable
+2) Thread
+
+Technique 1:
+class A implements Runnable
+{
+	public void run()
+	{
+	//work
+	}
+}
+
+
+Thread t1=new Thread(new A());
+
+
+method1();
+method2();
+
+Demo:
+Create a java program that performs 2 methods in asynchronous manner.
+method1:
+	print all even number from 2 to 50
+
+method2:
+	print all odd numbers from 1 to 50
+
+
+class Odd implements Runnable
+{
+	public void run()
+	{
+		for(int i=1;i<=50;i+=2)
+		{
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+class Even implements Runnable
+{
+
+	@Override
+	public void run() {
+		for(int i=2;i<=50;i+=2)
+		{
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}
+public class App1 {
+
+	public static void main(String[] args) {
+		Thread t1=new Thread(new Odd());
+		Thread t2=new Thread(new Even());
+		
+		t1.start();
+		t2.start();
+	}
+
+}
+
+---------------------
+Task:
+
+Create 2 thread
+first thread should display "Odd"
+second thread should display "Even"
+
+Start both the threads in main method and observe that both threads run in asynchronous manner.
+
+Technique #2:
+we can create child threads by
+	a class that extends Thread
+
+class Odd extends Thread
+{
+	public void run()
+	{
+		while(true)
+		{
+			System.out.println("Odd");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+class Even extends Thread
+{
+	public void run()
+	{
+		while(true)
+		{
+			System.out.println("Even");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+public class App {
+
+	public static void main(String[] args) {
+		Even t1=new Even();		//Even is a sub class of Thread
+		Odd t2=new Odd();
+		
+		t1.start();
+		t2.start();
+
+	}
+
+}
+
+
+Now,
+How many abstract methods are present in Runnable interface?
+	1.	run method
+So can we call this Runnable interface as "Functional Interface".
+
+To implement a functional interface, can we use lambda?
+	Lambda was introduced in Java 8.
+
+Before lamba:
+		Thread t3=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while(true)
+				{
+					System.out.println("Three");
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
+After lambda:
+		Thread t4=new Thread(()->{
+			while(true)
+			{
+				System.out.println("Four");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+----------------------------------------------------
+Advantages:
+	effective utilization of resources
+	parallel/ concurrent execution
+	multiple flow of execution
+
+Disadvantages:
+	race condition
+	lock starvation
+	dead lock
+
+
+Priority
+	thread priority can be between 	1 - 10
+	if we do not mention the priority, it is 5
+	t1.setPriority
+	t1.getPriority
+
+Inter thread communication
+	one thread can make another thread
+		wait
+		notify		continue
+		notifyAll		all waiting threads to continue
+
+	wait vs sleep
+	sleep	-	after sleeping time, thread automatically continues
+	wait	-	will continue only when we call notify	t1.notify();
+
+Thread Synchronization
+	what is thread synchronization?
+		ensure that when a particular region of code is executed, that code is executed by one thread at a time. Other threads wait for their turn.
+		Synchronization ensures that no two threads access a shared resource at a time.
+
+Lets see how to do thread synchronization:
+1) join()
+2) synchronized block
+3) synchronized method
+
+join()
+	ensures that only the threads that are already started, will continue to finish the work.
+	Then only other threads can start.
+
+When 2 threads share a same object.
+
+public synchronized void method1()
+{
+}
+
+
+
+example:
+
+public class One {
+	public synchronized void method1()
+	{
+		System.out.println("Method 1 started executing by "+Thread.currentThread().getName());
+
+//		synchronized (this) {
+			for(int i=0;i<10;i++)
+			{
+				System.out.println(Thread.currentThread().getName()+"is printing : "+i);			
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+//		}
+		
+		
+			for(int i=100;i<110;i++)
+			{
+				System.out.println("Another loop of "+Thread.currentThread().getName()+" : "+i);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		
+		System.out.println("End of method 1");
+	}
+}
+
+
+Activity:
+1) Create a java program that runs 4 threads. Use join() method in different positions and observe.
+2) Create a java program that has 2 threads that use same object and call method.
+	The method should contain synchronized block inside.
+Observe that only 1 thread is allowed to enter synchronized block at a time. Once that thread exits the sync block, another thread enters.
+3) In same example, try to change the method as synchronized method and observe.
+

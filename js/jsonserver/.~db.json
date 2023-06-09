@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Dinesh",
+      "location": "Bengaluru"
+    },
+    {
+      "id": 3,
+      "name": "Muruga Prasad",
+      "location": "Atlanta"
+    },
+    {
+      "id": 4,
+      "name": "Ajay CM",
+      "location": "Cherai"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "pencil",
+      "price": 20
+    },
+    {
+      "id": 2,
+      "name": "Scale",
+      "price": 21
+    }
+  ]
+}

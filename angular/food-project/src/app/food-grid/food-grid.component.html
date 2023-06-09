@@ -1,0 +1,21 @@
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Photo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of foods">
+            <td>{{f.id}}</td>
+            <td>{{f.name}}</td>
+            <td>{{f.price}}</td>
+            <td>
+                <img [src]="'data:image/png;base64,'+f.photo" alt="" width="150">
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+p
+{
+    color: blue;
+    text-align: left;
+}
+
+#p2
+{
+    color:orange
+}
+div
+{
+    background-color: yellow;
+}
+.odd
+{
+    color:aqua
+}
+
+.even
+{
+    color:brown
+}
+
+.right
+{
+    text-align: right;
+}
+
+.center
+{
+    text-align: center;
+}

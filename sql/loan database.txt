@@ -1,0 +1,516 @@
+CREATE DATABASE new_loanq;
+USE new_loanq;
+
+CREATE TABLE loan_card_master
+(
+	loan_id				int(6)		PRIMARY KEY,
+	loan_type			varchar(20),
+	duration_in_years	int(2)
+);
+
+CREATE TABLE employee_master
+(
+	employee_id 		varchar(10)		PRIMARY KEY,
+	employee_name		varchar(30),
+	designation			varchar(15),
+	gender				varchar(6),
+	department			varchar(20),
+	date_of_birth		date,
+	date_of_joining		date
+);
+
+CREATE TABLE item_master
+(
+	item_id				varchar(10)		PRIMARY KEY,
+	item_description	varchar(50),
+	issue_status		varchar(10),
+	item_make			varchar(20),
+	item_category		varchar(20),
+	item_valuation		double(7,2)
+);
+
+CREATE TABLE employee_card_details
+(
+	employee_id 		varchar(10) 	REFERENCES 	employee_master,
+	loan_id				varchar(10)		REFERENCES	loan_card_master,
+	card_issue_date		date
+);
+
+CREATE TABLE employee_issue_details
+(
+	issue_id			varchar(10)		PRIMARY KEY,
+	employee_id 		varchar(10) 	REFERENCES 	employee_master,
+	item_id				varchar(10)		REFERENCES	item_master,
+	issue_date			date,
+	return_date			date	
+);
+
+insert into loan_card_master
+values(00001,'stationary',5);
+insert into loan_card_master
+values(00002,'recurring',1);
+insert into loan_card_master
+values(00003,'fixed',4);
+insert into loan_card_master
+values(00004,'recurring',5);
+insert into loan_card_master
+values(00005,'stationary',3);
+insert into loan_card_master
+values(00006,'fixed',2);
+insert into loan_card_master
+values(00007,'recurring',1);
+insert into loan_card_master
+values(00008,'stationary',3);
+
+
+select * from employee_master;
+
+insert into employee_master 
+values('E001','ram','pat','male','hr','1988-04-01','2001-02-14');
+
+insert into employee_master 
+values('E002','sashi','cat','male','account','1967-02-10','2010-02-04');
+
+insert into employee_master 
+values('E003','prerna','trainee','female','hr','1990-10-09','2010-10-14');
+
+insert into employee_master 
+values('E004','pratik','assoc','male','prod','1988-05-12','2005-02-12');
+
+insert into employee_master 
+values('E005','ram','trainee','male','prod','1978-04-03','2001-02-14');
+
+insert into employee_master 
+values('E006','ram','pat','male','account','1968-02-05','2007-01-04');
+
+insert into employee_master 
+values('E007','vivek','assoc','male','hr','1958-09-05','2006-03-12');
+
+
+insert into employee_master 
+values('E008','garima','cat','female','account','1990-12-11','2007-04-01');
+
+insert into employee_master 
+values('E009','ramesh','pat','male','prod','1992-04-04','1998-05-06');
+
+insert into employee_master 
+values('E010','jatin','assoc','male','account','1994-07-12','2012-01-04');
+
+insert into employee_master 
+values('E011','sonam','pat','female','prod','1996-03-01','2013-07-03');
+
+insert into employee_master 
+values('E012','surya','pat','female','prod','1996-03-01','2013-07-03');
+
+
+insert into item_master 
+values ('i001','iugiuhou','yes','hand','furniture',2000);
+
+insert into item_master 
+values ('i002','iugiuhou','no','contract','product',2050);
+
+insert into item_master 
+values ('i003','iugiuhou','yes','hand','furniture',3000);
+
+insert into item_master 
+values ('i004','iugiuhou','no','contract','product',7000);
+
+insert into item_master 
+values ('i005','iugiuhou','no','hand','furniture',8000);
+
+insert into item_master 
+values ('i006','iugiuhou','yes','machine','product',10000);
+
+insert into item_master 
+values ('i007','iugiuhou','yes','contract','furniture',7000);
+
+insert into item_master 
+values ('i008','iugiuhou','no','machine','product',5000);
+
+insert into item_master 
+values ('i009','iugiuhou','no','hand','product',4000);
+
+insert into item_master 
+values ('i010','iugiuhou','yes','machine','furniture',1000);
+
+insert into item_master 
+values ('i013','iugiuhou','yes','machine','product',2000);
+
+
+
+
+insert into employee_card_details
+values('e001','00001','2013-10-09');
+
+insert into employee_card_details
+values('e005','00005','2011-04-10');
+
+insert into employee_card_details
+values('e008','00003','2009-06-04');
+
+insert into employee_card_details
+values('e007','00009','2003-02-01');
+
+
+insert into employee_issue_details
+values('iss001','e002','i007','2013-10-02','2013-11-11');
+insert into employee_issue_details
+values('iss009','e002','i006','2012-10-02','2013-09-04');
+
+insert into employee_issue_details
+values('iss010','e002','i007','2011-04-02','2013-11-01');
+insert into employee_issue_details
+values('iss011','e002','i003','2010-07-02','2013-11-03');
+
+
+insert into employee_issue_details
+values('iss002','e001','i006','2014-03-02','2014-11-11');
+
+insert into employee_issue_details
+values('iss003','e009','i001','2012-01-02','2013-03-05');
+
+insert into employee_issue_details
+values('iss004','e004','i003','2010-03-02','2011-06-01');
+
+insert into employee_issue_details
+values('iss012','e004','i007','2009-03-04','2009-11-01');
+insert into employee_issue_details
+values('iss013','e004','i007','2008-08-02','2008-09-09');
+insert into employee_issue_details
+values('iss014','e004','i006','2011-03-07','2011-06-01');
+
+insert into employee_issue_details
+values('iss005','e007','i010','2009-04-02','2009-07-07');
+
+insert into employee_issue_details
+values('iss006','e009','i007','2010-05-02','2012-12-08');
+
+
+insert into employee_issue_details
+values('iss016','e009','i013','2010-05-02','2012-12-08');
+
+insert into employee_issue_details
+values('iss007','e004','i010','2013-10-02','2013-11-11');
+
+select * from item_master;
+
+insert into employee_issue_details
+values('iss021','e012','i001','2013-10-02','2013-11-11');
+insert into employee_issue_details
+values('iss022','e012','i001','2010-03-02','2011-06-01');
+
+insert into employee_issue_details
+values('iss023','e012','i005','2009-03-04','2009-11-01');
+insert into employee_issue_details
+values('iss024','e012','i005','2008-08-02','2008-09-09');
+insert into employee_issue_details
+values('iss025','e012','i005','2011-03-07','2011-06-01');
+
+
+select * from employee_issue_details;
+select * from employee_card_details;
+select * from item_master;
+select * from employee_master;
+select * from loan_card_master;
+
+/*-----------------QUERIES----------------------*/
+
+/*
+
+
+
+
+
+01. Display distinct Employee id, Employee name who kept the item issued for more than a year.
+*/
+
+
+select distinct em.employee_id, employee_name
+from employee_master em, employee_issue_details eid
+where em.employee_id=eid.employee_id
+and (datediff(return_date,issue_date)/365) >1;
+
+/*
+
+
+
+
+02. Count number of customers who have gone for loan type Stationary. 
+*/
+
+select count(employee_id)
+from loan_card_master lcm, employee_card_details ecd
+where lcm.loan_id=ecd.loan_id
+and loan_type='Stationary';
+/* 
+
+
+
+03. Display Category and number of item in that category.
+*/
+
+select item_category, count(item_id)
+from item_master
+group by item_category;
+
+
+
+/*
+
+
+
+04. Empid ,Emp Name who joined the company after 2005.
+*/
+
+
+select employee_id, employee_name, date_of_joining
+from employee_master
+where year(date_of_joining)>2005;
+
+
+/*
+
+
+
+05. Count gender and group by gender.
+*/
+select gender,count(employee_id)
+from employee_master
+group by gender;
+
+
+/*
+
+
+
+06. Count number of employees whose issue status is yes.
+*/
+
+select count(distinct em.employee_id), em.employee_id
+from employee_master em, item_master im, employee_issue_details eid
+where em.employee_id=eid.employee_id and im.item_id=eid.item_id
+and issue_status='yes'
+group by em.employee_id;
+
+
+/*
+
+
+
+
+08.Find the max of total valuation of employees whose purchase is in two different categories.
+*/
+
+select em.employee_id, employee_name, sum(item_valuation)
+ from employee_master em, item_master im, employee_issue_details eid
+ where em.employee_id=eid.employee_id and eid.item_id=im.item_id
+ group by em.employee_id
+ having sum(item_valuation) in(select max(c) from(select sum(item_valuation) c 
+ from item_master im, employee_issue_details eid, employee_master em
+where im.item_id=eid.item_id and eid.employee_id=em.employee_id 
+group by em.employee_id)a) and count(distinct item_category)>=2
+ order by em.employee_id;
+ 
+
+/*
+
+
+
+09.Display count of employees who have recieved loan.
+*/
+
+select count(employee_id), employee_id
+from employee_card_details ecd
+where loan_id in(select loan_id from loan_card_master)
+group by employee_id;
+
+
+SELECT count(DISTINCT employee_id),employee_id
+ FROM employee_card_details
+group by employee_id;
+
+
+/*
+
+
+10.Display emp id,emp name and no of furniture purchased by employee who purchased more than one furniture. 
+*/
+
+
+select em.employee_id, employee_name, count(im.item_id)
+from employee_master em, employee_issue_details eid, item_master im
+where em.employee_id=eid.employee_id and eid.item_id=im.item_id and item_category='furniture'
+group by em.employee_id
+having count(im.item_id)>1;
+
+
+/*
+
+
+11. Details of issue id,emp id,name who had issued in product display in sorted order of issue_id.
+*/
+
+
+select issue_id, em.employee_id, employee_name
+from employee_issue_details eid, item_master im, employee_master em
+where im.item_id=eid.item_id and em.employee_id=eid.employee_id and item_category='product'
+order by issue_id;
+
+select * from employee_issue_details;
+/*
+
+
+
+12. Display customer who has not availed for loan
+*/
+
+select employee_id, employee_name
+from employee_master 
+where employee_id not in( select employee_id from employee_card_details  where loan_id in(select loan_id from loan_card_master));
+ select * from employee_card_details;
+
+
+
+
+/*
+
+
+
+
+14. Display emp records for whom never issued an item as a loan order based on emp id 
+*/
+
+select employee_id, employee_name
+from employee_master 
+where employee_id not in( select employee_id 
+from employee_card_details where loan_id in(select loan_id from loan_card_master))
+and employee_id in(select employee_id from employee_issue_details);
+
+
+/*
+
+
+15. Display empid,name who has the highest valuation. if multiple records then display in order of emp id 
+*/
+
+SELECT eid.employee_id, e.employee_name,sum(im.item_valuation)
+FROM item_master im, employee_issue_details eid, employee_master e
+
+WHERE im.item_id=eid.item_id AND e.employee_id=eid.employee_id
+GROUP BY 	e.employee_id
+ HAVINGsum(im.item_valuation)=(SELECT max(c) 
+FROM 	(SELECT	sum(item_valuation) c
+ FROM item_master im, employee_issue_details eid
+	WHERE 		im.item_id=eid.item_id
+												GROUP BY 	eid.employee_id
+		)a
+										)
+ORDER BY 	eid.employee_id;
+
+
+
+
+/*
+
+
+
+
+16. Display No. of emp in HR dept
+*/
+
+select count(employee_id)
+from employee_master
+where department='HR';
+select * from employee_master;
+
+/*
+
+
+
+
+
+
+
+17. Display issue status  and number of items of furniture based on issued and not issued 
+*/
+
+select issue_status, count(item_id)
+from item_master
+where item_category='furniture'
+group by issue_status;
+select * from item_master where item_CATEGORY='FURNITURE';
+
+/*
+
+
+18. Display empid and total valuation of each employee where employee must have at least one product issued
+*/
+
+
+select * from employee_issue_details;
+select * from item_master;
+
+SELECT 		eid.employee_id, e.employee_name,sum(im.item_valuation)
+FROM		item_master im, employee_issue_details eid, employee_master e
+WHERE 		im.item_id=eid.item_id AND
+			e.employee_id=eid.employee_id
+           
+GROUP BY 	e.employee_id
+having  employee_id in (select employee_id from employee_issue_details
+                                                where item_id in (select item_id from item_master
+                                                where item_category='product'));
+
+
+
+select * from employee_issue_details;
+
+/*
+
+
+
+19. Disp empid,name and count of categories of each emp having at least 2 categories
+*/
+
+SELECT em.employee_id, employee_name, count(item_category)
+from employee_master em, employee_issue_details eid, item_master im
+where im.item_id=eid.item_id and em.employee_id=eid.employee_id
+group by em.employee_id
+having count(distinct item_category)>=2;
+
+
+
+
+/*
+
+
+20. Display name of categories and no of items in each category and sort in order of no of items
+
+*/
+
+
+select item_category, count(item_id) c
+from item_master im
+group by item_category
+order by c;
+select * from item_master;
+
+
+/*
+
+20. Display empid,name with their total valuations.
+
+*/
+SELECT eid.employee_id, e.employee_name,sum(im.item_valuation)
+FROM item_master im, employee_issue_details eid, employee_master e 
+WHERE im.item_id=eid.item_id AND
+ e.employee_id=eid.employee_id 
+GROUP BY e.employee_id
+ 
+HAVING	sum(im.item_valuation) IN (SELECT max(c) FROM (SELECTsum(item_valuation) c
+ FROM item_master im, employee_issue_details eid
+ WHERE im.item_id=eid.item_id
+	
+GROUP BY eid.employee_id
+)a
+)
+ORDER BY eid.employee_id;

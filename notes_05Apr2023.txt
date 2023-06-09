@@ -1,0 +1,558 @@
+String is immutable.		**
+for-each			**
+String tokenizer		**
+StringBuilder		**
+StringBuffer		**
+Regex			**
+------------------------------------
+Task1:
+Accept a string input from the user.
+Display only the numbers present in the input.
+
+Ex:
+Input:
+	"Kindly note down the mobile number 9898989898 and call this number. If it is not reachable, contact 	04412121212. Thank you."
+
+Output:	
+	9898989898
+	04412121212
+
+Steps:
+1) Accept a string input
+2) convert that string into char []
+3) loop each char of that array
+4) Character.isDigit(arr[i])		returns true if it is a digit
+	if(arr[i]>='0' && arr[i]<='9')
+		it is a digit
+
+
+	if(arr[i]>=48 && arr[i]<=57)
+		it is a digit
+
+Now, the same problem can be solved using RegEx as follows:
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ExtractNumberUsingRegex {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.nextLine();
+		
+		Pattern p=Pattern.compile("\\d+");
+		Matcher m = p.matcher(input);
+		while(m.find())
+		{
+			System.out.println(m.group());
+		}
+	}
+
+}
+
+
+
+Regex:
+1) is used to check if a String matches a pattern or not		(true/false)
+2) is used to extract the portions of a String that matches a pattern
+
+Easiest way of using regex is that String class itself has the method		"matches" method
+
+There are lot of symbols used in regular expression.
+
+
+
+Remind me about scanner methods:
+------------------------------------------------
+
+
+
+
+String str="kindly note down this is the code word \"bharat\" and inform";
+
+String str1="the characters \\n is used to print in new line";
+
+
+\d		digit
+
+Task:
+---------
+Accept a String input from the user and check if it follows the below format or not:
+E001
+
+rule:	Start with "E" and followed by 3 digits.
+
+import java.util.Scanner;
+import java.util.regex.Pattern;
+public class RegExValidation1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String input=sc.next();
+		System.out.println(input.matches("E\\d{3}"));	//using String matches method
+		System.out.println(Pattern.matches("E\\d{3}", input));	//using regex package
+	}
+
+}
+
+
+Symbols used in RegEx:
+-----------------------------------
+first portion will be symbol for character	(whether it is a char or digit or symbol or range or list of chars)
+second portion is multiplicity		(how many such can occur)
+
+E{1}\\d{3}
+
+first portion:	what should come?
+\d		digit
+\D		non digit
+[]		list of characters from that any one can be present
+		ex:		[0-9]		range	(because we use -	hyphen symbol)
+				[0-9A-Za-z]	any digit or upper or lower case alphabet can be found
+
+				[aeiou]		any vowel is allowed
+
+				when we use [] then whatever we type inside are seen as character.
+				[.]	. is usually a symbol, but here, it is a character
+
+.		dot means it matches with anything
+
+\w
+
+second portion:
+multiplicity:
+
++		one or more
+*		zero or more
+?		zero or one
+
+multiplicity can be easily achieved using 	{	}
+{1,3}		min 1 and max 3
+{1,}		min 1 and no upper limit
+{,3}		maximum 3 times
+{3}		3 times
+
+if we ignore the multiplicity, then it is always 1
+
+Task:
+Write a program to accept a string input from the user and
+validate if it is a valid email address or not.
+
+	rule:
+		username@domain.com
+
+[a-z]+([.][a-z]+)?@[a-z]+[.]((com)|(co[.]in))
+
+raja@yahoo.com
+raja.siva@yahoo.com
+raja.siva@yahoo.co.in
+raja@yahoo.co.in
+
+
+
+
+
+http://
+or
+https://
+
+http[s]?://
+
+((http://)|(http://)){1}
+
+
+Solution for university req #3:
+-----------------------------------------
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class UniversityReq3 {
+
+	static Boolean validateWebsite(String website)
+	{
+		String regex="((http://)|(https://)){1}(www[.])?([A-Za-z]+)[.]{1}([a-z]{2,3})([.]{1}[a-z]{2,6})?";		
+		return Pattern.matches(regex, website);
+	}
+	static Boolean validateMobile(String mobileNo)
+	{
+		String regex="([+]91){1}[0-9]{10}";
+		//String regex="([+]91){1}[ ]?[0-9]{10}";
+		return Pattern.matches(regex, mobileNo);
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Menu:\r\n" + 
+				"1.Validate Website\r\n" + 
+				"2.Validate Mobile number\r\n" + 
+				"");
+		System.out.println("Enter your choice:");
+		int choice=sc.nextInt();
+		switch(choice)
+		{
+		case 1:		//validate website
+			System.out.println("Enter the Website to be validated:");
+			String website=sc.next();
+			if(validateWebsite(website))
+			{
+				System.out.println("Website is valid");
+			}else
+			{
+				System.out.println("Website is invalid");
+			}
+			break;
+		case 2:		//validate mobile number
+			System.out.println("Enter the Mobile no. to be validated:");
+			String mobileNo=sc.next();
+			if(validateMobile(mobileNo))
+			{
+				System.out.println("Mobile number is valid");
+			}else
+			{
+				System.out.println("Mobile number is invalid");
+			}
+			break;			
+		}
+	}
+
+}
+=============================
+Full Prime
+
+Siva always try to play with the numbers , he does so because he thinks that it will lead to some special numbers . One day he came up with an idea to know the numbers that are considered as Full Prime .  Full prime is a prime number where each of its digits is also a prime . Given a range from X to Y ,write a program to help Siva find the numbers (excluding X and Y ) that are full primes . If no such numbers exist between the given range,then print -1.
+
+Note1: Mention the maximum range of number will vary from 1 to 1000.
+
+Note2: 1 is not a prime number. 
+
+
+Input Format:
+First Input is an integer that denotes the X value.
+Second Input is an integer that denotes the Y value.
+
+Output Format:
+Output is a series of integers separated by a comma that is considered as a full prime.
+
+Sample Input 1:
+1
+50
+
+Sample Output 1:
+2,3,5,7,23,37
+
+Sample Input 2:
+8
+10
+
+Sample Output 2:
+-1 
+
+
+-------------------------
+1) Create a separate method isPrime(x) and return true or false based on prime or not.
+2) call this method inside the loop
+	a loop from start number to end number
+	check if number in loop is prime or not.
+	then if it is prime, split it into digits and do inner loop to check if each digit is prime or not.
+3) there are many ways you can loop digits of a number
+	i) convert number to string and toCharArray
+		 loop each char and convert char to int 
+	ii) another method is to use / and %
+		a number %10 will give you last digit
+		that number /10 will remove last digit
+		repeat until that number becomes 0
+
+
+
+break;
+	in a loop, if we use break statement,
+	then it will skip all the below lines inside the loop and and exit the loop.
+
+
+continue;
+	in a loop, if we use continue statement,
+	then it will skip all the below lines inside the loop and move to next iteration of the loop.
+
+
+
+import java.util.Scanner;
+
+public class FullPrime {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int from=sc.nextInt();
+		int to=sc.nextInt();
+		
+		outer:
+		for(int i=from;i<=to;i++)
+		{
+			if(isPrime(i))
+			{
+				//further check if every digit is prime
+				//to convert int into String
+//				String str=i+"";
+//				System.out.println(i+" is prime. it has following digits");
+				String str=String.valueOf(i);
+				char[] arr = str.toCharArray();
+				
+				inner:
+				for(char c : arr)
+				{
+//					System.out.println("Checking if "+c+" is prime or not");
+					//convert char into int
+					int digit=c-48;
+					if(!isPrime(digit))
+					{
+						//digit is not prime
+//						System.out.println(digit + " is not prime, so rejecting "+i);
+						continue outer;
+					}
+				}
+//				System.out.println("All digits of "+i+" is prime. So it is eligible");
+//				System.out.println("...........");
+				System.out.println(i);
+			}
+		}
+	}
+
+	private static boolean isPrime(int num) {
+		//logic to check if the num is prime or not
+		if(num<2)
+			return false;
+		for(int i=2;i<=num/2;i++)
+		{
+			if(num%i==0)
+				return false;
+		}
+		return true;
+	}
+
+}
+
+
+
+-----------------------------------
+Scanner methods:
+-----------------------
+Task:
+	Write a java program to accept the following inputs and display the same.
+
+Enter your id:		1234
+Enter your full name:		raja siva kumar
+Enter your marks:		97.5
+
+
+
+Scanner methods:
+nextInt()
+nextFloat()
+nextBoolean()
+nextDouble()
+nextLong()
+nextShort()
+next()
+
+
+next().charAt(0);		
+
+there is one more method
+nextLine()			this nextLine should be dealt properly.
+	because, except this nextLine() method, all other methods work with any delimiter (space, newline, tab)
+	but nextLine() method works with (newLine only as delimiter)
+
+Solution1:
+	whenever nextLine() is used, use a separate scanner for that purpose.
+		
+Solutions2:
+	whenever nextLine() is used after a next() method (all next method category)
+	check if you got a blank as input, then get input again
+
+		String fullName=sc.nextLine();
+		if(fullName.equals(""))
+			fullName=sc.nextLine();
+
+
+
+
+java.lang.Scanner
+	was introduced in java version 5 only.
+
+-----------------------------------
+Max Integer
+Ram aspires to become a mathematician , he just learnt the  formula for sum of n numbers. He wants to find the maximum number n,such that sum of n numbers is less than a given value.
+Given an integer bound, write a program to find the maximal integer n such that 1 + 2 + ... + n < bound.
+Help Ram with the program.
+
+Input format:
+A single integer that denotes the Integer bound
+
+Output format:
+A single integer that corresponds to  maximal integer, n.
+
+Sample Input 1:
+14
+
+Sample Output 1:
+4
+
+Explanation:
+n= 1
+Sum = 1
+n=2
+Sum = 1+2 = 3
+n=3
+Sum = 1 + 2 + 3 = 6
+n = 4
+Sum = 1 + 2 + 3 + 4 = 10
+n = 5
+Sum = 1+ 2 + 3 + 4 + 5 = 15
+
+For n = 5 The sum is greater than the bound value 14 , Maximum n value with sum below the bound is 4.
+
+Sample Input 2:
+21
+
+Sample Output 2:
+5 
+
+
+
+Solution:
+import java.util.Scanner;
+
+public class MaxInteger {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int input=sc.nextInt();
+		int sum=0;
+		int i=1;
+		for(;sum<input;i++)
+		{
+			sum+=i;
+			System.out.println(sum);
+		}
+		System.out.println(i-2);
+	}
+
+}
+
+--------------------------------------------
+Task:
+
+if input is 5: the output should be:
+*
+**
+***
+****
+*****
+
+import java.util.Scanner;
+
+public class Pattern1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+}
+
+
+
+Task:
+--------
+assumption:	input is always odd number.
+
+input: 5
+output:
+
+   *
+ ***
+*****
+ ***
+   *
+
+
+import java.util.Scanner;
+
+public class DiamondPattern {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		for(int i=1;i<=n;i+=2)
+		{
+			//space loop
+			for(int k=0;k<(n-i)/2;k++)
+			{
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i=n-2;i>=1;i-=2)
+		{
+			//space loop
+			for(int k=(n-i)/2+1;k>1;k--)
+			{
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+
+---------------------------------
+N-smallest Elements
+
+Shreya was attending a coding competition and she was progressing good . Suddenly she got stuck in a problem where she needs to find the n-smallest elements in an array . Given an array of integers of size N and n value as inputs , Write a program to help Shreya find the first - n smallest elements from the array but they must be in the same order as they are in given array.
+
+Input Format :
+First input is an integer that denotes the size of the array, N.
+Second line consists of series of integers seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a series of integers seperated by a space that denotes the n smallest elements.
+
+Sample Input 1:
+5
+4 8 2 5 9
+3
+
+Sample Output 1:
+4 2 5
+
+Sample Input 2:
+10
+7 3 8 11 55 22 1 6 13 2
+5
+
+Sample Output 2:
+7 3 1 6 2 
+
+
+Steps:
+1) sort the array		Arrays.sort(arr)
+2) first n elements are the smallest elements. keep them in an array		array of size	(n)
+3) loop the original elements array and if current element is found in small array, then display them.
+

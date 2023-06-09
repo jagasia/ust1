@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var id=document.getElementById("id").value;
+            var name=document.getElementById("name").value;
+            var department=document.getElementById("department").value;
+            var obj={"id":"201","name":"Ajay C.M.","department":"EEE","dob":""};
+            obj.dob=new Date();
+            obj.id=id;
+            obj.name=name;
+            obj.department=department;
+
+            alert(JSON.stringify(obj));
+            //to convert object to string:      JSON.stringify()
+            //to convert string to object:      JSON.parse()
+            
+        }
+        function fn2()
+        {
+            var txt=document.getElementById("txt").value;
+            var obj=JSON.parse(txt);
+            //to set the value to a textbox
+            document.getElementById("id").value=obj.id;
+            document.getElementById("name").value=obj.name;
+            document.getElementById("department").value=obj.department;
+            alert(obj.dob);
+            alert(obj.dob.substring(0,10))
+            document.getElementById("dob").value=obj.dob.substring(0,10);
+        }
+    </script>
+</head>
+<body>
+    <input type="date" name="" id="dob">
+    <input type="text" name="" id="txt">
+    <input type="button" value="Patch" onclick="fn2()"><br>
+    Id: <input type="number" name="" id="id">
+    Name: <input type="text" name="" id="name">
+    Department: <input type="text" name="" id="department">
+    <br>
+    <input type="button" value="Ok" onclick="fn1()">
+</body>
+</html>

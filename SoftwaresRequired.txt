@@ -1,0 +1,12 @@
+Jdk 1.8 or above	(Open Jdk is present)
+Eclipse Oxygen or above. (or) Spring Tool Suite 4 for Eclipse (Eclipse is present)
+Git		(Installed. Need permission to configure since they are behind proxy)
+Maven		(need support to configure proxy)
+SonarQube
+MySQL 
+PostgreSql
+Visual Studio code
+Node Js version 16 or later
+Postman
+Docker
+

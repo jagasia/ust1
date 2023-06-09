@@ -1,0 +1,75 @@
+Outer query	(or)	Main
+Inner query	(or)	Sub query
+
+Usually, sub query gets executed first.
+the result of sub query is supplied to the Main query.
+
+
+In case of correlated sub query, the sub query depends on the outer query for its execution
+
+Whenever you see a correlated sub query, look for EXISTS or NOT EXISTS operator
+
+
+EXISTS compare with INNER JOIN
+
+select custid
+from customer c
+where EXISTS
+(SELECT * FROM LOAN WHERE custid=c.custid);
+
+SELECT distinct c.custid
+FROM customer c
+INNER JOIN loan l
+ON c.custid=l.custid;
+-----------------------------------------------------------------------
+
+
+NOT EXISTS compare with OUTER JOIN WITH CONDITION IS NULL
+select custid 
+from customer c
+where NOT EXISTS
+(SELECT * FROM LOAN WHERE custid=c.custid);
+
+SELECT distinct c.custid
+FROM customer c
+LEFT OUTER JOIN loan l
+ON c.custid=l.custid
+where l.custid is null;
+-------------------------------------------------------------------
+
+
+Display all details of the customers who took loan from bid other than B00001
+
+select * from customer where custid
+in
+(select custid from loan
+where bid!='B00001')
+
+
+
+
+
+
+
+Display all details of the customers who never took loan from bid B00001
+
+select * from customer where custid
+not in
+(select custid from loan
+where bid='B00001')
+
+
+
+FUNCTIONS IN SQL
+	CHAR FUNCTIONS
+	NUMERIC FUNCTIONS
+	DATE FUNCTIONS
+	
+	AGGREGATE FUNCTIONS
+
+	AGGREGATE, GROUP BY, HAVING
+
+
+
+
+

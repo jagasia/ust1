@@ -1,0 +1,12 @@
+	<STUDENTS>
+		<STUDENT>
+			<RNO>1</RNO>
+			<NAME>Rama</NAME>
+			<MARK>80</MARK>
+		</STUDENT>
+		<STUDENT>
+			<RNO>2</RNO>
+			<NAME>Ravi</NAME>
+			<MARK>70</MARK>
+		</STUDENT>
+	</STUDENTS>
