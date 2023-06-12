@@ -1,0 +1,19 @@
+2023-06-12 10:28:17.784  INFO 16288 --- [main] com.ust.spring.Application               : Starting Application using Java 11.0.1 on LAPTOP-PV39E17L with PID 16288 (D:\Jag\UST\Batch1_Apr2023\spring\12-jun-logging-2\target\classes started by rjaga in D:\Jag\UST\Batch1_Apr2023\spring\12-jun-logging-2)
+2023-06-12 10:28:17.787  INFO 16288 --- [main] com.ust.spring.Application               : No active profile set, falling back to 1 default profile: "default"
+2023-06-12 10:28:18.632  INFO 16288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2023-06-12 10:28:18.646  INFO 16288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-12 10:28:18.646  INFO 16288 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-12 10:28:18.761  INFO 16288 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-12 10:28:18.762  INFO 16288 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 933 ms
+2023-06-12 10:28:19.099  INFO 16288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path ''
+2023-06-12 10:28:19.107  INFO 16288 --- [main] com.ust.spring.Application               : Started Application in 1.745 seconds (JVM running for 2.049)
+2023-06-12 10:30:04.730  INFO 26028 --- [main] com.ust.spring.Application               : Starting Application using Java 11.0.1 on LAPTOP-PV39E17L with PID 26028 (D:\Jag\UST\Batch1_Apr2023\spring\12-jun-logging-2\target\classes started by rjaga in D:\Jag\UST\Batch1_Apr2023\spring\12-jun-logging-2)
+2023-06-12 10:30:04.734  INFO 26028 --- [main] com.ust.spring.Application               : No active profile set, falling back to 1 default profile: "default"
+2023-06-12 10:30:05.588  INFO 26028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2023-06-12 10:30:05.597  INFO 26028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-12 10:30:05.598  INFO 26028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2023-06-12 10:30:05.703  INFO 26028 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-12 10:30:05.704  INFO 26028 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 918 ms
+2023-06-12 10:30:06.059  INFO 26028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path ''
+2023-06-12 10:30:06.067  INFO 26028 --- [main] com.ust.spring.Application               : Started Application in 1.736 seconds (JVM running for 2.047)
+2023-06-12 10:30:06.070 ERROR 26028 --- [main] com.ust.spring.Application               : There is a problem
