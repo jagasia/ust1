@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var list=document.getElementById("list");
+            fetch('https://jsonplaceholder.typicode.com/todos')
+            // .then((x)=>x.json())
+            // .then(x=>console.log(x))
+      .then(response => response.json())
+      .then(json =>json.map(x=>list.innerHTML+="<li>"+x.title+"</li>"))
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Click here" onclick="fn1()">
+    <ul id="list">
+
+    </ul>
+</body>
+</html>
