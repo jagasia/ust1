@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,30 +26,26 @@ class ProductAlreadyExistException extends RuntimeException
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class ProductController1 {
 	@Autowired
 	private ProductRepository pr;
 
 	@PostMapping
-	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+	public Product addProduct(@RequestBody Product product) {
 		System.out.println(product);
 		if(product.getId()==null)
 		{
-			// return pr.save(product);
-			pr.save(product);
-			return new ResponseEntity<Product>(product, HttpStatus.OK);
+			return pr.save(product);
 		}
 		Product temp=findProductById(product.getId());
 		if(temp==null)
 		{
 			pr.save(product);
-			return new ResponseEntity<Product>(product, HttpStatus.OK);
 		}else
 		{
-			// throw new ProductAlreadyExistException("Product with ID:"+product.getId()+" Already exist");
-			return new ResponseEntity<Product>(null, null, HttpStatus.NOT_FOUND);
+			throw new ProductAlreadyExistException("Product with ID:"+product.getId()+" Already exist");
 		}
-
+		return product;
 	}
 	
 	@GetMapping("/{id}")
