@@ -1,0 +1,667 @@
+Singleton:
+	A class that has only 1 instance.
+	we can achieve that by restricting the creation of objects. (how? by making the constructor as private scope)
+	The class should contain a static instance of the same class.
+
+public class Singleton
+{
+	private static Singleton s=null;
+	private Singleton()
+	{}
+
+	public static Singleton getInstance()
+	{
+		if(s==null)
+			s=new Singleton();
+		return s;
+	}
+}
+
+Double d=12.12345;
+//how to display the value of double in 2 digits precision
+
+i) String.format	or System.out.printf	or	System.out.format
+	%.2f
+
+ii) Math.round
+	returns int only
+	12.12345		becomes		12
+	12.12345 * 100=	1212.345		becomes		1212	/100
+
+iii) DateFormat
+	activity for you
+------------------------------
+Solution for Mock 29 Req 1:
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Mobile {
+	private String referenceId;
+	private String modelName;
+	private Double displaySize;
+	private Double price;
+	private Date launchedDate;
+	
+	public Mobile() {}
+
+	public Mobile(String referenceId, String modelName, Double displaySize, Double price, Date launchedDate) {
+		super();
+		this.referenceId = referenceId;
+		this.modelName = modelName;
+		this.displaySize = displaySize;
+		this.price = price;
+		this.launchedDate = launchedDate;
+	}
+
+	public String getReferenceId() {
+		return referenceId;
+	}
+
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public Double getDisplaySize() {
+		return displaySize;
+	}
+
+	public void setDisplaySize(Double displaySize) {
+		this.displaySize = displaySize;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Date getLaunchedDate() {
+		return launchedDate;
+	}
+
+	public void setLaunchedDate(Date launchedDate) {
+		this.launchedDate = launchedDate;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		return String.format("Reference Id: %s\nModel Name: %s\nDisplay Size: %f\nPrice: %.1f\nLaunched Date: %s",referenceId,modelName,displaySize,price,sdf.format(launchedDate));
+	}
+
+
+	public boolean equals(Mobile arg) {
+		return this.getReferenceId().equals(arg.getReferenceId()) && this.getModelName().equalsIgnoreCase(arg.getModelName());
+	}
+	
+	
+
+}
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter mobile 1 detail:");
+		String detail1=sc.nextLine();
+		System.out.println("Enter mobile 2 detail:");
+		String detail2=sc.nextLine();
+		
+		String[] arr1 = detail1.split(",");
+		Mobile m1=new Mobile();
+		m1.setReferenceId(arr1[0]);
+		m1.setModelName(arr1[1]);
+		m1.setDisplaySize(Double.parseDouble(arr1[2]));
+		m1.setPrice(Double.parseDouble(arr1[3]));
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		m1.setLaunchedDate(sdf.parse(arr1[4]));
+
+
+		String[] arr2 = detail2.split(",");
+		Mobile m2=new Mobile();
+		m2.setReferenceId(arr2[0]);
+		m2.setModelName(arr2[1]);
+		m2.setDisplaySize(Double.parseDouble(arr2[2]));
+		m2.setPrice(Double.parseDouble(arr2[3]));
+		m2.setLaunchedDate(sdf.parse(arr2[4]));
+
+		System.out.println(m1);
+		System.out.println();
+		System.out.println(m2);
+		System.out.println();
+		
+		if(m1.equals(m2))
+			System.out.println("Equals");
+		else
+			System.out.println("Not equals");
+	}
+
+}
+
+
+
+
+
+Access specifiers:
+-----------------------
+in java, we have
+
+public
+protected
+default
+private
+
+public > protected > default > private
+
+
+
+void display()		//this method is of default scope
+{
+}
+
+
+default scope:
+
+package:
+	we can group classes, interface, abstract classes etc under a package.
+	we can control the access using package.
+
+	will prevent name collision,
+	
+String class		OMG		there is already a String class in java.lang
+
+my String class belongs to my own package.
+
+java.util.Scanner
+com.ust.hrms.Scanner
+
+
+-----------------------------------
+package one;
+
+public class Person {
+	public void speak()
+	{
+		System.out.println("Person speaks");
+	}
+	void walk()
+	{
+		System.out.println("Person walks");
+	}
+	
+	protected void listen()
+	{
+		System.out.println("Person listens");
+	}
+	
+	private void run()
+	{
+		System.out.println("Person run");
+	}
+}
+
+
+package two;
+
+import one.Person;
+
+public class Student extends Person {
+	public void method()
+	{
+		speak();	//public 
+//		walk();		//default	error
+		listen();	//protected
+//		run();		//private	error
+	}
+}
+
+
+Reminder:
+	Inheritance
+
+
+Activity:
+	Understand the scope of various access specifiers:
+
+public
+protected
+default
+private
+
+
+interface Person
+{
+	void speak();	
+}
+
+public class Student implements Person
+{
+	void speak()		//error. We cannot reduce the visibility of this method
+	{
+		System.out.println("Student speaks");
+	}
+	public static void main(String []args)
+	{	
+		System.out.println("Hello world");
+	}
+}
+
+a) Hello World		Student speaks
+b) Hello World
+c) Student speaks
+
+
+
+----------------------------
+Java PF 6
+
+start completing each challenge and update me.
+
+ Mileage Calculation
+
+    Raju is fond of bikes.He convinced his parents and bought a new bike.Now he wants to check the mileage of his bike.He is weak in mathematics,so help him to find out the mileage.Petrol price(X),Distance covered in kilometres(Y) and Amount(Z) for which he has filled the petrol is given as inputs.Write a program to find out the mileage of the bike.
+
+Input Format:
+First input is a double value that corresponds to the X value.
+Second input is a double value that corresponds to the Y value.
+Third input is a integer value that corresponds to the Z value.
+
+Output Format:
+Output is a double value that denotes the mileage of the bike(rounded off to two decimal places).
+    
+Sample Input 1:
+70.77
+280.50
+500
+
+Sample Output 1:
+39.70
+
+Sample Input 2:
+55.90
+320.25
+400
+
+Sample Output 2:
+44.75
+ 
+
+Solution:
+-------------
+import java.util.Scanner;
+
+public class MileageCalculation {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		double petrolPrice=sc.nextDouble();
+		double distanceCovered=sc.nextDouble();
+		int amount=sc.nextInt();
+		
+		double litres=(double)amount/petrolPrice;
+		
+		double mileage=distanceCovered/litres;
+//		mileage*=100;
+//		mileage=Math.round(mileage);
+//		mileage/=100;
+		
+//		String str=String.format("%.2f", mileage);
+//		mileage=Double.parseDouble(str);
+//		System.out.println(mileage);
+		
+		System.out.format("%.2f", mileage);
+		
+	}
+}
+----------------------------------------------
+ Historical Era
+
+Mohan came across many ancient people while reading a book . He was curious to know at what era they all would have lived .  Given a year(X) as input , Write a program to help Mohan find which century they belong to and categorize them into one of the following periods : " Prehistorical period " , " Vedic Period " , "Second Urbanisation " , " Early Modern Period " , " Modern Period " .
+
+Note:
+Prehistorical period       -    0-2nd
+Vedic Period                      -    3rd-6th
+Second Urbanisation    -    7th-13th
+Early Modern Period      -    14th-18th
+Modern Period                  -    19th-present
+
+Input format:
+First input is an integer that denotes the year value X.
+
+Output format:
+First line of output is an integer that denotes the century value.
+Second line consists of a string that denotes the Prehistorical period/Vedic Period/Second Urbanisation/Early Modern Period/Modern Period.
+
+Sample Input 1:
+1222
+
+Sample Output 1:
+13
+Second Urbanisation
+
+Sample Input 1:
+1947
+
+Sample Output 1:
+20
+Modern Period 
+
+-------------------------------------
+import java.util.Scanner;
+
+public class HistoricalEra {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int year=sc.nextInt();
+		//find the century. 	1947	=	20th
+		int century=year/100;
+		
+		if(year%100!=0)
+			century++;
+		
+//		Prehistorical period       -    0-2nd
+//		Vedic Period                      -    3rd-6th
+//		Second Urbanisation    -    7th-13th
+//		Early Modern Period      -    14th-18th
+//		Modern Period                  -    19th-present
+
+		System.out.println(century);
+		if(century<0)
+		{
+			System.out.println("Invalid");
+		}else if(century<=2)
+		{
+			System.out.println("Prehistorical period");
+		}else if(century<=6)
+		{
+			System.out.println("Vedic Period");
+		}else if(century<=13)
+		{
+			System.out.println("Second Urbanisation");
+		}else if(century<=18)
+		{
+			System.out.println("Early Modern Period");
+		}else
+		{
+			System.out.println("Modern Period");
+		}
+			
+	}
+
+}
+------------------------------------------
+Last Character
+
+Rahul was tired after studying for so long , so he thought to play a small game with the words from his book . He opens a random page and selects a random word from it , and also  chooses the last digit of that page number n . Given an array of characters,Write a program to help Rahul find the last character that occurs n(last digit of the page number) times in the array . If no such character exists,then print -1.
+
+Input Format:
+First input is an integer that denotes the size of the array.
+Second line consists of  series of characters  seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a character that denotes the last character which occurs n times.
+
+Sample Input 1:
+8
+a a b c n s d n
+2
+
+Sample Output 1:
+n
+
+Explanation:
+    In the given array 'a' and 'n' occurs 2 times which is equal to the n value . Even though 'a' occurs twice ,'n' is the one that occurs last.    
+    
+Sample Input 2:
+5
+a b c d e
+3
+
+Sample Output 2:
+-1 
+
+
+---------------------
+Hint:
+	take 1 character at a time and 
+	loop all characters and find how many times they match. that is the count.
+
+	keep maxCount variable and also maxCountChar variable and update every time the local count is greater than or equal to maxCount.
+
+
+MCQ done
+
+
+
+--------------------------------
+Last Character
+
+Rahul was tired after studying for so long , so he thought to play a small game with the words from his book . He opens a random page and selects a random word from it , and also  chooses the last digit of that page number n . Given an array of characters,Write a program to help Rahul find the last character that occurs n(last digit of the page number) times in the array . If no such character exists,then print -1.
+
+Input Format:
+First input is an integer that denotes the size of the array.
+Second line consists of  series of characters  seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a character that denotes the last character which occurs n times.
+
+Sample Input 1:
+8
+a a b c n s d n
+2
+
+Sample Output 1:
+n
+
+Explanation:
+    In the given array 'a' and 'n' occurs 2 times which is equal to the n value . Even though 'a' occurs twice ,'n' is the one that occurs last.    
+    
+Sample Input 2:
+5
+a b c d e
+3
+
+Sample Output 2:
+-1 
+-------------------------------------------------
+Masked Numbers
+
+Vignesh was a mischievous boy and due to his rude behaviour at class , his teacher gave him an assignment as punishment and told him to complete it within one day . His assignment was to find the masked numbers . A masked number is a string that consists of digits and one X that should be replaced by exactly one digit.Given a string  N as input  ,Write a program to help Vignesh find all the possible solutions to replace the X with a digit so as to get a value that is divisible by Y.If no number is found then print "-1". 
+
+Input format: 
+First input is a string that denotes the string value N (only 3 digits and X will always be in the center). 
+Second input is an integer that denotes the Y value. 
+
+Output format: 
+Output is a series of integers that satisfies the condition seperated by a comma. 
+The integers are displayed sorted in ascending order. 
+If the condition is not satisfied, print "-1" 
+
+Sample Input 1: 
+1X0 
+6 
+Sample Output 1: 
+120,150,180 
+
+Sample Input 2: 
+5X3 
+23 
+Sample Output 2: 
+-1 
+
+----------------
+Solution:
+--------------
+import java.util.Scanner;
+
+public class MaskedNumbers {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String mask = sc.next();
+		int y = sc.nextInt();
+
+		boolean isFirst = true;
+		boolean anyResult=false;
+		for (int i = 0; i < 10; i++) {
+//			System.out.println(mask.charAt(0)+""+i+mask.charAt(2));
+			String str = mask.charAt(0) + "" + i + mask.charAt(2);
+			int num = Integer.parseInt(str);
+			if (num % y == 0) {
+				//yes a result is found
+				anyResult=true;
+				if (!isFirst)
+					System.out.print(",");
+
+				System.out.print(num);
+				isFirst = false;
+			}
+		}
+		if(!anyResult)
+			System.out.println(-1);
+
+	}
+}
+
+------------------------------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LastCharacter {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int size=sc.nextInt();
+		char []arr=new char[size];
+		for(int i=0;i<size;i++)
+		{
+			arr[i]=sc.next().charAt(0);
+		}
+		
+		int n=sc.nextInt();
+		
+		//check if a char is found n times or not.
+
+		char result='\0';
+		
+		for(int i=0;i<size;i++)
+		{
+//			System.out.println(arr[i]);
+			int count=0;
+			for(int j=0;j<size;j++)
+			{
+//				System.out.println("Comparing "+arr[i]+" with "+arr[j]);
+				if(arr[i]==arr[j])
+					count++;
+			}
+//			System.out.println(arr[i]+" is found "+count+" times");
+			if(count==n)
+			{
+//				System.out.println(arr[i]+" is eligible to be answer");
+				result=arr[i];
+			}
+		}
+//		System.out.println("Finally:");
+		if(result!='\0')
+			System.out.println(result);
+		else
+			System.out.println(-1);
+		
+	}
+
+}
+--------------------------------
+N-smallest Elements
+
+Shreya was attending a coding competition and she was progressing good . Suddenly she got stuck in a problem where she needs to find the n-smallest elements in an array . Given an array of integers of size N and n value as inputs , Write a program to help Shreya find the first - n smallest elements from the array but they must be in the same order as they are in given array.
+
+Input Format :
+First input is an integer that denotes the size of the array, N.
+Second line consists of series of integers seperated by a space that denotes the array values.
+Third input is an integer that denotes the n value.
+
+Output Format:
+Output is a series of integers seperated by a space that denotes the n smallest elements.
+
+Sample Input 1:
+5
+4 8 2 5 9
+3
+
+Sample Output 1:
+4 2 5
+
+Sample Input 2:
+10
+7 3 8 11 55 22 1 6 13 2
+5
+
+Sample Output 2:
+7 3 1 6 2 
+
+----------------------------
+Solution:
+-----------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class NSmallestElement {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int noOfElements=sc.nextInt();
+		int arr[]=new int[noOfElements];
+		for(int i=0;i<noOfElements;i++)
+		{
+			arr[i]=sc.nextInt();			
+		}
+		
+		int n=sc.nextInt();
+		
+		//logic begins. Take a copy of arr
+		
+		int[] copyArr = arr.clone();
+		
+		Arrays.sort(copyArr);
+
+		int arr2[]=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr2[i]=copyArr[i];
+		}
+		
+		//iterate the original array
+		
+		for(int i=0;i<noOfElements;i++)
+		{
+//			if arr[i] is present in the arr2 then print
+			
+			for(int j=0;j<n;j++)
+			{
+				if(arr[i]==arr2[j])
+					System.out.println(arr[i]);
+			}
+		}
+		
+	}
+
+}
+

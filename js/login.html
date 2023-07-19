@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnLoad() {
+
+        }
+
+        function fnLogin() {
+            var uid = document.getElementById("uid").value;
+            var pwd = document.getElementById("pwd").value;
+            var remember = document.getElementById("chkRememberMe").checked;
+            if (remember) {
+                var obj = { "uid": "", "pwd": "" };
+                obj.uid = uid;
+                obj.pwd = pwd;
+                localStorage.setItem("user", JSON.stringify(obj));
+            }else{
+                localStorage.removeItem("user");
+            }
+        }
+    </script>
+</head>
+
+<body onload="fnLoad()">
+    <form action="">
+        User Name: <input type="text" name="" id="uid"><br>
+        Password: <input type="password" name="" id="pwd"><br>
+        <input type="checkbox" name="" id="chkRememberMe"><label for="chkRememberMe">Remember Me</label>
+        <input type="button" value="Login" onclick="fnLogin()">
+    </form>
+    <script>
+        var str = localStorage.getItem("user");
+        if (str != null && str != "") {
+            var user = JSON.parse(str);
+            document.getElementById("uid").value = user.uid;
+            document.getElementById("pwd").value = user.pwd;
+        }   
+    </script>
+</body>
+
+</html>

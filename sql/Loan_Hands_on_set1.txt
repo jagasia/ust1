@@ -1,0 +1,36 @@
+
+
+01. Display distinct Employee id, Employee name who kept the item issued for more than a year.
+
+
+
+
+02. Count number of customers who have gone for loan type Stationary. 
+
+
+
+03. Display Category and number of item in that category.
+
+
+
+04. Empid ,Emp Name who joined the company after 2005.
+
+
+
+05. Count gender and group by gender.
+
+
+
+06. Count number of employees whose issue status is yes.
+
+
+
+
+08.Find the max of total valuation of employees whose purchase is in two different categories.
+
+
+
+09.Display count of employees who have recieved loan.
+
+
+10.Display emp id,emp name and no of furniture purchased by employee who purchased more than one furniture. 

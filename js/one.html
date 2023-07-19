@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    Welcome to our javascript chapter 1
+    <script>
+        // window.alert('hello world');
+        // window.alert("another message");
+        var x=Number.MAX_SAFE_INTEGER;
+        x+=2;
+        x+=1;
+        x+=3;
+        x+=x;
+        console.log(x);
+        console.log(typeof(x));
+        console.log(x>Number.MAX_SAFE_INTEGER);
+        console.log('hi this is console log method');
+        var a=20
+        var b=30
+        console.log(a+b)
+        
+    </script>
+
+    
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "ajax_info.txt");
+  xhttp.send();
+}
+</script>
+</body>
+</html>

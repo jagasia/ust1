@@ -1,0 +1,29 @@
+<form [formGroup]="productForm">
+Id: <input type="number" name="" id="" formControlName="id" class="form-control">
+Name: <input type="text" name="" id="" formControlName="name" class="form-control">
+Price: <input type="number" name="" id="" formControlName="price" class="form-control">
+<br>
+<input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
+</form>
+<br>
+{{ productForm.value | json}}
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th><th>Name</th><th>Price</th><th></th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                <input type="button" value="Delete" (click)="fnDelete(p.id)" class="btn btn-danger">
+            </td>
+            <td>
+                <input type="button" value="Select" class="btn btn-info" (click)="fnSelect(p.id)">
+            </td>
+        </tr>
+    </tbody>
+</table>

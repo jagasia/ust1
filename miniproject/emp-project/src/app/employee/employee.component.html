@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form action="" class="container" [formGroup]="employeeForm">
+            Id: <input type="number" name="" id="" formControlName="id" class="form-control">
+            First Name: <input type="text" name="" id="" formControlName="firstName" class="form-control">
+            Last Name: <input type="text" name="" id="" formControlName="lastName" class="form-control">
+            Department: <input type="text" name="" id="" formControlName="department" class="form-control">
+            <br>
+            <input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
+            &nbsp;
+            <input type="button" value="Update" class="btn btn-warning" (click)="fnUpdate()">
+            &nbsp;
+            <input type="button" value="Delete" class="btn btn-danger" (click)="fnDelete()">
+        </form>
+        {{ employeeForm.value | json}}
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Department</th>
+        <th></th><th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of employees">
+            <td>{{e.id}}</td>
+            <td>{{e.firstName}}</td>
+            <td>{{e.lastName}}</td>
+            <td>{{e.department}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

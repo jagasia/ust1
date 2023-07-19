@@ -1,0 +1,11 @@
+<div [ngStyle]="{'background-color': backgroundColor,'color':'red'}">
+    <h3>{{ title }}</h3>
+<form action="" class="container">
+    User Name: <input type="text" name="x" id="" [ngClass]="{'form-control':true, 'is-invalid':true}" [(ngModel)]="username" >
+    Password: <input type="password" name="y" id="" class="form-control" [(ngModel)]="password">
+    <br>
+    <input type="button" value="Login" class="btn btn-success" (click)="fnLogin()"> &nbsp;
+    <input type="reset" value="Reset" class="btn btn-warning">
+</form>
+<ng-content></ng-content>
+</div>

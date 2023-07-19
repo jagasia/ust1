@@ -1,0 +1,60 @@
+<div class="jumbotron">
+  <h1 class="text-center">First Angular Project - 22-May-2023</h1>
+</div>
+<app-menu></app-menu>
+<div class="row">
+  <div class="col-md-3">
+      <h3>{{title}}</h3>
+    <form class="container">
+      <input [type]="type" name="" id="" [value]="sum">
+      Number 1: <input type="text" name="no1" id="" class="form-control" [(ngModel)]="no1" /><br/>
+      Number 2: <input type="text" name="no2" class="form-control" [(ngModel)]="no2"><br>
+      <input type="button" value="Add" class="btn btn-info" (click)="fn1()">
+    </form>
+  
+    <br>
+    The sum of {{no1}} and {{no2}} is = {{  sum }}
+  </div>
+  <div class="col-md-3">
+    <!-- <app-login title="Registration form">
+      Kalyan
+    </app-login> -->
+  </div>
+  <div class="col-md-3">
+    <!-- <input type="text" name="bgcolor" id="" [(ngModel)]="color"> -->
+    <!-- <app-login [title]="title" [backgroundColor]="color"></app-login> -->
+    <!-- <app-product></app-product> -->
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-3">
+    <!-- <app-login title="Signin form" (loginEvent)="fnLogin($event)" backgroundColor="orange"></app-login> -->
+    <!-- <app-login>
+      This is content typed between start and end tag of the app-login component selector
+    </app-login> -->
+  </div>
+</div>
+<select name="ddlColor" [(ngModel)]="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="yellow">Yellow</option>
+  <option value="orange">orange</option>
+</select>
+<p [style]="{'color':color}">This is a pargraph that will change the colors</p>
+
+<br>
+<input type="checkbox" name="show" id="chkShow"  [(ngModel)]="visible"><label for="chkShow">Show/Hide</label>
+{{ visible }}
+<p *ngIf="visible">This paragraph will be visible if you tik the check box</p>
+<br>
+<ul>
+  <li *ngFor="let c of countries;index as i">
+    {{ c }}
+  </li>
+</ul>
+{{x}}
+<br>
+<select name="x" id="" [(ngModel)]="x">
+  <option *ngFor="let c of countries;index as i" [value]="i">{{ c }}</option>
+</select>
+<br>

@@ -1,0 +1,202 @@
+Problem #1:
+Write a query to display the customer number , firstname, customer’s date of birth . Display in a sorted order of date of birth year and within that sort by firstname.
+
+
++--------+----------+------------+
+| custid | fname    | dob        |
++--------+----------+------------+
+| C00009 | Abhishek | 1973-05-22 |
+| C00002 | Avinash  | 1974-10-16 |
+| C00008 | Nisha    | 1975-12-03 |
+| C00005 | Naveen   | 1976-09-19 |
+| C00004 | Parul    | 1976-11-03 |
+| C00001 | Ramesh   | 1976-12-06 |
+| C00010 | Shankar  | 1976-07-12 |
+| C00007 | Amit     | 1981-09-06 |
+| C00003 | Rahul    | 1981-09-26 |
+| C00006 | Chitresh | 1992-11-06 |
++--------+----------+------------+
+10 rows in set (0.01 sec)
+
+
+-----------------------------------------------------------------
+Problem #2:
+Write a query to display customer’s number, first name and middle name. The customer’s who don’t have middle name, for them display the last name. Give the alias name as Cust_Name.
+ 
+
+
++----------------+
+| CUST_NAME      |
++----------------+
+| Ramesh Chandra |
+| Avinash Sunder |
+| Rahul Rastogi  |
+| Parul Gandhi   |
+| Naveen Chandra |
+| Chitresh Barwe |
+| Amit Kumar     |
+| Nisha Damle    |
+| Abhishek Dutta |
+| Shankar Nair   |
++----------------+
+10 rows in set (0.01 sec)
+
+
+-----------------------------------------------------------------Problem#3:
+Write a query to display account number, customer’s number, customer’s firstname,lastname,account opening date.
+
+
+
+
++----------+--------+----------+---------+------------+
+| acnumber | custid | fname    | ltname  | aod        |
++----------+--------+----------+---------+------------+
+| A00001   | C00001 | Ramesh   | Sharma  | 2012-12-15 |
+| A00002   | C00002 | Avinash  | Minha   | 2012-06-12 |
+| A00003   | C00003 | Rahul    | Rastogi | 2012-05-17 |
+| A00004   | C00002 | Avinash  | Minha   | 2013-01-27 |
+| A00005   | C00006 | Chitresh | Barwe   | 2012-12-17 |
+| A00006   | C00007 | Amit     | Borkar  | 2010-08-12 |
+| A00007   | C00007 | Amit     | Borkar  | 2012-10-02 |
+| A00008   | C00001 | Ramesh   | Sharma  | 2009-11-09 |
+| A00009   | C00003 | Rahul    | Rastogi | 2008-11-30 |
+| A00010   | C00004 | Parul    | Gandhi  | 2013-03-01 |
++----------+--------+----------+---------+------------+
+10 rows in set (0.01 sec)
+
+
+
+
+
+
+-----------------------------------------------------------------
+Problem # 4:
+Write a query to display the number of customer’s from Delhi. Give the count an alias name of Cust_Count.
+
+
+
+
++------------+
+| CUST_COUNT |
++------------+
+|          4 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------Problem # 5:
+Write a query to display  the customer number, customer firstname,account number for the customer’s whose accounts were created after 15th of any month.
+
+
+
++--------+----------+----------+
+| custid | fname    | acnumber |
++--------+----------+----------+
+| C00002 | Avinash  | A00004   |
+| C00003 | Rahul    | A00003   |
+| C00003 | Rahul    | A00009   |
+| C00006 | Chitresh | A00005   |
++--------+----------+----------+
+4 rows in set (0.00 sec)
+
+-----------------------------------------------------------------Problem # 6:
+Write a query to display the customers firstname, city and account number who are not into business, service or studies.
+
+
+
++----------+--------+----------+
+| fname    | city   | acnumber |
++----------+--------+----------+
+| Ramesh   | Delhi  | A00001   |
+| Ramesh   | Delhi  | A00008   |
+| Avinash  | Delhi  | A00002   |
+| Avinash  | Delhi  | A00004   |
+| Rahul    | Delhi  | A00003   |
+| Rahul    | Delhi  | A00009   |
+| Chitresh | Mumbai | A00005   |
+| Amit     | Mumbai | A00006   |
+| Amit     | Mumbai | A00007   |
++----------+--------+----------+
+9 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------Problem # 7:
+Write a query to display city name and count of branches in that city. Give the count of branches an alias name of Count_Branch.
+
+
+
+
++---------+--------------+
+| bcity   | COUNT_BRANCH |
++---------+--------------+
+| Chennai |            1 |
+| Delhi   |            4 |
+| Kolkata |            1 |
+| Mumbai  |            3 |
++---------+--------------+
+4 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 8:
+Write a query to display account id, customer’s firstname, customer’s lastname for the customer’s whose account is Active.
+
+
+
+
+
+
++----------+----------+---------+
+| acnumber | fname    | ltname  |
++----------+----------+---------+
+| A00001   | Ramesh   | Sharma  |
+| A00002   | Avinash  | Minha   |
+| A00004   | Avinash  | Minha   |
+| A00003   | Rahul    | Rastogi |
+| A00010   | Parul    | Gandhi  |
+| A00005   | Chitresh | Barwe   |
+| A00007   | Amit     | Borkar  |
++----------+----------+---------+
+7 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------Problem # 9:
+Write a query to display the customer’s number, customer’s firstname, branch id and loan amount for people who have taken loans.
+
+
+
+
+
++--------+----------+--------+-------------+
+| custid | fname    | bid    | loan_amount |
++--------+----------+--------+-------------+
+| C00001 | Ramesh   | B00001 |      100000 |
+| C00001 | Ramesh   | B00003 |      600000 |
+| C00002 | Avinash  | B00001 |      600000 |
+| C00002 | Avinash  | B00002 |      200000 |
+| C00009 | Abhishek | B00008 |      400000 |
+| C00010 | Shankar  | B00009 |      500000 |
++--------+----------+--------+-------------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+-----------------------------------------------------------------Problem # 10:
+Write a query to display customer number, customer name, account number where the account status is terminated.
+
+
+
+
+
++--------+--------+----------+
+| custid | fname  | acnumber |
++--------+--------+----------+
+| C00001 | Ramesh | A00008   |
+| C00003 | Rahul  | A00009   |
++--------+--------+----------+
+2 rows in set (0.00 sec)

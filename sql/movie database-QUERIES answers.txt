@@ -1,0 +1,1617 @@
+-------------------DDL----------------------------
+
+CREATE DATABASE mt_db;
+USE mt_db;
+
+
+
+Create table CUSTOMER_MASTER
+(
+	CUSTOMER_ID Varchar(10),
+	CUSTOMER_NAME Varchar(30) NOT NULL,
+	CONTACT_NO BIGINT(10),
+	CONTACT_ADD Varchar(20),
+	DATE_OF_REGISTRATION Date NOT NULL,
+	AGE Varchar(15)NOT NULL,
+	Constraint MT_cts1 PRIMARY KEY(CUSTOMER_ID)
+);
+
+Create table LIBRARY_CARD_MASTER
+(
+	CARD_ID Varchar(10),
+	DESCRIPTION Varchar(30) NOT NULL,
+	AMOUNT	BIGINT(50),
+	NUMBER_OF_YEARS bigint(10) NOT NULL,
+	Constraint MT_cts2 PRIMARY KEY(CARD_ID)
+);
+
+
+Create table MOVIES_MASTER
+(
+	MOVIE_ID Varchar(10),	
+	MOVIE_NAME Varchar(50) NOT NULL,
+	RELEASE_DATE Varchar(30) NOT NULL,
+	LANGUAGE Varchar(30),
+	RATING int(2),
+	DURATION VARCHAR(10) NOT NULL,	
+	MOVIE_TYPE Varchar(3),
+	MOVIE_CATEGORY VARCHAR(20) NOT NULL,
+	DIRECTOR VARCHAR(20) NOT NULL,		
+	LEAD_ROLE_1 Varchar(3) NOT NULL,
+	LEAD_ROLE_2 VARCHAR(4) NOT NULL,
+	RENT_COST BIGINT(10),
+	Constraint MT_cts4 PRIMARY KEY(MOVIE_ID)	
+);
+
+Create table CUSTOMER_CARD_DETAILS
+(
+	CUSTOMER_ID Varchar(10),
+	CARD_ID VARCHAR(10),
+	ISSUE_DATE DATE NOT NULL,
+	Constraint MT_cts3 PRIMARY KEY(CUSTOMER_ID),
+	Constraint MT_CTS41 FOREIGN KEY(CUSTOMER_ID) References CUSTOMER_MASTER(CUSTOMER_ID),
+        Constraint MT_CTS42 FOREIGN KEY(CARD_ID) References LIBRARY_CARD_MASTER(CARD_ID)
+);
+
+Create table CUSTOMER_ISSUE_DETAILS
+(
+	ISSUE_ID Varchar(10) NOT NULL,
+	CUSTOMER_ID Varchar(10) NOT NULL,
+	MOVIE_ID VARCHAR(10),	
+	ISSUE_DATE Date NOT NULL,
+	RETURN_DATE Date NOT NULL,
+        ACTUAL_DATE_RETURN Date NOT NULL,
+	Constraint MT_cts5 PRIMARY KEY(ISSUE_ID),
+        Constraint MT_Mem FOREIGN KEY(CUSTOMER_ID) References CUSTOMER_MASTER(CUSTOMER_ID),
+        Constraint MT_Mem1 FOREIGN KEY(MOVIE_ID) References MOVIES_MASTER(MOVIE_ID)
+
+);
+
+
+
+-------------------DML----------------------------
+
+
+Insert into CUSTOMER_MASTER Values('CUS001', 'AMIT', 9876543210,'ADD1', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS002', 'ABDHUL', 8765432109,'ADD2', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS003', 'GAYAN', 7654321098,'ADD3', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS004', 'RADHA', 6543210987,'ADD4', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS005', 'GURU', NULL,'ADD5', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS006', 'MOHAN', 4321098765,'ADD6', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS007', 'NAME7', 3210987654,'ADD7', '2012-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS008', 'NAME8', 2109876543,'ADD8', '2013-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS009', 'NAME9', NULL,'ADD9', '2013-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS010', 'NAM10', 9934567890,'ADD10', '2013-02-12', '21');
+Insert into CUSTOMER_MASTER Values('CUS011', 'NAM11', 9875678910,'ADD11', '2013-02-12', '21');
+
+Insert into LIBRARY_CARD_MASTER Values('CR001', 'Silver', 200, 5);
+Insert into LIBRARY_CARD_MASTER Values('CR002', 'Gold', 400, 9);
+Insert into LIBRARY_CARD_MASTER Values('CR003', 'Platinum', 600, 8);
+Insert into LIBRARY_CARD_MASTER Values('CR004', 'VISA', 800, 7);
+Insert into LIBRARY_CARD_MASTER Values('CR005', 'CREDIT', 1200, 6);
+
+Insert into MOVIES_MASTER Values('MV001', 'DIEHARD', '2012-05-13','ENGLISH', 4 , '2HRS', 'U/A','ACTION','DIR1','L1','L2',100);
+Insert into MOVIES_MASTER Values('MV002', 'THE MATRIX', '2012-05-13','ENGLISH', 4 , '2HRS', 'A','ACTION','DIR2','L1','L2',100);
+Insert into MOVIES_MASTER Values('MV003', 'INCEPTION', '2012-05-13','ENGLISH', 4 , '2HRS', 'U/A','ACTION','DIR3','L15','L2',100);
+Insert into MOVIES_MASTER Values('MV004', 'DARK KNIGHT', '2012-05-13','ENGLISH', 4 , '2HRS', 'A','ACTION','DIR4','L15','L2',100);
+Insert into MOVIES_MASTER Values('MV005', 'OFFICE S', '2012-05-13','ENGLISH', 4 , '2HRS', 'U/A','COMEDY','DIR5','L12','L24',100);
+Insert into MOVIES_MASTER Values('MV006', 'SHAWN OF DEAD', '2012-05-13','ENGLISH', 4 , '2HRS', 'U/A','COMEDY','DIR6','L1','L25',100);
+Insert into MOVIES_MASTER Values('MV007', 'YOUNG FRANKEN', '2012-05-13','ENGLISH', 4 , '2HRS', 'U/A','COMEDY','DIR7','L1','L2',100);
+Insert into MOVIES_MASTER Values('MV008', 'CAS', '2012-05-13','ENGLISH', 4 , '2HRS', 'A','ROMANCE','DIR8','L1','L2',100);
+Insert into MOVIES_MASTER Values('MV009', 'GWW', '2012-05-13','ENGLISH', 4 , '2HRS', 'A','ROMANCE','DIR9','L1','L2',100);
+Insert into MOVIES_MASTER Values('MV010', 'TITANIC', '2012-05-13','ENGLISH', 4 , '2HRS', 'A','ROMANCE','DIR10','L1','L2',100);
+Insert into MOVIES_MASTER Values('MV011', 'THE NOTE BOOK', '2012-05-13','ENGLISH', 4 , '2HRS', 'A','ROMANCE','DIR11','L1','L2',100);
+
+
+Insert into CUSTOMER_CARD_DETAILS Values('CUS001', 'CR001', '2012-05-13');
+Insert into CUSTOMER_CARD_DETAILS Values('CUS002', 'CR002', '2012-05-13');
+Insert into CUSTOMER_CARD_DETAILS Values('CUS003', 'CR002', '2013-05-13');
+Insert into CUSTOMER_CARD_DETAILS Values('CUS004', 'CR003', '2013-05-13');
+Insert into CUSTOMER_CARD_DETAILS Values('CUS005', 'CR003', '2012-05-13');
+
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS001', 'CUS001', 'MV001', '2012-05-13', '2012-05-13','2012-05-13');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS002', 'CUS001', 'MV001', '2012-05-01', '2012-05-16','2012-05-16');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS003', 'CUS002', 'MV004', '2012-05-02', '2012-05-06','2012-05-16');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS004', 'CUS002', 'MV004', '2012-04-03', '2012-04-16','2012-04-20');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS005', 'CUS002', 'MV009', '2012-04-04', '2012-04-16','2012-04-20');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS006', 'CUS003', 'MV002', '2012-03-30', '2012-04-15','2012-04-20');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS007', 'CUS003', 'MV003', '2012-04-20', '2012-05-05','2012-05-05');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS008', 'CUS003', 'MV005', '2012-04-21', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS009', 'CUS003', 'MV001', '2012-04-22', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS010', 'CUS003', 'MV009', '2012-04-22', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS011', 'CUS003', 'MV010', '2012-04-23', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS012', 'CUS003', 'MV010', '2012-04-24', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS013', 'CUS003', 'MV008', '2012-04-25', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS014', 'CUS004', 'MV007', '2012-04-26', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS015', 'CUS004', 'MV006', '2012-04-27', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS016', 'CUS004', 'MV006', '2012-04-28', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS017', 'CUS004', 'MV001', '2012-04-29', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS018', 'CUS010', 'MV008', '2012-04-24', '2012-05-07','2012-05-25');
+Insert into CUSTOMER_ISSUE_DETAILS Values ('IS019', 'CUS011', 'MV009', '2012-04-27', '2012-05-07','2012-05-25');
+
+
+
+-------------------LAYOUT----------------------------
+
+mysql> show tables;
++------------------------+
+| Tables_in_mms          |
++------------------------+
+| customer_card_details  |
+| customer_issue_details |
+| customer_master        |
+| library_card_master    |
+| movies_master          |
++------------------------+
+5 rows in set (0.01 sec)
+
+____________________________________________________________________________
+
+
+mysql> desc movies_master;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| MOVIE_ID       | varchar(10) | NO   | PRI |         |       |
+| MOVIE_NAME     | varchar(50) | NO   |     | NULL    |       |
+| RELEASE_DATE   | varchar(30) | NO   |     | NULL    |       |
+| LANGUAGE       | varchar(30) | YES  |     | NULL    |       |
+| RATING         | int(2)      | YES  |     | NULL    |       |
+| DURATION       | varchar(10) | NO   |     | NULL    |       |
+| MOVIE_TYPE     | varchar(3)  | YES  |     | NULL    |       |
+| MOVIE_CATEGORY | varchar(20) | NO   |     | NULL    |       |
+| DIRECTOR       | varchar(20) | NO   |     | NULL    |       |
+| LEAD_ROLE_1    | varchar(3)  | NO   |     | NULL    |       |
+| LEAD_ROLE_2    | varchar(4)  | NO   |     | NULL    |       |
+| RENT_COST      | bigint(10)  | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+12 rows in set (0.05 sec)
+
+
+mysql> SELECT * FROM movies_master;
++----------+---------------+--------------+----------+--------+----------+------------+----------------+----------+-------------+-------------+-----------+
+| MOVIE_ID | MOVIE_NAME    | RELEASE_DATE | LANGUAGE | RATING | DURATION | MOVIE_TYPE | MOVIE_CATEGORY | DIRECTOR | LEAD_ROLE_1 | LEAD_ROLE_2 | RENT_COST |
++----------+---------------+--------------+----------+--------+----------+------------+----------------+----------+-------------+-------------+-----------+
+| MV001    | DIEHARD       | 2012-05-13   | ENGLISH  |      4 | 2HRS     | U/A        | ACTION         | DIR1     | L1          | L2          |       100 |
+| MV002    | THE MATRIX    | 2012-05-13   | ENGLISH  |      4 | 2HRS     | A          | ACTION         | DIR2     | L1          | L2          |       100 |
+| MV003    | INCEPTION     | 2012-05-13   | ENGLISH  |      4 | 2HRS     | U/A        | ACTION         | DIR3     | L15         | L2          |       100 |
+| MV004    | DARK KNIGHT   | 2012-05-13   | ENGLISH  |      4 | 2HRS     | A          | ACTION         | DIR4     | L15         | L2          |       100 |
+| MV005    | OFFICE S      | 2012-05-13   | ENGLISH  |      4 | 2HRS     | U/A        | COMEDY         | DIR5     | L12         | L24         |       100 |
+| MV006    | SHAWN OF DEAD | 2012-05-13   | ENGLISH  |      4 | 2HRS     | U/A        | COMEDY         | DIR6     | L1          | L25         |       100 |
+| MV007    | YOUNG FRANKEN | 2012-05-13   | ENGLISH  |      4 | 2HRS     | U/A        | COMEDY         | DIR7     | L1          | L2          |       100 |
+| MV008    | CAS           | 2012-05-13   | ENGLISH  |      4 | 2HRS     | A          | ROMANCE        | DIR8     | L1          | L2          |       100 |
+| MV009    | GWW           | 2012-05-13   | ENGLISH  |      4 | 2HRS     | A          | ROMANCE        | DIR9     | L1          | L2          |       100 |
+| MV010    | TITANIC       | 2012-05-13   | ENGLISH  |      4 | 2HRS     | A          | ROMANCE        | DIR10    | L1          | L2          |       100 |
+| MV011    | THE NOTE BOOK | 2012-05-13   | ENGLISH  |      4 | 2HRS     | A          | ROMANCE        | DIR11    | L1          | L2          |       100 |
++----------+---------------+--------------+----------+--------+----------+------------+----------------+----------+-------------+-------------+-----------+
+11 rows in set (0.00 sec)
+
+________________________________________________________________________________________________________________________________________________________
+
+mysql> desc customer_master;
++----------------------+-------------+------+-----+---------+-------+
+| Field                | Type        | Null | Key | Default | Extra |
++----------------------+-------------+------+-----+---------+-------+
+| CUSTOMER_ID          | varchar(10) | NO   | PRI |         |       |
+| CUSTOMER_NAME        | varchar(30) | NO   |     | NULL    |       |
+| CONTACT_NO           | bigint(10)  | YES  |     | NULL    |       |
+| CONTACT_ADD          | varchar(20) | YES  |     | NULL    |       |
+| DATE_OF_REGISTRATION | date        | NO   |     | NULL    |       |
+| AGE                  | varchar(15) | NO   |     | NULL    |       |
++----------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+
+mysql> SELECT * FROM customer_master;
++-------------+---------------+------------+-------------+----------------------+-----+
+| CUSTOMER_ID | CUSTOMER_NAME | CONTACT_NO | CONTACT_ADD | DATE_OF_REGISTRATION | AGE |
++-------------+---------------+------------+-------------+----------------------+-----+
+| CUS001      | AMIT          | 9876543210 | ADD1        | 2012-02-12           | 21  |
+| CUS002      | ABDHUL        | 8765432109 | ADD2        | 2012-02-12           | 21  |
+| CUS003      | GAYAN         | 7654321098 | ADD3        | 2012-02-12           | 21  |
+| CUS004      | RADHA         | 6543210987 | ADD4        | 2012-02-12           | 21  |
+| CUS005      | GURU          |       NULL | ADD5        | 2012-02-12           | 21  |
+| CUS006      | MOHAN         | 4321098765 | ADD6        | 2012-02-12           | 21  |
+| CUS007      | NAME7         | 3210987654 | ADD7        | 2012-02-12           | 21  |
+| CUS008      | NAME8         | 2109876543 | ADD8        | 2013-02-12           | 21  |
+| CUS009      | NAME9         |       NULL | ADD9        | 2013-02-12           | 21  |
+| CUS010      | NAM10         | 9934567890 | ADD10       | 2013-02-12           | 21  |
+| CUS011      | NAM11         | 9875678910 | ADD11       | 2013-02-12           | 21  |
++-------------+---------------+------------+-------------+----------------------+-----+
+11 rows in set (0.00 sec)
+
+
+________________________________________________________________________________________________________________________________________________________
+
+
+mysql> desc library_card_master;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| CARD_ID         | varchar(10) | NO   | PRI |         |       |
+| DESCRIPTION     | varchar(30) | NO   |     | NULL    |       |
+| AMOUNT          | bigint(50)  | YES  |     | NULL    |       |
+| NUMBER_OF_YEARS | bigint(10)  | NO   |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+
+mysql> select * from  library_card_master;
++---------+-------------+--------+-----------------+
+| CARD_ID | DESCRIPTION | AMOUNT | NUMBER_OF_YEARS |
++---------+-------------+--------+-----------------+
+| CR001   | Silver      |    200 |               5 |
+| CR002   | Gold        |    400 |               9 |
+| CR003   | Platinum    |    600 |               8 |
+| CR004   | VISA        |    800 |               7 |
+| CR005   | CREDIT      |   1200 |               6 |
++---------+-------------+--------+-----------------+
+5 rows in set (0.00 sec)
+
+
+________________________________________________________________________________________________________________________________________________________
+
+
+
+mysql> desc customer_card_details;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| CUSTOMER_ID | varchar(10) | NO   | PRI |         |       |
+| CARD_ID     | varchar(10) | YES  | MUL | NULL    |       |
+| ISSUE_DATE  | date        | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+
+mysql> SELECT * FROM customer_card_details;
++-------------+---------+------------+
+| CUSTOMER_ID | CARD_ID | ISSUE_DATE |
++-------------+---------+------------+
+| CUS001      | CR001   | 2012-05-13 |
+| CUS002      | CR002   | 2012-05-13 |
+| CUS003      | CR002   | 2013-05-13 |
+| CUS004      | CR003   | 2013-05-13 |
+| CUS005      | CR003   | 2012-05-13 |
++-------------+---------+------------+
+5 rows in set (0.00 sec)
+
+
+________________________________________________________________________________________________________________________________________________________
+
+
+
+mysql> desc customer_issue_details;
++--------------------+-------------+------+-----+---------+-------+
+| Field              | Type        | Null | Key | Default | Extra |
++--------------------+-------------+------+-----+---------+-------+
+| ISSUE_ID           | varchar(10) | NO   | PRI | NULL    |       |
+| CUSTOMER_ID        | varchar(10) | NO   | MUL | NULL    |       |
+| MOVIE_ID           | varchar(10) | YES  | MUL | NULL    |       |
+| ISSUE_DATE         | date        | NO   |     | NULL    |       |
+| RETURN_DATE        | date        | NO   |     | NULL    |       |
+| ACTUAL_DATE_RETURN | date        | NO   |     | NULL    |       |
++--------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.03 sec)
+
+
+mysql> SELECT * FROM customer_issue_details;
++----------+-------------+----------+------------+-------------+--------------------+
+| ISSUE_ID | CUSTOMER_ID | MOVIE_ID | ISSUE_DATE | RETURN_DATE | ACTUAL_DATE_RETURN |
++----------+-------------+----------+------------+-------------+--------------------+
+| IS001    | CUS001      | MV001    | 2012-05-13 | 2012-05-13  | 2012-05-13         |
+| IS002    | CUS001      | MV001    | 2012-05-01 | 2012-05-16  | 2012-05-16         |
+| IS003    | CUS002      | MV004    | 2012-05-02 | 2012-05-06  | 2012-05-16         |
+| IS004    | CUS002      | MV004    | 2012-04-03 | 2012-04-16  | 2012-04-20         |
+| IS005    | CUS002      | MV009    | 2012-04-04 | 2012-04-16  | 2012-04-20         |
+| IS006    | CUS003      | MV002    | 2012-03-30 | 2012-04-15  | 2012-04-20         |
+| IS007    | CUS003      | MV003    | 2012-04-20 | 2012-05-05  | 2012-05-05         |
+| IS008    | CUS003      | MV005    | 2012-04-21 | 2012-05-07  | 2012-05-25         |
+| IS009    | CUS003      | MV001    | 2012-04-22 | 2012-05-07  | 2012-05-25         |
+| IS010    | CUS003      | MV009    | 2012-04-22 | 2012-05-07  | 2012-05-25         |
+| IS011    | CUS003      | MV010    | 2012-04-23 | 2012-05-07  | 2012-05-25         |
+| IS012    | CUS003      | MV010    | 2012-04-24 | 2012-05-07  | 2012-05-25         |
+| IS013    | CUS003      | MV008    | 2012-04-25 | 2012-05-07  | 2012-05-25         |
+| IS014    | CUS004      | MV007    | 2012-04-26 | 2012-05-07  | 2012-05-25         |
+| IS015    | CUS004      | MV006    | 2012-04-27 | 2012-05-07  | 2012-05-25         |
+| IS016    | CUS004      | MV006    | 2012-04-28 | 2012-05-07  | 2012-05-25         |
+| IS017    | CUS004      | MV001    | 2012-04-29 | 2012-05-07  | 2012-05-25         |
+| IS018    | CUS010      | MV008    | 2012-04-24 | 2012-05-07  | 2012-05-25         |
+| IS019    | CUS011      | MV009    | 2012-04-27 | 2012-05-07  | 2012-05-25         |
++----------+-------------+----------+------------+-------------+--------------------+
+19 rows in set (0.00 sec)
+
+
+____________________________________________________________________________________________________________________________________________________________
+
+1.count the members who has gold cards	
+
+SELECT cd.customer_id, l.description
+FROM customer_card_details cd, library_card_master l
+WHERE cd.card_id=l.card_id AND l.description='GOLD';
+
++-------------+-------------+
+| customer_id | description |
++-------------+-------------+
+| CUS002      | Gold        |
+| CUS003      | Gold        |
++-------------+-------------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+SELECT count(cd.customer_id)
+FROM customer_card_details cd, library_card_master l
+WHERE cd.card_id=l.card_id AND l.description='GOLD'
+GROUP BY l.description;
+
+
+
++-----------------------+
+| count(cd.customer_id) |
++-----------------------+
+|                     2 |
++-----------------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+________________________________________________________________________________
+2.display the name of member who issued movie and the count of the 
+movies issued and display 0 for the member who have not issued any 
+movie
+
+
+SELECT customer_id, issue_id
+FROM customer_issue_details;
+
+
+
++-------------+----------+
+| customer_id | issue_id |
++-------------+----------+
+| CUS001      | IS001    |
+| CUS001      | IS002    |
+| CUS002      | IS003    |
+| CUS002      | IS004    |
+| CUS002      | IS005    |
+| CUS003      | IS006    |
+| CUS003      | IS007    |
+| CUS003      | IS008    |
+| CUS003      | IS009    |
+| CUS003      | IS010    |
+| CUS003      | IS011    |
+| CUS003      | IS012    |
+| CUS003      | IS013    |
+| CUS004      | IS014    |
+| CUS004      | IS015    |
+| CUS004      | IS016    |
+| CUS004      | IS017    |
+| CUS010      | IS018    |
+| CUS011      | IS019    |
++-------------+----------+
+19 rows in set (0.00 sec)
+
+
+
+SELECT customer_id, count(issue_id)
+FROM customer_issue_details
+GROUP BY customer_id;
+
+
++-------------+-----------------+
+| customer_id | count(issue_id) |
++-------------+-----------------+
+| CUS001      |               2 |
+| CUS002      |               3 |
+| CUS003      |               8 |
+| CUS004      |               4 |
+| CUS010      |               1 |
+| CUS011      |               1 |
++-------------+-----------------+
+6 rows in set (0.00 sec)
+
+
+
+
+FINAL>>>>>>>>>>>>>>>>>>>
+
+SELECT c.customer_name, count(id.issue_id)
+FROM customer_issue_details id RIGHT OUTER JOIN customer_master c
+ON c.customer_id=id.customer_id
+GROUP BY c.customer_id;
+
+
+
++---------------+--------------------+
+| customer_name | count(id.issue_id) |
++---------------+--------------------+
+| AMIT          |                  2 |
+| ABDHUL        |                  3 |
+| GAYAN         |                  8 |
+| RADHA         |                  4 |
+| GURU          |                  0 |
+| MOHAN         |                  0 |
+| NAME7         |                  0 |
+| NAME8         |                  0 |
+| NAME9         |                  0 |
+| NAM10         |                  1 |
+| NAM11         |                  1 |
++---------------+--------------------+
+11 rows in set (0.01 sec)
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+3.display the name of the person starting with letter 'r' and category 
+
+
+SELECT customer_name
+FROM customer_master
+WHERE customer_name like 'r%';
+
+
++---------------+
+| customer_name |
++---------------+
+| RADHA         |
++---------------+
+1 row in set (0.04 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+4.display id,name & total rent of customers for movie issued
+
+
+SELECT m.movie_id, m.movie_name, sum(m.rent_cost)
+FROM movies_master m, customer_issue_details id
+WHERE m.movie_id=id.movie_id
+GROUP BY m.movie_id;
+
++----------+---------------+------------------+
+| movie_id | movie_name    | sum(m.rent_cost) |
++----------+---------------+------------------+
+| MV001    | DIEHARD       |              400 |
+| MV002    | THE MATRIX    |              100 |
+| MV003    | INCEPTION     |              100 |
+| MV004    | DARK KNIGHT   |              200 |
+| MV005    | OFFICE S      |              100 |
+| MV006    | SHAWN OF DEAD |              200 |
+| MV007    | YOUNG FRANKEN |              100 |
+| MV008    | CAS           |              200 |
+| MV009    | GWW           |              300 |
+| MV010    | TITANIC       |              200 |
++----------+---------------+------------------+
+10 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+5.display id,name,card id,amount in $(amount/54.42) upto 0 decimals
+
+
+
+SELECT c.customer_id, c.customer_name, l.card_id, round((l.amount/54.42),0) as 'Amount'
+FROM customer_master c, library_card_master l, customer_card_details cd
+WHERE c.customer_id=cd.customer_id AND cd.card_id=l.card_id;
+
++-------------+---------------+---------+--------+
+| customer_id | customer_name | card_id | Amount |
++-------------+---------------+---------+--------+
+| CUS001      | AMIT          | CR001   |      4 |
+| CUS002      | ABDHUL        | CR002   |      7 |
+| CUS003      | GAYAN         | CR002   |      7 |
+| CUS004      | RADHA         | CR003   |     11 |
+| CUS005      | GURU          | CR003   |     11 |
++-------------+---------------+---------+--------+
+5 rows in set (0.05 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+6.display id,name of customers who dont have library card but still 
+have issued the movie
+
+mysql> SELECT * FROM customer_issue_details;
++----------+-------------+----------+------------+-------------+--------------------+
+| ISSUE_ID | CUSTOMER_ID | MOVIE_ID | ISSUE_DATE | RETURN_DATE | ACTUAL_DATE_RETURN |
++----------+-------------+----------+------------+-------------+--------------------+
+| IS001    | CUS001      | MV001    | 2012-05-13 | 2012-05-13  | 2012-05-13         |
+| IS002    | CUS001      | MV001    | 2012-05-01 | 2012-05-16  | 2012-05-16         |
+| IS003    | CUS002      | MV004    | 2012-05-02 | 2012-05-06  | 2012-05-16         |
+| IS004    | CUS002      | MV004    | 2012-04-03 | 2012-04-16  | 2012-04-20         |
+| IS005    | CUS002      | MV009    | 2012-04-04 | 2012-04-16  | 2012-04-20         |
+| IS006    | CUS003      | MV002    | 2012-03-30 | 2012-04-15  | 2012-04-20         |
+| IS007    | CUS003      | MV003    | 2012-04-20 | 2012-05-05  | 2012-05-05         |
+| IS008    | CUS003      | MV005    | 2012-04-21 | 2012-05-07  | 2012-05-25         |
+| IS009    | CUS003      | MV001    | 2012-04-22 | 2012-05-07  | 2012-05-25         |
+| IS010    | CUS003      | MV009    | 2012-04-22 | 2012-05-07  | 2012-05-25         |
+| IS011    | CUS003      | MV010    | 2012-04-23 | 2012-05-07  | 2012-05-25         |
+| IS012    | CUS003      | MV010    | 2012-04-24 | 2012-05-07  | 2012-05-25         |
+| IS013    | CUS003      | MV008    | 2012-04-25 | 2012-05-07  | 2012-05-25         |
+| IS014    | CUS004      | MV007    | 2012-04-26 | 2012-05-07  | 2012-05-25         |
+| IS015    | CUS004      | MV006    | 2012-04-27 | 2012-05-07  | 2012-05-25         |
+| IS016    | CUS004      | MV006    | 2012-04-28 | 2012-05-07  | 2012-05-25         |
+| IS017    | CUS004      | MV001    | 2012-04-29 | 2012-05-07  | 2012-05-25         |
+| IS018    | CUS010      | MV008    | 2012-04-24 | 2012-05-07  | 2012-05-25         |
+| IS019    | CUS011      | MV009    | 2012-04-27 | 2012-05-07  | 2012-05-25         |
++----------+-------------+----------+------------+-------------+--------------------+
+19 rows in set (0.00 sec)
+
+mysql> SELECT * FROM customer_card_details;
++-------------+---------+------------+
+| CUSTOMER_ID | CARD_ID | ISSUE_DATE |
++-------------+---------+------------+
+| CUS001      | CR001   | 2012-05-13 |
+| CUS002      | CR002   | 2012-05-13 |
+| CUS003      | CR002   | 2013-05-13 |
+| CUS004      | CR003   | 2013-05-13 |
+| CUS005      | CR003   | 2012-05-13 |
++-------------+---------+------------+
+5 rows in set (0.00 sec)
+
+
+FINAL>>>>
+
+SELECT c.customer_id, c.customer_name
+FROM customer_master c
+WHERE c.customer_id NOT IN (SELECT customer_id FROM customer_card_details)
+	AND c.customer_id IN (SELECT customer_id FROM customer_issue_details);
+
+
++-------------+---------------+
+| customer_id | customer_name |
++-------------+---------------+
+| CUS010      | NAM10         |
+| CUS011      | NAM11         |
++-------------+---------------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+7.display the no.of customers with first letter 'r' and have paid fine
+i.e actual return date is greater than return date
+
+
+
+SELECT customer_id, customer_name 
+FROM customer_master
+WHERE customer_name like 'r%';
+
+
++-------------+---------------+
+| customer_id | customer_name |
++-------------+---------------+
+| CUS004      | RADHA         |
++-------------+---------------+
+1 row in set (0.00 sec)
+
+
+SELECT customer_id
+FROM customer_issue_details
+WHERE actual_date_return > return_date; 
+
+
++-------------+
+| customer_id |
++-------------+
+| CUS002      |
+| CUS002      |
+| CUS002      |
+| CUS003      |
+| CUS003      |
+| CUS003      |
+| CUS003      |
+| CUS003      |
+| CUS003      |
+| CUS003      |
+| CUS004      |
+| CUS004      |
+| CUS004      |
+| CUS004      |
+| CUS010      |
+| CUS011      |
++-------------+
+16 rows in set (0.00 sec)
+
+
+
+
+
+FINAL>>>>>>>>>>>>>
+
+
+SELECT customer_name 
+FROM customer_master
+WHERE customer_name like 'r%'
+	AND customer_id IN (	SELECT customer_id
+				FROM customer_issue_details
+				WHERE actual_date_return > return_date);
+
+
+
++---------------+
+| customer_name |
++---------------+
+| RADHA         |
++---------------+
+1 row in set (0.00 sec)
+
+
+
+
+________________________________________________________________________________
+8.display customer name,customer id who have issued max and min no.of movies
+
+
+
+SELECT customer_id, count(issue_id)
+FROM customer_issue_details
+GROUP BY customer_id;
+
+
++-------------+-----------------+
+| customer_id | count(issue_id) |
++-------------+-----------------+
+| CUS001      |               2 |
+| CUS002      |               3 |
+| CUS003      |               8 |
+| CUS004      |               4 |
+| CUS010      |               1 |
+| CUS011      |               1 |
++-------------+-----------------+
+6 rows in set (0.00 sec)
+
+
+
+	
+
+SELECT customer_id, count(issue_id) 'MIN'
+FROM customer_issue_details
+GROUP BY customer_id
+HAVING COUNT(issue_id) IN (SELECT MIN(c) FROM (SELECT count(issue_id) c
+						FROM customer_issue_details
+						GROUP BY customer_id)a
+			);
+
+
++-------------+-----+
+| customer_id | MIN |
++-------------+-----+
+| CUS010      |   1 |
+| CUS011      |   1 |
++-------------+-----+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+SELECT customer_id, count(issue_id) 'MAX'
+FROM customer_issue_details
+GROUP BY customer_id
+HAVING COUNT(issue_id) IN (SELECT MAX(c) FROM (SELECT count(issue_id) c
+						FROM customer_issue_details
+						GROUP BY customer_id)a
+			);
+
+
++-------------+-----+
+| customer_id | MAX |
++-------------+-----+
+| CUS003      |   8 |
++-------------+-----+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT customer_id, count(issue_id)
+FROM customer_issue_details
+GROUP BY customer_id
+HAVING COUNT(issue_id) IN (SELECT MAX(c) FROM (SELECT count(issue_id) c	FROM customer_issue_details GROUP BY customer_id)a)
+UNION
+SELECT customer_id, count(issue_id)
+FROM customer_issue_details
+GROUP BY customer_id
+HAVING COUNT(issue_id) IN (SELECT MIN(c) FROM (SELECT count(issue_id) c	FROM customer_issue_details GROUP BY customer_id)a);
+
+
++-------------+-----------------+
+| customer_id | count(issue_id) |
++-------------+-----------------+
+| CUS003      |               8 |
+| CUS010      |               1 |
+| CUS011      |               1 |
++-------------+-----------------+
+3 rows in set (0.01 sec)
+
+
+
+FINAL>>>>>>>>>>>>>>>>
+
+
+SELECT customer_id
+FROM customer_issue_details
+GROUP BY customer_id
+HAVING COUNT(issue_id) IN (SELECT MAX(c) FROM (SELECT count(issue_id) c	FROM customer_issue_details GROUP BY customer_id)a)
+UNION
+SELECT customer_id
+FROM customer_issue_details
+GROUP BY customer_id
+HAVING COUNT(issue_id) IN (SELECT MIN(c) FROM (SELECT count(issue_id) c	FROM customer_issue_details GROUP BY customer_id)b);
+
++-------------+
+| customer_id |
++-------------+
+| CUS003      |
+| CUS010      |
+| CUS011      |
++-------------+
+3 rows in set (0.01 sec)
+
+
+
+
+
+
+________________________________________________________________________________
+9.display id,name,mobile num and description of all customers.if 
+mobile num is not available then display address as alias contact,for 
+those who does't have library cards display null as description
+
+
+SELECT c.customer_id, c.customer_name, coalesce(c.contact_no, c.contact_add) as 'contact', ifnull(l.description, 'null') 'description'
+FROM (customer_master c LEFT OUTER JOIN customer_card_details cd ON c.customer_id=cd.customer_id) LEFT OUTER JOIN library_card_master l ON cd.card_id=l.card_id;
+
++-------------+---------------+------------+-------------+
+| customer_id | customer_name | contact    | description |
++-------------+---------------+------------+-------------+
+| CUS001      | AMIT          | 9876543210 | Silver      |
+| CUS002      | ABDHUL        | 8765432109 | Gold        |
+| CUS003      | GAYAN         | 7654321098 | Gold        |
+| CUS004      | RADHA         | 6543210987 | Platinum    |
+| CUS005      | GURU          | ADD5       | Platinum    |
+| CUS006      | MOHAN         | 4321098765 | null        |
+| CUS007      | NAME7         | 3210987654 | null        |
+| CUS008      | NAME8         | 2109876543 | null        |
+| CUS009      | NAME9         | ADD9       | null        |
+| CUS010      | NAM10         | 9934567890 | null        |
+| CUS011      | NAM11         | 9875678910 | null        |
++-------------+---------------+------------+-------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+10.display customer details and movie id for those who issued same movie more than one time OR
+//dislay customer details who watched same movie more than once
+
+SELECT c.customer_id, m.movie_id
+FROM customer_master c, movies_master m, customer_issue_details id
+WHERE c.customer_id=id.customer_id AND m.movie_id=id.movie_id;
+
+
++-------------+----------+
+| customer_id | movie_id |
++-------------+----------+
+| CUS001      | MV001    |
+| CUS001      | MV001    |
+| CUS002      | MV004    |
+| CUS002      | MV004    |
+| CUS002      | MV009    |
+| CUS003      | MV002    |
+| CUS003      | MV003    |
+| CUS003      | MV005    |
+| CUS003      | MV001    |
+| CUS003      | MV009    |
+| CUS003      | MV010    |
+| CUS003      | MV010    |
+| CUS003      | MV008    |
+| CUS004      | MV007    |
+| CUS004      | MV006    |
+| CUS004      | MV006    |
+| CUS004      | MV001    |
+| CUS010      | MV008    |
+| CUS011      | MV009    |
++-------------+----------+
+19 rows in set (0.00 sec)
+
+
+
+
+
+SELECT c.customer_id, count(m.movie_id) times
+FROM customer_master c, movies_master m, customer_issue_details id
+WHERE c.customer_id=id.customer_id AND m.movie_id=id.movie_id
+GROUP BY c.customer_id
+HAVING times>1;
+
+
++-------------+-------+
+| customer_id | times |
++-------------+-------+
+| CUS001      |     2 |
+| CUS002      |     3 |
+| CUS003      |     8 |
+| CUS004      |     4 |
++-------------+-------+
+4 rows in set (0.01 sec)
+
+
+
+
+
+FINAL>>>>>>>>>>>>
+
+
+
+SELECT c.*, count(m.movie_id) times
+FROM customer_master c, movies_master m, customer_issue_details id
+WHERE c.customer_id=id.customer_id AND m.movie_id=id.movie_id
+GROUP BY c.customer_id
+HAVING times>1;
+
++-------------+---------------+------------+-------------+----------------------+-----+-------+
+| CUSTOMER_ID | CUSTOMER_NAME | CONTACT_NO | CONTACT_ADD | DATE_OF_REGISTRATION | AGE | times |
++-------------+---------------+------------+-------------+----------------------+-----+-------+
+| CUS001      | AMIT          | 9876543210 | ADD1        | 2012-02-12           | 21  |     2 |
+| CUS002      | ABDHUL        | 8765432109 | ADD2        | 2012-02-12           | 21  |     3 |
+| CUS003      | GAYAN         | 7654321098 | ADD3        | 2012-02-12           | 21  |     8 |
+| CUS004      | RADHA         | 6543210987 | ADD4        | 2012-02-12           | 21  |     4 |
++-------------+---------------+------------+-------------+----------------------+-----+-------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+________________________________________________________________________________
+11.display customer information those who has library cards
+
+
+SELECT * FROM customer_card_details;
+
++-------------+---------+------------+
+| CUSTOMER_ID | CARD_ID | ISSUE_DATE |
++-------------+---------+------------+
+| CUS001      | CR001   | 2012-05-13 |
+| CUS002      | CR002   | 2012-05-13 |
+| CUS003      | CR002   | 2013-05-13 |
+| CUS004      | CR003   | 2013-05-13 |
+| CUS005      | CR003   | 2012-05-13 |
++-------------+---------+------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+SELECT c.*
+FROM customer_master c
+WHERE c.customer_id IN (SELECT customer_id FROM customer_card_details);
+
++-------------+---------------+------------+-------------+----------------------+-----+
+| CUSTOMER_ID | CUSTOMER_NAME | CONTACT_NO | CONTACT_ADD | DATE_OF_REGISTRATION | AGE |
++-------------+---------------+------------+-------------+----------------------+-----+
+| CUS001      | AMIT          | 9876543210 | ADD1        | 2012-02-12           | 21  |
+| CUS002      | ABDHUL        | 8765432109 | ADD2        | 2012-02-12           | 21  |
+| CUS003      | GAYAN         | 7654321098 | ADD3        | 2012-02-12           | 21  |
+| CUS004      | RADHA         | 6543210987 | ADD4        | 2012-02-12           | 21  |
+| CUS005      | GURU          |       NULL | ADD5        | 2012-02-12           | 21  |
++-------------+---------------+------------+-------------+----------------------+-----+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+12.display the members who watch the movie but doesnt have card
+
+
+SELECT DISTINCT customer_id FROM customer_issue_details;
++-------------+
+| customer_id |
++-------------+
+| CUS001      |
+| CUS002      |
+| CUS003      |
+| CUS004      |
+| CUS010      |
+| CUS011      |
++-------------+
+6 rows in set (0.00 sec)
+
+
+
+SELECT customer_id FROM customer_card_details;
++-------------+
+| customer_id |
++-------------+
+| CUS001      |
+| CUS002      |
+| CUS003      |
+| CUS004      |
+| CUS005      |
++-------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+FINAL>>>>>>>>>>>>>>>>>>>>>>
+
+
+SELECT customer_id
+FROM customer_issue_details
+WHERE customer_id NOT IN (SELECT customer_id FROM customer_card_details);
+
+
++-------------+
+| customer_id |
++-------------+
+| CUS010      |
+| CUS011      |
++-------------+
+2 rows in set (0.00 sec)
+
+
+
+
+________________________________________________________________________________
+13.display sr no as 2 digits of issue id,emp id,movie watched,video id 
+and sort by sr no
+
+
+
+SELECT (@cnt := @cnt + 1) AS rowNumber,	t.rowID
+FROM myTable AS t
+  CROSS JOIN (SELECT @cnt := 0) AS dummy
+WHERE t.CategoryID = 1
+ORDER BY t.rowID ;
+
+
+
+SELECT right(i.issue_id, 2) as SrNo, i.customer_id, m.movie_name, m.movie_id
+FROM customer_issue_details i, movies_master m
+WHERE i.movie_id=m.movie_id
+ORDER BY SrNo;
+
++------+-------------+---------------+----------+
+| SrNo | customer_id | movie_name    | movie_id |
++------+-------------+---------------+----------+
+| 01   | CUS001      | DIEHARD       | MV001    |
+| 02   | CUS001      | DIEHARD       | MV001    |
+| 03   | CUS002      | DARK KNIGHT   | MV004    |
+| 04   | CUS002      | DARK KNIGHT   | MV004    |
+| 05   | CUS002      | GWW           | MV009    |
+| 06   | CUS003      | THE MATRIX    | MV002    |
+| 07   | CUS003      | INCEPTION     | MV003    |
+| 08   | CUS003      | OFFICE S      | MV005    |
+| 09   | CUS003      | DIEHARD       | MV001    |
+| 10   | CUS003      | GWW           | MV009    |
+| 11   | CUS003      | TITANIC       | MV010    |
+| 12   | CUS003      | TITANIC       | MV010    |
+| 13   | CUS003      | CAS           | MV008    |
+| 14   | CUS004      | YOUNG FRANKEN | MV007    |
+| 15   | CUS004      | SHAWN OF DEAD | MV006    |
+| 16   | CUS004      | SHAWN OF DEAD | MV006    |
+| 17   | CUS004      | DIEHARD       | MV001    |
+| 18   | CUS010      | CAS           | MV008    |
+| 19   | CUS011      | GWW           | MV009    |
++------+-------------+---------------+----------+
+19 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+14.display total revenue spent on videos by each customer
+
+SELECT c.customer_id, m.rent_cost
+FROM (customer_master c LEFT OUTER JOIN customer_issue_details i ON  c.customer_id=i.customer_id) LEFT OUTER JOIN movies_master m ON i.movie_id=m.movie_id;
+
++-------------+-----------+
+| customer_id | rent_cost |
++-------------+-----------+
+| CUS001      |       100 |
+| CUS001      |       100 |
+| CUS002      |       100 |
+| CUS002      |       100 |
+| CUS002      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS003      |       100 |
+| CUS004      |       100 |
+| CUS004      |       100 |
+| CUS004      |       100 |
+| CUS004      |       100 |
+| CUS005      |      NULL |
+| CUS006      |      NULL |
+| CUS007      |      NULL |
+| CUS008      |      NULL |
+| CUS009      |      NULL |
+| CUS010      |       100 |
+| CUS011      |       100 |
++-------------+-----------+
+24 rows in set (0.00 sec)
+
+
+
+
+SELECT c.customer_id, sum(m.rent_cost)
+FROM (customer_master c LEFT OUTER JOIN customer_issue_details i ON  c.customer_id=i.customer_id) LEFT OUTER JOIN movies_master m ON i.movie_id=m.movie_id
+GROUP BY c.customer_id;
+
++-------------+------------------+
+| customer_id | sum(m.rent_cost) |
++-------------+------------------+
+| CUS001      |              200 |
+| CUS002      |              300 |
+| CUS003      |              800 |
+| CUS004      |              400 |
+| CUS005      |             NULL |
+| CUS006      |             NULL |
+| CUS007      |             NULL |
+| CUS008      |             NULL |
+| CUS009      |             NULL |
+| CUS010      |              100 |
+| CUS011      |              100 |
++-------------+------------------+
+11 rows in set (0.00 sec)
+
+
+
+FINAL>>>>>>>>>>>>>>>>>>>
+
+
+SELECT c.customer_id, ifnull(sum(m.rent_cost),0) as revenue
+FROM (customer_master c LEFT OUTER JOIN customer_issue_details i ON  c.customer_id=i.customer_id) LEFT OUTER JOIN movies_master m ON i.movie_id=m.movie_id
+GROUP BY c.customer_id;
+
++-------------+---------+
+| customer_id | revenue |
++-------------+---------+
+| CUS001      |     200 |
+| CUS002      |     300 |
+| CUS003      |     800 |
+| CUS004      |     400 |
+| CUS005      |       0 |
+| CUS006      |       0 |
+| CUS007      |       0 |
+| CUS008      |       0 |
+| CUS009      |       0 |
+| CUS010      |     100 |
+| CUS011      |     100 |
++-------------+---------+
+11 rows in set (0.01 sec)
+
+
+
+________________________________________________________________________________
+15.display customer name in perfect order
+i.e 1st letter in ucase remaining lcase
+
+
+
+SELECT customer_name, ucase(substr(customer_name,1,1)), lcase(substr(customer_name,2))
+FROM customer_master;
+
++---------------+----------------------------------+--------------------------------+
+| customer_name | ucase(substr(customer_name,1,1)) | lcase(substr(customer_name,2)) |
++---------------+----------------------------------+--------------------------------+
+| AMIT          | A                                | mit                            |
+| ABDHUL        | A                                | bdhul                          |
+| GAYAN         | G                                | ayan                           |
+| RADHA         | R                                | adha                           |
+| GURU          | G                                | uru                            |
+| MOHAN         | M                                | ohan                           |
+| NAME7         | N                                | ame7                           |
+| NAME8         | N                                | ame8                           |
+| NAME9         | N                                | ame9                           |
+| NAM10         | N                                | am10                           |
+| NAM11         | N                                | am11                           |
++---------------+----------------------------------+--------------------------------+
+11 rows in set (0.02 sec)
+
+
+
+SELECT customer_name, concat(ucase(substr(customer_name,1,1)), lcase(substr(customer_name,2))) as PerfectName
+FROM customer_master;
+
+
+
++---------------+-------------+
+| customer_name | PerfectName |
++---------------+-------------+
+| AMIT          | Amit        |
+| ABDHUL        | Abdhul      |
+| GAYAN         | Gayan       |
+| RADHA         | Radha       |
+| GURU          | Guru        |
+| MOHAN         | Mohan       |
+| NAME7         | Name7       |
+| NAME8         | Name8       |
+| NAME9         | Name9       |
+| NAM10         | Nam10       |
+| NAM11         | Nam11       |
++---------------+-------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+16.count how many times a movie issued and arrange them in desc order 
+and display 0 for the movie not issued
+
+
+SELECT m.movie_id, i.issue_id
+FROM movies_master m LEFT OUTER JOIN customer_issue_details i ON m.movie_id=i.movie_id;
+
++----------+----------+
+| movie_id | issue_id |
++----------+----------+
+| MV001    | IS001    |
+| MV001    | IS002    |
+| MV001    | IS009    |
+| MV001    | IS017    |
+| MV002    | IS006    |
+| MV003    | IS007    |
+| MV004    | IS003    |
+| MV004    | IS004    |
+| MV005    | IS008    |
+| MV006    | IS015    |
+| MV006    | IS016    |
+| MV007    | IS014    |
+| MV008    | IS013    |
+| MV008    | IS018    |
+| MV009    | IS005    |
+| MV009    | IS010    |
+| MV009    | IS019    |
+| MV010    | IS011    |
+| MV010    | IS012    |
+| MV011    | NULL     |
++----------+----------+
+20 rows in set (0.00 sec)
+
+
+
+
+
+SELECT m.movie_id, count(i.issue_id) TimesIssued
+FROM movies_master m LEFT OUTER JOIN customer_issue_details i ON m.movie_id=i.movie_id
+GROUP BY m.movie_id
+ORDER BY TimesIssued desc;
+
++----------+-------------+
+| movie_id | TimesIssued |
++----------+-------------+
+| MV001    |           4 |
+| MV009    |           3 |
+| MV010    |           2 |
+| MV004    |           2 |
+| MV006    |           2 |
+| MV008    |           2 |
+| MV002    |           1 |
+| MV003    |           1 |
+| MV005    |           1 |
+| MV007    |           1 |
+| MV011    |           0 |
++----------+-------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+________________________________________________________________________________
+18.waq that num of customers registered in 2012 year and provided 
+contact num
+use NO_OF_CUSTOMERS as alias name.
+
+
+
+
+SELECT customer_id, year(date_of_registration) YEAR, contact_no 
+FROM customer_master;
+
++-------------+------+------------+
+| customer_id | YEAR | contact_no |
++-------------+------+------------+
+| CUS001      | 2012 | 9876543210 |
+| CUS002      | 2012 | 8765432109 |
+| CUS003      | 2012 | 7654321098 |
+| CUS004      | 2012 | 6543210987 |
+| CUS005      | 2012 |       NULL |
+| CUS006      | 2012 | 4321098765 |
+| CUS007      | 2012 | 3210987654 |
+| CUS008      | 2013 | 2109876543 |
+| CUS009      | 2013 |       NULL |
+| CUS010      | 2013 | 9934567890 |
+| CUS011      | 2013 | 9875678910 |
++-------------+------+------------+
+11 rows in set (0.01 sec)
+
+
+
+SELECT customer_id
+FROM customer_master
+WHERE year(date_of_registration)=2012 AND contact_no IS NOT NULL;
++-------------+
+| customer_id |
++-------------+
+| CUS001      |
+| CUS002      |
+| CUS003      |
+| CUS004      |
+| CUS006      |
+| CUS007      |
++-------------+
+6 rows in set (0.00 sec)
+
+
+
+SELECT count(customer_id) as 'NO_OF_CUSTOMERS'
+FROM customer_master
+WHERE year(date_of_registration)=2012 AND contact_no IS NOT NULL;
+
++-----------------+
+| NO_OF_CUSTOMERS |
++-----------------+
+|               6 |
++-----------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+19.display customer id, cus name,year of registration,library card 
+id,card issue date
+alias name registered_year for year of registration.
+
+
+
+SELECT c.customer_id, c.customer_name, c.date_of_registration as 'Registered Year', cd.card_id, cd.issue_date
+FROM customer_master c LEFT OUTER JOIN customer_card_details cd ON c.customer_id=cd.customer_id;
+
++-------------+---------------+-----------------+---------+------------+
+| customer_id | customer_name | Registered Year | card_id | issue_date |
++-------------+---------------+-----------------+---------+------------+
+| CUS001      | AMIT          | 2012-02-12      | CR001   | 2012-05-13 |
+| CUS002      | ABDHUL        | 2012-02-12      | CR002   | 2012-05-13 |
+| CUS003      | GAYAN         | 2012-02-12      | CR002   | 2013-05-13 |
+| CUS004      | RADHA         | 2012-02-12      | CR003   | 2013-05-13 |
+| CUS005      | GURU          | 2012-02-12      | CR003   | 2012-05-13 |
+| CUS006      | MOHAN         | 2012-02-12      | NULL    | NULL       |
+| CUS007      | NAME7         | 2012-02-12      | NULL    | NULL       |
+| CUS008      | NAME8         | 2013-02-12      | NULL    | NULL       |
+| CUS009      | NAME9         | 2013-02-12      | NULL    | NULL       |
+| CUS010      | NAM10         | 2013-02-12      | NULL    | NULL       |
+| CUS011      | NAM11         | 2013-02-12      | NULL    | NULL       |
++-------------+---------------+-----------------+---------+------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+20. (***REPEATED)waq to display movie name and num of times movie issued to 
+customers..in case of no movie issued
+to customers display 0.. use alias name as NO_OF_TIMES
+
+SELECT m.movie_name, i.issue_id
+FROM movies_master m LEFT OUTER JOIN customer_issue_details i ON m.movie_id=i.movie_id;
+
++---------------+----------+
+| movie_name    | issue_id |
++---------------+----------+
+| DIEHARD       | IS001    |
+| DIEHARD       | IS002    |
+| DIEHARD       | IS009    |
+| DIEHARD       | IS017    |
+| THE MATRIX    | IS006    |
+| INCEPTION     | IS007    |
+| DARK KNIGHT   | IS003    |
+| DARK KNIGHT   | IS004    |
+| OFFICE S      | IS008    |
+| SHAWN OF DEAD | IS015    |
+| SHAWN OF DEAD | IS016    |
+| YOUNG FRANKEN | IS014    |
+| CAS           | IS013    |
+| CAS           | IS018    |
+| GWW           | IS005    |
+| GWW           | IS010    |
+| GWW           | IS019    |
+| TITANIC       | IS011    |
+| TITANIC       | IS012    |
+| THE NOTE BOOK | NULL     |
++---------------+----------+
+20 rows in set (0.01 sec)
+
+
+
+SELECT m.movie_name, ifnull(count(i.issue_id),0) 'NumOfTimes'
+FROM movies_master m LEFT OUTER JOIN customer_issue_details i ON m.movie_id=i.movie_id
+GROUP BY m.movie_name;
+
+
++---------------+------------+
+| movie_name    | NumOfTimes |
++---------------+------------+
+| CAS           |          2 |
+| DARK KNIGHT   |          2 |
+| DIEHARD       |          4 |
+| GWW           |          3 |
+| INCEPTION     |          1 |
+| OFFICE S      |          1 |
+| SHAWN OF DEAD |          2 |
+| THE MATRIX    |          1 |
+| THE NOTE BOOK |          0 |
+| TITANIC       |          2 |
+| YOUNG FRANKEN |          1 |
++---------------+------------+
+11 rows in set (0.01 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+21.waq to display customer id and customer name ,num of times movie 
+issued to customer in comedy movie category
+display only customers who has issude more than once
+
+SELECT m.movie_name, ifnull(count(i.issue_id),0) 'NumOfTimes', m.movie_category
+FROM movies_master m LEFT OUTER JOIN customer_issue_details i ON m.movie_id=i.movie_id 
+WHERE m.movie_category='comedy'
+GROUP BY m.movie_name;
+
++---------------+------------+----------------+
+| movie_name    | NumOfTimes | movie_category |
++---------------+------------+----------------+
+| OFFICE S      |          1 | COMEDY         |
+| SHAWN OF DEAD |          2 | COMEDY         |
+| YOUNG FRANKEN |          1 | COMEDY         |
++---------------+------------+----------------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+SELECT m.movie_name, ifnull(count(i.issue_id),0) 'NumOfTimes', m.movie_category
+FROM movies_master m LEFT OUTER JOIN customer_issue_details i ON m.movie_id=i.movie_id 
+WHERE m.movie_category='comedy'
+GROUP BY m.movie_name
+HAVING NumOfTimes>1;
++---------------+------------+----------------+
+| movie_name    | NumOfTimes | movie_category |
++---------------+------------+----------------+
+| SHAWN OF DEAD |          2 | COMEDY         |
++---------------+------------+----------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+22.(***REPEATED)waq to display customerid and total rent paid by them.
+use alias name as total_cost.
+
+
+SELECT c.customer_id, ifnull(sum(m.rent_cost),0) Total_Cost
+FROM (customer_master c LEFT OUTER JOIN customer_issue_details i ON c.customer_id=i.customer_id) LEFT OUTER JOIN movies_master m ON i.movie_id=m.movie_id
+GROUP BY c.customer_id;
+
+
++-------------+------------+
+| customer_id | Total_Cost |
++-------------+------------+
+| CUS001      |        200 |
+| CUS002      |        300 |
+| CUS003      |        800 |
+| CUS004      |        400 |
+| CUS005      |          0 |
+| CUS006      |          0 |
+| CUS007      |          0 |
+| CUS008      |          0 |
+| CUS009      |          0 |
+| CUS010      |        100 |
+| CUS011      |        100 |
++-------------+------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
+23.waq to display customerid,cusname,contactno,num of movies issued to 
+customer based on category and category
+display the customer who has issude for more than one movie from that 
+caregory.
+display phone num as "+91-987-654-3210".
+
+
+
+SELECT c.customer_id, c.customer_name, c.contact_no, m.movie_category, count(m.movie_category)
+FROM (customer_master c LEFT OUTER JOIN customer_issue_details i ON c.customer_id=i.customer_id) LEFT OUTER JOIN movies_master m ON i.movie_id=m.movie_id
+GROUP BY c.customer_id;
+
++-------------+---------------+------------+----------------+-------------------------+
+| customer_id | customer_name | contact_no | movie_category | count(m.movie_category) |
++-------------+---------------+------------+----------------+-------------------------+
+| CUS001      | AMIT          | 9876543210 | ACTION         |                       2 |
+| CUS002      | ABDHUL        | 8765432109 | ACTION         |                       3 |
+| CUS003      | GAYAN         | 7654321098 | ACTION         |                       8 |
+| CUS004      | RADHA         | 6543210987 | COMEDY         |                       4 |
+| CUS005      | GURU          |       NULL | NULL           |                       0 |
+| CUS006      | MOHAN         | 4321098765 | NULL           |                       0 |
+| CUS007      | NAME7         | 3210987654 | NULL           |                       0 |
+| CUS008      | NAME8         | 2109876543 | NULL           |                       0 |
+| CUS009      | NAME9         |       NULL | NULL           |                       0 |
+| CUS010      | NAM10         | 9934567890 | ROMANCE        |                       1 |
+| CUS011      | NAM11         | 9875678910 | ROMANCE        |                       1 |
++-------------+---------------+------------+----------------+-------------------------+
+11 rows in set (0.00 sec)
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnStore()
+        {
+            var obj={"id":"","name":"","department":"","dob":""};
+            obj.id=document.getElementById("id").value;
+            obj.name=document.getElementById("name").value;
+            obj.department=document.getElementById("department").value;
+            obj.dob=document.getElementById("dob").value;
+            localStorage.setItem("emp",JSON.stringify(obj));
+            console.log(obj);
+        }
+
+        function fnPatch()
+        {
+            var txt=document.getElementById("txt").value;
+            var str=localStorage.getItem("emp");
+            alert(str);
+            var obj;
+            if(str!=null || str!="")
+                obj=JSON.parse(str);
+
+            // var obj=JSON.parse(txt);
+            // console.log(obj);
+            
+            document.getElementById("id").value=obj.id;
+            document.getElementById("name").value=obj.name;
+            document.getElementById("department").value=obj.department;
+            // alert(new Date())
+            document.getElementById("dob").value=obj.dob;
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="txt">
+    <input type="button" value="Patch" onclick="fnPatch()">
+    <br>
+    <form action="">
+        Id: <input type="number" name="" id="id"><br>
+        Name: <input type="text" name="" id="name"><br>
+        Department: <select name="" id="department">
+            <option value="ece">ECE</option>
+            <option value="eee">EEE</option>
+            <option value="mca">MCA</option>
+            <option value="cse">CSE</option>
+        </select><br>
+        Date of Birth: <input type="date" name="" id="dob"><br>
+        <input type="button" value="Store" onclick="fnStore()"><br>
+
+    </form>
+</body>
+</html>
