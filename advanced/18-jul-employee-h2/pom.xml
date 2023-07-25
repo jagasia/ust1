@@ -19,10 +19,6 @@
 		<!-- <spring-cloud.version>2021.0.8</spring-cloud.version> -->
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
