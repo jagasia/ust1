@@ -15,6 +15,7 @@ public class EmailService {
 	{
 		SimpleMailMessage msg=new SimpleMailMessage();
 		msg.setTo(to);
+		msg.setReplyTo("rjagadeeswaran@yahoo.com");
 		msg.setSubject(subject);
 		msg.setText(body);
 		jms.send(msg);
