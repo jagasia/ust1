@@ -1,5 +1,13 @@
-let z:number=20;
-z=parseInt('30');
+let a:number=20;
+// a=<number><any>'200';
+a=(('20' as unknown) as number);
+console.log(typeof a)
 
-z=<number><any>'100';
-console.log(z);
+let b:number=30;
+let c=a+b;
+console.log(c);
+
+function fn1()
+{
+    
+}
