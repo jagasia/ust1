@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OtpServiceService } from '../otp-service.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { OtpServiceService } from '../otp-service.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  @Input() label:string='';
   enteredOtp:string='';
   
   constructor(private otp:OtpServiceService) { }
@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
   fnValidateOtp()
   {
     if(this.enteredOtp=='')
-    {  
+    {
       alert("Kindly enter the otp and click validate button");
       return;
     }
