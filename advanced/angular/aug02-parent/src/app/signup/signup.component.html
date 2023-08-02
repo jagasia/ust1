@@ -1,0 +1,15 @@
+<form>
+    User Name: <input type="text" name="username" id="" class="form-control">
+    Password: <input type="password" name="username" id="" class="form-control">
+    Confirm Password: <input type="password" name="username" id="" class="form-control">
+    Email Id: <input type="email" name="username" id="" class="form-control">
+    Phone: <input type="number" name="username" id="" class="form-control"><br>
+    <input type="button" value="Generate Otp" class="btn btn-primary" (click)="fnGenerateOtp()" ><br>
+    Enter Otp: <input type="text" name="txtOtp" id="" class="form-control" [(ngModel)]="enteredOtp" ><br>
+    <input type="button" value="Validate Otp" class="btn btn-info" (click)="fnValidateOtp()">
+    <br><br>
+    <input type="button" value="Submit" class="btn btn-success">
+
+    {{enteredOtp}}
+
+</form>
