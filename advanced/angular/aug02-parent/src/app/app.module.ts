@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { DummyComponent } from './dummy/dummy.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     JumbotronComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    DummyComponent
   ],
   imports: [
     BrowserModule,

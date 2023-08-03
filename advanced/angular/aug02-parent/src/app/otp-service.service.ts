@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,21 @@ export class OtpServiceService {
   URL="http://localhost:5000/"
   constructor(private http:HttpClient) { }
 
-  generateOtp()
+  generateOtp():Observable<any>
   {
     return this.http.get(this.URL);
+  }
+
+  fnPublish()
+  {
+    
+    // return rnd;
+    const myObservable=new Observable(observer=>{
+      setTimeout(()=>{
+        var rnd=Math.random()*100;
+        observer.next(rnd);
+      },3000);
+    });
+    return myObservable;
   }
 }
