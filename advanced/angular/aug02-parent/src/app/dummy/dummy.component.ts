@@ -16,11 +16,20 @@ export class DummyComponent implements OnInit {
 
   fn1()
   {
-    this.otp.fnPublish().subscribe((response)=>
-      {
-        this.num=<number>response;
-      }
-    );
+    // this.otp.fnPublish().subscribe((response)=>
+    //   {
+    //     this.num=<number>response;
+    //     console.log(response)
+    //   }
+    // );
+
+    this.otp.fnPromise()
+    .then((response)=>{
+      this.num=<number>response;
+      console.log(response);
+    })
+    .catch();
+
     console.log("Hello world")
   }
 

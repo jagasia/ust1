@@ -22,8 +22,18 @@ export class OtpServiceService {
       setTimeout(()=>{
         var rnd=Math.random()*100;
         observer.next(rnd);
-      },3000);
+      },100);
     });
     return myObservable;
   }
+
+  fnPromise()
+  {
+    const promise=new Promise((approve,reject)=>{
+      var rnd=Math.random()*100;
+      approve(rnd);
+    });
+    return promise;
+  }
+
 }
