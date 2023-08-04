@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   message:string='';
   
 
-  constructor(private ls:LoginService) { }
+  constructor(private ls:LoginService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,24 @@ export class LoginComponent implements OnInit {
       //login successful
       localStorage.setItem("username",this.username);
       
-      this.message="Login successful";
+      
+
+      //redirect to home page
+      setTimeout(()=>{
+        for(var i=5;i>=0;i--)
+        {
+          
+          setTimeout(()=>{
+            this.message="Login successful... Redirecting to home page.... in "+i+" seconds";       
+          },1000);
+          
+          
+        }
+      },1000);        //this.router.navigate(['home']);
+      
+      
+      
+
       // this.ls.fnPublish();
     }else{
       //login failure
@@ -33,5 +51,6 @@ export class LoginComponent implements OnInit {
     }
 
   }
+
 
 }

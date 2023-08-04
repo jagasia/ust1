@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { LoginService } from '../login.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private ls:LoginService) { }
+  constructor(private ls:LoginService, private router:Router) { }
 
   ngOnInit(): void {
     localStorage.removeItem("username");
