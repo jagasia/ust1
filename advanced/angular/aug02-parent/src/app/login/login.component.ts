@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthRequest } from '../auth-request';
 
 
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   username='';
   password=''; 
   @Output() loginEvent:EventEmitter<AuthRequest>=new EventEmitter<AuthRequest>();
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -19,9 +20,10 @@ export class LoginComponent implements OnInit {
   fnClick()
   {
     // this.loginEvent.emit(this.username+":"+this.password);
-    var ar:AuthRequest=new AuthRequest();
-    ar.username=this.username;
-    ar.password=this.password;
-    this.loginEvent.emit(ar);
+    // var ar:AuthRequest=new AuthRequest();
+    // ar.username=this.username;
+    // ar.password=this.password;
+    // this.loginEvent.emit(ar);
+    this.router.navigate(["home",this.username]);
   }
 }

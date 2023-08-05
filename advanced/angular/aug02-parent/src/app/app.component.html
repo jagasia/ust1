@@ -8,9 +8,11 @@
       this content was typed in parent component between start and end selectors
     </app-signup>
   </div>
-  <div class="col-md-3">3</div>
   <div class="col-md-3">
-    <app-login (loginEvent)="fnLogin($event)"></app-login>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-3">
+    <!-- <app-login (loginEvent)="fnLogin($event)"></app-login> -->
     <!-- <input type="button" value="Ok" (click)="fn1()"> -->
   </div>
 </div>

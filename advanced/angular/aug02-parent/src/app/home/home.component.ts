@@ -7,14 +7,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username:string='';
+  username=''
   constructor(private ar:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.ar.params.subscribe((username)=>{
-      this.username=username['username'];
+    this.ar.params.subscribe((data)=>{
+      this.username=data["username"];
     });
-    
   }
 
 }

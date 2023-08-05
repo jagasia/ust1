@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
           
           
         }
-      },1000);        //this.router.navigate(['home']);
+      },1000);        
+      this.router.navigate(['home',this.username]);
       
       
       

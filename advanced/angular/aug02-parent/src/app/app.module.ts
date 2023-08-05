@@ -9,6 +9,8 @@ import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { DummyComponent } from './dummy/dummy.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { DummyComponent } from './dummy/dummy.component';
     JumbotronComponent,
     SignupComponent,
     LoginComponent,
-    DummyComponent
+    DummyComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
