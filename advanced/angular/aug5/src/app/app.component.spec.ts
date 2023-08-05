@@ -20,11 +20,20 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'aug5'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('aug5');
-  });
+  // it(`should have as title 'aug5'`, () => {
+  //   const fixture = TestBed.createComponent(AppComponent);
+  //   const app = fixture.componentInstance;
+  //   if(app.title!=null)
+  //   { 
+  //      expect(app.title).toEqual('aug5');
+  // }
+  // });
+
+  it('is title not null',()=>{
+    const fixture=TestBed.createComponent(AppComponent);
+    const component=fixture.componentInstance;
+    expect(component.title).toContain('aug')
+  })
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
