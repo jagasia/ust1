@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ust.ecom.entity.Product;
+import com.ust.ecom.entity.User;
 import com.ust.ecom.repository.ProductRepository;
 
 @Service
@@ -45,6 +46,11 @@ public class ProductService {
 			pr.delete(product);
 		}
 		return product;
+	}
+	
+	public List<Product> findProductsByUser(User user)
+	{
+		return pr.findByUser(user);
 	}
 	
 }

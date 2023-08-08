@@ -12,6 +12,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String password;	
 	private String name;
 	private String email;
 	private String phone;
@@ -23,6 +24,18 @@ public class User {
 	public User(Long id, String name, String email, String phone, String address, String role) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.role = role;
+	}
+	
+
+	public User(Long id, String password, String name, String email, String phone, String address, String role) {
+		super();
+		this.id = id;
+		this.password = password;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -76,6 +89,15 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

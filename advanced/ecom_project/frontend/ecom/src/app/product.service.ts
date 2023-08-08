@@ -9,6 +9,12 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
 
+
+  fnFindProductsByUser(user:any)
+  {
+    return this.http.post(this.URL+"/user",user);
+  }
+
   fnGetAllProducts()
   {
     return this.http.get(this.URL);

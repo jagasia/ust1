@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ust.ecom.entity.AuthRequest;
 import com.ust.ecom.entity.User;
 import com.ust.ecom.service.UserService;
 
@@ -22,6 +23,30 @@ import com.ust.ecom.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService us;
+	
+	@PostMapping("/validate")
+	public User validateLogin(@RequestBody AuthRequest ar)
+	{
+		System.out.println(ar);
+		User user = us.read(ar.getId());
+		if(user!=null)
+		{
+			//there is an user with this id. now check if pwds match
+			if(user.getPassword().equals(ar.getPassword()))
+			{
+				//login is successfull
+				return user;
+			}else
+			{
+				//failed
+				return null;
+			}
+		}else
+		{
+			//failed
+			return null;
+		}
+	}
 	
 	@PostMapping
 	public User create(@RequestBody User user) {
