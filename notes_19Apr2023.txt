@@ -1,0 +1,273 @@
+Difference Between DELETE and TRUNCATION
+multi INSERT
+Different ways of UPDATE
+
+1) DELETE vs TRUNCATE
+	i) DELETE is DML, whereas TRUNCATE is DDL
+	Because, DELETE is removing data (rows) inside the table. Whereas TRUNCATE is like DROP and CREATE table.
+	ii) why it is so important if it is DML or DDL?
+		Only DML operations can be rolled back. DDL operations cannot be rolled back.
+		DELETE can be Rolled back, but TRUNCATE cannot be rolled back.
+	iii) TRUNCATE is fast, but DELETE may be slower when there are several rows.
+	Why?	Becuase, DELETE will inform the triggers. TRUNCATE will not trigger.
+	
+Multi-Insert:
+-----------------
+
+
+CREATE TABLE EMP  
+(  
+	ID INT,  
+	FNAME VARCHAR2(20),  
+	LNAME VARCHAR2(20),  
+	EMAIL VARCHAR2(20),  
+	CONSTRAINT pkID1 PRIMARY KEY(ID)  
+)
+
+
+INSERT INTO EMP VALUES(1, 'Ram', 'Kumar', 'ram@india.com')
+INSERT INTO EMP (FNAME, LNAME, ID, EMAIL) VALUES ('Ajay','C M',2,'ajay@india.com')
+INSERT INTO EMP (FNAME, ID) VALUES ('Rajesh', 3)
+
+we have a table called EMP
+and it has 3 rows.
+
+Let's create another table called EMP2
+CREATE TABLE EMP2 AS
+SELECT * FROM EMP;
+
+What happened?
+	A table called EMP2 is created and all the result of SELECT query are added to this table
+
+TRUNCATE TABLE EMP2;
+
+SELECT * FROM EMP2;
+	no data found
+
+How to add multiple records into EMP2?
+	insert into emp2 select * from emp;
+
+	now, 3 rows added.
+
+Task:
+INSERT ALL	(oracle syntax)
+
+try to add more than 1 row to EMP table using INSERT ALL statement.
+
+INSERT ALL
+	INTO EMP (ID, FNAME, LNAME, EMAIL) VALUES (4, 'Dinesh', 'Srinivasan', 'dinesh@wipro.com')
+	INTO EMP2 (ID, FNAME, LNAME, EMAIL) VALUES (4, 'Dinesh', 'Srinivasan', 'dinesh@wipro.com')
+SELECT 1 FROM DUAL;
+
+
+In MySQL:
+INSERT INTO BRANCH VALUES
+('B2','AB','CD'),
+('B3','AB','CD'),
+('B4','AB','CD'),
+('B5','AB','CD');
+
+--------------------
+We have learned 
+DDL
+DML
+DCL
+	Data Control Language
+		Provides us the control over database
+		Like?	We can create users, 
+			and specify the privileges these users have on the db objects.
+
+	GRANT
+	REVOKE
+
+Reminder:
+	ROLE
+
+create user jag identified by jag;
+	--i have created an user jag now.
+
+now, user jag is trying to login:
+
+but gets error:	ORA-01045: user JAG lacks CREATE SESSION privilege; logon denied
+
+now, sys is going to grant that permission to jag
+	GRANT CREATE SESSION to jag;
+
+now, jag trys to login and logged in successfully.
+
+Now, jag creates an user "kalyan", gets error:
+
+SQL> CREATE USER kalyan IDENTIFIED BY kalyan;
+CREATE USER kalyan IDENTIFIED BY kalyan
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+Now, sys will give privilege to jag:
+SQL> GRANT CREATE USER to jag;
+
+Grant succeeded.
+
+after that jag is able to create user kalyan:
+
+SQL> CREATE USER kalyan IDENTIFIED BY kalyan;
+
+User created.
+-----------------------------------
+To understand what are the privileges present in oracle, we can categorize the privileges into 2:
+1) SYSTEM PRIVILEGES
+2) OBJECT PRIVILEGES
+
+What are objects?
+	Tables
+	View
+	Synonyms
+	Procedures
+	Functions
+	Triggers
+	Sequences
+	Indexes
+
+OBJECT PRIVILEGES (Mentions the object name)
+	INSERT ON EMP
+	SELECT ON EMP
+	UPDATE ON EMP	
+
+
+
+SYSTEM PRIVLEGE:
+	CREATE TABLE
+	ALTER TABLE
+	DROP TABLE
+	CREATE SESSION		(login)
+
+While we install oracle in our system,
+sys
+system
+scott
+	these users are automatically created.	
+
+Scenario:
+
+SYS	created JAG
+JAG 	created KALYAN
+
+sys grant CREATE USER privilege to JAG
+Qn:
+	Can JAG grant CREATE USER privilege to KALYAN?
+
+a) NO
+b) YES
+c) Don't Know
+
+Sidharth says, unless, SYS while granting CREATE USER privilege to JAG, mention that he can propage this to others.
+
+GRANT CREATE USER TO JAG WITH ADMIN OPTION;
+this WITH ADMIN OPTION enabled JAG to provide this privilege to other users.
+
+WITH ADMIN OPTION
+	can be used only with SYSTEM PRIVILEGE
+
+For OBJECT PRIVILEGES, we should use "WITH GRANT OPTION"
+
+
+If SYS granted CREATE USER privilege to JAG WITH ADMIN OPTION
+and JAG granted this to KALYAN.
+Now, SYS REVOKES CREATE USER privilege from JAG.
+NOW, CAN KALYAN create users?
+
+WITH ADMIN OPTION	is not contigeous 
+WITH GRANT OPTION	is contigeous
+
+We observed that when sys revoked a system privilege from jag and then kalyan is able to continue use that system privilege.
+But when sys revoked an object privilege from jag then kalyan is also not able to use that object privilege.
+
+-------------------------------------
+DDL
+DML
+DCL
+-----------------After break------------
+TCL
+DQL
+---------
+TCL
+	Transaction Control Language
+
+Statements in TCL:
+	COMMIT
+	SAVEPOINT
+	ROLLBACK
+
+What is a Transaction?
+	funds transfer	(example)
+	grouping a set of tasks as single unit.
+	deposit money
+	withdraw
+	UPI transaction
+
+These are examples for transaction in real world.
+
+By definition what is a transaction?	In SQL,
+	group of sql statements executed as a single logical unit.
+
+Every DML statement itself is a transaction, that automatically commit in some environment, if there is no errors. If any error, it will rollback to the point before doing this statement.
+
+If you want to call some activity as a "Transaction", that activity should posses 4 properties.
+
+Atomicity
+Consistency
+Isolation
+Durability
+
+Atomicity:
+	All. Otherwise None.
+	A transaction if it is successful, then it should have completed all the tasks of transaction completely.	If it is failure, it should not have any effect.
+
+Consistency:
+	No matter, whether the transaction is success or failure, the data is in consistent state.
+
+Isolation:		LOCK
+	Every transaction should independantly work on records. While a row(s) is/are under updation/ manipulation, those records should be locked.
+
+we observed that in one session, we update a row, and not yet commit/rollback.
+if another session(transaction) try to update that row, it waits until prev tran commit/rollback.
+
+we understand that a lock is imposed on the row(s).
+
+Isolation
+	is a solution for concurrency issues.
+	Actually there are lot of types of concurrency issues. And there are lot of Isolation levels also.
+
+Concurrency Issue 1:	Dirty Read
+	A transaction txn1 has done some manipulation which is yet to be committed.
+	Before txn1 commit, if another transaction txn2 reads that data, it is dirty read.
+
+	Why? because if txn1 rolls back the transaction, then what txn2 has read is wrong.
+
+There is an ISOLATION LEVEL called "READ UNCOMMITED". This level leads to dirty read.
+How this issue is prevented?
+	by using an ISOLATION LEVEL called 	"READ_COMMITED"
+
+Concurrency Issue 2: Panthom Read
+	Issue when we read the same record(s) again, it is changed.
+	solution:	use Isolation level		"REPEATABLE READ"
+
+	when we solved dirty read, only those rows under updation where locked.
+	However, user can add/delete records.
+	Range lock is introduced.
+
+commit
+savepoint
+rollback
+
+what is savepoint?
+	we can protect the manipulations we have done using savepoint. 
+	we can rollback transaction upto savepoint.	Before that savepoint, whatever is done is not rolledback. 	Still we can roll them back using "rollback" without savepoint name.
+------------------------
+
+
+
+	
+
+
+

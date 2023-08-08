@@ -1,0 +1,12 @@
+<form [formGroup]="foodForm">
+    Id: <input type="number" name="" id="" formControlName="id" class="form-control">
+    Name: <input type="text" name="" id="" formControlName="name" class="form-control">
+    Price: <input type="number" name="" id="" formControlName="price" class="form-control">
+    Photo: <input type="file" name="" id="" formControlName="photo" class="form-control" (change)="onFileChanged($event)">
+    <br>
+    <input type="button" value="Add" class="btn btn-success" (click)="fnAddProduct()">&nbsp;
+    <input type="button" value="Update" class="btn btn-warning">&nbsp;
+    <input type="button" value="Delete" class="btn btn-danger">&nbsp;
+    
+</form>
+{{ foodForm.value | json}}

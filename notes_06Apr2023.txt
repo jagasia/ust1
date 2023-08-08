@@ -1,0 +1,569 @@
+1) Eclipse download from eclipse.org
+2) unzip
+3) create shortcut for eclipse application (to desktop)
+4) drag and drop the desktop shortcut to task bar (pin to taskbar)
+--------------
+GIT
+------
+In software centre, search for GIT
+and install latest git version.
+
+after installation, go to cmd: and type:
+	git --version
+
+
+Eclipse - some useful shortcuts
+
+1) ctrl + d		to remove a line
+2) ctrl + /		toggle	to comment or uncomment a line
+3) ctrl + shift + /	for multi-line comment		(select mutliple lines and do)
+4) ctrl + shift + \	to un-comment (multi)
+5) ctrl + shift + o	manage imports		
+			whichever is not imported, are imported
+			unused imports are removed
+			if multiple packages are found, it will show options to choose
+6) ctrl + space	always to check auto completion of available options
+7) syso	ctrl + space		System.out.println
+    sout	ctrl + space		System.out.println
+8) for proper indentation of format:
+	ctrl + shift + f		(even if we do not select the code. entire document is formated properly)
+	ctrl + i			(only selected lines are indented)
+9) ctrl + F11	to run a program
+------------------------------------------------
+GIT
+	version control
+		when multiple people work on same project, they contribute to the same project.
+		ex: one person is creating Employee.java	another person is creating EmployeeService.java
+		version control, allow us to track who has done which line of code in the same program.
+
+	collaborate
+		multiple users can collaborate 
+	
+	repository
+		storage. we can create a repository and invite collaborators
+		local repository		(is our folder in our computer)
+		remote repository		(is in git server)
+
+		push	=	local to remote
+		pull	=	remote to local
+		merge		the branches
+
+	branch
+		we can push contents using different branches.
+
+
+	we can sync one of our folder in our computer to a repository.
+		
+you can signup to github.com
+
+
+
+gitlab.com
+gitbucket.com
+github.com
+
+---------------------------------------------------------
+ternary operator
+	?:
+
+if(a>b)
+	x=a;
+else
+	x=b;
+
+the above can be done as:
+
+x=(a>b)?a:b;
+
+
+
+
+getters and setter
+constructors
+toString method
+equals, hashCode methods
+
+POJO
+-------
+	Plain Old Java Objects
+	a simple java class that do not inherit or implement anything
+	
+
+guidelines:
+	it is always not good to create public variables.
+	it is good to have private variables in a class level. Otherwise, "default" scope can be fine. "protected" can be fine.
+	Simply, a variable inside a class can be "non public" data member.
+
+Remind me for :	Access Specifiers, Constructor, Date	
+
+	
+What is encapsulation?
+	wrap the data and method inside a class
+	hide data members
+	restrict direct access to the variables. And provide access to variables using "getters" or "setters" or both.
+	
+If a variable has a getter only it is called as a "read-only" property
+If a variable has a setter only it is called as a "write-only" property
+if a variable has both getter and setter then it is a "property"
+if a variable do not have getter or setter then it is not a property. 	it is just a variable
+
+class level variables are instance variables 	(unless it is not static)
+this.variableName is used to refer to the instance variable
+
+this	is a reference to the current object of this class
+
+
+Employee
+	id
+	name
+	marks
+	
+
+1) no arg constructor
+2) all arg constructor
+3) getters and setters
+4) toString
+
+----------------------
+Task:
+Open Java Mock 11 
+and create the College class as per instructions given.
+
+Date joiningDate=new Date();
+-------------------------------------------
+While installing git,
+Git Bash is also installed.
+	this is a linux command prompt.	
+
+we can use cmd prompt also (in windows)
+
+====================================================
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getFounder() {
+		return founder;
+	}
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public Date getStartingDate() {
+		return startingDate;
+	}
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
+	}
+
+========================================
+Remind me for :	Access Specifiers, Constructor, Date	
+
+Constructor
+Date
+Access Specifiers
+
+
+
+Constructor:
+-----------------
+Default constructor is created by the compiler.
+If you create any constructor, then compiler will not create default constructor.
+So it is advisable, whenever you create a constructor with argument, then you also create constructor without argument.
+
+what if constructor is private
+
+Singleton
+------------
+public class SuperStar {
+	private static SuperStar ss=new SuperStar();
+	private String name="";
+	private SuperStar()
+	{
+		
+	}
+	public static SuperStar getInstance()
+	{
+		return ss;
+	}
+	public static SuperStar getSs() {
+		return ss;
+	}
+	public static void setSs(SuperStar ss) {
+		SuperStar.ss = ss;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}
+
+----------------------------
+
+Constructor
+Date
+Access Specifiers
+
+
+Date:
+-------
+	java.util package
+
+public class Date
+{
+	day
+	month
+	year
+	hour
+	minute
+	seconds
+	
+
+}
+
+
+every milliseconds, the time is ticking
+1900
+1970
+
+
+06/04/2023
+
+dd/MM/yyyy
+
+
+MM/dd/yyyy
+
+
+06/04/2023
+how to store this value in Date object
+
+SimpleDateFormat
+	java.text package
+
+	parse		convert a String into Date		in the specified format
+	format		convert a Date into String		in the specified format
+
+Task:
+Accept an input from the user. The input should be date Of Joining
+display the same in the same format.
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class DateTask1 {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the date of Joining (dd/MM/yyyy):");
+		String input=sc.nextLine();
+		//convert String into Date
+		Date dateOfJoining=new Date();
+		
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		sdf.setLenient(false);
+		dateOfJoining = sdf.parse(input);
+		System.out.println(dateOfJoining);
+		System.out.println(sdf.format(dateOfJoining));
+	}
+
+}
+
+
+Notice the use of setLenient method		we should not accept 32/02/2024
+
+-------------------
+Task:
+
+Write a program to accept Date Of Birth as input and 
+display the week day as output.
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class DayOfWeekTask {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter date of Birth: (dd-MMM-yyyy)");
+		String input=sc.nextLine();
+		Date dob=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MMM-yyyy");
+		dob=sdf.parse(input);
+		
+		//to convert date into string we use sdf (but we use different sdf)
+		SimpleDateFormat sdf2=new SimpleDateFormat("EEEE");
+		String output=sdf2.format(dob);
+		System.out.println(output);
+	}
+
+}
+
+
+
+dd	2-digit date		ex:		11		01	
+MM	2-digit month	ex:		11		01
+MMM	3-char month	ex:		Jan		Feb
+MMMM	full month		ex:		January		February
+yy	2-digit year		ex:		23		97
+yyyy	full year		ex:		2023		1997
+mm	minutes
+EEE	3-letter week day	ex:		Mon		Tue
+EEEE	full week day	ex:		Monday		Tuesday
+hh	12-hours format	ex:		02
+HH	24-hours format	ex:		14
+mm	minutes
+ss	seconds
+S	milliseconds
+a	AM/PM
+
+
+Task:
+Accept a year from the user and display if it is a leap year or not.
+
+Hint:
+	isLeapYear() method of GregorianCalendar
+
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class LeapYearTask {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int year=sc.nextInt();
+		
+		GregorianCalendar gc=new GregorianCalendar();
+		
+		if(gc.isLeapYear(year))
+			System.out.printf("Yes %d is leap year",year);
+		else
+			System.out.printf("No %d is not leap year",year);
+	}
+
+}
+
+Find what are the methods of GregorianCalendar class
+	setTime(Date)
+	getTime()	returns Date
+	get()			to extract any portion of a Date
+	add()
+
+
+
+Date		06-Apr-2023
+	getYear()			123
+	getMonth()			3
+
+
+
+College c=new College();
+
+
+
+System.out.println(c.toString());		//System.out.println automatically calls toString() method the class.
+
+
+
+Solution upto toString:
+-----------------------------
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class College {
+	private String name, website, mobile, founder, location;
+	private Integer numberOfDept;
+	private Date startingDate;
+	
+	public College() {}
+
+	public College(String name, String website, String mobile, String founder, String location, Integer numberOfDept,
+			Date startingDate) {
+		super();
+		this.name = name;
+		this.website = website;
+		this.mobile = mobile;
+		this.founder = founder;
+		this.location = location;
+		this.numberOfDept = numberOfDept;
+		this.startingDate = startingDate;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getFounder() {
+		return founder;
+	}
+
+	public void setFounder(String founder) {
+		this.founder = founder;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Integer getNumberOfDept() {
+		return numberOfDept;
+	}
+
+	public void setNumberOfDept(Integer numberOfDept) {
+		this.numberOfDept = numberOfDept;
+	}
+
+	public Date getStartingDate() {
+		return startingDate;
+	}
+
+	public void setStartingDate(Date startingDate) {
+		this.startingDate = startingDate;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		return String.format("Name: %s\nWebsite: %s\nMobile: %s\nFounder: %s\nNumber of Dept: %d\nLocation: %s\nStarting Date: %s\n", name, website, mobile, founder, numberOfDept, location, sdf.format(startingDate));
+
+	}
+	
+	
+}
+
+
+
+
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter college 1 detail:");
+		String detail1=sc.nextLine();
+		System.out.println("Enter college 2 detail:");
+		String detail2=sc.nextLine();
+		
+		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+		
+		String[] arr1 = detail1.split(",");
+		College college1=new College();
+		college1.setName(arr1[0]);
+		college1.setWebsite(arr1[1]);
+		college1.setMobile(arr1[2]);
+		college1.setFounder(arr1[3]);
+		college1.setNumberOfDept(Integer.valueOf(arr1[4]));
+		college1.setLocation(arr1[5]);
+		college1.setStartingDate(sdf.parse(arr1[6]));
+		
+		String[] arr2 = detail2.split(",");
+		College college2=new College();
+		college2.setName(arr2[0]);
+		college2.setWebsite(arr2[1]);
+		college2.setMobile(arr2[2]);
+		college2.setFounder(arr2[3]);
+		college2.setNumberOfDept(Integer.valueOf(arr2[4]));
+		college2.setLocation(arr2[5]);
+		college2.setStartingDate(sdf.parse(arr2[6]));
+		
+		System.out.println("College 1:");
+		System.out.println(college1);
+		System.out.println();
+		System.out.println("College 2:");
+		System.out.println(college2);
+		
+	}
+
+}
+
+
+What is the difference between the following methods:
+	System.out.format
+	System.out.printf
+		the above methods are same.	These method print
+	String.format
+		this above method returns a String.		Does not print.
+
+
+
+
+
+String str1="hello";
+String str2="hello";
+
+str1.equals(str2)		what will be the result?	true or false?		true
+
+equals method is defined the String class.
+
+
+College c1=new College();
+College c2=new College();
+
+c1.equals(c2)		possible, but it will not function properly. because, College class do not have equals method.
+			So, we need to define that method.
+
+
+---------------------
+Java Mock 29	Requirement 1

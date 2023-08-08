@@ -1,0 +1,31 @@
+<h3 class="text-center">Product Page</h3>
+<form [formGroup]="productForm">
+    Id: <input type="number" formControlName="id" class="form-control">
+    Name: <input type="text" formControlName="name" class="form-control">
+    Description: <input type="text" formControlName="description" class="form-control">
+    Price: <input type="number" formControlName="price" class="form-control">
+    Category: <input type="text" formControlName="category" class="form-control">
+    Keywords: <input type="text" formControlName="keywords" class="form-control">
+<br>
+
+</form>
+<hr>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <th>Id</th><th>Name</th><th>Description</th><th>Price</th>
+        <th>Category</th><th>Key words</th>
+        <th>Merchant</th><th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.category}}</td>
+            <td>{{p.keywords}}</td>
+            <td>{{p.user.name}}</td>
+            <td>Select</td>
+        </tr>
+    </tbody>
+</table>

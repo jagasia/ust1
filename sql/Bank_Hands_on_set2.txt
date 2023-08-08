@@ -1,0 +1,191 @@
+Problem#1:
+Write a query to display  the total number of  withdrawals and total number of deposits being done by customer whose registration is C00001. Give the count an alias name of Trans_Count. 
+
+
+
++------------------+-------------+
+| transaction_type | Trans_Count |
++------------------+-------------+
+| Deposit          |           3 |
+| Withdrawal       |           3 |
++------------------+-------------+
+2 rows in set (0.02 sec)
+
+
+
+
+
+
+
+-----------------------------------------------------------------Problem # 2:
+Write a query to display the customer’s number, customer’s firstname, customer’s city and branch city where the city of the customer and city of the branch is different. 
+
+
+
+
++--------+---------+--------+--------+
+| custid | fname   | city   | bcity  |
++--------+---------+--------+--------+
+| C00007 | Amit    | Mumbai | Delhi  |
+| C00002 | Avinash | Delhi  | Mumbai |
+| C00003 | Rahul   | Delhi  | Mumbai |
++--------+---------+--------+--------+
+3 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------
+Problem # 3:
+Write a query to display the customer number, customer firstname, customer lastname who has taken loan from more then 1 bank.
+
+
+
++--------+---------+--------+
+| custid | fname   | ltname |
++--------+---------+--------+
+| C00001 | Ramesh  | Sharma |
+| C00002 | Avinash | Minha  |
++--------+---------+--------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------
+Problem # 4:
+Write a query to display the number of client who have asked for loans but they don’t have any account in the bank though they are registered customers. Give the count an alias name of Count.
+
+
+
+
+
++-------+
+| COUNT |
++-------+
+|     2 |
++-------+
+1 row in set (0.00 sec)
+
+
+
+
+
+-----------------------------------------------------------------
+Problem # 5:
+Write a query to display account id, and total amount deposited by each account holder ( Including the opening balance ). Give the total amount deposited an alias name of Deposit_Amount.
+
+	
+
+
+
+
++----------+----------------+
+| acnumber | Deposit_Amount |
++----------+----------------+
+| A00001   |          10000 |
+| A00002   |           6000 |
+| A00007   |          17000 |
++----------+----------------+
+3 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 6:
+Write a query to the count the number of customers who have registration but no account in the bank.
+Give the alias name as Count_Customer.
+
+
+
+
+
+
+
++----------------+
+| Count_Customer |
++----------------+
+|              4 |
++----------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+-----------------------------------------------------------------
+Problem # 7:
+Write a query to display citywise, branchwise count of accounts. For the branch where we don’t have any records display 0.
+
+
+
+
++---------+-----------------------+-------------------+
+| bcity   | bname                 | count(a.acnumber) |
++---------+-----------------------+-------------------+
+| Delhi   | Asaf ali road         |                 3 |
+| Delhi   | New delhi main branch |                 2 |
+| Delhi   | Delhi cantt           |                 1 |
+| Delhi   | Jasola                |                 0 |
+| Mumbai  | Mahim                 |                 1 |
+| Mumbai  | Vile parle            |                 1 |
+| Mumbai  | Mandvi                |                 2 |
+| Kolkata | Jadavpur              |                 0 |
+| Chennai | Kodambakkam           |                 0 |
++---------+-----------------------+-------------------+
+9 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 8:
+Write  a query to display the customer’s firstname who have more then 1 account.
+
+
+
+
++---------+
+| fname   |
++---------+
+| Ramesh  |
+| Avinash |
+| Rahul   |
+| Amit    |
++---------+
+4 rows in set (0.00 sec)
+
+
+
+-----------------------------------------------------------------
+Problem # 9:
+Write a query to display the customer’s firstname who have multiple accounts atleast in 2 banks.
+
+
+
+
+
++---------+
+| fname   |
++---------+
+| Ramesh  |
+| Avinash |
+| Rahul   |
+| Amit    |
++---------+
+4 rows in set (0.00 sec)
+
+-----------------------------------------------------------------
+Problem # 10:  
+Display the customer number, customer name, account number and number of transactions  being made by a customer. Give the alias name for number of transactions as Count_Trans
+
+
+
+
+
+
++--------+---------+----------+-------------+
+| custid | fname   | acnumber | Count_Trans |
++--------+---------+----------+-------------+
+| C00001 | Ramesh  | A00001   |           6 |
+| C00002 | Avinash | A00002   |           3 |
+| C00007 | Amit    | A00007   |           3 |
++--------+---------+----------+-------------+
+3 rows in set (0.00 sec)
+
+
+

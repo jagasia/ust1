@@ -1,0 +1,24 @@
+<form [formGroup]="signupForm" ngNativeValidate>
+    User Name: <input type="text" formControlName="username" [ngClass]="{'form-control':true, 'is-invalid':signupForm.controls.username.errors}">
+    <span class="alert-danger" *ngIf="signupForm.controls.username.errors.required">
+        User Name cannot be blank
+    </span>
+    <span class="alert-danger" *ngIf="!f.username.valid && f.username.errors.minlength">
+        User Name must be atleast 5 characters
+    </span><br>
+    Password: <input type="password" formControlName="password" class="form-control">
+    Confirm Password: <input type="password" formControlName="cpassword" class="form-control">
+    First Name: <input type="text" formControlName="firstName" class="form-control">
+    Last Name: <input type="text" formControlName="lastName" class="form-control">
+    <br>
+    <!-- <input type="submit" value="Add" class="btn btn-primary" *ngIf="signupForm.valid" > -->
+    <input type="submit" value="Add" class="btn btn-primary" [disabled]="!signupForm.valid" />
+</form>
+<br>
+{{signupForm.controls.cpassword.errors}}
+<br>
+{{ signupForm.controls.username.errors | json }}
+<br>
+{{signupForm.valid}}
+<br>
+<br>

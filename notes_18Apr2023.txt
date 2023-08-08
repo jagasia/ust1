@@ -1,0 +1,589 @@
+Code Quality
+	sometime, i told
+	i) every variable declared must be initialized
+	ii) every method should have only 1 return statement
+	iii) do not comment java code. rather, delete it. 
+	iv) comments should be explanation of the code.
+	v) every method should contain return statement at the end of the method only.
+	vi) for every if - else parts, { and } should be used, even if it is one line.
+
+All these rules may not be followed and the program runs fine. 
+But these guideliness ensure our code quality.
+
+To check the code quality, a programmer can use tools that help them to learn code quality while programming itself.
+
+Such tool is "SonarQube"
+
+https://www.sonarsource.com/products/sonarqube/downloads/
+
+1) lets create a maven project.
+2) choose the archetype as "quick start" for core java project	
+	group id:	com.ust.sonar		is similar to package name	
+	artifact id:	demo-1		is the project name
+	
+----------------------------------
+Lets do our first demo in sonarqube.
+we have started sonarqube and in localhost:9000 we have logged in as admin.
+Lets create a java maven project quickstart archetype
+and create few lines of code and test the code quality.
+
+go to admin console in localhost:9000
+Add project button:
+
+
+sonar:sonar -Dsonar.projectKey=demo-11 -Dsonar.host.url=http://localhost:9000 -Dsonar.login=addbe060478baf176c1fe8b434f655776303944a
+
+in our maven project, pom.xml
+i am going to add sonarqube plugin
+
+maven build
+	i) cmd prompt (or)
+	ii) eclipse/sts
+
+clean org.jacoco:jacoco-maven-plugin:prepare-agent install
+
+int x;
+    	Date dt;
+    	x=100;
+    	if(x>20)
+    		System.out.println("true");
+    	else
+    		System.out.println("false");
+    	
+
+---------------
+Sonarqube requires
+	java 11
+	maven
+
+mysql	(in software center)
+	you have to install 2 things
+
+	mysql workbench 8
+	mysql server latest version	6.2.3
+
+SonarQube 
+	requires maven. Maven is available in software centre, but while creating projects, it is not able to download artifacts.
+MySQL
+	we have installed both mysql workbench and mysql server.
+	but while starting mysql server, it is asking admin credentials.
+We have sent a support request email.
+
+----------------------
+RDBMS
+	Relational DataBase Management System.
+
+Dr. E.F.Codd
+	computer scientist
+	introduced Relational Database theory
+
+he created 12 rules that a database must follow to be considered as Relational Database
+
+every data must be represented in the form of row-column
+
+relation between 2 entities is called as "Relationship"
+Relation
+	example for relation is Table
+	any row-column format is a relation
+
+hierarchical model
+object based model
+E-R model
+
+Relational model
+	we learn this model
+
+Terms used in Relation model?
+	data		
+	row	-	tuple
+	column	-	field	-	attribute
+	null	-	is not a space / 0	it means missing information
+	table
+	relationship
+	domain		business	(jargons used in the business)
+			pin code	(zip code	5 digit)
+	keys	
+		primary
+		foreign
+		composite
+		candidate
+		unique
+
+In a table, there can be several rows.
+ex:
+	in livesql, run this query
+		select * from hr.employees;
+
+	Notice that in every row, the column EMPLOYEE_ID	contains unique values, and also employee id is always present (it is not null).
+
+	Primary key
+		should have unique values in every row.
+		shoud have a value and it cannot be null.
+
+	if you see receipt table
+		every row must have a different receipt number
+		every row must have a receipt number. It cannot be null
+
+	Primary Key	=	UNIQUE + NOT NULL
+
+	Unique 		=	It must have unique values in every row, but it can be 					null
+
+	Composite key	=	more than 1 column combines to be UNIQUE
+
+Receipt_no	item_no	qty
+1	102	1
+1	111	1
+1	89	2
+1	98	1
+2	102	
+
+In above table, receipt_no and item_no	together is a primary key.
+Primary key can be composite also
+
+Foreign Key:
+					ITEM	
+Receipt_no	item_no	qty			item_no	item_name
+1	102	1			89	pencil
+1	111	1			98	sharpner
+1	89	2			102	eraser
+1	98	1			111	scale
+2	102	1				
+2	103	1		ERROR. Item no 103 is not allowed		
+				Hence item_no of RECEIPT table is a foreign key that references item_no of ITEM table		
+
+
+
+
+
+Normalization
+	1st normal form:
+		every cell should contain only 1 data
+
+Super key
+	all attributes that are used to uniquely identify a row
+
+Primary key
+	minimal number of attributes required to find a row uniquely.
+
+Candiate key
+	primary key is an example for candidate.
+	Any column that is candidate to be a primary key is a candidate key.
+
+Alternate key
+	when you search based on primary key always, more queries are running based on a single column leads to performance issue.
+	So if you use some other column that is also unique, then it is an alternative for primary key. 
+
+Example for RDBMS products:
+	Oracle		(oracle)
+	Sql Server		(microsoft)
+	Db2		(ibm)
+	MySql		(Oracle)
+	PostgreSql
+
+SQL
+	Structured Query Language
+
+	almost same for all RDBMS
+	Oracle		iSql plus
+	Sql Server		t-sql		transact sql
+	
+Mysql	mysql
+
+SQL
+	DDL	Data Definition Language
+	DML	Data Manipulation Language
+	DCL	Data Control Language
+	TCL	Transaction Control Language
+	DQL	Data Query Language
+DDL
+	CREATE
+	ALTER	
+	DROP
+	TRUNCATE
+DML
+	INSERT
+	UPDATE
+	DELETE	
+DCL
+	GRANT
+	REVOKE
+TCL
+	COMMIT
+	SAVEPOINT
+	ROLLBACK
+DQL
+	SELECT
+
+
+
+---------------------
+Lets create table
+
+Table name:
+	EMP
+
+Columns:
+	ID	INT
+	FNAME	VARCHAR2(20)
+	LNAME	VARCHAR2(20)
+	EMAIL	VARCHAR2(20)
+
+CREATE TABLE EMP
+(
+	ID INT PRIMARY KEY,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20)
+);
+
+
+Task:
+We need to identify the datatypes of Oracle SQL.
+char vs varchar2
+
+what is varchar2
+	variable length char data type.
+	if we use "char" data type?		CHAR(20)
+		then it will always occupy 20 char memory even if we give 1 character.
+	if we use "varchar2" data type?		VARCHAR2(20)
+		then it will occupy only the number of characters memory we use. not 			always 20
+
+1) CREATE TABLE
+2) ADD PRIMARY KEY CONSTRAINT TO A COLUMN WHILE
+	CREATING TABLE
+	ALTERING TABLE
+3) ADD PRIMARY KEY CONTRAINT TO COLUMN AT COLUMN LEVEL
+	AT TABLE LEVEL
+4) ADD CONSTRAINT WITH CONTRAINT NAME
+
+Hands on:
+1) We have created a table called EMP
+CREATE TABLE EMP
+(
+	ID INT PRIMARY KEY,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20)
+);
+
+
+2) DESC EMP;
+	TABLE EMPResult Set 1
+Column	Null?	Type
+ID	NOT NULL	NUMBER
+FNAME	 - 	VARCHAR2(20)
+LNAME	 - 	VARCHAR2(20)
+EMAIL	 - 	VARCHAR2(20)
+Download CSV
+
+
+3) Lets learn to create primary key at table level.
+For this, first we drop existing table.
+DROP TABLE EMP;
+
+CREATE TABLE EMP
+(
+	ID INT,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20),
+	CONSTRAINT pkID1 PRIMARY KEY(ID)
+);
+
+--Table is created
+
+4) We can create constraint even after the table is created.
+To practise this, i will drop table and create the table without PRIMARY KEY.
+
+DROP TABLE EMP;
+
+Create table without primary key. (Later we will add using ALTER statement)
+
+CREATE TABLE EMP
+(
+	ID INT,
+	FNAME VARCHAR2(20),
+	LNAME VARCHAR2(20),
+	EMAIL VARCHAR2(20)
+);
+
+INSERT INTO EMP VALUES(1, 'Ajay','C M','ajay@india.com');
+INSERT INTO EMP VALUES(1, 'Ajay','C M','ajay@india.com');
+INSERT INTO EMP VALUES(1, 'Ajay','C M','ajay@india.com');
+
+select * from emp;
+
+ID	FNAME	LNAME	EMAIL
+1	Ajay	C M	ajay@india.com
+1	Ajay	C M	ajay@india.com
+1	Ajay	C M	ajay@india.com
+
+
+Duplicate IDs are allowed because, we have not added primary key constraint to ID column.
+
+ALTER TABLE EMP ADD CONSTRAINT pkID2 PRIMARY KEY(ID);
+
+We get the following error while executing above code:
+ORA-02437: cannot validate (SQL_XRUNRBFICIZAFSTCVEAKIEWVN.PKID2) - primary key violated 
+
+Reason:
+	already the table contains records that violate the primary key constraint.
+
+Solution:
+	remove the duplicate records.
+
+DELETE FROM EMP WHERE ID=1;
+
+Now, add PRIMARY KEY constraint
+
+ALTER TABLE EMP ADD CONSTRAINT pkID2 PRIMARY KEY(ID);
+table is altered.
+
+----------------------------------------------End of Create Table with Primary key----------------
+Task:
+	Identify the data types of Oracle SQL
+
+varchar2
+nvarchar2
+number		NUMBER(5,2)
+boolean
+long
+raw
+long raw
+binary float
+int		
+float
+char
+nchar
+tinyint
+date
+datetime
+timestamp
+timestamp with timezone
+timestamp with local timezone
+interval year to month
+interval hour to minute
+blob
+clob
+bfile
+
+CHAR vs	NCHAR
+
+Lets see example:
+
+CREATE TABLE MUNISH
+(
+    COL1 NCHAR(5)
+);
+
+INSERT INTO MUNISH VALUES ('ABCDE');	--row added
+INSERT INTO MUNISH VALUES ('ABCDEF');
+		ORA-12899: value too large for column "SQL_XRUNRBFICIZAFSTCVEAKIEWVN"."MUNISH"."COL1" (actual: 6, maximum: 5) ORA-06512: at "SYS.DBMS_SQL", line 1721
+
+
+we understand that NCHAR(5) allows only 5 characters to be stored.
+
+	
+now:
+CREATE TABLE MUNISH
+(
+    COL1 CHAR(5)
+);
+
+table created.
+
+INSERT INTO MUNISH VALUES('◙♂♀♪☼');	--No. we are not able to add 5 characters.
+
+ORA-12899: value too large for column "SQL_XRUNRBFICIZAFSTCVEAKIEWVN"."MUNISH"."COL1" (actual: 15, maximum: 5) ORA-06512: at "SYS.DBMS_SQL", line 1721
+
+ALTER TABLE MUNISH ADD  COL2 CHAR(5);
+
+
+CHAR(5) does not guarantee that we can add 5 characters.
+	
+
+varchar2	vs	long	vs	clob
+varchar2	means we specify the size
+long	means	upto 2gb
+clob	means 	upto 4 gb
+
+	all these 3 are character data types
+
+
+Now, look at date types:
+date
+datetime
+timestamp
+timestamp with timezone
+timestamp with local timezone
+interval year to month
+interval hour to minute
+
+https://docs.google.com/spreadsheets/d/1axaIqrKJL4NCGzIj5ZNQDitmkNtPSzy9ET82cWzyiwY/edit?usp=sharing
+
+Large objects in oracle
+blob		BINARY
+clob		CHARACTERS
+bfile		external large object		stores as a file in directory and a pointer
+
+Large objects in mysql:
+tinyblob		1 byte
+blob		64 KB
+mediumblob	16 MB
+longblob		4 GB
+
+if you want to store image/ audio/ video etc, in a table, as a data, then that column should be large object.
+
+SQL
+	DDL	Data Definition Language
+	DML	Data Manipulation Language
+	DCL	Data Control Language
+	TCL	Transaction Control Language
+	DQL	Data Query Language
+
+
+DDL
+	CREATE, ALTER DROP
+
+These commands not only limited to TABLES.
+There are lot of objects in database, including Tables.
+
+CREATE TABLE	***
+ALTER TABLE
+	after creating a table, we can alter the table for 
+		adding a column	
+		modifying a column
+		removing a column
+
+
+TABLE EMPResult Set 10
+Column	Null?	Type
+ID	NOT NULL	NUMBER
+FNAME	 - 	VARCHAR2(20)
+LNAME	 - 	VARCHAR2(20)
+EMAIL	 - 	VARCHAR2(20)
+
+
+Tell me, which column can be added to this table?
+	PHONE	VARCHAR(15)
+
+ALTER TABLE EMP ADD PHONE VARCHAR2(15);
+Table altered.
+DESC EMP;
+
+
+ALTER TABLE statement can be used to modify the column data type also
+can we change the PHONE column data type to NUMBER (15,0)
+
+
+ALTER TABLE EMP MODIFY PHONE NUMBER(15,0);
+Table altered.
+DESC EMP;
+
+Can we remove a column from the table?
+
+ALTER TABLE EMP DROP COLUMN PHONE;
+Table altered.
+DESC EMP;
+
+
+DROP TABLE EMP;
+	sys or system admin can recover this table from recyle bin using FLASHBACK statement.
+
+drop table emp purge;
+	drop table permanently that it cannot be recovered
+
+
+DDL is completed now.
+
+TRUNCATE
+	remove all records from a table. It is similar to drop and create table.
+	always all records are deleted. No conditions to specify particular rows to delete.
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+	How TRUNCATE is DDL?
+	It is only removing records from the table.
+	It is like DROP and CREATE.		So all records are deleted fast.
+Reminder:
+	after learning DELETE, we compare TRUNCATE
+---------------------
+
+DML
+	INSERT
+	UPDATE
+	DELETE
+
+INSERT
+	adds row(s) to the table
+
+UPDATE
+	updates the existing row(s) of the table
+
+DELETE
+	deletes the records (rows) from the table
+
+Notice that DML is going to affect the data present inside the table. It is not going to alter the structure at all.
+
+INSERT:
+	Lot of syntax is there for insert statement
+
+syntax1:
+	INSERT INTO EMP VALUES(1, 'Ram', 'Kumar', 'ram@india.com'); --added
+note:
+	we have to provide all the values for all columns, that too in correct order.
+
+syntax2:
+	INSERT INTO EMP (FNAME, LNAME, ID, EMAIL) VALUES ('Ajay','C M',2,'ajay@india.com'); 	--added
+
+	INSERT INTO EMP (FNAME, ID) VALUES ('Rajesh', 3);	--added
+note:
+	we can specify the order of columns and provide values in that order.
+	Not all columns need to be specified / provided.	But all NOT NULL columns must be present
+
+Reminder:
+There are many other insert statements like
+INSERT ALL
+INSERT SELECT
+---------------------------------------------------------------------
+UPDATE
+Look at the rows in the EMP table:
+
+Result Set 2
+ID	FNAME	LNAME	EMAIL
+1	Ram	Kumar	ram@india.com
+2	Ajay	C M	ajay@india.com
+3	Rajesh	 - 	 - 
+
+Rajesh does not have email id. So we need to update that.
+
+UPDATE EMP SET EMAIL='rajesh@india.com' WHERE ID=3;		--1 row updated
+
+SELECT * FROM EMP;
+
+Result Set 3
+ID	FNAME	LNAME	EMAIL
+1	Ram	Kumar	ram@india.com
+2	Ajay	C M	ajay@india.com
+3	Rajesh	 - 	rajesh@india.com
+
+Reminder:
+Different ways of UPDATE
+
+------------------------
+DELETE
+
+We want to delete Rajesh
+DELETE FROM EMP;	--Oh No! without a condition? 	all rows will be deleted.
+
+DELETE FROM EMP WHERE ID=3;
+
+Activity:
+Practise DML statements
+INSERT
+UPDATE
+DELETE
+
+

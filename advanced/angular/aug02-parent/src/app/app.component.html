@@ -1,0 +1,18 @@
+<app-jumbotron></app-jumbotron>
+<div class="row">
+  <div class="col-md-3">
+    <app-dummy></app-dummy>
+  </div>
+  <div class="col-md-3">
+    <app-signup [label]="x">
+      this content was typed in parent component between start and end selectors
+    </app-signup>
+  </div>
+  <div class="col-md-3">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-3">
+    <!-- <app-login (loginEvent)="fnLogin($event)"></app-login> -->
+    <!-- <input type="button" value="Ok" (click)="fn1()"> -->
+  </div>
+</div>

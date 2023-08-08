@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn1()
+        {
+            var gender="";
+            var arr=document.getElementsByName("gender");
+            for(var x of arr)
+            {
+                if(x.checked)
+                    gender=x.value;
+            }
+            alert(gender)
+        }
+    </script>
+</head>
+<body>    
+    Gender: <input type="radio" name="gender" id="rdoFemale" value="female"><label for="rdoFemale">Female</label>
+    <input type="radio" name="gender" id="rdoMale" value="male"><label for="rdoMale">Male</label>
+    <input type="radio" name="gender" id="rdoOther" value="other"><label for="rdoOther">Other</label>
+    <br>
+    <input type="button" value="Ok" onclick="fn1()">
+</body>
+</html>

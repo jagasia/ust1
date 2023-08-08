@@ -1,0 +1,842 @@
+Day Timing: 9 am to 6 pm
+Morning Break: 10:45 am - 11:15 am
+Lunch: 12:45 - 1.45
+Evening Break: 4:00 pm - 4:30 pm
+------------------------------------------
+Platform independence of Java:
+	Java compilation is done in 2 stages.
+		compilation level 1 is done by java compiler.	(javac)	we compile source code to get byte code
+		while running the program, the compile code (byte code) is further compiled into machine language code.
+		this compilation level 2 is done by JIT compiler (which is part of JRE -> JVM)
+		JIT -> Just In Time
+			Not the entire byte code is translated into machine code.
+			during the course of execution, in a flow, wherever the program flows, only those portions are translated and executed
+Lets check if java is installed in our system or not:
+	1) go to cmd		start menu, type cmd and press enter.
+	2) in command prompt, type	java -version
+	    and press enter
+	3) Do you see the java verson? or do you see	"java is not recognized as an internal or external command"
+Difference between JDK and JRE
+	JDK 
+		is used to compile and run
+	JRE
+		is used to only run 
+	JVM	
+		is a part of JRE that will take care of 
+			memory management
+			to run the program
+	
+
+if(isPrime(x)!=true)
+	//it is not prime		
+
+int i;
+
+class Integer
+{
+	int i;
+	public static int parseInt(String str)
+	{}
+}
+
+
+class
+	identity
+	behavior
+
+
+Data types:
+	byte		1 byte		-128 			to 	127
+	short		2 bytes		-32768			to	32767		
+	int		4 bytes		-2147483648		to	2147483647
+	long		8 bytes		-9223372036854775808	to	9223372036854775807
+
+	float		4 bytes
+	double		8 bytes
+
+	char		2 bytes			single quote	'a'	'\n'	escape	
+
+	boolean		1 bit			true	false
+
+what is the difference between data types and types?
+data type = value type		(primitive data type		/ fundamental data type)
+type = reference type
+
+String is a type.
+
+in java language, "structure" is not there.	
+So we cannot create user-defined data types in java. We can create user-defined types.
+
+
+byte:
+
+0000 0000		
+1111 1111
+
+256/2		128
+
+-128	0	127
+
+
+0 to 255	 range
+unicode	(instead of ascii)		ascii is 256 character set
+UTF-8	
+
+Eclipse
+or
+Spring Tool Suite
+or
+Intelli J
+or
+Netbean
+
+These are IDEs	Integrated Development Environment
+They provide space for writing (not only) java programs	also (html, jsp, css, etc)
+
+we will use Spring Tool Suite	(is a type of Eclipse)
+
+We can download eclipse/ sts for free from official website.
+While opening STS, it asks us to choose workspace:
+	it is a folder where our projects will be created.
+
+In eclipse:
+File -> New -> Java Project
+	type  name of the project
+	choose java se version	
+	finish
+
+Right click the project
+	New
+		Class
+			give name of class and enter
+
+
+public class App1 {
+
+	public static void main(String[] args) {
+		System.out.println("Hello world");	//syso ctrl+space
+		//to run the program, ctrl + F11
+		System.out.println(Integer.MIN_VALUE);
+		//use intellisense to complete the code automatically
+		
+	}
+
+}
+
+----------------
+Java Language Features
+1) data types
+2) programming constructs
+	operators
+	blocks			{		}
+	statements			any executable statements (other than declarations)
+	conditional statements		ex:	if, switch
+	loop constructs		ex:	while, do-while, for, for-each (enhanced for)
+	arrays			single, multi, jagged arrays
+
+	
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+    static
+    {
+        System.out.println("This is a static block coded inside the Main class");
+    }
+    
+    {
+        System.out.println("THis is a block only");	//this is called as instance block
+    }
+	public static void main(String[] args) {
+	    {
+	        System.out.println("This block is inside the main method");
+	    }
+	    
+	    new Main();
+	}
+}
+
+
+
+Object is an instance of the class
+
+
+static can change
+const in c, c++ is used for constants. But in java, "final" is used for constants
+
+static = shared	(among all objects of same class)
+
+
+Employee rama=new Employee();
+Employee siva=new Employee();
+Employee ramesh=new Employee();
+Employee suba=new Employee();
+
+
+static member of a class does not belong to any particular instance of the class
+it belongs to the class
+
+
+static variable		vs		instance variable		
+static method		vs 		instance method
+static block			vs		instance block
+
+instance variable
+	is not declared inside any method. It is at class level
+static variable
+	is not declared inside any method. It is at class level
+
+variables declared inside the method are local variables. They are stored in stack.
+objects are stored in heap.
+
+variables are stored in memory.
+memory structures:
+	stack
+		local variables (declared inside the method)
+	heap
+		objects are stored in the heap
+
+
+
+
+class Employee
+{
+    int id;
+    String name;
+    static String companyName;
+    
+}
+
+
+i created 3 objects of Employee class, these objects are stored in "heap"
+
+int i=20;
+Employee e1=new Employee();
+Employee e2=null;
+e2=new Employee();
+
+Employee e3;	//e3 is not an object. it is a reference variable of type Employee
+
+e1 is a variable
+new Employee is an object
+
+new Employee();
+
+
+value type vs ref type
+
+
+
+
+Employee e1=new Employee();
+Employee e2=e1;
+Employee e3=e2;
+----------------------------
+Statements:
+if
+if-else
+if-else if-else
+
+How to get input from user?
+
+	import java.util.Scanner;
+	Scanner sc=new Scanner(System.in);
+
+	int no1=sc.nextInt();
+	int no2=sc.nextInt();
+
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+
+
+
+
+Handson 1:
+----------------
+Dice Game I
+
+Each player will be allowed to throw  a dice 2 times. The points for each player will be calculated as follows :
+If the values thrown are different, the points scored is equal to the sum of the 2 values.
+If the values thrown are the same, the points scored is equal to double the sum of the 2 values.
+
+Write a program to calculate the points scored by a player.
+Input and Output Format:
+Input consists of 2 integers. The valid range of inputs is from 0 to 6. [ Both 0 and 6 inclusive]
+Output the points scored. In case of invalid inputs, print “Invalid Input”.
+
+Refer sample input and output for formatting specificaions.
+[All text in bold corresponds to input and the rest corresponds to output.]
+Sample Input and Output 1:
+Enter Value 1:
+5
+Enter Value 2:
+6
+The points scored is 11
+
+Sample Input and Output 2:
+
+Enter Value 1:
+5
+Enter Value 2:
+5
+The points scored is  20
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+
+--------------------
+Solution:
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int no1=sc.nextInt();
+	    int no2=sc.nextInt();
+	    
+	    if(no1>6 || no2>6)
+	    {
+	        System.out.println("Invalid input");
+	        System.exit(0);
+	       //return;
+	    }
+	    
+        int sum=no1+no2;
+        if(no1==no2)
+            sum*=2;
+        System.out.print(sum);
+	}
+}
+
+
+But in java, if will not accept anything other than a boolean expression that returns true or false
+
+if(true)
+if(false)
+			
+
+Operators:
+--------------
+Arithmetic operators:
+	+
+	-	
+	*
+	/
+	%
+
+Increment operators:
+	++
+	--
+
+Arithmetic assignment operators:
+	+=
+	-=
+	*=
+	/=
+	%=
+
+
+
+Challenge:
+--------------
+Accept a character input from the user and add 5 numbers to that character and print.
+ex:
+	input: 	A
+	output:	F
+
+	input:	Y
+	output:	D
+
+HINT: to get character input from user,
+	sc.nextLine().charAt(0);
+
+
+
+Casting:
+	implicit casting
+	explicit casting
+
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+        //to get character input from user:
+        Scanner sc=new Scanner(System.in);
+        char input=sc.nextLine().charAt(0);
+        int ascii=input;
+        ascii+=5;
+        System.out.println("After adding 5, ascii="+ascii);
+        ascii%=(91);
+        
+        System.out.println("After modulo by ascii+25, ascii="+ascii);
+        if(ascii<65)
+            ascii+=65;
+        char output=(char)ascii;
+        System.out.println(output);
+	}
+}
+
+
+char c='a';
+int i=c;		//here, char is converted into int automatically. This is called as implicit casting
+
+c=i;		//ERROR.		incompatible types: possible lossy conversion from int to char
+solution:
+c=(char)i;		//here, int is converted into char by using explicit casting.
+
+not all types are allowed to do casting.
+
+primitive vs objects casting is not possible.
+
+String str="a";
+char c=str;		//not possible
+char c=(char)str;	//not possible
+char c=str.charAt(0);	//possible.	This is not casting
+
+int to float is possible		//implicit casting
+
+   int i=20;
+       float f=i;
+       System.out.println("No problem");
+
+
+but vice versa:		float to int	is not automatic
+i=f;		// incompatible types: possible lossy conversion from float to int
+
+	int i=5;
+       int j=2;
+       System.out.println((float)i/j);
+
+
+nested if
+if with operators like	&&	||
+
+!
+&&
+||
+
+
+----------------------------
+Problem2:
+Dice Game II
+Each player will be allowed to throw a dice 2 times. The points for each player will be calculated as follows :
+The points scored is the absolute difference between 8 and the sum of the 2 values, provided the sum of the 2 values is less than 8.
+In all other cases, the point  scored is double the absolute difference between 8 and the sum of the 2 values.
+
+Write a program to calculate the points scored by a player.
+
+Input and Output Format:
+Input consists of 2 integers. The valid range of inputs is from 0 to 6.
+Output the points scored. In case of invalid inputs, print “Invalid Input”.
+
+Refer sample input and output for formatting specificaions.
+
+[All text in bold corresponds to input and the rest corresponds to output.]
+Sample Input and Output 1:
+
+Enter Value 1:
+5
+Enter Value 2:
+6
+The points scored is 6
+
+Sample Input and Output 2:
+
+Enter Value 1:
+3
+Enter Value 2:
+2
+The points scored is  3
+
+Sample Input and Output 3:
+
+Enter Value 1:
+8
+Enter Value 2:
+6
+Invalid Input 
+ 
+
+
+----------------------
+Solution:
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int no1=sc.nextInt();
+	    int no2=sc.nextInt();
+	    if(no1>6 || no2>6)
+	    {
+	        System.out.println("Invalid Input");
+	        System.exit(0);
+	    }
+	    int sum=no1+no2;
+	    int absDifference=Math.abs(8-sum);
+	    if(sum>=8)
+	    {
+	        absDifference*=2;
+	    }
+	    System.out.println(absDifference);
+	}
+}
+----------------
+Challenge:
+Accept a character input and display if it is a vowel or not.
+
+Use Switch case.
+input can be in upper or lower case also
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        char input=sc.nextLine().charAt(0);
+        
+        input=Character.toLowerCase(input);
+        switch(input)
+        {
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                System.out.println("Vowel");
+                break;
+            default:
+                System.out.println("Not vowel");
+        }
+	}
+}
+
+
+switch(expression)
+{
+	case 1:
+		break;
+	case 2:
+		break;
+	default:
+		break;
+}
+
+
+1)There can be many case statements.
+2) {} are compulsory
+3) break statements can be present or not ok.
+If break statement is not present?????
+following cases are all considered as matching
+
+if(marks==100)
+if(marks==50)
+
+if you use lot of == operator, then think, if we can use switch case.
+
+ex:
+if(c=='a' || c=='e' || c=='i'
+
+
+
+int
+	all methods related to int are present in "Integer" class
+char
+	Character
+float
+	Float
+double
+	Double
+short
+	Short
+long
+	Long
+boolean	
+	Boolean
+byte
+	Byte
+
+char c='A';
+Character.toLowerCase(c);
+
+check if char variable has a number or letter?
+char c=sc.nextLine().charAt(0);
+if(Character.isLetter(c))
+
+if(Character.isDigit(c))
+
+if(c>='a' && c<='z')
+	it is a lower case character
+
+Switch Task:
+
+------------------------------------
+if
+switch
+loops
+	while
+	do while
+	for
+	for each
+
+while task:
+Write a java program to accept 2 number inputs from the user. 
+and display all even numbers between them.
+
+if input1 is bigger than input2 then display "Invalid Input".
+
+Solution:
+----------
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int input1=sc.nextInt();
+        int input2=sc.nextInt();
+        
+        if(input1>input2)
+        {
+            System.out.println("Invalid Input");
+            System.exit(0);
+        }
+        int counter=input1;
+        while(counter<=input2)
+        {
+            if(counter%2==0)
+            {
+                System.out.println(counter);
+                counter+=2;		//we can avoid 50% of else part iterations henceforth
+                continue;
+            }
+            counter++;
+        }
+	}
+}
+
+------------------
+What is the difference between while and do while
+
+while
+	if condition is true then the body of the loop is performed.
+do while
+	the body of the loope is executed first and then if the condition is true, then it is repeated.
+
+do
+{
+}while(condition);
+
+
+for(declare, initialize here;condition;re-initialize here)
+{
+	System.out.println("Hello world");
+}
+
+
+Task:
+display all even numbers between x and y
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main
+{
+
+  public static void main (String[]args)
+  {
+
+    Scanner sc = new Scanner (System.in);
+    int no1 = sc.nextInt ();
+    int no2 = sc.nextInt ();
+
+    for (int counter = no1; counter <= no2; counter++)
+    {
+        if(counter%2==0)
+        {
+            System.out.println(counter);
+        }
+    }
+
+  }
+}
+
+
+
+-------------------------------
+Arrays:
+---------
+Array is a collection of elements of similar datatype.
+
+ArrayList marks=new ArrayList();
+
+
+marks.add(20);
+marks.add("Twenty");
+marks.add(20.0);
+marks.add(new Employee());
+
+Array elements are present in contiguous memory locations.
+
+
+26
+
+
+ARRAY of size 26
+
+
+declaration of array in java:
+
+in C, C++:
+	int arr[10];		//in java, this will not work.
+
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+	public static void main(String[] args) {
+		  //  int arr[10];
+		  int arr[]=new int[10];        //single dimensional array
+		  int arr2[][]=new int[10][20]; //multi dimensional array
+		  int i=20;
+		  int arr3[]=new int[i];
+		  
+    System.out.println("Hello world");
+	}
+}
+
+
+Arrays in java are jagged array.
+	each row can have different length of columns
+
+
+Example for jagged array:
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+    int arr[][]=new int[5][];
+    arr[0]=new int[5];
+    arr[1]=new int [10];
+    arr[2]=new int[3];
+    arr[3]=new int[6];
+    arr[4]=new int[10];
+    System.out.println(Arrays.deepToString(arr));
+    System.out.println("Hello world");
+	}
+}
+
+
+Arrays class of java.util package provides lot of useful methods.
+
+Arrays.sort
+Arrays.toString		for single dimensional array
+Arrays.deepToString		for multi dimensional array
+
+Array of objects
+
+Employee []arr=new Employee[10];		//here, we have declared 10 employee objects. All are null here
+
+arr[0]=new Employee();
+arr[1]=new Employee();
+
+or use a for loop 
+
+for(int i=0;i<arr.length;i++)
+{
+	arr[i]=new Employee();		//will create object for all elements of the array
+}
+
+int i;		//here we have completely created a variable
+
+Employee e;	//this is incomplete
+e=new Employee();	//now only it is complete
+
