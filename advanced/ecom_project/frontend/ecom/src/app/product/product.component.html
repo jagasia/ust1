@@ -1,5 +1,6 @@
 <h3 class="text-center">Product Page</h3>
-<form [formGroup]="productForm">
+{{ user.role}}
+<form [formGroup]="productForm" *ngIf="user.role=='merchant'">
     Id: <input type="number" formControlName="id" class="form-control">
     Name: <input type="text" formControlName="name" class="form-control">
     Description: <input type="text" formControlName="description" class="form-control">

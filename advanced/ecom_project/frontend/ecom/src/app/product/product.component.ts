@@ -11,6 +11,7 @@ import { ProductService } from '../product.service';
 export class ProductComponent implements OnInit, DoCheck {
   productForm:any;
   products:any;
+  user:any;
   constructor(private fb:FormBuilder, private ps:ProductService, private router:Router) { 
     this.productForm=this.fb.group({
       "id":[],
@@ -38,11 +39,24 @@ export class ProductComponent implements OnInit, DoCheck {
       
       return;
     }else{
-      if(user.role!='merchant')
+      this.user=user;
+      if(user.role=='merchant')
       {
-        // alert("You are not merchant");
-        this.router.navigate(['404']);
+        this.ps.fnFindProductsByUser(user).subscribe((data)=>{
+          this.products=data;
+        });
+      }else
+      {
+        //customer
+        this.ps.fnGetAllProducts().subscribe((data)=>{
+          this.products=data;
+        });
       }
+      // if(user.role!='merchant')
+      // {
+      //   // alert("You are not merchant");
+      //   this.router.navigate(['404']);
+      // }
       // else{
         // alert("You are allowed... because, you are merchant")
       // }
@@ -50,9 +64,7 @@ export class ProductComponent implements OnInit, DoCheck {
 
 
 
-    this.ps.fnFindProductsByUser(user).subscribe((data)=>{
-      this.products=data;
-    });
+   
   }
 
 fnAdd()

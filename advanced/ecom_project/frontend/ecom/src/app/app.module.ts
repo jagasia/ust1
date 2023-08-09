@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MerchantComponent } from './merchant/merchant.component';
-import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
+import { MerchantComponent } from './merchant/merchant.component';
 import { NavComponent } from './nav/nav.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
+import { ProductComponent } from './product/product.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { NotAllowedComponent } from './not-allowed/not-allowed.component';
     MerchantComponent,
     LoginComponent,
     NavComponent,
-    NotAllowedComponent
-  ],
+    NotAllowedComponent,
+    LogoutComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

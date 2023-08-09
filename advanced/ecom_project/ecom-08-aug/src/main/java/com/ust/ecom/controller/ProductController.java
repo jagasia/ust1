@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ust.ecom.entity.Product;
+import com.ust.ecom.entity.User;
 import com.ust.ecom.service.ProductService;
 
 @RestController
@@ -48,4 +49,9 @@ public class ProductController {
 		return ps.delete(id);
 	}
 	
+	@PostMapping("/user")
+	public List<Product> findProductsByUser(@RequestBody User user)
+	{
+		return ps.findProductsByUser(user);
+	}
 }

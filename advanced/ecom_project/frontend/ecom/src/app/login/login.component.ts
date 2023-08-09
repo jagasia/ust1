@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
   loginForm:any;
   user:any;
-  constructor(private fb:FormBuilder, private ls:LoginService) { 
+  constructor(private fb:FormBuilder, private ls:LoginService, private router:Router) { 
     this.loginForm=this.fb.group({
       "id":[],
       "password":[]
@@ -36,6 +37,11 @@ export class LoginComponent implements OnInit {
         console.log(obj);
         localStorage.setItem("user",obj);
         this.user=data;
+        if(this.user.role=='merchant')
+          this.router.navigate(["merchant"]);
+        else{
+          //to customer
+        }
       }
     });
   }
