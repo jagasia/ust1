@@ -1,9 +1,14 @@
 package com.ust.ecom.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.ust.ecom.entity.User;
@@ -11,7 +16,7 @@ import com.ust.ecom.exception.UserAlreadyExistException;
 import com.ust.ecom.repository.UserRepository;
 
 @Service
-public class UserService 
+public class UserService implements UserDetailsService
 {
 	@Autowired
 	private UserRepository ur;
@@ -55,6 +60,13 @@ public class UserService
 		{
 			ur.delete(user);
 		}
+		return user;
+	}
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = read(Long.parseLong(username));
+		
+		
 		return user;
 	}
 	

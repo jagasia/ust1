@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,20 +9,31 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
 
+  fnHeaders()
+  {
+    var jwt=localStorage.getItem("jwt");
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          Authorization: 'Bearer ' + jwt
+      })
+  };
+  return httpOptions;
+  }
 
   fnFindProductsByUser(user:any)
   {
-    return this.http.post(this.URL+"/user",user);
+    return this.http.post(this.URL+"/user",user,this.fnHeaders());
   }
 
   fnGetAllProducts()
   {
-    return this.http.get(this.URL);
+    return this.http.get(this.URL, this.fnHeaders());
   }
 
   findProductById(id:number)
   {
-    return this.http.get(this.URL+"/"+id);
+    return this.http.get(this.URL+"/"+id, this.fnHeaders());
   }
 
   fnAddProduct(product:any)

@@ -32,15 +32,19 @@ export class LoginComponent implements OnInit {
       if(data!=null)
       {
         //login is successful
-        var obj=JSON.stringify(data);
+        var response={"jwt":'',"user":null};
+        response=<any>data;
+        var obj=JSON.stringify(response.user);
         console.log("writing json to local storage as:")
         console.log(obj);
         localStorage.setItem("user",obj);
-        this.user=data;
+        localStorage.setItem("jwt",response.jwt);
+        this.user=response.user;
         if(this.user.role=='merchant')
-          this.router.navigate(["merchant"]);
+          this.router.navigate(["product"]);
         else{
           //to customer
+          this.router.navigate(['/','cproduct']);
         }
       }
     });

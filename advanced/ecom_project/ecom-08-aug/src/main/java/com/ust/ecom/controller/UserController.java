@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ust.ecom.entity.AuthRequest;
 import com.ust.ecom.entity.User;
 import com.ust.ecom.service.UserService;
+import com.ust.ecom.util.JwtUtil;
+import com.ust.ecom.util.Token;
+
 
 @RestController
 @CrossOrigin("*")
@@ -24,8 +27,11 @@ public class UserController {
 	@Autowired
 	private UserService us;
 	
+	@Autowired
+	private JwtUtil jwtUtil;
+	
 	@PostMapping("/validate")
-	public User validateLogin(@RequestBody AuthRequest ar)
+	public Token validateLogin(@RequestBody AuthRequest ar)
 	{
 		System.out.println(ar);
 		User user = us.read(ar.getId());
@@ -35,7 +41,11 @@ public class UserController {
 			if(user.getPassword().equals(ar.getPassword()))
 			{
 				//login is successfull
-				return user;
+				Token token=new Token();
+				token.setUser(user);
+				String jwt = jwtUtil.generateToken(String.valueOf(user.getId()));
+				token.setJwt(jwt);
+				return token;
 			}else
 			{
 				//failed

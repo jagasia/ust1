@@ -15,37 +15,37 @@ public class ProductService {
 	@Autowired
 	private ProductRepository pr;
 	
-	public Product create(Product product) {
-		return pr.save(product);
+	public Product create(Product Product) {
+		return pr.save(Product);
 	}
 	public List<Product> read() {
 		return pr.findAll();
 	}
 	public Product read(Long id) {
 		Optional<Product> temp = pr.findById(id);
-		Product product=null;
+		Product Product=null;
 		if(temp.isPresent())
 		{
-			product=temp.get();
+			Product=temp.get();
 		}
-		return product;
+		return Product;
 	}
-	public Product update(Product product) {
-		Product temp = read(product.getId());
+	public Product update(Product Product) {
+		Product temp = read(Product.getId());
 		if(temp!=null)
 		{
-			temp=product;
+			temp=Product;
 			pr.save(temp);
 		}
 		return temp;
 	}
 	public Product delete(Long id) {
-		Product product=read(id);
-		if(product!=null)
+		Product Product=read(id);
+		if(Product!=null)
 		{
-			pr.delete(product);
+			pr.delete(Product);
 		}
-		return product;
+		return Product;
 	}
 	
 	public List<Product> findProductsByUser(User user)

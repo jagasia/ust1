@@ -1,0 +1,22 @@
+<p>Welcome {{user.name | titlecase}}. You are privileged {{user.role}}</p>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <th>Id</th><th>Name</th><th>Description</th><th>Price</th>
+        <th>Category</th><th>Key words</th>
+        <th>Merchant</th><th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.category}}</td>
+            <td>{{p.keywords}}</td>
+            <td>{{p.user.name}}</td>
+            <td>
+                <input type="button" class="btn btn-info" value="Add to Cart" (click)="fnAddToCart(p.id)" >
+            </td>
+        </tr>
+    </tbody>
+</table>

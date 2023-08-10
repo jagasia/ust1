@@ -11,6 +11,7 @@ import { NavComponent } from './nav/nav.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { ProductComponent } from './product/product.component';
 import { LogoutComponent } from './logout/logout.component';
+import { CustomerProductComponent } from './customer-product/customer-product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     NavComponent,
     NotAllowedComponent,
-    LogoutComponent
+    LogoutComponent,
+    CustomerProductComponent
     ],
   imports: [
     BrowserModule,
