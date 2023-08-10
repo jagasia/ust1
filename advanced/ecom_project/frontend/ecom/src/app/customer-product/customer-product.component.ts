@@ -11,7 +11,8 @@ import { ProductService } from '../product.service';
 export class CustomerProductComponent implements OnInit {
   products: any;
   user: any;
-
+  toggle: boolean = false;
+  arrow:string='';
   constructor(
     private ps: ProductService,
     private router: Router,
@@ -44,19 +45,29 @@ export class CustomerProductComponent implements OnInit {
     // alert(JSON.stringify(product))
   }
 
-  toggle: boolean = false;
+  
 
   fnSort(field: string) {
+    
+    
     this.products.sort((a: any, b: any) => {
-      this.toggle = !this.toggle;
       var x: any;
       var y: any;
-      
       switch (field) {
-        
+        case 'id':
+          x = a.id;
+          y = b.id;
+
+          if (this.toggle) {
+            return x - y;
+          } else {
+            return y - x;
+          }
+          break;
         case 'price':
           x = a.price;
           y = b.price;
+
           if (this.toggle) {
             return x - y;
           } else {
@@ -64,15 +75,24 @@ export class CustomerProductComponent implements OnInit {
           }
           break;
         case 'name':
-          x =<string>a.name;
-          y =<string>b.name;
-        break;
+          x = <string>a.name.toUpperCase();
+          y = <string>b.name.toUpperCase();
+          break;
         case 'description':
-
-          x =<string>a.description;
-          y =<string>b.description;
-          
-         
+          x = <string>a.description.toUpperCase();
+          y = <string>b.description.toUpperCase();
+          break;
+        case 'category':
+          x = <string>a.category;
+          y = <string>b.category;
+          break;
+        case 'user':
+          x = <string>a.user.name;
+          y = <string>b.user.name;
+          break;
+          case 'keywords':
+          x = <string>a.keywords;
+          y = <string>b.keywords;
           break;
       }
       if (this.toggle) {
@@ -80,10 +100,11 @@ export class CustomerProductComponent implements OnInit {
       } else {
         return y.localeCompare(x);
       }
-      console.log(this.products)
+      console.log(this.products);
       // alert(x - y);
-
     });
-    console.log(this.products);
+    // console.log(this.products);
+    this.toggle = !this.toggle;
   }
+
 }

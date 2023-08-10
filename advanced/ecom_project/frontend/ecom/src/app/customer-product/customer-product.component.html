@@ -1,12 +1,13 @@
 <p>Welcome {{user.name | titlecase}}. You are privileged {{user.role}}</p>
 <table class="table table-bordered table-striped table-hover">
     <thead>
-        <th>Id</th>
-        <th><input type="button" value="Name" (click)="fnSort('name')"></th>
-        <th><input type="button" value="Description" (click)="fnSort('description')"></th>
-        <th><input type="button" value="Price" (click)="fnSort('price')"></th>
-        <th>Category</th><th>Key words</th>
-        <th>Merchant</th><th></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Id" (click)="fnSort('id')"></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Name                       " (click)="fnSort('name')"></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Description                       " (click)="fnSort('description')"></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Price" (click)="fnSort('price')"></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Category" (click)="fnSort('category')"></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Keywords                                         " (click)="fnSort('keywords')"></th>
+        <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Merchant" (click)="fnSort('user')"></th>
     </thead>
     <tbody>
         <tr *ngFor="let p of products">
