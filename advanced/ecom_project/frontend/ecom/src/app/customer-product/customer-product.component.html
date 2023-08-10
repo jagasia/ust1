@@ -1,7 +1,10 @@
 <p>Welcome {{user.name | titlecase}}. You are privileged {{user.role}}</p>
 <table class="table table-bordered table-striped table-hover">
     <thead>
-        <th>Id</th><th>Name</th><th>Description</th><th>Price</th>
+        <th>Id</th>
+        <th><input type="button" value="Name" (click)="fnSort('name')"></th>
+        <th><input type="button" value="Description" (click)="fnSort('description')"></th>
+        <th><input type="button" value="Price" (click)="fnSort('price')"></th>
         <th>Category</th><th>Key words</th>
         <th>Merchant</th><th></th>
     </thead>
