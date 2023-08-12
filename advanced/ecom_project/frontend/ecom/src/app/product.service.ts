@@ -38,7 +38,7 @@ export class ProductService {
 
   fnAddProduct(product:any)
   {
-    return this.http.post(this.URL,product);
+    return this.http.post(this.URL,product, this.fnHeaders());
   }
 
   fnUpdateProduct(product:any)

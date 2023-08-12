@@ -64,6 +64,7 @@ public class UserService implements UserDetailsService
 	}
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
 		User user = read(Long.parseLong(username));
 		
 		

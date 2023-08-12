@@ -1,4 +1,5 @@
-import { Component, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, SimpleChanges } from '@angular/core';
+import { LoginService } from '../login.service';
 // import { LoginService } from '../login.service';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, SimpleChanges } from '@angular/core';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements DoCheck {
   status='login';
   // constructor(private ls:LoginService) { }
-  constructor(){}
+  constructor(private ls:LoginService){}
+  ngDoCheck(): void {
+    this.ls.fnPublish().subscribe((data)=>{
+      this.status=<string>data;
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -17,7 +23,7 @@ export class NavComponent {
   
   ngOnChanges(changes: SimpleChanges):void
   {
-          
+    
   }
 
 }

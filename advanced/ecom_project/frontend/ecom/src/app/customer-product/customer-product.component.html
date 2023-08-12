@@ -1,3 +1,4 @@
+
 <p>Welcome {{user.name | titlecase}}. You are privileged {{user.role}}</p>
 <table class="table table-bordered table-striped table-hover">
     <thead>
@@ -10,7 +11,7 @@
         <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Merchant" (click)="fnSort('user')"></th>
     </thead>
     <tbody>
-        <tr *ngFor="let p of products">
+        <tr *ngFor="let p of view;index as i">
             <td>{{p.id}}</td>
             <td>{{p.name}}</td>
             <td>{{p.description}}</td>
@@ -24,3 +25,6 @@
         </tr>
     </tbody>
 </table>
+<input *ngFor="let i of arr" type="button" [value]="i" class="btn btn-link" (click)="fnShowPage(i)" />
+
+<br>

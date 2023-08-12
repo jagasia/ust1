@@ -8,8 +8,12 @@ import { ProductService } from '../product.service';
   templateUrl: './customer-product.component.html',
   styleUrls: ['./customer-product.component.css'],
 })
-export class CustomerProductComponent implements OnInit {
+export class CustomerProductComponent implements OnInit{
   products: any;
+  view:any;
+  arr:number[]=[];
+  perPage:number=5;
+  noOfPages=0;
   user: any;
   toggle: boolean = false;
   arrow:string='';
@@ -17,8 +21,11 @@ export class CustomerProductComponent implements OnInit {
     private ps: ProductService,
     private router: Router,
     private cs: CartService
-  ) {}
+  ) {
+    
+  }
   ngOnInit(): void {
+    
     var str = <any>localStorage.getItem('user');
     this.user = JSON.parse(str);
     if (this.user.role != 'customer') {
@@ -26,7 +33,14 @@ export class CustomerProductComponent implements OnInit {
     }
     this.ps.fnGetAllProducts().subscribe((data) => {
       this.products = data;
+      //find how many pages are there. (per page =5)
+      this.noOfPages=Math.ceil(this.products.length/this.perPage);
+      for(var i=1;i<=this.noOfPages;i++)
+        this.arr.push(i)
+
+        this.fnShowPage(1);
     });
+    
   }
 
   fnAddToCart(id: any) {
@@ -107,4 +121,18 @@ export class CustomerProductComponent implements OnInit {
     this.toggle = !this.toggle;
   }
 
+  fnShowPage(i:number)
+  {
+    // alert(i)
+    var startIndex=(i-1)*this.perPage;
+    this.view=this.products;
+    this.view=[];
+    for(var i=startIndex;i<(startIndex+this.perPage) && i<this.products.length;i++)
+    {
+      
+      this.view.push(this.products[i]);
+    }
+    console.log(this.view)
+  }
 }
+
