@@ -1,5 +1,6 @@
 
 <p>Welcome {{user.name | titlecase}}. You are privileged {{user.role}}</p>
+
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Id" (click)="fnSort('id')"></th>

@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ust.ecom.entity.Product;
@@ -51,6 +54,13 @@ public class ProductService {
 	public List<Product> findProductsByUser(User user)
 	{
 		return pr.findByUser(user);
+	}
+	
+	public List<Product> findProductsRange(int pageNo, int pageSize)
+	{
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+		Page<Product> page = pr.findAll(pageable);
+		return page.getContent();
 	}
 	
 }

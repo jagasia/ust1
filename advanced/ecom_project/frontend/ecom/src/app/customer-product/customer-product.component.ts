@@ -33,6 +33,7 @@ export class CustomerProductComponent implements OnInit{
     }
     this.ps.fnGetAllProducts().subscribe((data) => {
       this.products = data;
+      
       //find how many pages are there. (per page =5)
       this.noOfPages=Math.ceil(this.products.length/this.perPage);
       for(var i=1;i<=this.noOfPages;i++)
@@ -64,7 +65,7 @@ export class CustomerProductComponent implements OnInit{
   fnSort(field: string) {
     
     
-    this.products.sort((a: any, b: any) => {
+    this.view.sort((a: any, b: any) => {
       var x: any;
       var y: any;
       switch (field) {
@@ -134,5 +135,7 @@ export class CustomerProductComponent implements OnInit{
     }
     console.log(this.view)
   }
+
+
 }
 

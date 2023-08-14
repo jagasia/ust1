@@ -54,4 +54,10 @@ public class ProductController {
 	{
 		return ps.findProductsByUser(user);
 	}
+	
+	@GetMapping("/{page}/{rows}")
+	public List<Product> findProductsRange(@PathVariable("page")int pageNo, @PathVariable("rows") int rows)
+	{
+		return ps.findProductsRange(pageNo, rows);
+	}
 }

@@ -28,7 +28,7 @@ export class ProductService {
 
   fnGetAllProducts()
   {
-    return this.http.get(this.URL, this.fnHeaders());
+    return this.http.get(this.URL+"/1/100", this.fnHeaders());
   }
 
   findProductById(id:number)
