@@ -6,6 +6,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { MerchantComponent } from './merchant/merchant.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { ProductComponent } from './product/product.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
 
 const routes: Routes = [
   {path:'jag',component:LoginComponent,
@@ -20,6 +21,7 @@ outlet:'jag'}
   {path:"merchant",component:MerchantComponent},
   {path:"logout",component:LogoutComponent},
   {path:"cproduct",component:CustomerProductComponent},
+  {path:"cart",component:ViewCartComponent},
   {path:"404",component:NotAllowedComponent},
   {path:'**',component:NotAllowedComponent}
   

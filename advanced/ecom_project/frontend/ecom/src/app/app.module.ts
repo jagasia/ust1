@@ -12,6 +12,7 @@ import { MerchantComponent } from './merchant/merchant.component';
 import { NavComponent } from './nav/nav.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { ProductComponent } from './product/product.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductComponent } from './product/product.component';
     NavComponent,
     NotAllowedComponent,
     LogoutComponent,
-    CustomerProductComponent
+    CustomerProductComponent,
+    ViewCartComponent
     ],
   imports: [
     BrowserModule,
