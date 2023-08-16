@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-view-cart',
@@ -10,7 +11,7 @@ import { CartService } from '../cart.service';
 export class ViewCartComponent implements OnInit {
   carts:any;
   user:any;
-  constructor(private cs:CartService, private router:Router) { }
+  constructor(private cs:CartService, private router:Router, private os:OrderService) { }
 
   ngOnInit(): void {
     var str = <any>localStorage.getItem('user');
@@ -62,5 +63,28 @@ export class ViewCartComponent implements OnInit {
     }
   }
   
+  fnPlaceOrder()
+  {
+    var orderId=0;
+    this.os.fnGenerateOrderid().subscribe((data)=>{
+      orderId=<number><any>data;
+      // alert(orderId)
+      for(let cart of this.carts)
+      {
+          // alert(JSON.stringify(cart));
+          var order={"orderId":orderId,"orderDate":new Date(), "customer":cart.user,"product":null,"quantity":0,"shippingAddress":''};
+          order.orderId=orderId;
+          order.product=cart.product;
+          order.quantity=cart.quantity;
+          console.log(order);
+        this.os.fnAddOrder(order).subscribe((data)=>{
+          console.log(data);
+        },(error)=>{});
+      }
+      
+    });
+
+    
+  }
 
 }
