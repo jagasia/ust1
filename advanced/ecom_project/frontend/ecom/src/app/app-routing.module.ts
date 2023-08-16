@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { MerchantComponent } from './merchant/merchant.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
+import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 
@@ -22,6 +23,7 @@ outlet:'jag'}
   {path:"logout",component:LogoutComponent},
   {path:"cproduct",component:CustomerProductComponent},
   {path:"cart",component:ViewCartComponent},
+  {path:"order",component:OrderComponent},
   {path:"404",component:NotAllowedComponent},
   {path:'**',component:NotAllowedComponent}
   

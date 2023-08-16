@@ -29,4 +29,9 @@ export class OrderService {
   {
     return this.http.post(this.URL,order,this.fnHeaders());
   }
+
+  fnGetOrdersByUser(user:any)
+  {
+    return this.http.post(this.URL+"/user",user,this.fnHeaders());
+  }
 }

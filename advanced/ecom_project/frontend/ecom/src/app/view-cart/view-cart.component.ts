@@ -71,6 +71,7 @@ export class ViewCartComponent implements OnInit {
       // alert(orderId)
       for(let cart of this.carts)
       {
+        //for every cart item, we add an order item. All shall have same orderId
           // alert(JSON.stringify(cart));
           var order={"orderId":orderId,"orderDate":new Date(), "customer":cart.user,"product":null,"quantity":0,"shippingAddress":''};
           order.orderId=orderId;
@@ -79,6 +80,10 @@ export class ViewCartComponent implements OnInit {
           console.log(order);
         this.os.fnAddOrder(order).subscribe((data)=>{
           console.log(data);
+          //now, delete this cart item
+          this.cs.fnDeleteCart(cart.id).subscribe((data)=>{
+            console.log("cart id:"+cart.id+" deleted")
+          });
         },(error)=>{});
       }
       

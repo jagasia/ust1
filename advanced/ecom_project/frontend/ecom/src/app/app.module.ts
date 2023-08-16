@@ -15,6 +15,7 @@ import { NavComponent } from './nav/nav.component';
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { ProductComponent } from './product/product.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ViewCartComponent } from './view-cart/view-cart.component';
     NotAllowedComponent,
     LogoutComponent,
     CustomerProductComponent,
-    ViewCartComponent
+    ViewCartComponent,
+    OrderComponent
     ],
   imports: [
     BrowserModule,

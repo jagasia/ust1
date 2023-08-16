@@ -1,0 +1,17 @@
+Hi {{user.name}}! Your orders:
+<hr>
+<div class="d-inline-flex p-3" *ngFor="let o of orders">
+    <div class="card" style="width:400px">
+        Order Id: {{o.orderId}}
+    Order Date: {{o.orderDate | date:"dd-MMM-yyyy"}}
+    
+        <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image"> -->
+        <div class="card-body">
+          <h4 class="card-title">{{o.product.name}}</h4>
+          <p class="card-text">{{o.product.description}}</p>
+          <p class="card-text">{{o.quantity}}</p>
+          <a href="#" class="btn btn-primary">Cancel</a>
+        </div>
+      </div>
+  <hr>
+  </div>
