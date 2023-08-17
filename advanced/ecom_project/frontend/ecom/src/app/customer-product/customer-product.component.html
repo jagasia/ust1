@@ -9,7 +9,9 @@
         <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Price" (click)="fnSort('price')"></th>
         <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Category" (click)="fnSort('category')"></th>
         <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Keywords                                         " (click)="fnSort('keywords')"></th>
+
         <th><input [ngClass]="{'btn btn-secondary':toggle}" type="button" value="Merchant" (click)="fnSort('user')"></th>
+        <th></th>
     </thead>
     <tbody>
         <tr *ngFor="let p of view;index as i">
@@ -20,6 +22,7 @@
             <td>{{p.category}}</td>
             <td>{{p.keywords}}</td>
             <td>{{p.user.name}}</td>
+            <td><img width="100" [src]="'data:image/png;base64,'+p.photo" alt=""></td>
             <td>
                 <input type="button" class="btn btn-info" value="Add to Cart" (click)="fnAddToCart(p.id)" >
             </td>

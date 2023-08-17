@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit, DoCheck {
   productForm:any;
   products:any;
   user:any;
+  photoFile:any;
   constructor(private fb:FormBuilder, private ps:ProductService, private router:Router) { 
     this.productForm=this.fb.group({
       "id":[],
@@ -19,12 +20,18 @@ export class ProductComponent implements OnInit, DoCheck {
       "description":[],
       "price":[],
       "category":[],
-      "keywords":[]
+      "keywords":[],
+      "photo":[]
     });
   }
   ngDoCheck(): void {
-   
     
+  }
+
+  onFileChanged(event:any)
+  {
+    this.photoFile=event.target.files[0];
+    console.log(this.photoFile);
   }
 
   ngOnInit(): void {
@@ -84,5 +91,35 @@ fnAdd()
 }
 
 
+fnAdd1()
+{
+  // @RequestParam("category") String category,
+  // @RequestParam("description") String description,
+  //@RequestParam("keywords") String keywords,
+  //@RequestParam("name") String name,
+  //@RequestParam("price") Double price,
+  //@RequestParam("user") User user,
+  //@RequestParam("photo") MultipartFile file 
+  
+  var formData:FormData=new FormData();
+  
+  formData.append('category',this.productForm.controls.category.value);
+  formData.append('description',this.productForm.controls.description.value);
+  formData.append("keywords",this.productForm.controls.keywords.value);
+  formData.append("name",this.productForm.controls.name.value);
+  formData.append("price",this.productForm.controls.price.value);
+  var str=<any>localStorage.getItem("user"); 
+  var user=JSON.parse(str); 
+  formData.append("userId",user.id);
+  formData.append("photo",this.photoFile);
+  // alert(JSON.stringify(formData))
+  formData.forEach((value,key) => {
+    console.log(key+" "+value)
+  });
+  this.ps.fnAddProductNew(formData).subscribe((data)=>{
+    console.log("resonse from server after adding:")
+    console.log(data);
+  });
+}
   
 }

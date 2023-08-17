@@ -10,8 +10,9 @@
     Price: <input type="number" formControlName="price" class="form-control">
     Category: <input type="text" formControlName="category" class="form-control">
     Keywords: <input type="text" formControlName="keywords" class="form-control">
+    Photo: <input type="file" class="form-control" (change)="onFileChanged($event)"><br>
 <br>
-    <input type="button" value="Add" class="btn btn-success" (click)="fnAdd()">
+    <input type="button" value="Add" class="btn btn-success" (click)="fnAdd1()">
 </form>
 <hr>
     </div>
@@ -21,7 +22,7 @@
     <thead>
         <th>Id</th><th>Name</th><th>Description</th><th>Price</th>
         <th>Category</th><th>Key words</th>
-        <th>Merchant</th><th></th>
+        <th>Merchant</th><th></th><th></th>
     </thead>
     <tbody>
         <tr *ngFor="let p of products">
@@ -32,6 +33,7 @@
             <td>{{p.category}}</td>
             <td>{{p.keywords}}</td>
             <td>{{p.user.name}}</td>
+            <td><img width="100" [src]="'data:image/png;base64,'+p.photo" alt=""></td>
             <td>Select</td>
         </tr>
     </tbody>

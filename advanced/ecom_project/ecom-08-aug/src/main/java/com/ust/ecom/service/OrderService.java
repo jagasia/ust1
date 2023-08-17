@@ -60,7 +60,7 @@ public class OrderService {
 	}
 	
 	public List<Order> findOrdersByUser(User user)
-	{
+	{//List<Order> findByCustomer(User customer);
 		return or.findByCustomer(user);
 	}
 	

@@ -41,6 +41,12 @@ export class ProductService {
     return this.http.post(this.URL,product, this.fnHeaders());
   }
 
+  fnAddProductNew(formData:any)
+  {
+    console.log('new')
+    return this.http.post(this.URL+"/new",formData);
+  }
+
   fnUpdateProduct(product:any)
   {
     return this.http.put(this.URL+"/"+product.id,product);

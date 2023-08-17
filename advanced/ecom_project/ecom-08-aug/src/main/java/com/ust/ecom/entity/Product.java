@@ -1,9 +1,12 @@
 package com.ust.ecom.entity;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,6 +21,8 @@ public class Product {
 	private String keywords;
 	@ManyToOne
 	private User user;
+	@Lob
+	private byte[] photo;
 	
 	public Product() {}
 
@@ -32,6 +37,19 @@ public class Product {
 	}
 	
 	
+
+	public Product(Long id, String name, String description, Double price, String category, String keywords, User user,
+			byte[] photo) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+		this.keywords = keywords;
+		this.user = user;
+		this.photo = photo;
+	}
 
 	public Product(Long id, String name, String description, Double price, String category, String keywords,
 			User user) {
@@ -98,6 +116,16 @@ public class Product {
 	public User getUser() {
 		return user;
 	}
+	
+	
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
 
 	public void setUser(User user) {
 		this.user = user;
@@ -106,8 +134,11 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-				+ ", category=" + category + ", keywords=" + keywords + ", user=" + user + "]";
+				+ ", category=" + category + ", keywords=" + keywords + ", user=" + user + ", photo="
+				+ photo.length + "]";
 	}
+
+	
 
 	
 	
